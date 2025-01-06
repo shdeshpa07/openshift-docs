@@ -7,54 +7,46 @@
 [id="oadp-backup-single-vm_{context}"]
 = Backing up a single VM
 
-If you have a namespace with many VMs, and only want to back up one of them, you can use a label selector with the app: vmname label to indicate which VM should be included in the backup. 
+If you have a namespace with multiple virtual machines (VMs), and want to back up only one of them, you can use the label selector to filter the VM should be included in the backup. You can filter the VM by using the `app: vmname` label.
 
 
 .Prerequisites
 
 * You have installed the {oadp-short} Operator.
+* You have multiple VMs running in a namespace.
+* You have the added `kubevirt` plugin in the `DataProtectionApplication` (DPA) custom resource (CR).
+* The `DataProtectionApplication` CR is reconclied.
+* You have configured the `BackupStorageLocation` in the `DataProtectionApplication` CR and the `BackupStorageLocation` is available.
 
 .Procedure
 
-* Configure the `client-burst` and the `client-qps` fields in the DPA as shown in the following example:
+. Configure the `Backup` CR as shown in the following example:
 +
-.Example Data Protection Application
+.Example `Backup` CR
 [source,yaml]
 ----
-apiVersion: oadp.openshift.io/v1alpha1
-kind: DataProtectionApplication
+apiVersion: velero.io/v1
+kind: Backup
 metadata:
-  name: test-dpa
+  name: vmbackupsingle
   namespace: openshift-adp
 spec:
-  backupLocations:
-    - name: default
-      velero:
-        config:          
-          insecureSkipTLSVerify: "true"
-          profile: "default"
-          region: <bucket_region> 
-          s3ForcePathStyle: "true"
-          s3Url: <bucket_url>
-        credential:
-          key: cloud
-          name: cloud-credentials
-        default: true
-        objectStorage:
-          bucket: <bucket_name> 
-          prefix: velero
-        provider: aws
-  configuration:
-    nodeAgent:
-      enable: true
-      uploaderType: restic
-    velero:
-      client-burst: 500 # <1>
-      client-qps: 300 # <2>
-      defaultPlugins:
-        - openshift
-        - aws
-        - kubevirt
+  snapshotMoveData: true
+  includedNamespaces:
+  - <vm_namespace> # <1>
+  labelSelector:
+    matchLabels:
+      app: <vm_app_name> # <2>
+  storageLocation: <backup_storage_location_name> # <3>
 ----
-<1> Specify the `client-burst` value. In this example, the `client-burst` field is set to 500.
-<2> Specify the `client-qps` value. In this example, the `client-qps` field is set to 300.
+<1> Specify the name of the namespace where you have created the VMs.
+<2> Specify the VM name that needs to be backed up.
+<3> Specify the name of the `BackupStorageLocation`.
+
+. To create a `Backup` CR, run the following command:
++
+[source, terminal]
+----
+$ oc apply -f <backup_cr_file_name> # <1>
+----
+<1> Specify the name of the backup CR file.
