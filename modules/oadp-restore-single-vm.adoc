@@ -16,7 +16,7 @@ After you have backed up a single virtual machine (VM) by using the label select
 
 .Procedure
 
-* Configure the `Restore` CR as shown in the following example:
+. Configure the `Restore` CR as shown in the following example:
 +
 .Example `Restore` CR
 [source,yaml]
