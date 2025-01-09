@@ -14,7 +14,7 @@ If you have a backup containing many virtual machines (VMs), and you want to res
 
 * You have installed the {oadp-short} Operator.
 * You have labeled the VMs that need to be backed up.
-* You have a back up of many VMs.
+* You have a backup of many VMs.
 
 .Procedure
 
