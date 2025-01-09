@@ -44,7 +44,7 @@ spec:
     - matchLabels:
         app: <vm_name> # <2>
 ----
-<1> Specify the UID of the VM that to be restored. For example, `b6...53a-ddd7-4d9d-9407-a0c...e5`.
+<1> Specify the UID of the VM that is to be restored. For example, `b6...53a-ddd7-4d9d-9407-a0c...e5`.
 <2> Specify the name of the VM to be restored. For example, `test-vm`.
 
 . To restore, run the following command:
