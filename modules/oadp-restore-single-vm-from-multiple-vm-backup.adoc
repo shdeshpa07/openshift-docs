@@ -18,7 +18,7 @@ If you have a backup containing many virtual machines (VMs), and you want to res
 
 .Procedure
 
-. Before you take a back up of many VMs, ensure that the VMs are labeled by running the following command:
+. Before you take a backup of many VMs, ensure that the VMs are labeled by running the following command:
 +
 [source, terminal]
 ----
