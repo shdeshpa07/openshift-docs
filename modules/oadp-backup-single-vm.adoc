@@ -7,15 +7,15 @@
 [id="oadp-backup-single-vm_{context}"]
 = Backing up a single VM
 
-If you have a namespace with multiple virtual machines (VMs), and want to back up only one of them, you can use the label selector to filter the VM should be included in the backup. You can filter the VM by using the `app: vmname` label.
+If you have a namespace with many virtual machines (VMs), and want to back up only one of them, you can use the label selector to filter the VM that should be included in the backup. You can filter the VM by using the `app: vmname` label.
 
 
 .Prerequisites
 
 * You have installed the {oadp-short} Operator.
-* You have multiple VMs running in a namespace.
+* You have many VMs running in a namespace.
 * You have the added `kubevirt` plugin in the `DataProtectionApplication` (DPA) custom resource (CR).
-* The `DataProtectionApplication` CR is reconclied.
+* The `DataProtectionApplication` CR is reconciled.
 * You have configured the `BackupStorageLocation` in the `DataProtectionApplication` CR and the `BackupStorageLocation` is available.
 
 .Procedure

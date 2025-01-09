@@ -5,20 +5,20 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="oadp-restore-single-vm-from-multiple-vm-backup_{context}"]
-= Restoring a single VM from a backup of multiple VMs
+= Restoring a single VM from a backup of many VMs
 
-If you have a backup containing multiple virtual machines (VMs), and you want to restore only one VM, you can use the `LabelSelectors` section in the `Restore` CR to select the VM to restore. To ensure that the Persistent Volume Claim (PVC) attached to the VM is correctly restored and the restored VM is not stuck in a `Provisioning` status, use both, the `app: <vm_name>` and the `kubevirt.io/created-by` labels. To match the `kubevirt.io/created-by` label, you can use the UID of the VM.
+If you have a backup containing many virtual machines (VMs), and you want to restore only one VM, you can use the `LabelSelectors` section in the `Restore` CR to select the VM to restore. To ensure that the Persistent Volume Claim (PVC) attached to the VM is correctly restored and the restored VM is not stuck in a `Provisioning` status, use both, the `app: <vm_name>` and the `kubevirt.io/created-by` labels. To match the `kubevirt.io/created-by` label, you can use the UID of the VM.
 
 
 .Prerequisites
 
 * You have installed the {oadp-short} Operator.
 * You have labeled the VMs that need to be backed up.
-* You have a back up of multiple VMs.
+* You have a back up of many VMs.
 
 .Procedure
 
-. Before you take a back up of multiple VMs, ensure that the VMs are labeled by running the following command:
+. Before you take a back up of many VMs, ensure that the VMs are labeled by running the following command:
 +
 [source, terminal]
 ----
@@ -40,7 +40,7 @@ spec:
   restorePVs: true
   LabelSelectors:
     - matchLabels:
-        kubevirt.io/created-by: <pvc_uid> # <1>
+        kubevirt.io/created-by: <vm_uid> # <1>
     - matchLabels:
         app: <vm_name> # <2>
 ----
