@@ -1,0 +1,62 @@
+// Module included in the following assemblies:
+//
+// * backup_and_restore/application_backup_and_restore/installing/installing-oadp-aws.adoc
+
+
+:_mod-docs-content-type: PROCEDURE
+[id="oadp-configuring-imagepullpolicy_{context}"]
+= Overriding the DPA with image pull policy setting
+
+Previously, {oadp-short} used to set the `imagePullPolicy` of the Velero and node agent pods to `Always` for all images.
+
+From {oadp-short} 1.4.1 onward, the operator first checks each image, if the image contains the `sha256` or `sha512` digest, it sets the `imagePullPolicy` parameter to `IfNotPresent`. Otherwise, the {oadp-short} Operator sets the `imagePullPolicy` parameter to `Always`. 
+
+You can also override the `imagePullPolicy` by using the `spec.containerImagePullPolicy` Data Protection Application (DPA) field as shown in the following procedure.
+
+.Prerequisites
+
+* You have installed the {oadp-short} Operator.
+
+.Procedure
+
+* Configure the `spec.containerImagePullPolicy` field in the DPA as shown in the following example:
++
+.Example Data Protection Application
+[source,yaml]
+----
+apiVersion: oadp.openshift.io/v1alpha1
+kind: DataProtectionApplication
+metadata:
+  name: test-dpa
+  namespace: openshift-adp
+spec:
+  backupLocations:
+    - name: default
+      velero:
+        config:          
+          insecureSkipTLSVerify: "true"
+          profile: "default"
+          region: <bucket_region> 
+          s3ForcePathStyle: "true"
+          s3Url: <bucket_url>
+        credential:
+          key: cloud
+          name: cloud-credentials
+        default: true
+        objectStorage:
+          bucket: <bucket_name> 
+          prefix: velero
+        provider: aws
+  configuration:
+    nodeAgent:
+      enable: true
+      uploaderType: kopia
+    velero:
+      defaultPlugins:
+        - openshift
+        - aws
+        - kubevirt
+        - csi
+  imagePullPolicy: Never # <1> 
+----
+<1> Specify the `imagePullPolicy` value. In this example, the `imagePullPolicy` field is set to `Never`.
