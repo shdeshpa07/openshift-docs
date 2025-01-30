@@ -7,9 +7,9 @@
 [id="oadp-configuring-imagepullpolicy_{context}"]
 = Overriding the image pull policy setting in the DPA 
 
-In the previous versions of {oadp-short}, the Operator used to set the `imagePullPolicy` of the Velero and node agent pods to `Always` for all images.
+In the earlier versions of {oadp-short}, the Operator used to set the `imagePullPolicy` of the Velero and node agent pods to `Always` for all images.
 
-From {oadp-short} 1.4.1 onward, the Operator first checks if each image contains the `sha256` or `sha512` digest. If the image contains the digest, the Operator sets the `imagePullPolicy` parameter to `IfNotPresent`. Otherwise, the Operator sets the `imagePullPolicy` parameter to `Always`. 
+From {oadp-short} 1.4.1 onward, the Operator first checks if each image has the `sha256` or `sha512` digest. If the image has the digest, the Operator sets the `imagePullPolicy` parameter to `IfNotPresent`. Otherwise, the Operator sets the `imagePullPolicy` parameter to `Always`. 
 
 You can also override the `imagePullPolicy` by using the `spec.containerImagePullPolicy` field in the Data Protection Application (DPA) as shown in the following procedure.
 
