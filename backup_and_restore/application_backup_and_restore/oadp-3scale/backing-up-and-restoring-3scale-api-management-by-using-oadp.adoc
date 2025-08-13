@@ -1,13 +1,15 @@
 :_mod-docs-content-type: ASSEMBLY
 [id="backing-up-and-restoring-3scale-api-management-by-using-oadp"]
-= Backing up and restoring 3scale API Management by using OADP
+= Backing up and restoring 3scale API Management by using OpenShift API for Data Protection (OADP)
+ 
 include::_attributes/common-attributes.adoc[]
 :context: backing-up-and-restoring-3scale-api-management-by-using-oadp
 
 toc::[]
 
+[role="_abstract"]
 With Red{nbsp}Hat 3scale API Management, you can manage your APIs for internal or external users. 
-You can deploy 3scale components on-premise, in the cloud, as a managed service, or in any combination based on your requirements.
+You can deploy 3scale components on premises, in the cloud, as a managed service, or in any combination based on your requirements.
 
 With {oadp-first}, you can safeguard 3scale API Management deployments by backing up application resources, persistent volumes, and configurations. 
 
