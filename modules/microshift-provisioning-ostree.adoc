@@ -6,6 +6,7 @@
 [id="provisioning-a-machine_{context}"]
 = Provisioning a machine for {microshift-short}
 
+[role="_abstract"]
 Provision a machine with your {op-system-ostree} image by using the procedures from the {op-system-ostree} documentation.
 
 To use {microshift-short}, you must provision the system so that it meets the following requirements:

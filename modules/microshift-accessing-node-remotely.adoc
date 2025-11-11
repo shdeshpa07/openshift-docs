@@ -8,7 +8,8 @@
 [id="accessing-microshift-node-remotely_{context}"]
 = Accessing the {microshift-short} node remotely
 
-Use the following procedure to access the {microshift-short} service from a remote location by using a `kubeconfig` file.
+[role="_abstract"]
+Access the {microshift-short} service from a remote location by using a `kubeconfig` file.
 
 The `user@workstation` login is used to access the host machine remotely. The `<user>` value in the procedure is the name of the user that `user@workstation` logs in with to the {microshift-short} host.
 
@@ -38,9 +39,10 @@ The `user@workstation` login is used to access the host machine remotely. The `<
 +
 [source,terminal]
 ----
-[user@workstation]$ ssh <user>@$MICROSHIFT_MACHINE "sudo cat /var/lib/microshift/resources/kubeadmin/$MICROSHIFT_MACHINE/kubeconfig" > ~/.kube/config <1>
+[user@workstation]$ ssh <user>@$MICROSHIFT_MACHINE "sudo cat /var/lib/microshift/resources/kubeadmin/$MICROSHIFT_MACHINE/kubeconfig" > ~/.kube/config
 ----
-<1> Replace _<user>_ with your SSH login credentials.
++
+Replace _<user>_ with your SSH login credentials.
 
 . As `user@workstation`, update the permissions on your `~/.kube/config` file by running the following command:
 +
