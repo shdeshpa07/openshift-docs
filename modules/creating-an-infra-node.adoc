@@ -8,15 +8,13 @@
 [id="creating-an-infra-node_{context}"]
 = Creating an infrastructure node
 
+[role="_abstract"]
+You can use labels to configure compute nodes as infrastructure nodes, where you can move infrastructure resources. After you create the infrastructure nodes, you can move appropriate workloads to those nodes by using taints and tolerations.
+
 [IMPORTANT]
 ====
 See "Creating infrastructure machine sets" for installer-provisioned infrastructure environments or for any cluster where the control plane nodes are managed by the machine API.
 ====
-
-[role="_abstract"]
-You can use labels to configure worker nodes as infrastructure nodes, where you can move infrastructure resources. 
-
-After you create the infrastructure nodes, you can move appropriate workloads to those nodes by using taints and tolerations.
 
 You can optionally create a default cluster-wide node selector. The default node selector is applied to pods created in all namespaces and creates an intersection with any existing node selectors on a pod, which additionally constrains the pod's selector.
 
@@ -31,7 +29,7 @@ You can alternatively use a project node selector to avoid cluster-wide node sel
 
 .Procedure
 
-. Add a label to the worker nodes that you want to act as infrastructure nodes:
+. Add a label to the compute nodes that you want to act as infrastructure nodes:
 +
 [source,terminal]
 ----
@@ -46,8 +44,7 @@ $ oc get nodes
 ----
 
 . Optional: Create a default cluster-wide node selector:
-+
---
+
 .. Edit the `Scheduler` object:
 +
 [source,terminal]
@@ -71,6 +68,6 @@ spec:
 This example node selector deploys pods on infrastructure nodes by default.
 
 .. Save the file to apply the changes.
---
+
 +
 You can now move infrastructure resources to the new infrastructure nodes. Also, remove any workloads that you do not want, or that do not belong, on the new infrastructure node. See the list of workloads supported for use on infrastructure nodes in "{product-title} infrastructure components".
