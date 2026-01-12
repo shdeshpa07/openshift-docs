@@ -8,7 +8,9 @@
 = Creating an OADP SSE-C encryption key for additional data security
 
 [role="_abstract"]
-{aws-first} S3 applies server-side encryption with Amazon S3 managed keys (SSE-S3) as the base level of encryption for every bucket in Amazon S3.
+Configure server-side encryption with customer-provided keys (SSE-C) to add an additional layer of encryption for backup data stored in {aws-first} S3. This protects backup data if AWS credentials become exposed.
+
+{aws-first} S3 applies server-side encryption with {aws-short} S3 managed keys (SSE-S3) as the base level of encryption for every bucket in Amazon S3.
 
 {oadp-first} encrypts data by using SSL/TLS, HTTPS, and the `velero-repo-credentials` secret when transferring the data from a cluster to storage. To protect backup data in case of lost or stolen AWS credentials, apply an additional layer of encryption.
 
