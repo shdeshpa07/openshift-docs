@@ -45,4 +45,4 @@ spec:
 where:
 +
 `restorePVC`:: Specifies the `restorePVC` section.
-`ignoreDelayBinding`:: Specifies to set the `ignoreDelayBinding` field to `true`.
+`ignoreDelayBinding`:: Set the `ignoreDelayBinding` field to `true`.

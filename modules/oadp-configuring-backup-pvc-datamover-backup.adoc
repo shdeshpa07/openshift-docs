@@ -77,7 +77,8 @@ spec:
   - <application_namespace>
   snapshotMoveData: true
 ----
-`snapshotMoveData`:: Specifies to set to `true` for a Data Mover backup.
++
+`snapshotMoveData`:: Set to `true` for a Data Mover backup.
 
 .Verification
 

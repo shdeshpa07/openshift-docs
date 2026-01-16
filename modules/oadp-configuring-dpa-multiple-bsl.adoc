@@ -68,7 +68,7 @@ backupLocations:
 where:
 +
 `name: aws`:: Specifies a name for the first BSL.
-`default: true`:: This parameter indicates that this BSL is the default BSL. If a BSL is not set in the `Backup CR`, the default BSL is used. You can set only one BSL as the default.
+`default: true`:: Indicates that this BSL is the default BSL. If a BSL is not set in the `Backup CR`, the default BSL is used. You can set only one BSL as the default.
 `<bucket_name>`:: Specifies the bucket name.
 `<prefix>`:: Specifies a prefix for Velero backups. For example, `velero`.
 `<region_name>`:: Specifies the AWS region for the bucket.
