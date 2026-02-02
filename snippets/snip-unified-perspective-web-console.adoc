@@ -8,7 +8,6 @@
 
 :_mod-docs-content-type: SNIPPET
 
-[role="_abstract"]
 [IMPORTANT]
 ====
 Starting with {product-title} 4.19, the perspectives in the web console have unified. The *Developer* perspective is no longer enabled by default.
