@@ -6,9 +6,17 @@
 [id="nw-controlling-dns-pod-placement_{context}"]
 = Controlling DNS pod placement
 
+[role="_abstract"]
+Control where CoreDNS and node-resolver pods run by using taints, tolerations, and selectors.
+
 The DNS Operator has two daemon sets: one for CoreDNS called `dns-default` and one for managing the `/etc/hosts` file called `node-resolver`.
 
-You might find a need to control which nodes have CoreDNS pods assigned and running, although this is not a common operation. For example, if the cluster administrator has configured security policies that can prohibit communication between pairs of nodes, that would necessitate restricting the set of nodes on which the daemonset for CoreDNS runs. If DNS pods are running on some nodes in the cluster and the nodes where DNS pods are not running have network connectivity to nodes where DNS pods are running, DNS service will be available to all pods.
+You can assign and run CoreDNS pods on specified nodes. For example, if the cluster administrator has configured security policies that prohibit communication between pairs of nodes, you can configure CoreDNS pods to run on a restricted set of nodes.
+
+DNS service is available to all pods if the following circumstances are true:
+
+* DNS pods are running on some nodes in the cluster.
+* The nodes on which DNS pods are not running have network connectivity to nodes on which DNS pods are running,
 
 The `node-resolver` daemon set must run on every node host because it adds an entry for the cluster image registry to support pulling images. The `node-resolver` pods have only one job: to look up the `image-registry.openshift-image-registry.svc` service's cluster IP address and add it to `/etc/hosts` on the node host so that the container runtime can resolve the service name.
 
@@ -24,7 +32,14 @@ As a cluster administrator, you can use a custom node selector to configure the 
 
 * To allow the daemon set for CoreDNS to run on certain nodes, configure a taint and toleration:
 +
-. Modify the DNS Operator object named `default`:
+[source,terminal]
+----
+$ oc adm taint nodes <node_name> dns-only=abc:NoExecute
+----
++
+** Replace `<node_name>` with the actual name of the node.
+
+. Modify the DNS Operator object named `default` to include the corresponding toleration by entering the following command:
 +
 [source,terminal]
 ----
@@ -35,13 +50,38 @@ $ oc edit dns.operator/default
 +
 [source,yaml]
 ----
- spec:
-   nodePlacement:
-     tolerations:
-     - effect: NoExecute
-       key: "dns-only"
-       operators: Equal
-       value: abc
-       tolerationSeconds: 3600 <1>
+apiVersion: operator.openshift.io/v1
+kind: DNS
+metadata:
+  name: default
+spec:
+  nodePlacement:
+    tolerations:
+    - effect: NoExecute
+      key: "dns-only"
+      operator: Equal
+      value: abc
+      tolerationSeconds: 3600
 ----
-<1> If the taint is `dns-only`, it can be tolerated indefinitely. You can omit `tolerationSeconds`.
++
+
+** If the `key` field is set to `dns-only`, it can be tolerated indefinitely.
+** The `tolerationSeconds` field is optional.
+
+. Optional: To specify node placement using a node selector, modify the default DNS Operator:
+
+.. Edit the DNS Operator object named `default` to include a node selector:
++
+[source,yaml]
+----
+apiVersion: operator.openshift.io/v1
+kind: DNS
+metadata:
+  name: default
+spec:
+  nodePlacement:
+    nodeSelector:
+      node-role.kubernetes.io/control-plane: ""
+----
++
+** The `nodeselector` field in the example ensures that the CoreDNS pods run only on control plane nodes.
