@@ -3415,6 +3415,9 @@ include::modules/zstream-4-16-56-updating.adoc[leveloffset=+2]
 // About 4-16-55 release notes
 include::modules/zstream-4-16-55-about.adoc[leveloffset=+2]
 
+// 4.16.55 enhancements
+include::modules/zstream-4-16-55-enhancements.adoc[leveloffset=+2]
+
 // 4-16-55 release notes bug fixes
 include::modules/zstream-4-16-55-bug-fixes.adoc[leveloffset=+2]
 
