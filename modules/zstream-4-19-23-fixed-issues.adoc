@@ -1,0 +1,20 @@
+// Module included in the following assembly:
+//
+// * release_notes/ocp-4-19-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-19-23-fixed-issues_{context}"]
+= Fixed issues
+
+[role="_abstract"]
+The following issues are fixed with this release:
+
+* Before this update, the {ocp} Web console relied on the full name for user identification, which created potential ambiguity when users shared similar names. With this release, the display logic is updated to prioritize unique identifiers. As a result, the console now shows the user name instead of the full name as the display name. (link:https://issues.redhat.com/browse/OCPBUGS-70335[OCPBUGS-70335])
+
+* Before this update, the CA certificate reference to `HelmChartRepository` caused chart installation failure. As a consequence, Helm chart installation failed because it could not find the chart. With this release, the issue has been fixed. As a result, the CA certificate configuration no longer breaks the Helm chart installation. (link:https://issues.redhat.com/browse/OCPBUGS-72399[OCPBUGS-72399])
+
+* Before this update, {aws-first} APIs returned inconsistent results regarding the existence of a `Machine`. The safeguards designed to handle this inconsistency checked the stored instance ID in the incorrect location. As a consequence, during {aws-short} API instability, virtual machines (VMs) leaked and attempted to join the cluster indefinitely. With this release, the system uses the correct provider ID for consistency checks. As a result, if an instance does not appear within 20 seconds, the machine status changes to `Failed` to prevent instance leaks. (link:https://issues.redhat.com/browse/OCPBUGS-73729[OCPBUGS-73729])
+
+* Before this update, cluster namespaces with a "nodes" suffix in their name caused the Performance Profile Creator (PPC) to fail when mistaking incorrect `namespace` directories with the must-gather `nodes` directories in the must-gather processed by the PPC. With this release, the PPC now correctly excludes the `namespaces` directory when processing the must-gather data to create a suggested `PerformanceProfile`. (link:https://issues.redhat.com/browse/OCPBUGS-73797[OCPBUGS-73797])
+
+* Before this update, the `Cluster Autoscaler` API object did not have role-based access control (RBAC) permissions for the `VolumeAttachment` API object which caused a problem on upgrade because of changes in the `Cluster Autoscaler` object that require those permissions. With this release, the `Cluster Autoscaler` is deployed with proper permissions for `VolumeAttachment` objects. (link:https://issues.redhat.com/browse/OCPBUGS-73954[OCPBUGS-73954])
