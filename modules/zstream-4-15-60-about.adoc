@@ -10,7 +10,7 @@
 [role="_abstract"]
 Issued: 07 January 2026
 
-{product-title} release {product-version}.60 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHBA-2026:23114[RHBA-2026:23114] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2025:23112[RHBA-2025:23112] advisory.
+{product-title} release {product-version}.60 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHBA-2026:23114[RHBA-2026:23114] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:23112[RHBA-2026:23112] advisory.
 
 Space precluded documenting all of the container images for this release in the advisory.
 
