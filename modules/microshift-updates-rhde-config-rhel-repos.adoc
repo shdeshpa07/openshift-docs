@@ -38,20 +38,22 @@ $ sudo subscription-manager release --set=<9.4> command. # <1>
 [source,terminal]
 ----
 $ sudo subscription-manager repos \
-    --disable=rhel-<9>-for-x86_64-appstream-rpms \ # <1>
+    --disable=rhel-<9>-for-x86_64-appstream-rpms \
     --disable=rhel-<9>-for-x86_64-baseos-rpms
 ----
-<1> Replace _<9>_ with the major version of your compatible {op-system-base} system.
++
+Replace _<9>_ with the major version of your compatible {op-system-base} system.
 
 . After you disable the standard-support repositories, enable the {op-system-base} EUS repos by running the following command:
 +
 [source,terminal]
 ----
 $ sudo subscription-manager repos \
-    --enable rhel-<9>-for-x86_64-appstream-eus-rpms \  # <1>
+    --enable rhel-<9>-for-x86_64-appstream-eus-rpms \
     --enable rhel-<9>-for-x86_64-baseos-eus-rpms`
 ----
-<1> Replace _<9>_ with the major version of your compatible {op-system-base} system.
++
+Replace _<9>_ with the major version of your compatible {op-system-base} system.
 
 .Verification
 
@@ -63,7 +65,6 @@ $ sudo subscription-manager repos --list-enabled
 ----
 +
 .Example output
-+
 [source,terminal]
 ----
 +----------------------------------------------------------+
