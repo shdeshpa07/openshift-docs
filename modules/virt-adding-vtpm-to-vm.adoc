@@ -6,12 +6,12 @@
 [id="virt-adding-vtpm-to-vm_{context}"]
 = Adding a vTPM device to a virtual machine
 
-Adding a virtual Trusted Platform Module (vTPM) device to a virtual machine
-(VM) allows you to run a VM created from a Windows 11 image without a physical
-TPM device. A vTPM device also stores secrets for that VM.
+[role="_abstract"]
+Adding a virtual Trusted Platform Module (vTPM) device to a virtual machine (VM) allows you to run a VM created from a Windows 11 image without a physical TPM device. A vTPM device also stores secrets for that VM.
 
 .Prerequisites
-* You have installed the OpenShift CLI (`oc`).
+
+* You have installed the {oc-first}.
 * You have configured a Persistent Volume Claim (PVC) to use a storage class of type `Filesystem` that supports the `ReadWriteMany` (RWX) access mode. This is necessary for the vTPM device data to persist across VM reboots.
 
 .Procedure
@@ -40,8 +40,8 @@ spec:
             persistent: true <2>
 # ...
 ----
-<1> Adds the vTPM device to the VM.
-<2> Specifies that the vTPM device state persists after the VM is shut down. The default value is `false`.
+** `spec.template.spec.domain.devices.tpm` specifies the vTPM device to add to the VM.
+** `spec.template.spec.domain.devices.tpm.persistent` specifies that the vTPM device state persists after the VM is shut down. The default value is `false`.
 
 . To apply your changes, save and exit the editor.
 
