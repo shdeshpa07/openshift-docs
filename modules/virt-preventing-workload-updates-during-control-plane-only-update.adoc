@@ -116,12 +116,13 @@ $ oc get hyperconverged kubevirt-hyperconverged -n {CNVNamespace} -o json | jq "
     "observedGeneration": 3,
     "reason": "ReconcileCompleted",
     "status": "True",
-    "type": "Upgradeable" <1>
+    "type": "Upgradeable"
   }
 ]
 ----
 ====
-<1> The {VirtProductName} Operator has the `Upgradeable` status.
++
+The {VirtProductName} Operator has the `Upgradeable` status.
 
 . Manually update your cluster from the source EUS version to the next minor version of {product-title}:
 +
@@ -132,6 +133,7 @@ $ oc adm upgrade
 ----
 +
 .Verification
+
 * Check the current version by running the following command:
 +
 [source,terminal]
