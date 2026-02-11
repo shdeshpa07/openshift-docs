@@ -6,6 +6,7 @@
 [id="zero-trust-manager-query-metrics_{context}"]
 = Querying metrics for the {zero-trust-full}
 
+[role="_abstract"]
 As a cluster administrator, or as a user with view access to all namespaces, you can query SPIRE Agent and SPIRE Server metrics by using the {product-title} web console or the command line. The query retrieves all the metrics collected from the SPIRE components that match the specified job labels.
 
 .Prerequisites

@@ -6,7 +6,8 @@
 [id="zero-trust-manager-uninstall-console_{context}"]
 = Uninstalling the {zero-trust-full}
 
-You can uninstall the {zero-trust-full} by using the web console.
+[role="_abstract"]
+To remove the {zero-trust-full} from your cluster, uninstall the Operator using the web console. This helps you clean up resources and delete the service from your environment.
 
 .Prerequisites
 
@@ -22,7 +23,7 @@ You can uninstall the {zero-trust-full} by using the web console.
 
 . Uninstall the {zero-trust-full}.
 
-.. Go to *Operators* -> *Installed Operators*.
+.. Go to *Ecosystem* -> *Installed Operators*.
 
 .. Click the *Options* menu next to the *{zero-trust-full}* entry, and then click *Uninstall Operator*.
 
