@@ -10,12 +10,8 @@
 * Worker nodes should run on either of the following CPUs:
 ** Intel 3rd Generation Xeon (IceLake) CPUs or better when supported by {product-title}, or CPUs with the silicon security bug (Spectre and similar) mitigations turned off.
 Skylake and older CPUs can experience 40% transaction performance drops when Spectre and similar mitigations are enabled.
-** AMD EPYC Zen 4 CPUs (Genoa, Bergamo, or newer) or better when supported by {product-title}.
-+
-[NOTE]
-====
-Currently, per-pod power management is not available for AMD CPUs.
-====
+** AMD EPYC Zen 4 CPUs (Genoa, Bergamo) or AMD EPYC Zen 5 CPUs (Turin) when supported by {product-title}.
+** Intel Sierra Forest CPUs when supported by {product-title}.
 ** IRQ balancing is enabled on worker nodes.
 The `PerformanceProfile` CR sets `globallyDisableIrqLoadBalancing` to false.
 Guaranteed QoS pods are annotated to ensure isolation as described in "CPU partitioning and performance tuning".
