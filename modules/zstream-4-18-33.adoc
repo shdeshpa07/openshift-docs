@@ -1,0 +1,57 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-18-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-18-33_{context}"]
+= RHSA-2026:2078 - {product-title} {product-version}.33 fixed issues and security update
+
+[role="_abstract"]
+Issued: 11 February 2026
+
+{product-title} release {product-version}.33 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:2078[RHSA-2026:2078] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:2071[RHSA-2026:2071] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.18.33 --pullspecs
+----
+
+////
+[id="zstream-4-20-z-enhancements_{context}"]
+== Enhancements
+////
+
+////
+[id="zstream-4-20-z-known-issues_{context}"]
+== Known issues
+
+
+This release contains the following known issues:
+////
+
+[id="zstream-4-18-33-fixed-issues_{context}"]
+== Fixed issues
+
+The following issues are fixed for this release:
+
+* Before this update, several interface elements suffered from poor visibility and inconsistent styling when the dark theme was active; specifically, donut chart text was illegible due to dark-on-dark contrast, text input fields retained bright light-mode backgrounds, and disabled states used incorrect color palettes. With this release, theme-aware color variables have been implemented across these components, ensuring that chart labels, input backgrounds, and disabled fields dynamically adjust to the selected theme. As a result, the application now provides a consistent, high-contrast, and accessible user experience that maintains visual integrity regardless of the user's display settings. (link:https://issues.redhat.com/browse/OCPBUGS-65808[OCPBUGS-65808])
+
+* Before this update, nVidia GPU workloads failed to run when using `crun` and `readOnlyRootFilesystem=true` because the nVidia hooks require a writable filesystem. With this release, `crun` has been updated to run `createContainer` hooks before making root read-only, allowing those hooks to run properly. (link:https://issues.redhat.com/browse/OCPBUGS-66249[OCPBUGS-66249])
+
+* Before this update, a bug prevented the `ValidatingAdmissionPolicy` resource from applying to certain {product-title} API resources, such as `BuildConfig` and `DeploymentConfig`. This meant that custom admission policies were not enforced on these specific resources, potentially allowing configurations that did not meet organizational standards to be created or updated. With this release, the validation logic has been corrected to ensure that the`ValidatingAdmissionPolicy` resource now correctly identifies and applies to all intended {product-title} resources. As a result, users can consistently enforce policies across their entire cluster, including the `BuildConfig` and `DeploymentConfig` resources. (link:https://issues.redhat.com/browse/OCPBUGS-69955[OCPBUGS-69955])
+
+* Before this update, the CA certificate reference to `HelmChartRepository` caused chart installation failure. As a consequence, Helm Chart installation failed because it could not find the chart. With this release, the issue has been fixed. As a result, the CA certificate configuration no longer breaks the Helm Chart installation. (link:https://issues.redhat.com/browse/OCPBUGS-73753[OCPBUGS-73753])
+
+* Before this update, the catalog sync was defaulting to a 10-minute polling interval, which triggered intense I/O on master nodes where etcd resides. This spike in activity frequently forced etcd leader elections, inadvertently resetting TTL counters on keys and preventing etcd events from clearing properly. With this release, the default polling interval has been increased to four hours to mitigate the strain on the local cluster and external registries. As a result, the system avoids the etcd knock-on effects that compromise cluster stability while simultaneously reducing the load on quay.io or local mirrors. (link:https://issues.redhat.com/browse/OCPBUGS-73877[OCPBUGS-73877])
+
+* Before this update, a race condition existed where the `linuxptp-daemon` monitoring logic required Precision Time Protocol (PTP) profiles to be fully loaded before it would allow metric gathering to proceed. This meant that if the container restarted and the collection cycle began before those profiles were ready, the `process_status metric` was not collected, resulting in significant gaps in telemetry and unreliable health reporting after initialization. With this release, the `process_status collection` has been decoupled from the `profile-loading` state, ensuring the metric is gathered even if the profiles are not yet loaded. (link:https://issues.redhat.com/browse/OCPBUGS-74377[OCPBUGS-74377])
+
+
+[id="zstream-4-18-33-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.20 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
