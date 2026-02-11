@@ -3,12 +3,11 @@
 // microshift/volume-snapshots-microshift.adoc
 
 :_mod-docs-content-type: PROCEDURE
-[id="microshift-storage-backup-vol-snaps_{context}"]
+[id="microshift-storage-backup-volume-snapshots_{context}"]
 = Backing up a volume snapshot
 
+[role="_abstract"]
 Snapshots of data from applications running on a {microshift-short} node are created as read-only logical volumes (LVs) located on the same devices as the original data. You must manually mount local volumes before they can be copied as persistent volumes (PVs) and used as backup copies. To use a snapshot of a {microshift-short} storage volume as a backup, find it on the local host and then move it to a secure location.
-
-To find specific snapshots and copy them, use the following procedure.
 
 .Prerequisites
 
@@ -20,9 +19,11 @@ To find specific snapshots and copy them, use the following procedure.
 . Get the name of the volume snapshot by running the following command:
 +
 [source,terminal]
+[subs="+quotes"]
 ----
-$ oc get volumesnapshot -n <namespace> <snapshot_name> -o 'jsonpath={.status.volumeSnapshotContentName}'
+$ oc get volumesnapshot -n _<namespace>_ _<snapshot_name>_ -o 'jsonpath={.status.volumeSnapshotContentName}'
 ----
+** Replace `_<namespace>_` and `_<snapshot_name>_` with the namespace and snapshot name you used.
 
 . Get the unique identity of the volume created on the storage backend by using the following command and inserting the name retrieved in the previous step:
 +
@@ -30,13 +31,16 @@ $ oc get volumesnapshot -n <namespace> <snapshot_name> -o 'jsonpath={.status.vol
 ----
 $ oc get volumesnapshotcontent snapcontent-<retrieved_volume_identity> -o 'jsonpath={.status.snapshotHandle}'
 ----
+** Replace `_<retrieved_volume_identity>_` with the volume identity.
 
 . Display the snapshots by using the unique identity of the volume you retrieved in the previous step to determine which one you want to backup by running the following command:
 +
 [source,terminal]
+[subs="+quotes"]
 ----
-$ sudo lvdisplay <retrieved_snapshot_handle>
+$ sudo lvdisplay _<retrieved_volume_identity>_
 ----
+** Replace `_<retrieved_volume_identity>_` with the volume identity.
 +
 .Example output
 [source,terminal]
@@ -72,13 +76,17 @@ $ sudo mkdir /mnt/snapshot
 . Mount the LV using the device name for the retrieved snapshot handle by running the following command:
 +
 [source,terminal]
+[subs="+quotes"]
 ----
-$ sudo mount /dev/<retrieved_snapshot_handle> /mnt/snapshot
+$ sudo mount /dev/_<retrieved_snapshot_handle>_ /mnt/snapshot
 ----
+** Replace `_<retrieved_snapshot_handle>_` with the device name.
 
 . Copy the files from the mounted location and store them in a secure location by running the following command:
 +
 [source,terminal]
+[subs="+quotes"]
 ----
-$ sudo cp -r /mnt/snapshot <destination>
+$ sudo cp -r /mnt/snapshot _<destination>_
 ----
+** Replace `_<destination>_` with the path to the secure location.
