@@ -2,15 +2,16 @@
 // * edge_computing/image-based-upgrade/cnf-image-based-upgrade-base.adoc
 // * edge_computing/image-based-upgrade/ztp-image-based-upgrade.adoc
 
-:_mod-docs-content-type: PROCEDURE
+:_mod-docs-content-type: REFERENCE
 [id="cnf-image-based-upgrade-troubleshooting_{context}"]
 = Troubleshooting image-based upgrades with {lcao}
 
-Perform troubleshooting steps on the managed clusters that are affected by an issue.
+[role="_abstract"]
+Perform troubleshooting steps on the managed clusters to resolve any issues.
 
 [IMPORTANT]
 ====
-If you are using the `ImageBasedGroupUpgrade` CR to upgrade your clusters, ensure that the `lcm.openshift.io/ibgu-<stage>-completed` or `lcm.openshift.io/ibgu-<stage>-failed` cluster labels are updated properly after performing troubleshooting or recovery steps on the managed clusters.
+If you are using the `ImageBasedGroupUpgrade` CR to upgrade your clusters, ensure that you update the `lcm.openshift.io/ibgu-<stage>-completed` or `lcm.openshift.io/ibgu-<stage>-failed` cluster labels properly after performing troubleshooting or recovery steps on the managed clusters.
 This ensures that the {cgu-operator} continues to manage the image-based upgrade for the cluster.
 ====
 
@@ -19,38 +20,38 @@ This ensures that the {cgu-operator} continues to manage the image-based upgrade
 
 You can use the `oc adm must-gather` CLI to collect information for debugging and troubleshooting.
 
-.Procedure
+To collect data about the Operators, run the following command:
 
-* Collect data about the Operators by running the following command:
-+
 [source,terminal]
 ----
 $  oc adm must-gather \
   --dest-dir=must-gather/tmp \
   --image=$(oc -n openshift-lifecycle-agent get deployment.apps/lifecycle-agent-controller-manager -o jsonpath='{.spec.template.spec.containers[?(@.name == "manager")].image}') \
-  --image=quay.io/konveyor/oadp-must-gather:latest \// # <1>
-  --image=quay.io/openshift/origin-must-gather:latest # <2>
+  --image=<oadp_must_gather_image> \
+  --image=<origin_must_gather_image>
 ----
-<1> Optional: Add this option if you need to gather more information from the {oadp-short} Operator.
-<2> Optional: Add this option if you need to gather more information from the SR-IOV Operator.
+
+where:
+
+`<oadp_must_gather_image>`:: Optional: Add this option, for example `quay.io/konveyor/oadp-must-gather:latest`, if you need to gather more information from the {oadp-short} Operator.
+`<origin_must_gather_image>`:: Optional: Add this option, for example `quay.io/openshift/origin-must-gather:latest`, if you need to gather more information from the SR-IOV Operator.
 
 [id="cnf-image-based-upgrade-troubleshooting-manual-cleanup_{context}"]
-== AbortFailed or FinalizeFailed error
+== `AbortFailed` or `FinalizeFailed` error
 
 Issue::
 +
 --
-During the finalize stage or when you stop the process at the `Prep` stage, {lcao} cleans up the following resources:
+During the finalization stage or when you stop the process at the `Prep` stage, {lcao} cleans up the following resources:
 
 * Stateroot that is no longer required
 * Precaching resources
 * {oadp-short} CRs
 * `ImageBasedUpgrade` CR
 
-If the {lcao} fails to perform the above steps, it transitions to the `AbortFailed` or `FinalizeFailed` states.
-The condition message and log show which steps failed.
+If the {lcao} fails to clean up these resources, it transitions to the `AbortFailed` or `FinalizeFailed` states.
+The condition message and log show the steps that failed, as shown in the following example:
 
-.Example error message
 [source,yaml]
 ----
 message: failed to delete all the backup CRs. Perform cleanup manually then add 'lca.openshift.io/manual-cleanup-done' annotation to ibu CR to transition back to Idle
@@ -64,7 +65,7 @@ message: failed to delete all the backup CRs. Perform cleanup manually then add 
 Resolution::
 +
 --
-. Inspect the logs to determine why the failure occurred.
+. Inspect the logs to find the reason for failure.
 
 . To prompt {lcao} to retry the cleanup, add the `lca.openshift.io/manual-cleanup-done` annotation to the `ImageBasedUpgrade` CR.
 
@@ -76,12 +77,12 @@ If the cleanup fails again, you can manually clean up the resources.
 --
 
 [id="cnf-image-based-upgrade-troubleshooting-stateroot_{context}"]
-=== Cleaning up stateroot manually
+== Cleaning up stateroot manually
 
 Issue::
 
 Stopping at the `Prep` stage, {lcao} cleans up the new stateroot. When finalizing after a successful upgrade or a rollback, {lcao} cleans up the old stateroot.
-If this step fails, it is recommended that you inspect the logs to determine why the failure occurred.
+If this step fails, you must inspect the logs to decide why the failure occurred.
 
 Resolution::
 +
@@ -122,7 +123,7 @@ $ unshare -m /bin/sh -c "mount -o remount,rw /sysroot && rm -rf /sysroot/ostree/
 --
 
 [id="cnf-image-based-upgrade-troubleshooting-oadp-resources_{context}"]
-=== Cleaning up {oadp-short} resources manually
+== Cleaning up {oadp-short} resources manually
 
 Issue::
 
@@ -136,9 +137,9 @@ Resolution::
 ----
 $ oc get backupstoragelocations.velero.io -n openshift-adp
 ----
-
 +
-.Example output
+The following example shows successful backend connectivity:
++
 [source,terminal]
 ----
 NAME                          PHASE       LAST VALIDATED   AGE   DEFAULT
@@ -151,14 +152,14 @@ dataprotectionapplication-1   Available   33s              8d    true
 [id="cnf-image-based-upgrade-troubleshooting-lvms_{context}"]
 == {lvms} volume contents not restored
 
-When {lvms} is used to provide dynamic persistent volume storage, {lvms} might not restore the persistent volume contents if it is configured incorrectly.
+When you use {lvms} to configure dynamic persistent volume storage, {lvms} might not restore the persistent volume contents if you have configured it incorrectly.
 
 [id="cnf-image-based-upgrade-troubleshooting-lvms-backup_{context}"]
-=== Missing {lvms}-related fields in Backup CR
+== Missing {lvms}-related fields in Backup CR
 
 Issue::
-Your `Backup` CRs might be missing fields that are needed to restore your persistent volumes.
-You can check for events in your application pod to determine if you have this issue by running the following:
+Your `Backup` CRs might be missing fields that you need to restore your persistent volumes.
+You can check for events in your application pod to decide if you have this issue by running the following:
 +
 --
 [source,terminal]
@@ -166,7 +167,8 @@ You can check for events in your application pod to determine if you have this i
 $ oc describe pod <your_app_name>
 ----
 
-.Example output showing missing {lvms}-related fields in Backup CR
+The following example output shows a pod failing due to missing {lvms}-related fields in the `Backup` CR:
+
 [source,terminal]
 ----
 Events:
@@ -180,9 +182,8 @@ Events:
 
 Resolution::
 You must include `logicalvolumes.topolvm.io` in the application `Backup` CR.
-Without this resource, the application restores its persistent volume claims and persistent volume manifests correctly, however, the `logicalvolume` associated with this persistent volume is not restored properly after pivot.
+Without this resource, the application restores its persistent volume claims and persistent volume manifests correctly, however, the `logicalvolume` associated with this persistent volume is not restored properly after pivot. The following example shows a correctly configured `Backup` CR:
 +
-.Example Backup CR
 [source,yaml]
 ----
 apiVersion: velero.io/v1
@@ -200,18 +201,19 @@ spec:
   - persistentvolumeclaims
   - deployments
   - statefulsets
-  includedClusterScopedResources: <1>
+  includedClusterScopedResources:
   - persistentVolumes
   - volumesnapshotcontents
   - logicalvolumes.topolvm.io
 ----
-<1> To restore the persistent volumes for your application, you must configure this section as shown.
++
+To restore the persistent volumes for your application, you must configure the `includedClusterScopedResources` section as shown.
 
 [id="cnf-image-based-upgrade-troubleshooting-lvms-restore_{context}"]
-=== Missing {lvms}-related fields in Restore CR
+== Missing {lvms}-related fields in Restore CR
 
 Issue::
-The expected resources for the applications are restored but the persistent volume contents are not preserved after upgrading.
+{lvms} restores the expected resources for the applications but it does not preserve the persistent volume contents after upgrading.
 
 . List the persistent volumes for you applications by running the following command before pivot:
 +
@@ -221,7 +223,8 @@ The expected resources for the applications are restored but the persistent volu
 $ oc get pv,pvc,logicalvolumes.topolvm.io -A
 ----
 
-.Example output before pivot
+The following shows the output before pivot:
+
 [source,terminal]
 ----
 NAME                        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS   REASON   AGE
@@ -243,7 +246,8 @@ NAMESPACE   NAME                                AGE
 $ oc get pv,pvc,logicalvolumes.topolvm.io -A
 ----
 
-.Example output after pivot
+The following shows the output after pivot:
+
 [source,terminal]
 ----
 NAME                        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM            STORAGECLASS   REASON   AGE
@@ -259,10 +263,9 @@ NAMESPACE   NAME                                AGE
 
 Resolution::
 The reason for this issue is that the `logicalvolume` status is not preserved in the `Restore` CR.
-This status is important because it is required for Velero to reference the volumes that must be preserved after pivoting.
-You must include the following fields in the application `Restore` CR:
+This status is important because Velero requires this status to reference the volumes that you must preserve after pivoting.
+You must include the following fields in the application `Restore` CR, as shown in the following example:
 +
-.Example Restore CR
 [source,yaml]
 ----
 apiVersion: velero.io/v1
@@ -277,13 +280,16 @@ metadata:
 spec:
   backupName:
     sample-vote-app
-  restorePVs: true <1>
-  restoreStatus: <2>
+  restorePVs: <restore_pvs>
+  restoreStatus:
     includedResources:
       - logicalvolumes
 ----
-<1> To preserve the persistent volumes for your application, you must set `restorePVs` to `true`.
-<2> To preserve the persistent volumes for your application, you must configure this section as shown.
++
+where:
++
+`<restore_pvs>`:: To preserve the persistent volumes for your application, you must set `restorePVs` to `true`.
+`restoreStatus`:: To preserve the persistent volumes for your application, you must configure this field as shown.
 
 [id="cnf-image-based-upgrade-troubleshooting-debugging-oadp-crs_{context}"]
 == Debugging failed Backup and Restore CRs
@@ -293,16 +299,16 @@ The backup or restoration of artifacts failed.
 
 Resolution::
 You can debug `Backup` and `Restore` CRs and retrieve logs with the Velero CLI tool.
-The Velero CLI tool provides more detailed information than the OpenShift CLI tool.
+The Velero CLI tool offers more detailed information than the OpenShift CLI tool.
 
-. Describe the `Backup` CR that contains errors by running the following command:
+. Describe the `Backup` CR that has errors by running the following command:
 +
 [source,terminal]
 ----
 $ oc exec -n openshift-adp velero-7c87d58c7b-sw6fc -c velero -- ./velero describe backup -n openshift-adp backup-acm-klusterlet --details
 ----
 
-. Describe the `Restore` CR that contains errors by running the following command:
+. Describe the `Restore` CR that has errors by running the following command:
 +
 [source,terminal]
 ----
