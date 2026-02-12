@@ -20,8 +20,16 @@ include::modules/external-auth-providers.adoc[leveloffset=+2]
 // Configuring an external OIDC identity provider for direct authentication
 include::modules/external-auth-configuring.adoc[leveloffset=+1]
 
+[role="_additional-resources"]
+.Additional resources
+
+* xref:../authentication/external-auth.adoc#external-auth-cli_external-auth[Example OIDC provider configuration for CLI clients only]
+
 // OIDC provider configuration parameters
 include::modules/external-auth-fields.adoc[leveloffset=+2]
+
+// Example OIDC provider configuration for CLI clients only
+include::modules/external-auth-cli.adoc[leveloffset=+2]
 
 // Disabling direct authentication
 include::modules/external-auth-disabling.adoc[leveloffset=+1]
