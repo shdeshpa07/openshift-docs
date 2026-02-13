@@ -6,6 +6,9 @@
 [id="custom-tuning-example_{context}"]
 = Custom tuning examples
 
+[role="_abstract"]
+The following examples demonstrate custom tuning configurations for {product-title} nodes using the Node Tuning Operator.
+
 *Using TuneD profiles from the default CR*
 
 The following CR applies custom node-level tuning for

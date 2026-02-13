@@ -8,6 +8,7 @@
 [id="supported-tuned-daemon-plug-ins_{context}"]
 = Supported TuneD daemon plugins
 
+[role="_abstract"]
 Excluding the `[main]` section, the following TuneD plugins are supported when
 using custom profiles defined in the `profile:` section of the Tuned CR:
 
