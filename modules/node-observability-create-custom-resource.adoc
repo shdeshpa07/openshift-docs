@@ -6,6 +6,7 @@
 [id="creating-node-observability-custom-resource_{context}"]
 = Creating the Node Observability custom resource
 
+[role="_abstract"]
 You must create and run the `NodeObservability` custom resource (CR) before you run the profiling query. When you run the `NodeObservability` CR, it creates the necessary machine config and machine config pool CRs to enable the CRI-O profiling on the worker nodes matching the `nodeSelector`.
 
 [IMPORTANT]
@@ -48,14 +49,17 @@ $ oc project node-observability-operator
     apiVersion: nodeobservability.olm.openshift.io/v1alpha2
     kind: NodeObservability
     metadata:
-      name: cluster <1>
+      name: cluster
     spec:
       nodeSelector:
-        kubernetes.io/hostname: <node_hostname> <2>
+        kubernetes.io/hostname: <node_hostname>
       type: crio-kubelet
 ----
-<1> You must specify the name as `cluster` because there should be only one `NodeObservability` CR per cluster.
-<2> Specify the nodes on which the Node Observability agent must be deployed.
++
+where:
++
+`cluster`:: You must specify the name as `cluster` because there should be only one `NodeObservability` CR per cluster.
+`<node_hostname>`:: Specify the nodes on which the Node Observability agent must be deployed.
 
 . Run the `NodeObservability` CR:
 +

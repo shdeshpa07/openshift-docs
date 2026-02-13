@@ -6,6 +6,7 @@
 [id="workflow-node-observability-operator_{context}"]
 = Workflow of the Node Observability Operator
 
+[role="_abstract"]
 The following workflow outlines on how to query the profiling data using the Node Observability Operator:
 
 . Install the Node Observability Operator in the {product-title} cluster.

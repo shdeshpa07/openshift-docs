@@ -6,6 +6,7 @@
 [id="node-observability-scripting-cr_{context}"]
 = Creating the Node Observability custom resource for scripting
 
+[role="_abstract"]
 You must create and run the `NodeObservability` custom resource (CR) before you run the scripting. When you run the `NodeObservability` CR, it enables the agent in scripting mode on the compute nodes matching the `nodeSelector` label. 
 
 .Prerequisites
@@ -36,15 +37,18 @@ $ oc project node-observability-operator
     apiVersion: nodeobservability.olm.openshift.io/v1alpha2
     kind: NodeObservability
     metadata:
-      name: cluster <1>
+      name: cluster
     spec:
       nodeSelector:
-        kubernetes.io/hostname: <node_hostname> <2>
-      type: scripting <3>
+        kubernetes.io/hostname: <node_hostname>
+      type: scripting
 ----
-<1> You must specify the name as `cluster` because there should be only one `NodeObservability` CR per cluster.
-<2> Specify the nodes on which the Node Observability agent must be deployed.
-<3> To deploy the agent in scripting mode, you must set the type to `scripting`.
++
+where:
++
+`cluster`:: You must specify the name as `cluster` because there should be only one `NodeObservability` CR per cluster.
+`<node_hostname>`:: Specify the nodes on which the Node Observability agent must be deployed.
+`scripting`:: To deploy the agent in scripting mode, you must set the type to `scripting`.
 
 
 . Create the `NodeObservability` CR by running the following command:
