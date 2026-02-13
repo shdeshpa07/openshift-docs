@@ -1,7 +1,8 @@
 :_mod-docs-content-type: ASSEMBLY
 [id="troubleshooting"]
 = Troubleshooting
-:toc:
+
+toc::[]
 
 include::_attributes/common-attributes.adoc[]
 include::_attributes/attributes-openshift-dedicated.adoc[]
@@ -14,6 +15,8 @@ include::_attributes/attributes-openshift-dedicated.adoc[]
 
 
 [role="_abstract"]
+Troubleshoot {oadp-first} issues by using diagnostic tools such as the Velero CLI, webhooks, `must-gather` custom resource, and so on. This helps you identify and resolve problems with backup and restore operations.
+
 You can troubleshoot OADP issues by using the following methods:
 
 * Debug Velero custom resources (CRs) by using the xref:../../../backup_and_restore/application_backup_and_restore/troubleshooting/velero-cli-tool.adoc#oadp-debugging-oc-cli_velero-cli-tool[OpenShift CLI tool] or the xref:../../../backup_and_restore/application_backup_and_restore/troubleshooting/velero-cli-tool.adoc#migration-debugging-velero-resources_velero-cli-tool[Velero CLI tool]. The Velero CLI tool provides more detailed logs and information.
