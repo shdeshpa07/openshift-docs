@@ -1,0 +1,51 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-20-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-19-24_{context}"]
+= RHSA-2026:2651 - {product-title} {product-version}.24 fixed issues and security update
+
+[role="_abstract"]
+Issued: 18 February 2026
+
+{product-title} release {product-version}.24 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:2651[RHSA-2026:2651] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:2632[RHBA-2026:2632] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.19.24 --pullspecs
+----
+
+[id="zstream-4-19-24-fixed-issues_{context}"]
+== Fixed issues
+
+The following issues are fixed for this release:
+
+* Before this update, the `oauth` pods in the `openshift-authentication` namespaces could get stuck while rolling out changes when one of the nodes these pods were running on was not ready or not available. This was causing authentication to completely stop until the blocked rollout concludes. With this release, the pods can proceed with the rolling update even with an unhealthy node that is down or unavailable (link:https://issues.redhat.com/browse/OCPBUGS-65602[OCPBUGS-65602])
+
+* Before this update, the Systemd use in the container entry point prevented the `ConfigMap` mount from working correctly, which caused broken file permissions. As a consequence, users could not access config files due to the broken file permissions in the containers. With this release, the Systemd entry point issue is resolved, which allows the config map mount with the correct file permissions. As a result, the file permissions are correct for the containers. (link:https://issues.redhat.com/browse/OCPBUGS-69671[OCPBUGS-69671])
+
+* Before this update, clusters using multi-architecture release payload images that had the Cluster Version object's `spec.desiredUpdate.architecture` field set to the `Multi` value experienced a significant issue where the Cluster Version resource would not be populated with update recommendations for later releases. With this release, a comparison of the incorrect values in the code has been fixed, ensuring that the bug no longer presents itself and update recommendations now appear as expected. (link:https://issues.redhat.com/browse/OCPBUGS-70181[OCPBUGS-70181])
+
+* Before this update, the catalog sync triggered high I/O on masters where etcd ran. As a consequence, an etcd leader election was triggered. The triggered election reset TTL counters on keys and prevented etcd events from being cleared. With this release, the default catalog polling interval is increased from ten minutes to for hours. As a result, the load on catalog sources is reduced. (link:https://issues.redhat.com/browse/OCPBUGS-73882[OCPBUGS-73882])
+
+* Before this update, clusters using `localnet` IPAM-less topologies had the Label Switched Paths (LSPs) removed during the update process. This caused connectivity disruptions and potential data loss for traffic relying on those specific network paths. With this release, the update logic has been adjusted to ensure that LSP configurations are preserved and remain intact throughout the update. This results in consistent network stability and path persistence without the risk of accidental removal. (link:https://issues.redhat.com/browse/OCPBUGS-74269[OCPBUGS-74269])
+
+* Before this update, when navigating to the Software Catalog page with the *Devfiles* category disabled, the page would show an Devfile related error in a disconnected cluster. With this release, this error is no longer shown. (link:https://issues.redhat.com/browse/OCPBUGS-74341[OCPBUGS-74341])
+
+* Before this update, the deletion sequence attempted to remove machine instances while their primary network interface cards (NICs) were still attached, which conflicted with environments enforcing strict policies against deleting a primary NIC on an active server. This created a circular dependency that caused machine deletions to fail or hang indefinitely. With this release, the order of deletion for machines and ports has been corrected to ensure that resources are decommissioned in the proper sequence. As a result, machines can now be successfully deleted even in restricted environments, ensuring reliable resource cleanup and adherence to local security policies. (link:https://issues.redhat.com/browse/OCPBUGS-74586[OCPBUGS-74586])
+
+* Before this update, static pod manifests for control plane components lacked explicit priority values, causing the `kubelet` to treat them as low-priority during graceful node shutdowns. On {sno}, this resulted in control plane components terminating immediately, leading to extended shutdown times, forced terminations, and the potential for storage corruption. With this release, explicit priority values have been added to the control plane static pod manifests, ensuring these components remain available during a graceful shutdown until all workload pods have terminated, preventing storage corruption and ensuring a cleaner shutdown process. (link:https://issues.redhat.com/browse/OCPBUGS-74628[OCPBUGS-74628])
+
+* Before this update, when installing a cluster with the Agent-based Installer and configuring `installConfig` overrides such as enabling FIPS mode, a failure to apply these overrides would not cause the application of other overrides to be retried. As a result, any error in the overrides caused all other overrides to be ignored. With this release this application of overrides is checked for completion, so that either all of the overrides are applied successfully or the installation does not proceed. (link:https://issues.redhat.com/browse/OCPBUGS-74630[OCPBUGS-74630])
+
+* Before this update, when installing a cluster on {gcp-first} in the `us-south1` and `us-central1` regions, if you did not specify standard zones in the `install-config.yaml` file, the installation program would select an AI zone as the default zone. As a result, the AI zone would likely have insufficient resources for a cluster and the installation would fail. With this release, AI zones are excluded from selection by the installation program, and installations no longer fail if you do not specify a zone when installing a cluster in the `us-south1` and `us-central1` regions. (link:https://issues.redhat.com/browse/OCPBUGS-74675[OCPBUGS-74675])
+
+[id="zstream-4-19-24-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.19 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
