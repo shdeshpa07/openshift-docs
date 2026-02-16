@@ -1,0 +1,23 @@
+// Module included in the following assemblies:
+//
+// * backup_and_restore/application_backup_and_restore/release-notes/oadp-1-4-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+
+[id="oadp-1-4-8-release-notes_{context}"]
+= {oadp-short} 1.4.8 release notes
+
+[role="_abstract"]
+{oadp-first} 1.4.8 is a Container Grade Only (CGO) release, which is released to refresh the health grades of the containers. No code was changed in the product itself compared to that of {oadp-short} 1.4.7. {oadp-short} 1.4.8 fixes several Common Vulnerabilities and Exposures (CVEs).
+
+
+[id="resolved-issues-1-4-8_{context}"]
+== Resolved issues
+
+{oadp-short} 1.4.8 fixes the following CVEs::
+
+* link:https://access.redhat.com/security/cve/cve-2025-47907[CVE-2025-47907]
+
+* link:https://access.redhat.com/security/cve/cve-2025-52881[CVE-2025-52881]
+
+* link:https://access.redhat.com/security/cve/cve-2025-61729[CVE-2025-61729]
