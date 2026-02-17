@@ -30,7 +30,8 @@ metadata:
   name: cluster
 spec:
 # ...
-  managedBootImages: <1>
+  managedBootImages:
     machineManagers: []
 ----
-<1> Remove the parameters listed under `machineManagers` and add the `[]` characters to disable boot image updates.
++
+Remove the parameters listed under `machineManagers` and add the `[]` characters to disable boot image updates.
