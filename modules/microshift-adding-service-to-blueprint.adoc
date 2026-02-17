@@ -7,6 +7,7 @@
 [id="adding-microshift-service-to-blueprint_{context}"]
 = Adding the {microshift-short} service to a blueprint
 
+[role="_abstract"]
 Adding the {microshift-short} RPM package to an image builder blueprint enables the build of a {op-system-ostree} image with {microshift-short} embedded.
 
 * Start with step 1 to create your own minimal blueprint file which results in a faster {microshift-short} installation.
@@ -63,13 +64,13 @@ version = "0.0.1"
 modules = []
 groups = []
 
-[[packages]] <1>
+[[packages]]
 name = "microshift"
 version = "4.17.1"
 ...
 ...
 
-[customizations.services] <2>
+[customizations.services]
 enabled = ["microshift"]
 
 [customizations.firewall]
@@ -77,7 +78,7 @@ ports = ["22:tcp", "80:tcp", "443:tcp", "5353:udp", "6443:tcp", "30000-32767:tcp
 ...
 ...
 
-[[containers]] <3>
+[[containers]]
 source = "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:f41e79c17e8b41f1b0a5a32c3e2dd7cd15b8274554d3f1ba12b2598a347475f4"
 
 [[containers]]
@@ -86,9 +87,9 @@ source = "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:dbc65f1fba7d92b3
 …
 EOF
 ----
-<1> References for all non-optional {microshift-short} RPM packages using the same version compatible with the `microshift-release-info` RPM.
-<2> References for automatically enabling {microshift-short} on system startup and applying default networking settings.
-<3> References for all non-optional {microshift-short} container images necessary for an offline deployment.
+* `\[[packages]] name = "microshift"`: references for all non-optional {microshift-short} RPM packages using the same version compatible with the `microshift-release-info` RPM.
+* `[customizations.services] enabled = ["microshift"]`: references for automatically enabling {microshift-short} on system startup and applying default networking settings.
+* `\[[containers]] source = "quay.io/openshift-release-dev/...`: references for all non-optional {microshift-short} container images necessary for an offline deployment. The SHA depends on the release you are using.
 
 . Add the blueprint to the image builder by running the following command:
 +
