@@ -82,7 +82,7 @@ spec:
           bucket: <bucket_name>
           prefix: velero
 ----
-`name`:: Specifies the name of the `Secret` object. In this example, the name is `cloud-credentials-azure`.
+Replace `name` with the name of the `Secret` object. In this example, the name is `cloud-credentials-azure`.
 
 . Create the DPT CR by specifying the name of backup storage location (BSL), `VolumeSnapshotClass` object, and the persistent volume claim details as shown in the following example:
 +

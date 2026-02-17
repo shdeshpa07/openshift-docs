@@ -2,7 +2,7 @@
 [id="oadp-data-protection-test"]
 = OADP Data protection test
 
-toc[]
+toc::[]
 
 include::_attributes/common-attributes.adoc[]
 :context: oadp-data-protection-test

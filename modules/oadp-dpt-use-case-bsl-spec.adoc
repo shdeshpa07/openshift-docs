@@ -75,7 +75,7 @@ where:
 ----
 $ oc create -f <dpt_file_name>
 ----
-`<dpt_file_name>`:: Specifies the file name of the DPT manifest.
+Replace `<dpt_file_name>` with the file name of the DPT manifest.
 
 
 .Verification
