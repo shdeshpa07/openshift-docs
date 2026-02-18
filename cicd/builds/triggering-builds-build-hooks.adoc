@@ -14,6 +14,12 @@ include::modules/builds-webhook-triggers.adoc[leveloffset=+2]
 
 include::modules/unauthenticated-users-system-webhook.adoc[leveloffset=+3]
 
+// Preventing cluster failure due to webhooks
+include::modules/preventing-cluster-webhook-failure.adoc[leveloffset=+3]
+
+// Recovering an unstable cluster due to admission webhooks
+include::modules/recover-unstable-cluster-webhooks.adoc[leveloffset=+3]
+
 // TODO: Add xref to ROSA HCP when Authentication book is added.
 ifndef::openshift-rosa-hcp[]
 [role="_additional-resources"]
