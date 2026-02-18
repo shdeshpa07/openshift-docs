@@ -1,7 +1,8 @@
 :_mod-docs-content-type: ASSEMBLY
-[id="installing-aws-account"]
-= Configuring an AWS account
 include::_attributes/common-attributes.adoc[]
+[id="installing-aws-account"]
+= Configuring an {aws-short} account
+
 :context: installing-aws-account
 
 toc::[]
