@@ -34,12 +34,12 @@ metadata:
   name: cluster
 spec:
 # ...
-  managedBootImages: <1>
+  managedBootImages:
     machineManagers:
     - resource: machinesets
       apiGroup: machine.openshift.io
       selection:
-        mode: All <2>
+        mode: All
 ----
 where:
 
