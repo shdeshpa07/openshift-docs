@@ -72,7 +72,8 @@ spec:
           disks:
           - autoDelete: true
             boot: true
-            image: projects/rhcos-cloud/global/images/<boot_image> <1>
+            image: projects/rhcos-cloud/global/images/<boot_image>
 # ...
 ----
-<1> This boot image is the same as the current {product-title} version.
++
+This boot image is the same as the current {product-title} version.
