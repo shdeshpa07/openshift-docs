@@ -30,12 +30,11 @@ $ virtctl addinterface <vm_name> --network-attachment-definition-name <net_attac
 ----
 +
 where:
-
++
 <vm_name>:: The name of the `VirtualMachine` object.
 <net_attach_def_name>:: The name of the `NetworkAttachmentDefinition` object.
 <net_attach_dev_namespace>:: An identifier for the namespace associated with the `NetworkAttachmentDefinition` object. The supported values are `default` or the name of the namespace where the VM is located.
 <interface_name>:: The name of the new network interface.
-
 
 . To attach the network interface to the running VM, live migrate the VM by using the following command:
 +
@@ -92,9 +91,10 @@ $ oc get vmi vm-fedora -ojsonpath="{ @.status.interfaces }"
     "infoSource": "domain, guest-agent, multus-status",
     "interfaceName": "eth1",
     "mac": "02:d8:b8:00:00:2a",
-    "name": "bridge-interface", <1>
+    "name": "bridge-interface",
     "queueCount": 1
   }
 ]
 ----
-<1> The hot plugged interface appears in the VMI status.
++
+The hot plugged interface appears in the VMI status.
