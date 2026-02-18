@@ -95,7 +95,7 @@ Hiding until
 ////
 
 P::
-xref:../observability/power_monitoring/power-monitoring-release-notes.adoc#power-monitoring-release-notes[{PM-title-c}]
+link:https://docs.redhat.com/en/documentation/power_monitoring_for_red_hat_openshift/latest/html/release_notes/index[{PM-title-c}]
 
 R::
 xref:../nodes/pods/run_once_duration_override/run-once-duration-override-release-notes.adoc#run-once-duration-override-release-notes[{run-once-operator}]
