@@ -6,7 +6,8 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
-{microshift-short} administrators can use volume snapshots to help protect against data loss by using the supported {microshift-short} logical volume manager storage (LVMS) Container Storage Interface (CSI) provider. Familiarity with xref:../microshift_storage/using-persistent-storage-microshift.adoc#persistent-volumes_using-persistent-storage-microshift[persistent volumes] is required.
+[role="_abstract"]
+{microshift-short} administrators can use volume snapshots to help protect against data loss by using the supported {microshift-short} logical volume manager storage (LVMS) Container Storage Interface (CSI) provider. Familiarity with persistent volumes is required.
 
 A snapshot represents the state of the storage volume in a node at a particular point in time. Volume snapshots can also be used to provision new volumes. Snapshots are created as read-only logical volumes (LVs) located on the same device as the original data.
 
@@ -22,7 +23,6 @@ A {microshift-short} administrator can complete the following tasks using CSI vo
 Only the logical volume manager storage (LVMS) plugin CSI driver is supported by {microshift-short}.
 ====
 
-//additional resources for assembly intro; trailing because 1) relevant here, 2) TOC levels, and 2) last called module has addt'l resources
 [role="_additional-resources"]
 .Additional resources
 
@@ -36,11 +36,10 @@ Only the logical volume manager storage (LVMS) plugin CSI driver is supported by
 
 include::modules/microshift-lvm-thin-volumes.adoc[leveloffset=+1]
 
-//additional resources for thin volumes module
 [role="_additional-resources"]
 .Additional resources
 
-* To create a thin pool on the host, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/{op-system-version-major}/html/configuring_and_managing_logical_volumes/creating-and-managing-thin-provisioned-volumes_configuring-and-managing-logical-volumes[Creating and managing thin provisioned volumes]
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/{op-system-version-major}/html/configuring_and_managing_logical_volumes/creating-and-managing-thin-provisioned-volumes_configuring-and-managing-logical-volumes[Creating and managing thin provisioned volumes]
 
 * link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/{op-system-version-major}/html/configuring_and_managing_logical_volumes/creating-and-managing-thin-provisioned-volumes_configuring-and-managing-logical-volumes#creating-thinly-provisioned-logical-volumes_creating-and-managing-thin-provisioned-volumes[Creating thinly provisioned logical volumes]
 
@@ -52,7 +51,6 @@ include::modules/microshift-lvm-thin-volumes.adoc[leveloffset=+1]
 
 include::modules/microshift-storage-classes.adoc[leveloffset=+2]
 
-//additional resources for storage classes module
 [role="_additional-resources"]
 .Additional resources
 
@@ -62,7 +60,6 @@ include::modules/microshift-storage-classes.adoc[leveloffset=+2]
 
 include::modules/microshift-storage-vol-snapshot-class.adoc[leveloffset=+1]
 
-//additional resources for volume snapshot classes module
 [role="_additional-resources"]
 .Additional resources
 
@@ -76,21 +73,18 @@ include::modules/microshift-storage-backup-volume-snapshots.adoc[leveloffset=+2]
 
 include::modules/microshift-storage-vol-snapshot-restore.adoc[leveloffset=+2]
 
-//additional resources for volume snapshot restore module
 [role="_additional-resources"]
 .Additional resources
 
 * link:https://access.redhat.com/documentation/en-us/openshift_container_platform/{ocp-version}/html/storage/using-container-storage-interface-csi#persistent-storage-csi-snapshots-provision_persistent-storage-csi-snapshots[Restoring a volume snapshot]
 
-//this module is reused from OCP; take care in editing for MicroShift
 include::modules/persistent-storage-csi-snapshots-delete.adoc[leveloffset=+2]
 
 include::modules/microshift-storage-volume-cloning.adoc[leveloffset=+1]
 
-//additional resources for volume cloning module
 [role="_additional-resources"]
 .Additional resources
 
 * link:https://docs.openshift.com/container-platform/{ocp-version}/storage/container_storage_interface/persistent-storage-csi-cloning.html[CSI volume cloning]
 
-* To configure the host to enable cloning, see xref:../microshift_storage/volume-snapshots-microshift.adoc#microshift-lvm-thin-volumes_volume-snapshots-microshift[About LVM thin volumes]
+* xref:../microshift_storage/volume-snapshots-microshift.adoc#microshift-lvm-thin-volumes_volume-snapshots-microshift[About LVM thin volumes]
