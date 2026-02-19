@@ -10,7 +10,7 @@
 [id="nw-multus-ipvlan-object_{context}"]
 = Configuration for an IPVLAN secondary network
 
-[role="_abstract"] 
+[role="_abstract"]
 The IPVLAN CNI plugin JSON configuration object describes the configuration parameters for the IPVLAN, `ipvlan`, CNI plugin. The following table details these parameters:
 
 [cols=".^2,.^2,.^6",options="header"]
@@ -19,8 +19,7 @@ The IPVLAN CNI plugin JSON configuration object describes the configuration para
 
 |`cniVersion`
 |`string`
-|The CNI specification version. The `0.3.1` value is required.
-
+|The CNI specification version. A minimum version of `0.3.1` is required.
 |`name`
 |`string`
 |The mandatory, unique identifier assigned to this CNI network attachment definition. It is used by the container runtime to select the correct network configuration and serves as the key for persistent resource state management, such as IP address allocations.

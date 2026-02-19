@@ -17,7 +17,7 @@ The dummy device CNI plugin JSON configuration object describes the configuratio
 
 |`cniVersion`
 |`string`
-|The CNI specification version. The required value is `0.3.1`.
+|The CNI specification version. A minimum version of `0.3.1` is required.
 
 |`name`
 |`string`
