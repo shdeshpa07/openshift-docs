@@ -6,7 +6,7 @@
 [id="nw-multus-tap-object_{context}"]
 = Configuration for a TAP secondary network
 
-[role="_abstract"] 
+[role="_abstract"]
 The TAP CNI plugin JSON configuration object describes the configuration parameters for the TAP CNI plugin. The following table describes these parameters:
 
 [cols=".^2,.^2,.^6",options="header"]
@@ -15,7 +15,7 @@ The TAP CNI plugin JSON configuration object describes the configuration paramet
 
 |`cniVersion`
 |`string`
-|The CNI specification version. The `0.3.1` value is required.
+|The CNI specification version. A minimum version of `0.3.1` is required.
 
 |`name`
 |`string`
