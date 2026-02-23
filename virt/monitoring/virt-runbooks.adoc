@@ -9,7 +9,7 @@ toc::[]
 :!virt-runbooks:
 To diagnose and resolve issues that trigger {VirtProductName} link:https://docs.redhat.com/en/documentation/monitoring_stack_for_red_hat_openshift/4.20/html/monitoring_key_concepts/key-concepts#about-managing-alerts_key-concepts[alerts], follow the procedures in the runbooks for the {VirtProductName} Operator. Triggered {VirtProductName} alerts can be viewed in the main *Observe* -> *Alerts* tab in the web console, and also in the *Virtualization* -> *Overview* tab.
 
-Runbooks for the {VirtProductName} Operator are maintained in the link:https://github.com/openshift/runbooks/tree/master/alerts/openshift-virtualization-operator[openshift/runbooks] Git repository, and you can view them on GitHub. 
+Runbooks for the {VirtProductName} Operator are maintained in the link:https://github.com/openshift/runbooks/tree/master/alerts/openshift-virtualization-operator[openshift/runbooks] Git repository, and you can view them on GitHub.
 
 // IMPORTANT: these IDs are meant to exactly mirror the original module IDs //
 // changing them will break links in the actual alerts //
@@ -64,6 +64,11 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 
 * link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/CnaoNmstateMigration.md[View the runbook] for the `CnaoNMstateMigration` alert.
 
+[id="virt-runbook-duplicatewaspagentdsdetected_{context}"]
+== DuplicateWaspAgentDSDetected
+
+* The `DuplicateWaspAgentDSDetected` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/DuplicateWaspAgentDSDetected.md[deprecated].
+
 [id="virt-runbook-hacontrolplanedown_{context}"]
 == HAControlPlaneDown
 
@@ -107,7 +112,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-KubeMacPoolDuplicateMacsfound_{context}"]
 == KubeMacPoolDuplicateMacsFound
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/KubeMacPoolDuplicateMacsFound.md[View the runbook] for the `KubeMacPoolDuplicateMacsFound` alert.
+* The `KubeMacPoolDuplicateMacsFound` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/KubeMacPoolDuplicateMacsFound.md[deprecated].
 
 [id="virt-runbook-kubevirtcomponentexceedsrequestedcpu_{context}"]
 == KubeVirtComponentExceedsRequestedCPU
@@ -137,7 +142,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-kubevirtvmhighmemoryusage_{context}"]
 == KubevirtVmHighMemoryUsage
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/KubevirtVmHighMemoryUsage.md[View the runbook] for the `KubevirtVmHighMemoryUsage` alert.
+* The `KubevirtVmHighMemoryUsage` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/KubevirtVmHighMemoryUsage.md[deprecated].
 
 [id="virt-runbook-kubevirtvmiexcessivemigrations_{context}"]
 == KubeVirtVMIExcessiveMigrations
@@ -217,7 +222,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-singlestackipv6unsupported_{context}"]
 == SingleStackIPv6Unsupported
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/SingleStackIPv6Unsupported.md[View the runbook] for the `SingleStackIPv6Unsupported` alert.
+* The `SingleStackIPv6Unsupported` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/SingleStackIPv6Unsupported.md[deprecated].
 
 [id="virt-runbook-sspcommontemplatesmodificationreverted_{context}"]
 == SSPCommonTemplatesModificationReverted
@@ -242,7 +247,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-sspoperatordown_{context}"]
 == SSPOperatorDown
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/SSPOperatorDown.md[View the runbook] for the `SSPOperatorDown` alert.
+* The `SSPOperatorDown` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/SSPOperatorDown.md[deprecated].
 
 [id="virt-runbook-ssptemplatevalidatordown_{context}"]
 == SSPTemplateValidatorDown
@@ -267,7 +272,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-virtapiresterrorshigh_{context}"]
 == VirtApiRESTErrorsHigh
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtApiRESTErrorsHigh.md[View the runbook] for the `VirtApiRESTErrorsHigh` alert.
+* The `VirtApiRESTErrorsHigh` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtApiRESTErrorsHigh.md[deprecated].
 
 [id="virt-runbook-virtcontrollerdown_{context}"]
 == VirtControllerDown
@@ -282,7 +287,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-virtcontrollerresterrorshigh_{context}"]
 == VirtControllerRESTErrorsHigh
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtControllerRESTErrorsHigh.md[View the runbook] for the `VirtControllerRESTErrorsHigh` alert.
+* The `VirtControllerRESTErrorsHigh` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtControllerRESTErrorsHigh.md[deprecated].
 
 [id="virt-runbook-virthandlerdaemonsetrolloutfailing_{context}"]
 == VirtHandlerDaemonSetRolloutFailing
@@ -297,7 +302,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-virthandlerresterrorshigh_{context}"]
 == VirtHandlerRESTErrorsHigh
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtHandlerRESTErrorsHigh.md[View the runbook] for the `VirtHandlerRESTErrorsHigh` alert.
+* The `VirtHandlerRESTErrorsHigh` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtHandlerRESTErrorsHigh.md[deprecated].
 
 [id="virt-runbook-virtoperatordown_{context}"]
 == VirtOperatorDown
@@ -312,7 +317,7 @@ Runbooks for the {VirtProductName} Operator are maintained in the link:https://g
 [id="virt-runbook-virtoperatorresterrorshigh_{context}"]
 == VirtOperatorRESTErrorsHigh
 
-* link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtOperatorRESTErrorsHigh.md[View the runbook] for the `VirtOperatorRESTErrorsHigh` alert.
+* The `VirtOperatorRESTErrorsHigh` alert is link:https://github.com/openshift/runbooks/blob/master/alerts/openshift-virtualization-operator/VirtOperatorRESTErrorsHigh.md[deprecated].
 
 [id="virt-runbook-virtualmachinecrcerrors_{context}"]
 == VirtualMachineCRCErrors
