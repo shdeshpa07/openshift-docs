@@ -56,6 +56,13 @@ include::modules/cnf-sample-single-numa-policy-from-pp.adoc[leveloffset=+2]
 
 include::modules/cnf-configuring-kubelet-nro.adoc[leveloffset=+2]
 
+////
+[role="_additional-resources"]
+.Additional resources
+
+* ../../scalability_and_performance/cnf-tuning-low-latency-nodes-with-perf-profile.adoc#cnf-create-performance-profiles_cnf-tuning-low-latency-nodes-with-perf-profile[Creating a performance profile]
+////
+
 include::modules/cnf-scheduling-numa-aware-workloads.adoc[leveloffset=+2]
 
 include::modules/cnf-configuring-node-groups-for-the-numaresourcesoperator.adoc[leveloffset=+1]
