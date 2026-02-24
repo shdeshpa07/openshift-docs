@@ -293,7 +293,7 @@ a|* 64-bit x86: General Availability
 * ARM64: Not available
 * s390x: Not available
 * ppc64le: Not available
-a|* 64-bit x86: Not available
+a|* 64-bit x86: General Availability
 * ARM64: Not available
 * s390x: General Availability
 
@@ -302,7 +302,7 @@ a|* 64-bit x86: General Availability
 * ARM64: Not available
 * s390x: Not available
 * ppc64le: Not available
-a|* 64-bit x86: Not available
+a|* 64-bit x86: General Availability
 * ARM64: Not available
 * s390x: General Availability
 * ppc64le: Not available
@@ -312,7 +312,7 @@ a|* 64-bit x86: General Availability
 * ARM64: Not available
 * s390x: Not available
 * ppc64le: Not available
-a|* 64-bit x86: Not available
+a|* 64-bit x86: General Availability
 * ARM64: Not available
 * s390x: General Availability
 * ppc64le: Not available
