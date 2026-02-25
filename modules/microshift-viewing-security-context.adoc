@@ -6,7 +6,8 @@
 [id="microshift-viewing-security-context_{context}"]
 = Viewing security context constraints in a namespace
 
-You can view the security context constraints (SCC) permissions in a given namespace.
+[role="_abstract"]
+You can view and check the security context constraints (SCC) permissions in a given namespace using the OpenShift CLI (`oc`).
 
 .Prerequisites
 
@@ -18,5 +19,5 @@ You can view the security context constraints (SCC) permissions in a given names
 +
 [source,terminal]
 ----
-oc get --show-labels namespace <namespace>
+$ oc get --show-labels namespace <namespace>
 ----
