@@ -6,7 +6,8 @@
 [id="microshift-applying-manifests-example_{context}"]
 = Using manifests example
 
-This example demonstrates automatic deployment of a BusyBox container by using `kustomize` manifests in the `/etc/microshift/manifests` directory.
+[role="_abstract"]
+You can automatically deploy a BusyBox container on {microshift-short} by using `kustomize` manifests in the `/etc/microshift/manifests` directory.
 
 .Procedure
 . Create the BusyBox manifest files by running the following commands:

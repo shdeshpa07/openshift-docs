@@ -6,10 +6,17 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
-Pod security admission is an implementation of the link:https://kubernetes.io/docs/concepts/security/pod-security-standards/[Kubernetes pod security standards]. Use security content constraints (SCC) for pod security admission to restrict pod behavior.
+[role="_abstract"]
+Pod security admission is an implementation of the Kubernetes pod security standards. Use security content constraints (SCC) for pod security admission to restrict pod behavior.
 
 include::modules/microshift-security-context-constraints.adoc[leveloffset=+1]
 
-include::modules/microshift-viewing-security-context.adoc[leveloffset=+2]
+[role="_additional-resources"]
+.Additional resources
+* link:https://kubernetes.io/docs/concepts/security/pod-security-standards/[Kubernetes pod security]
+
+* link:https://kubernetes.io/docs/concepts/security/pod-security-admission/[Kubernetes pod security admission]
+
+include::modules/microshift-viewing-security-context.adoc[leveloffset=+1]
 
 include::modules/microshift-security-context-constraints-opting.adoc[leveloffset=+1]
