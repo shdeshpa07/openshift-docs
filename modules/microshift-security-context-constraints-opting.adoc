@@ -6,9 +6,10 @@
 [id="microshift-security-context-constraints-opting_{context}"]
 = Controlling pod security admission synchronization
 
+[role="_abstract"]
 You can enable automatic pod security admission synchronization for most namespaces.
 
-System defaults are not enforced when the `security.openshift.io/scc.podSecurityLabelSync` field is empty or set to `false`. You must set the label to `true` for synchronization to occur.
+System defaults are not enforced when the `security.openshift.io/scc.podSecurityLabelSync` field is empty or set to `false`. You must set the label to `true` for synchronization to occur. You can use the `--overwrite` flag to reverse the effects of the pod security label synchronization in a namespace.
 
 [IMPORTANT]
 ====
@@ -28,13 +29,8 @@ If an Operator is installed in a user-created `openshift-*` namespace, synchroni
 .Procedure
 
 * To enable pod security admission label synchronization in a namespace, set the value of the `security.openshift.io/scc.podSecurityLabelSync` label to `true` by running the following command:
-
++
 [source,terminal]
 ----
 $ oc label namespace <namespace> security.openshift.io/scc.podSecurityLabelSync=true
 ----
-
-[NOTE]
-====
-You can use the --overwrite flag to reverse the effects of the pod security label synchronization in a namespace.
-====
