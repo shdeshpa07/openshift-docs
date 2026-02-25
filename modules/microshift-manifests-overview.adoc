@@ -6,6 +6,7 @@
 [id="microshift-manifests-overview_{context}"]
 = How Kustomize works with manifests to deploy applications
 
+[role="_abstract"]
 The `kustomize` configuration management tool is integrated with {microshift-short}. You can use Kustomize and the {oc-first} together to apply customizations to your application manifests and deploy those applications to a {microshift-short} node.
 
 * A `kustomization.yaml` file is a specification of resources plus customizations.
