@@ -1,0 +1,47 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-18-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-18-34_{context}"]
+= RHSA-2026:2977 - {product-title} {product-version}.34 image release, fixed issues, and security update
+
+[role="_abstract"]
+Issued: 25 February 2026
+
+{product-title} release {product-version}.34 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:2977[RHSA-2026:2977] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:2975[RHSA-2026:2975] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.18.34 --pullspecs
+----
+
+[id="zstream-4-18-34-fixed-issues_{context}"]
+== Fixed issues
+
+The following issues are fixed for this release:
+
+* Before this update, the `systemd` use in the container entry point prevented the `ConfigMap` mount from working correctly, which caused broken file permissions. As a consequence, users could not access config files due to the broken file permissions in the containers. With this release, the `systemd` entry point issue is resolved, which allows the config map mount with the correct file permissions. As a result, the file permissions are correct for the containers. (link:https://issues.redhat.com/browse/OCPBUGS-69672[OCPBUGS-69672])
+
+* Before this update, clusters using `localnet` IPAM-less topologies had the Label Switched Paths (LSPs) removed during the upgrade process. This removal caused connectivity disruptions and potential data loss for traffic that relied on those specific network paths. With this release, the upgrade logic is adjusted to ensure that LSP configurations are preserved and remain intact throughout the transition. As a result, consistent network stability and path persistence occur without the risk of accidental removal. (link:https://issues.redhat.com/browse/OCPBUGS-74270[OCPBUGS-74270])
+
+* Before this update, {gcp-first} installations failed due to unspecified zones in the `us-south1` and `us-central1` regions, which caused installation issues. With this release, the GCP installer requires that you specify zones in `install-config` for regions with AI zones. As a result, {gcp-short} installations do not fail in these specified regions. (link:https://issues.redhat.com/browse/OCPBUGS-74676[OCPBUGS-74676])
+
+* Before this update, the agent-based installer set the `root=/dev/disk/by-label/dm-mpath-root` kernel argument when installing to a multipath Fibre Channel volume. However, the filesystem labels were truncated to 12 characters in the `xfs` parameter. As a consequence, after an installation to an encrypted multipath Fibre Channel volume, the hosts did not boot successfully because the root volume could not be found. With this release, the kernel argument is removed because it is unnecessary. As a result, the hosts boot successfully after installation. (link:https://issues.redhat.com/browse/OCPBUGS-74911[OCPBUGS-74911])
+
+* Before this update, the deletion sequence attempted to remove machine instances while their primary network interface cards (NICs) were still attached, which conflicted with environments that enforced strict policies against deleting a primary NIC on an active server. This action created a circular dependency that caused machine deletions to fail or hang indefinitely. With this release, the order of deletion for machines and ports is corrected to ensure that resources are decommissioned in the proper sequence. As a result, machines can now be successfully deleted even in restricted environments, which ensures reliable resource cleanup and adheres to local security policies. (link:https://issues.redhat.com/browse/OCPBUGS-74986[OCPBUGS-74986])
+
+* Before this update, rounding errors occurred when the Vertical Pod Autoscaler (VPA) Recommender loaded histograms from checkpoints after a restart. As a consequence, the VPA Recommender produced invalid memory recommendations with a value of `0`, which might have caused pods to receive insufficient resources and to fail to perform correctly. With this release, the logic for loading histogram data is corrected to eliminate these rounding errors. As a result, the VPA Recommender consistently provides accurate memory recommendations even after a restart, which ensures the stability and proper scaling of managed workloads. (link:https://issues.redhat.com/browse/OCPBUGS-75925[OCPBUGS-75925])
+
+* Before this update, static pod manifests for control plane components lacked explicit priority values, which caused the `kubelet` to treat them as low-priority during graceful node shutdowns. As a consequence, on {sno}, control plane components terminated immediately, which led to extended shutdown times, forced terminations, and the potential for storage corruption. With this release, explicit priority values are added to the control plane static pod manifests, which ensures that these components remain available during a graceful shutdown until all workload pods have terminated. As a result, storage corruption is prevented and the shutdown process is cleaner. (link:https://issues.redhat.com/browse/OCPBUGS-76284[OCPBUGS-76284]) 
+
+* Before this update, the `collect-profiles` job in {olmv0-first} periodically used CPU and disk space. With this release, the `collect-profiles` job is removed from {olmv0}, which reduces the periodic CPU and disk utilization caused by the job process. (link:https://issues.redhat.com/browse/OCPBUGS-76924[OCPBUGS-76924])
+
+[id="zstream-4-18-34-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.18 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
