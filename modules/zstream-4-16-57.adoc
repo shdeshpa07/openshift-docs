@@ -6,10 +6,10 @@
 [id="zstream-4-16-57_{context}"]
 = RHSA-2026:2661 - {product-title} {product-version}.57 fixed issues and security updates
 
-[role="_abstract"]
 Issued: 18 February 2026
 
-{product-title} release {product-version}.57 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:2661[RHSA-2026:2661] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:2658[RHSA-2026:2658] advisory.
+[role="_abstract"]
+{product-title} release {product-version}.57 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:2661[RHSA-2026:2661] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:2658[RHSA-2026:2658] advisory.
 
 Space precluded documenting all of the container images for this release in the advisory.
 
@@ -23,7 +23,7 @@ $ oc adm release info 4.16.57 --pullspecs
 [id="zstream-4-16-57-fixed-issues_{context}"]
 == Fixed issues
 
-The following issues are fixed for this release:
+
 
 * Before this update, a bug in the `oc adm inspect --all-namespaces` command construction prevented the `must-gather` utility from correctly gathering information about leases, `csistoragecapacities` resources, and the `assisted-installer` namespace. With this release, the `must-gather` utility gathers the information correctly. (link:https://issues.redhat.com/browse/OCPBUGS-66106[OCPBUGS-66106])
 
@@ -33,4 +33,5 @@ The following issues are fixed for this release:
 
 [id="zstream-4-16-57-updating_{context}"]
 == Updating
+
 To update an {product-title} 4.16 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].

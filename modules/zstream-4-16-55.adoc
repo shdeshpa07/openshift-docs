@@ -1,0 +1,29 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-16-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-16-55-about_{context}"]
+= RHSA-2026:0327 - {product-title} {product-version}.55 fixed issues and security update advisory
+
+Issued: 15 January 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.55 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:0327[RHSA-2026:0327] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:0418[RHSA-2026:0418] advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.16.55 --pullspecs
+----
+
+[id="zstream-4-16-55-enhancements_{context}"]
+== Enhancements
+
+* You can now use the `PerformanceProfile` custom resource to configure worker nodes on machines equipped with Intel Sierra Forest or AMD Turin CPUs, which are supported when configured with a single NUMA domain (NPS=1).
+
+[id="zstream-4-16-55-updating_{context}"]
+== Updating
+
+To update an existing {product-title} {product-version} cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
