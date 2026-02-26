@@ -6,6 +6,7 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 You can control {microshift-short} audit log file rotation and retention by using configuration values.
 
 include::modules/microshift-audit-logs-config-intro.adoc[leveloffset=+1]
