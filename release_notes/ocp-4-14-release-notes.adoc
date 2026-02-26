@@ -3407,32 +3407,19 @@ The impact is on East/West traffic in local gateway mode with `routingViaHost` s
 
 * There is a known issue with HAProxy in {product-title} {product-version} involving applications that send invalid `Transfer-Encoding` headers. This issue results in losing external access to pods when they expose a route that sends these invalid headers. For more details, see the information in this link:https://access.redhat.com/solutions/7055002[Red Hat Knowledgebase article]. (link:https://issues.redhat.com/browse/OCPBUGS-43095[OCPBUGS-43095])
 
-[id="ocp-4-14-asynchronous-errata-updates"]
-== Asynchronous errata updates
+// 4.14.62 about async
+include::modules/rn-async-errata.adoc[leveloffset=+1]
 
-Security, bug fix, and enhancement updates for {product-title} {product-version} are released as asynchronous errata through the Red Hat Network. All {product-title} {product-version} errata is https://access.redhat.com/downloads/content/290/[available on the Red Hat Customer Portal]. See the https://access.redhat.com/support/policy/updates/openshift[{product-title} Life Cycle] for more information about asynchronous errata.
+// 4.18.34 Rns and updating
+include::modules/zstream-4-14-62.adoc[leveloffset=+2]
 
-Red Hat Customer Portal users can enable errata notifications in the account settings for Red Hat Subscription Management (RHSM). When errata notifications are enabled, users are notified through email whenever new errata relevant to their registered systems are released.
-
-[NOTE]
-====
-Red Hat Customer Portal user accounts must have systems registered and consuming {product-title} entitlements for {product-title} errata notification emails to generate.
-====
-
-This section will continue to be updated over time to provide notes on enhancements and bug fixes for future asynchronous errata releases of {product-title} {product-version}. Versioned asynchronous releases, for example with the form {product-title} {product-version}.z, will be detailed in subsections. In addition, releases in which the errata text cannot fit in the space provided by the advisory will be detailed in subsections that follow.
-
-[IMPORTANT]
-====
-For any {product-title} release, always review the instructions on xref:../updating/updating_a_cluster/updating-cluster-web-console.adoc#updating-cluster-web-console[updating your cluster] properly.
-====
-
-//4.14.60 about
+//4.14.61 about
 include::modules/zstream-4-14-61-about.adoc[leveloffset=+2]
 
-//4.14.60 bug fixes
+//4.14.61 bug fixes
 include::modules/zstream-4-14-61-bug-fixes.adoc[leveloffset=+3]
 
-//4.14.60 updating
+//4.14.61 updating
 include::modules/zstream-4-14-61-updating.adoc[leveloffset=+3]
 
 //4.14.60 about
