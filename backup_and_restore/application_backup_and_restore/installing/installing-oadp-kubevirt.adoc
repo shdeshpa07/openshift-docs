@@ -49,12 +49,10 @@ include::modules/oadp-backup-single-vm.adoc[leveloffset=+1]
 
 include::modules/oadp-restore-single-vm.adoc[leveloffset=+1]
 
-:leveloffset: 0
 include::modules/oadp-restore-single-vm-from-multiple-vm-backup.adoc[leveloffset=+1]
 
 include::modules/oadp-configuring-client-burst-qps.adoc[leveloffset=+1]
 
-:leveloffset: 0
 include::modules/oadp-configuring-imagepullpolicy.adoc[leveloffset=+1]
 
 include::modules/oadp-incremental-backup-support.adoc[leveloffset=+1]
