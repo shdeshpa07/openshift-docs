@@ -6,6 +6,7 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 Use the ingress controller options in the {microshift-short} configuration file to make pods and services accessible outside the node.
 
 include::modules/microshift-ingress-controller-conc.adoc[leveloffset=+1]
@@ -17,4 +18,4 @@ include::modules/microshift-ingress-controller-config.adoc[leveloffset=+1]
 == Additional resources
 
 //* xref:../microshift_configuring/microshift-config-snippets.adoc#microshift-config-snippets[Using configuration snippets]
-* link:https://docs.openshift.com/container-platform/4.17/networking/networking_operators/ingress-operator.html#nw-http2-haproxy_configuring-ingress[Enabling HTTP/2 Ingress connectivity] ({OCP} documentation)
+* link:https://docs.openshift.com/container-platform/4.17/networking/networking_operators/ingress-operator.html#nw-http2-haproxy_configuring-ingress[Enabling HTTP/2 Ingress connectivity ({OCP} documentation)]
