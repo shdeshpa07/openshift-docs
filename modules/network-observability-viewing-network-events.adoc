@@ -43,13 +43,16 @@ spec:
    agent:
     type: eBPF
     ebpf:
-  #   sampling: 1       <1>
-      privileged: true  <2>
+  #   sampling: 1
+      privileged: true
       features:
        - "NetworkEvents"
 ----
-<1> Optional: The `sampling` parameter is set to a value of 1 so that all network events are captured. If sampling `1` is too resource heavy, set sampling to something more appropriate for your needs.
-<2> The `privileged` parameter is set to `true` because the `OVN observability` library needs to access local Open vSwitch (OVS) socket and OpenShift Virtual Network (OVN) databases.
++
+where:
+
+`spec.agent.ebpf.sampling`:: Specifies the sampling rate for network events. Set to a value of `1` to capture all network events. If the sampling `1` is too resource heavy, set sampling to something more appropriate for your needs. This value is optional.
+`spec.agent.ebpf.privileged`:: Specifies whether the eBPF agent runs in privileged mode. Set to `true` because the OVN observability library needs to access local Open vSwitch (OVS) socket and Open Virtual Network (OVN) databases.
 
 .Verification
 . Navigate to the *Network Traffic* view and select the *Traffic flows* table.
