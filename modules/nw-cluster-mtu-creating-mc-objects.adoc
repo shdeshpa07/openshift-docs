@@ -6,7 +6,8 @@
 [id="nw-cluster-mtu-creating-mc-objects_{context}"]
 = Creating MachineConfig objects
 
-Use the following procedure to create the `MachineConfig` objects.
+[role="_abstract"]
+To prepare your nodes for a hardware MTU change, you must create `MachineConfig` objects for both control plane and compute nodes. Creating these objects ensures that the updated network interface settings are ready for deployment without causing immediate cluster instability.
 
 .Procedure
 
@@ -29,13 +30,18 @@ metadata:
     machineconfiguration.openshift.io/role: master
 storage:
   files:
-    - path: /etc/NetworkManager/conf.d/99-<interface>-mtu.conf <1>
+    - path: /etc/NetworkManager/conf.d/99-<interface>-mtu.conf
       contents:
-        local: <interface>-mtu.conf <2>
+        local: <interface>-mtu.conf
       mode: 0600
 ----
-<1> Specifies the `NetworkManager` connection name for the primary network interface.
-<2> Specifies the local filename for the updated `NetworkManager` configuration file from an earlier step.
++
+where:
++
+--
+`storage.files.path`:: Specifies the `NetworkManager` connection name for the primary network interface.
+`storage.files.local`:: Specifies the local filename for the updated `NetworkManager` configuration file from an earlier step.
+--
 
 .. Create the following Butane config in the `worker-interface.bu` file:
 +
@@ -54,13 +60,18 @@ metadata:
     machineconfiguration.openshift.io/role: worker
 storage:
   files:
-    - path: /etc/NetworkManager/conf.d/99-<interface>-mtu.conf <1>
+    - path: /etc/NetworkManager/conf.d/99-<interface>-mtu.conf
       contents:
-        local: <interface>-mtu.conf <2>
+        local: <interface>-mtu.conf
       mode: 0600
 ----
-<1> Specifies the `NetworkManager` connection name for the primary network interface.
-<2> Specifies the local filename for the updated `NetworkManager` configuration file from an earlier step.
++
+where:
++
+--
+`storage.files.path`:: Specifies the `NetworkManager` connection name for the primary network interface.
+`storage.files.local`:: Specifies the local filename for the updated `NetworkManager` configuration file from an earlier step.
+--
 
 . Create `MachineConfig` objects from the Butane configs by running the following command:
 +
