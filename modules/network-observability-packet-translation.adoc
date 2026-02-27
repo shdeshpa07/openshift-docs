@@ -31,9 +31,10 @@ spec:
     type: eBPF
     ebpf:
       features:
-       - PacketTranslation   <1>
+       - PacketTranslation
 ----
-<1> You can start enriching network flows with translated packet information by listing the `PacketTranslation` parameter in the `spec.agent.ebpf.features` specification list.
++
+** You can start enriching network flows with translated packet information by listing the `PacketTranslation` parameter in the `spec.agent.ebpf.features` specification list.
 +
 . Refresh the *Network Traffic* page to filter for information about translated packets:
 .. Filter the network flow data based on *Destination kind: Service*.

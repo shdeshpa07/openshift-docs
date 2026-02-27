@@ -9,10 +9,10 @@
 [role="_abstract"]
 Configure the `FlowCollector` resource to use Kafka for high-throughput and low-latency data feeds.
 
-A Kafka instance needs to be running, and a Kafka topic dedicated to {product-title} Network Observability must be created in that instance. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.7/html/using_amq_streams_on_openshift/using-the-topic-operator-str[Kafka documentation with AMQ Streams].
+You must have a running Kafka instance and create a Kafka topic in that instance dedicated to {product-title} Network Observability. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.7/html/using_amq_streams_on_openshift/using-the-topic-operator-str[Kafka documentation with AMQ Streams].
 
 .Prerequisites
-* Kafka is installed. Red Hat supports Kafka with AMQ Streams Operator.
+* You have installed Kafka. Red{nbsp}Hat supports Kafka with AMQ Streams Operator.
 
 .Procedure
 . In the web console, navigate to *Ecosystem* -> *Installed Operators*.
@@ -21,7 +21,7 @@ A Kafka instance needs to be running, and a Kafka topic dedicated to {product-ti
 
 . Select the cluster and then click the *YAML* tab.
 
-. Modify the `FlowCollector` resource for {product-title} Network Observability Operator to use Kafka, as shown in the following sample YAML:
+. Change the `FlowCollector` resource for {product-title} Network Observability Operator to use Kafka, as shown in the following sample YAML:
 +
 .Sample Kafka configuration in `FlowCollector` resource
 [source, yaml]
@@ -31,14 +31,18 @@ kind: FlowCollector
 metadata:
   name: cluster
 spec:
-  deploymentModel: Kafka                                    <1>
+  deploymentModel: Kafka
   kafka:
-    address: "kafka-cluster-kafka-bootstrap.netobserv"      <2>
-    topic: network-flows                                    <3>
+    address: "kafka-cluster-kafka-bootstrap.netobserv"
+    topic: network-flows
     tls:
-      enable: false                                         <4>
+      enable: false
 ----
-<1> Set `spec.deploymentModel` to `Kafka` instead of `Direct` to enable the Kafka deployment model.
-<2> `spec.kafka.address` refers to the Kafka bootstrap server address. You can specify a port if needed, for instance `kafka-cluster-kafka-bootstrap.netobserv:9093` for using TLS on port 9093.
-<3> `spec.kafka.topic` should match the name of a topic created in Kafka.
-<4> `spec.kafka.tls` can be used to encrypt all communications to and from Kafka with TLS or mTLS. When enabled, the Kafka CA certificate must be available as a ConfigMap or a Secret, both in the namespace where the `flowlogs-pipeline` processor component is deployed (default: `netobserv`) and where the eBPF agents are deployed (default: `netobserv-privileged`). It must be referenced with `spec.kafka.tls.caCert`. When using mTLS, client secrets must be available in these namespaces as well (they can be generated for instance using the AMQ Streams User Operator) and referenced with `spec.kafka.tls.userCert`.
++
+where:
+
+`spec.deploymentModel`:: Specifies the deployment model. Set to `Kafka` instead of `Service`
+to enable the Kafka deployment model.
+`spec.kafka.address`:: Specifies the Kafka bootstrap server address. You can specify a port if needed, for instance `kafka-cluster-kafka-bootstrap.netobserv:9093` for using TLS on port 9093.
+`spec.kafka.topic`:: Specifies the name of the topic created in Kafka. It should match the name of a topic created in Kafka.
+`spec.kafka.tls`:: Specifies communication encryption. Use this setting to encrypt all communications to and from Kafka with TLS or mTLS. When enabled, the Kafka CA certificate must be available as a ConfigMap or a Secret in both namespaces: the namespace where you deploy the `flowlogs-pipeline` processor component (default: `netobserv`) and the namespace where you deploy the eBPF agents (default: `netobserv-privileged`). Reference the certificate by using `spec.kafka.tls.caCert`. When you use mTLS, make the client secrets available in these namespaces as well. You can generate the secrets by using the Red Hat AMQ Streams User Operator. Reference the secrets by using `spec.kafka.tls.userCert`.
