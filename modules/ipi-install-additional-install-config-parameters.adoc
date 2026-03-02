@@ -22,7 +22,12 @@ and the `bmc` parameter for the `install-config.yaml` file.
 
 | `bootMode`
 | `UEFI`
-| The boot mode for a node. Options are `legacy`, `UEFI`, and `UEFISecureBoot`. If `bootMode` is not set, Ironic sets it while inspecting the node.
+a| The boot mode for a node. Options are `legacy`, `UEFI`, and `UEFISecureBoot`. If `bootMode` is not set, Ironic sets it while inspecting the node.
+
+[NOTE]
+====
+For hardware that implements `BootMode` read-only, such as HP or Cisco, do not leave this parameter blank. You must manually set the system to UEFI mode before installation and explicitly set this parameter to UEFI.
+====
 
 | `bootstrapExternalStaticDNS`
 |
@@ -233,3 +238,4 @@ You must provide a valid MAC address from the host if you disabled the provision
 | Set this optional parameter to configure the network interface of a host. See "(Optional) Configuring host network interfaces" for additional details.
 
 |===
+
