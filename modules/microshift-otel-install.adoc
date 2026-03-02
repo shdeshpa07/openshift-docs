@@ -37,5 +37,5 @@ $ sudo systemctl start microshift-observability
 ----
 $ sudo systemctl restart microshift-observability
 ----
-
++
 The installation is successful if there is no output after you start the `microshift-observability` RPM.

@@ -6,7 +6,10 @@
 [id="microshift-greenboot-how-workload-health-checks-work_{context}"]
 = How workload health checks work
 
-Greenboot health checks are helpful on edge devices where direct serviceability is either limited or non-existent. You can use greenboot health checks to assess the health of your workloads and applications. These additional health checks are useful for software problem detection and automatic system rollbacks.
+[role="_abstract"]
+You can use greenboot health checks to assess the health of your workloads and applications. You can also write your own health check scripts for your applications. Greenboot health checks are helpful on edge devices where direct serviceability is either limited or non-existent.
+
+These additional health checks are useful for software problem detection and automatic system rollbacks.
 
 Workload or application health checks can use the {microshift-short} basic health check functions already implemented for the {microshift-short} core services. Creating your own comprehensive scripts for your applications is recommended. For example, you can write one that verifies that a service has started.
 
