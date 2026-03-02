@@ -92,7 +92,7 @@ This release adds new features and enhancements related to the following compone
 === Web console
 
 //CNV-50927: Disk resize from vm view
-* You can now xref:../../virt/managing_vms/virtual_disks/virt-expanding-vm-disks.adoc#virt-expanding-vm-disk-pvc_virt-expanding-vm-disks[increase the size of the persistent volume claim (PVC) of a VM disk in the web console] without leaving the *VirtualMachines* page and with the VM running.
+* You can now xref:../../virt/managing_vms/virtual_disks/virt-expanding-vm-disks.adoc#virt-expanding-vm-disk-pvc-web-console_virt-expanding-vm-disks[increase the size of the persistent volume claim (PVC) of a VM disk in the web console] without leaving the *VirtualMachines* page and with the VM running.
 
 //CNV-51079: Release note: NEW bulk vm operations
 * You can now xref:../../virt/managing_vms/virt-controlling-vm-states.adoc#virt-controlling-multiple-vms-web_virt-controlling-vm-states[control the state of multiple virtual machines] from the {product-title} web console.
