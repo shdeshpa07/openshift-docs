@@ -1,3 +1,4 @@
+
 :_mod-docs-content-type: ASSEMBLY
 include::_attributes/common-attributes.adoc[]
 [id="hcp-deploy-aws"]
@@ -57,10 +58,6 @@ include::modules/hcp-aws-deploy-hc.adoc[leveloffset=+1]
 * xref:../../hosted_control_planes/hcp-deploy/hcp-deploy-aws.adoc#hcp-enable-arm-amd_hcp-deploy-aws[Running hosted clusters on an ARM64 architecture]
 
 include::modules/hcp-access-hc-aws.adoc[leveloffset=+1]
-
-include::modules/hcp-access-pub-hc-aws.adoc[leveloffset=+2]
-
-include::modules/hcp-access-pub-hc-aws-cli.adoc[leveloffset=+2]
 
 include::modules/hcp-custom-cert.adoc[leveloffset=+1]
 
