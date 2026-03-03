@@ -42,6 +42,11 @@ include::modules/cnf-scheduling-numa-aware-workloads-overview.adoc[leveloffset=+
 
 include::modules/cnf-creating-nrop-cr.adoc[leveloffset=+2]
 
+[role="_additional-resources"]
+.Additional resources
+
+* xref:../scalability_and_performance/cnf-tuning-low-latency-nodes-with-perf-profile.adoc#cnf-create-performance-profiles_cnf-tuning-low-latency-nodes-with-perf-profile[Creating a performance profile]
+
 include::modules/cnf-deploying-the-numa-aware-scheduler.adoc[leveloffset=+2]
 
 .Additional resources
