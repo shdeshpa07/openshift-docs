@@ -6,7 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-You can delete a specific machine.
+[role="_abstract"]
+If you need to remove a machine from your cluster, you can delete a specific machine. If the machine is part of a machine set, deleting the machine can help troubleshoot and resolve unhealthy nodes and other technical issues.
 
 //Deleting a specific machine
 include::modules/machine-delete.adoc[leveloffset=+1]
