@@ -6,7 +6,8 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
-You can encrypt connections by using custom certificate authorities (CAs) with the {microshift-short} service.
+[role="_abstract"]
+You can allow and encrypt connections with external clients by replacing the {microshift-short} default API server certificate with a custom server certificate issued by a certificate authority (CA).
 
 include::modules/microshift-custom-ca-con.adoc[leveloffset=+1]
 
