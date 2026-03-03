@@ -9,7 +9,10 @@
 [id="machine-lifecycle-hook-deletion_{context}"]
 = Lifecycle hooks for the machine deletion phase
 
-Machine lifecycle hooks are points in the reconciliation lifecycle of a machine where the normal lifecycle process can be interrupted. In the machine `Deleting` phase, these interruptions provide the opportunity for components to modify the machine deletion process.
+[role="_abstract"]
+You can use lifecycle hooks to modify the process of machine deletion. Machine lifecycle hooks are points in the reconciliation lifecycle of a machine where the normal lifecycle process can be interrupted.
+
+For example, you might use a `preDrain` lifecycle hook to maintain etcd quorum when deleting a control plane machine.
 
 [id="machine-lifecycle-hook-deletion-terms_{context}"]
 == Terminology and definitions
