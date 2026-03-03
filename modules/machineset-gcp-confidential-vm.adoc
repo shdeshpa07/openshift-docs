@@ -47,6 +47,8 @@ ifdef::cpmso[]
 apiVersion: machine.openshift.io/v1
 kind: ControlPlaneMachineSet
 # ...
+spec:
+  template:
     machines_v1beta1_machine_openshift_io:
       spec:
         providerSpec:
@@ -61,52 +63,26 @@ endif::cpmso[]
 where:
 +
 ifndef::cpmso[]
-`spec.template.spec.providerSpec.value.confidentialCompute`:: Specifies whether Confidential VM is enabled.
-The following values are valid:
-`Enabled`:: Enables Confidential VM with a default selection of Confidential VM technology. The default selection is AMD Secure Encrypted Virtualization (AMD SEV).
-+
-[IMPORTANT]
-====
-The `Enabled` value selects Confidential Computing with AMD Secure Encrypted Virtualization (AMD SEV), which is deprecated.
-====
-`Disabled`:: Disables Confidential VM.
-`AMDEncryptedVirtualizationNestedPaging`:: Enables Confidential VM using AMD Secure Encrypted Virtualization Secure Nested Paging (AMD SEV-SNP). AMD SEV-SNP supports n2d machines.
-`AMDEncryptedVirtualization`:: Enables Confidential VM using AMD SEV. AMD SEV supports c2d, n2d, and c3d machines.
-+
-[IMPORTANT]
-====
-The use of Confidential Computing with AMD Secure Encrypted Virtualization (AMD SEV) has been deprecated and will be removed in a future release.
-====
-
-`IntelTrustedDomainExtensions`:: Enables Confidential VM using Intel Trusted Domain Extensions (Intel TDX). Intel TDX supports n2d machines.
-
-`spec.template.spec.providerSpec.value.onHostMaintenance`:: Specifies the behavior of the VM during a host maintenance event, such as a hardware or software update. For a machine that uses Confidential VM, this value must be set to `Terminate`, which stops the VM. Confidential VM does not support live VM migration.
-`spec.template.spec.providerSpec.value.machineType`:: Specifies a machine type that supports the Confidential VM option that you specified in the `confidentialCompute` field.
+`spec.template.spec.providerSpec.value.confidentialCompute`::
 endif::cpmso[]
-
 ifdef::cpmso[]
-`spec.template.machines_v1beta1_machine_openshift_io.spec.providerSpec.value.confidentialCompute`:: Specifies whether Confidential VM is enabled.
-The following values are valid:
-`Enabled`:: Enables Confidential VM with a default selection of Confidential VM technology. The default selection is AMD Secure Encrypted Virtualization (AMD SEV).
-+
-[IMPORTANT]
-====
-The `Enabled` value selects Confidential Computing with AMD Secure Encrypted Virtualization (AMD SEV), which is deprecated.
-====
-`Disabled`:: Disables Confidential VM.
-`AMDEncryptedVirtualizationNestedPaging`:: Enables Confidential VM using AMD Secure Encrypted Virtualization Secure Nested Paging (AMD SEV-SNP). AMD SEV-SNP supports n2d machines.
-`AMDEncryptedVirtualization`:: Enables Confidential VM using AMD SEV. AMD SEV supports c2d, n2d, and c3d machines.
-+
-[IMPORTANT]
-====
-The use of Confidential Computing with AMD Secure Encrypted Virtualization (AMD SEV) has been deprecated and will be removed in a future release.
-====
-
-`IntelTrustedDomainExtensions`:: Enables Confidential VM using Intel Trusted Domain Extensions (Intel TDX). Intel TDX supports n2d machines.
-
-`spec.template.machines_v1beta1_machine_openshift_io.spec.providerSpec.value.onHostMaintenance`:: Specifies the behavior of the VM during a host maintenance event, such as a hardware or software update. For a machine that uses Confidential VM, this value must be set to `Terminate`, which stops the VM. Confidential VM does not support live VM migration.
-`spec.template.machines_v1beta1_machine_openshift_io.spec.providerSpec.value.machineType`:: Specifies a machine type that supports the Confidential VM option that you specified in the `confidentialCompute` field.
+`spec.template.machines_v1beta1_machine_openshift_io.spec.providerSpec.value.confidentialCompute`::
 endif::cpmso[]
+Specifies whether Confidential VM is enabled. Valid values are `Disabled` or `Enabled`.
+ifndef::cpmso[]
+`spec.template.spec.providerSpec.value.onHostMaintenance`::
+endif::cpmso[]
+ifdef::cpmso[]
+`spec.template.machines_v1beta1_machine_openshift_io.spec.providerSpec.value.onHostMaintenance`::
+endif::cpmso[]
+Specifies the behavior of the VM during a host maintenance event, such as a hardware or software update. For a machine that uses Confidential VM, this value must be set to `Terminate`, which stops the VM. Confidential VM does not support live VM migration.
+ifndef::cpmso[]
+`spec.template.spec.providerSpec.value.machineType`::
+endif::cpmso[]
+ifdef::cpmso[]
+`spec.template.machines_v1beta1_machine_openshift_io.spec.providerSpec.value.machineType`::
+endif::cpmso[]
+Specifies a machine type that supports the Confidential VM option that you specified in the `confidentialCompute` field.
 
 .Verification
 
