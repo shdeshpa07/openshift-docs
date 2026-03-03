@@ -13,6 +13,8 @@ include::modules/microshift-ingress-controller-conc.adoc[leveloffset=+1]
 
 include::modules/microshift-ingress-controller-config.adoc[leveloffset=+1]
 
+include::modules/microshift-ingress-control-config-fields.adoc[leveloffset=+2]
+
 [id="additional-resources_microshift-ingress-controller"]
 [role="_additional-resources"]
 == Additional resources
