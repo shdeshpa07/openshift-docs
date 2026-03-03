@@ -32,7 +32,7 @@ If you have received a private offer for the product, make sure to proceed accor
 
 . Activate the {product-title} product at the link:https://console.aws.amazon.com/rosa/home[AWS console page] by clicking the *Get started* button:
 +
-.Get started 
+.Get started
 +
 image::rosa-get-started.png[]
 +
@@ -61,7 +61,7 @@ image::rosa-service-quota-4.png[]
 
 . If all the prerequisites are met, the page will look like this:
 +
-.Verify {product-title} prerequisites 
+.Verify {product-title} prerequisites
 +
 image::rosa-prereq-5.png[]
 +
@@ -79,7 +79,7 @@ image::rosa-continue-rh-6.png[]
 +
 [NOTE]
 ====
-Your AWS account must be linked to a single Red{nbsp}Hat organization. 
+Your AWS account must be linked to a single Red{nbsp}Hat organization.
 ====
 +
 .Log in to your Red{nbsp}Hat account
@@ -163,7 +163,7 @@ image::rosa-create-cli-billing-17.png[]
 ** If you select an AWS billing account that shows the _Contract enabled_ label, on-demand consumption rates are charged only after the capacity of your pre-paid contract is consumed.
 ** AWS accounts without the _Contract enabled_ label are charged the applicable on-demand consumption rates.
 
-.Additional resources 
+.Additional resources
 
 ifdef::openshift-rosa-hcp[]
 * The detailed cluster deployment steps are beyond the scope of this tutorial. See xref:../rosa_hcp/rosa-hcp-sts-creating-a-cluster-quickly.adoc#rosa-hcp-sts-creating-a-cluster-quickly[Creating {product-title} clusters using the default options] for more details about how to complete the {product-title} cluster deployment using the CLI.
@@ -182,7 +182,7 @@ image::rosa-deploy-ui-19.png[]
 +
 [NOTE]
 ====
-Complete the prerequisites before starting the web console deployment process. 
+Complete the prerequisites before starting the web console deployment process.
 
 The `rosa` CLI is required for certain tasks, such as creating the account roles. If you are deploying {product-title} for the first time, follow this the CLI steps until running the `rosa whoami` command, before starting the web console deployment steps.
 ====
@@ -217,7 +217,8 @@ image::rosa-ui-billing-22.png[]
 
 The following steps past the billing AWS account selection are beyond the scope of this tutorial.
 
+[role="_additional-resources"]
 .Additional resources
 
-* For information on using the CLI to create a cluster, see xref:../rosa_hcp/rosa-hcp-sts-creating-a-cluster-quickly.adoc#rosa-hcp-sts-creating-a-cluster-cli_rosa-hcp-sts-creating-a-cluster-quickly[Creating a {product-title} cluster using the CLI].
-* See link:https://cloud.redhat.com/learning/learn:getting-started-red-hat-openshift-service-aws-rosa/resource/resources:how-deploy-cluster-red-hat-openshift-service-aws-using-console-ui[this learning path] for more details on how to complete cluster deployment using the web console.
+* xref:../rosa_hcp/rosa-hcp-sts-creating-a-cluster-quickly.adoc#rosa-hcp-sts-creating-a-cluster-cli_rosa-hcp-sts-creating-a-cluster-quickly[Creating a {product-title} cluster using the CLI]
+* link:https://cloud.redhat.com/learning/learn:getting-started-red-hat-openshift-service-aws-rosa/resource/resources:how-deploy-cluster-red-hat-openshift-service-aws-using-console-ui[Getting started with Red Hat OpenShift Service on AWS learning path]
