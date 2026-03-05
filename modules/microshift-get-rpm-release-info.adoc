@@ -56,7 +56,7 @@ Replace `_<release_version>_` with the numerical value of the release you are de
 [subs="+quotes"]
 [source,terminal]
 ----
-microshift-release-info-4.16.0.-202311101230.p0.g7dc6a00.assembly.4.16.0.el9.noarch.rpm # <1>
+microshift-release-info-4.16.0.-202311101230.p0.g7dc6a00.assembly.4.16.0.el9.noarch.rpm
 ----
 +
 Your output should contain the date and commit ID.
