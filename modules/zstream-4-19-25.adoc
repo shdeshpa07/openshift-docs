@@ -1,0 +1,37 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-20-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-19-25_{context}"]
+= RHBA-2026:3394 - {product-title} {product-version}.25 fixed issues and security update
+
+Issued: 04 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.25 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHBA-2026:3394[RHBA-2026:3394] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:3391[RHSA-2026:3391] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.19.25 --pullspecs
+----
+
+[id="zstream-4-19-25-fixed-issues_{context}"]
+== Fixed issues
+
+The following issues are fixed for this release:
+
+* Before this update, incorrect subnet was association with automatic v-net subnet creation. As a consequence, previously configured subnets were affected, leading to Azure installation failure. In this release, correct subnet assignment is done in pre-configured v-nets. As a result, the Azure installation issue is resolved. (link:https://issues.redhat.com/browse/OCPBUGS-73781[OCPBUGS-73781])
+
+* Before this update, CoreOS networking timeout occurred during automation of agent-based {product-title} installations on VLAN interfaces in bare metal environments. As a consequence, CoreOS nodes failed to automatically configure networking, preventing installation on bare metal systems. With this release, the `pre-network-manager-config` service timeout is increased, resolving the networking issue in {product-title} installations. As a result, during agent-based {product-title} installation, CoreOS nodes now automatically configure and start networking, eliminating the need for manual intervention. (link:https://issues.redhat.com/browse/OCPBUGS-74940[OCPBUGS-74940])
+
+* Before this update, the `collect-profiles` job was affected by maintenance difficulties, causing confusion for customers and support engineers during troubleshooting. With this release, the `collect-profiles` job is removed, improving user experience and reducing maintenance effort. (link:https://issues.redhat.com/browse/OCPBUGS-76587[OCPBUGS-76587])
+
+[id="zstream-4-19-25-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.19 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
