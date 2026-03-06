@@ -6,9 +6,12 @@
 [id="before-updating-ocp_{context}"]
 = Before updating the {product-title} cluster
 
-Before updating, consider the following:
+[role="_abstract"]
+Before updating your cluster, you must consider several factors in order to improve the chances of performing a successful update.
 
-* You have recently backed up etcd.
+Consider the following information:
+
+* Whether you have recently backed up etcd.
 
 * In `PodDisruptionBudget`, if `minAvailable` is set to `1`, the nodes are drained to apply pending machine configs that might block the eviction process. If several nodes are rebooted, all the pods might run on only one node, and the `PodDisruptionBudget` field can prevent the node drain.
 
@@ -17,3 +20,9 @@ Before updating, consider the following:
 * You must review administrator acknowledgement requests, take any recommended actions, and provide the acknowledgement when you are ready.
 
 * You can perform a partial update by updating the worker or custom pool nodes to accommodate the time it takes to update. You can pause and resume within the progress bar of each pool.
+
+[IMPORTANT]
+====
+* When an update is failing to complete, the Cluster Version Operator (CVO) reports the status of any blocking components while attempting to reconcile the update. Rolling your cluster back to a previous version is not supported. If your update is failing to complete, contact Red{nbsp}Hat support.
+* Using the `unsupportedConfigOverrides` section to modify the configuration of an Operator is unsupported and might block cluster updates. You must remove this setting before you can update your cluster.
+====
