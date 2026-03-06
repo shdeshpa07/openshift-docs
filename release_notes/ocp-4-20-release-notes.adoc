@@ -3026,7 +3026,7 @@ include::modules/zstream-4-20-14.adoc[leveloffset=+2]
 include::modules/zstream-4-20-13.adoc[leveloffset=+2]
 
 // 4-20-12 release notes enhancements
-include::modules/zstream-4-20-12.adoc[leveloffset=+3]
+include::modules/zstream-4-20-12.adoc[leveloffset=+2]
 
 // About 4-20-11 release notes
 include::modules/zstream-4-20-11.adoc[leveloffset=+2]

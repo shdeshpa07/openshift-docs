@@ -2,8 +2,7 @@
 //
 // * release_notes/ocp-4-20-release-notes.adoc
 
-
-:_mod-docs-content-type: CONCEPT
+:_mod-docs-content-type: REFERENCE
 [id="zstream-4-20-10-about_{context}"]
 = RHBA-2026:0370 - {product-title} {product-version}.10 fixed issues advisory
 
