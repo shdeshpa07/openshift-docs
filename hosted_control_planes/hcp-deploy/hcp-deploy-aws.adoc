@@ -17,12 +17,13 @@ include::modules/hcp-aws-prepare.adoc[leveloffset=+1]
 
 include::modules/hcp-aws-prereqs.adoc[leveloffset=+2]
 
-include::modules/hcp-access-hc-aws-hcpcli.adoc[leveloffset=+1]
-
 [role="_additional-resources"]
 .Additional resources
+
 * link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.12/html/clusters/cluster_mce_overview#ansible-config-hosted-cluster[Configuring Ansible Automation Platform jobs to run on hosted clusters]
+
 * link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.12/html/clusters/cluster_mce_overview#advanced-config-engine[Advanced configuration]
+
 * link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.12/html/clusters/cluster_mce_overview#enable-cim[Enabling the central infrastructure management service]
 
 * xref:../../hosted_control_planes/hcp-prepare/hcp-enable-disable.adoc#hcp-enable-manual_hcp-enable-disable[Manually enabling the {hcp} feature]
@@ -31,13 +32,13 @@ include::modules/hcp-access-hc-aws-hcpcli.adoc[leveloffset=+1]
 
 * xref:../../networking/networking_operators/sr-iov-operator/configuring-sriov-operator.adoc#sriov-operator-hosted-control-planes_configuring-sriov-operator[Deploying the SR-IOV Operator for {hcp}]
 
-include::modules/hcp-aws-create-secret-s3.adoc[leveloffset=+1]
+include::modules/hcp-aws-create-secret-s3.adoc[leveloffset=+2]
 
-include::modules/hcp-aws-create-public-zone.adoc[leveloffset=+1]
+include::modules/hcp-aws-create-public-zone.adoc[leveloffset=+2]
 
-include::modules/hcp-aws-create-role-sts-creds.adoc[leveloffset=+1]
+include::modules/hcp-aws-create-role-sts-creds.adoc[leveloffset=+2]
 
-include::modules/hcp-aws-enable-private-link.adoc[leveloffset=+1]
+include::modules/hcp-aws-enable-private-link.adoc[leveloffset=+2]
 
 include::modules/hcp-aws-enable-ext-dns.adoc[leveloffset=+1]
 
@@ -55,7 +56,7 @@ include::modules/hcp-aws-deploy-hc.adoc[leveloffset=+1]
 .Additional resources
 * xref:../../hosted_control_planes/hcp-deploy/hcp-deploy-aws.adoc#hcp-enable-arm-amd_hcp-deploy-aws[Running hosted clusters on an ARM64 architecture]
 
-include::modules/hcp-access-hc-aws.adoc[leveloffset=+2]
+include::modules/hcp-access-hc-aws.adoc[leveloffset=+1]
 
 include::modules/hcp-access-pub-hc-aws.adoc[leveloffset=+2]
 
