@@ -24,7 +24,7 @@ On an `rpm-ostree` system, {microshift-short} backs up and restores data automat
 
 . Manually restore {microshift-short} data by using the full file path of the backup you want to restore by running the following command:
 +
-[source,terminal]
+[source,terminal,subs="+quotes"]
 ----
 $ sudo microshift restore /var/lib/microshift-backups/_<manual_backup>_
 ----
@@ -45,7 +45,7 @@ $ sudo microshift restore /var/lib/microshift-backups/_<manual_backup>_
 
 . Optional. Manually restore data from a customized directory by using the full file path of the backup. Run the following command:
 +
-[source,terminal]
+[source,terminal,subs="+quotes"]
 ----
 $ sudo microshift restore /mnt/_<other_backups_location>_/_<another_manual_backup>_
 ----

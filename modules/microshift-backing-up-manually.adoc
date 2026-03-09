@@ -20,7 +20,7 @@ You can back up {microshift-short} data manually at any time. Back up your data 
 
 . Manually create a backup by using the parent directory and specifying a name, such as `/var/lib/microshift-backups/<my_manual_backup>`, by running the following command:
 +
-[source,terminal]
+[source,terminal,subs="+quotes"]
 ----
 $ sudo microshift backup /var/lib/microshift-backups/_<manual_backup>_
 ----
@@ -39,9 +39,9 @@ $ sudo microshift backup /var/lib/microshift-backups/_<manual_backup>_
 
 . Optional: Manually create a backup in a specific parent directory with a custom name by running the following command:
 +
-[source,terminal]
+[source,terminal,subs="+quotes"]
 ----
-$ sudo microshift backup /mnt/<other_backups_location>/<another_manual_backup>
+$ sudo microshift backup /mnt/_<other_backups_location>_/_<another_manual_backup>_
 ----
 +
 ** For `_<other_backups_location>_`, specify the directory that you want to use.
