@@ -1530,6 +1530,8 @@ Topics:
       File: configuring-master-interface
     - Name: Removing an additional network
       File: removing-additional-network
+    - Name: Enabling multi-networking for advanced use cases with CNI Plugin chaining
+      File: about-chaining
   - Name: About virtual routing and forwarding
     File: about-virtual-routing-and-forwarding
   - Name: Assigning a secondary network to a VRF
