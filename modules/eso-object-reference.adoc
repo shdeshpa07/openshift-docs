@@ -8,29 +8,25 @@
 
 The `ObjectReference` field refers to an object by its name, kind, and group.
 
-[cols="1,1,1,1,1",options="header"]
+[cols="1,1,1,1",options="header"]
 |===
 | Field
 | Type
 | Description
-| Default
 | Validation
 
 | `name`
 | _string_
 | `name` specifies the name of the resource being referred to.
-|
 | Required
 
 | `kind`
 | _string_
 | `kind` specifies the kind of the resource being referred to.
-|
 | Optional
 
 | `group`
 | _string_
 | `group` specifies the group of the resource being referred to.
-|
 | Optional
 |===
