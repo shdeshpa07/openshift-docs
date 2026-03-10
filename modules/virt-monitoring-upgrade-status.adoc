@@ -7,7 +7,7 @@
 = Monitoring update status
 
 [role="_abstract"]
-To monitor the status of a {VirtProductName} Operator update, watch the cluster service version (CSV) `PHASE`. You can also monitor the CSV conditions in the web console or by running the command provided here.
+To monitor the status of a {CNVOperatorDisplayName} update, watch the cluster service version (CSV) `PHASE`. You can also monitor the CSV conditions in the web console or by using the CLI.
 
 [NOTE]
 ====
@@ -16,8 +16,8 @@ The `PHASE` and conditions values are approximations that are based on available
 
 .Prerequisites
 
-* Log in to the cluster as a user with the `cluster-admin` role.
-* Install the {oc-first}.
+* You have logged in to the {product-title} cluster as a cluster administrator.
+* You have installed the {oc-first}.
 
 .Procedure
 

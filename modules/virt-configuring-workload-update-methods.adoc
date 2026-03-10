@@ -7,11 +7,11 @@
 = Configuring workload update methods
 
 [role="_abstract"]
-You can configure workload update methods by editing the `HyperConverged` custom resource (CR).
+You can configure how virtual machine workloads are updated during cluster upgrades by editing the `HyperConverged` custom resource (CR).
 
 .Prerequisites
 
-* To use live migration as an update method, you must first enable live migration in the cluster.
+* You have enabled live migration in the cluster.
 +
 [NOTE]
 ====
