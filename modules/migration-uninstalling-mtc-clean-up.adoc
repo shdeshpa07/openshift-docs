@@ -8,16 +8,17 @@
 [id="migration-uninstalling-mtc-clean-up_{context}"]
 = Uninstalling {mtc-short} and deleting resources
 
+[role="_abstract"]
 You can uninstall the {mtc-first} and delete its resources to clean up the cluster.
 
 [NOTE]
 ====
-Deleting the `velero` CRDs removes Velero from the cluster.
+Deleting the `velero` custom resource definitions (CRDs) removes Velero from the cluster.
 ====
 
 .Prerequisites
 
-* You must be logged in as a user with `cluster-admin` privileges.
+* You have logged in to the {product-title} cluster as a cluster administrator.
 
 .Procedure
 
@@ -28,7 +29,7 @@ Deleting the `velero` CRDs removes Velero from the cluster.
 $ oc delete migrationcontroller <migration_controller>
 ----
 
-. Uninstall the {mtc-full} Operator on {product-title} 4 by using the Operator Lifecycle Manager.
+. Uninstall the {mtc-full} Operator on {product-title} 4 by using the {olm-first}.
 ifdef::troubleshooting-3-4[]
 . Uninstall the {mtc-full} Operator on {product-title} 3 by deleting the `operator` CR manifest:
 +
