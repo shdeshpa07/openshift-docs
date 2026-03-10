@@ -3015,9 +3015,11 @@ In both cases, the installation program generates a user-assigned identity. (lin
 
 // [id="ocp-storage-core-release-known-issues_{context}"]
 
-
 // 4.20.14 about async
 include::modules/rn-async-errata.adoc[leveloffset=+1]
+
+// 4-20-15 release notes enhancements
+include::modules/zstream-4-20-15.adoc[leveloffset=+2]
 
 // 4.20.14 RNs
 include::modules/zstream-4-20-14.adoc[leveloffset=+2]
