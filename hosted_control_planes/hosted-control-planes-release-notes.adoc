@@ -41,10 +41,10 @@ You can now create high priority machines before low priority machines by config
 
 As of this release, {hcp} on {ibm-z-title} in a disconnected environment is a General Availablilty feature. For more information, see xref:../hosted_control_planes/hcp-disconnected/disconnected-install-ibmz-hcp.adoc[Deploying {hcp} on {ibm-z-title} in a disconnected environment].
 
-//[id="hcp-4-20-internal-subnets-hcp_{context}"]
-//==== Configuring internal subnets for hosted clusters
+[id="hcp-4-20-internal-subnets-hcp_{context}"]
+==== Configuring internal subnets for hosted clusters
 
-//In hosted clusters, you can configure internal IPv4 subnets that the OVN-Kubernetes network plugin uses to provide flexibility and avoid classless inter-domain routing (CIDR) conflicts. For more information, see xref:../hosted_control_planes/hcp-networking.adoc#hcp-custom-ovn-subnets_hcp-networking[Configuring internal OVN IPv4 subnets for hosted clusters].
+In hosted clusters, you can configure internal IPv4 subnets that the OVN-Kubernetes network plugin uses to provide flexibility and avoid classless inter-domain routing (CIDR) conflicts. For more information, see xref:../hosted_control_planes/hcp-networking.adoc#hcp-custom-ovn-subnets_hcp-networking[Configuring internal OVN IPv4 subnets for hosted clusters].
 
 [id="bug-fixes-hcp-rn-4-20_{context}"]
 === Bug fixes
