@@ -41,6 +41,7 @@ endif::[]
 :hybrid-console: Red{nbsp}Hat Hybrid Cloud Console
 :hybrid-console-second: Hybrid Cloud Console
 :hybrid-console-url: link:https://console.redhat.com[Red Hat Hybrid Cloud Console]
+:insights-operator: Insights Operator
 // OADP attributes
 :velero-domain: velero.io
 :velero-version: 1.16
