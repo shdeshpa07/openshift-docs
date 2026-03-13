@@ -49,7 +49,7 @@ where:
 
 `device-classes.spare-gb`:: Specifies storage capacity in GB to be left unallocated in the volume group. Defaults to `0`. Takes an unsigned 64-bit integer.
 
-`thin-pool.overprovision-ratio`:: Specifies a float factor by which you can provision additional storage based on the available storage in the thin pool. For example, if this field is set to `10`, you can provision up to 10 times the amount of available storage in the thin pool. To disable over-provisioning, set this field to `1`.
+`thin-pool.overprovision-ratio`:: If you have multiple thin-provisioned devices that share the same pool, then these devices can be over-provisioned. Over-provisioning requires a float value of 1 or greater.
 
 `type`:: Specifies thin provisioning is required to create volume snapshots.
 
