@@ -22,4 +22,6 @@ Entering a smaller resize value in the `.spec.resources.requests.storage` field 
 
 . Re-create the PVC in a smaller size, or a size that can be allocated by the underlying storage provider.
 
+. Set the `volumeName` field of the PVC to the name of the PV. This binds the PVC to the provisioned PV only.
+
 . Restore the reclaim policy on the PV.
