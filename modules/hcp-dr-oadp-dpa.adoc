@@ -57,7 +57,7 @@ spec:
   configuration:
     nodeAgent:
       enable: true
-      uploaderType: kopia
+      uploaderType: kopia #<6>
     velero:
       defaultPlugins:
         - openshift
@@ -72,6 +72,7 @@ spec:
 <3> Specify the bucket prefix; for example, `hcp`.
 <4> The bucket region in this example is `minio`, which is a storage provider that is compatilble with the S3 API.
 <5> Specify the URL of the S3 endpoint.
+<6> Specify `kopia` as the uploader type. The `restic` uploader type is deprecated for {oadp-short} 1.5 and later.
 
 . Create the DPA object by running the following command:
 +
@@ -123,7 +124,7 @@ spec:
   configuration:
     nodeAgent:
       enable: true
-      uploaderType: kopia
+      uploaderType: kopia # <4>
     velero:
       defaultPlugins:
         - openshift
@@ -136,6 +137,7 @@ spec:
 <1> Specify the bucket name; for example, `oadp-backup`.
 <2> Specify the bucket prefix; for example, `hcp`.
 <3> The bucket region in this example is `minio`, which is a storage provider that is compatilble with the S3 API.
+<4> Specify `kopia` as the uploader type. The `restic` uploader type is deprecated for {oadp-short} 1.5 and later.
 
 . Create the DPA resource by running the following command:
 +
