@@ -21,7 +21,7 @@ The process involves the following steps:
 
 You must meet the following prerequisites on the management cluster:
 
-* You xref:../../backup_and_restore/application_backup_and_restore/installing/oadp-installing-operator.adoc#oadp-installing-operator[installed the {oadp-short} Operator].
+* You xref:../../backup_and_restore/application_backup_and_restore/installing/about-installing-oadp.adoc#about-installing-oadp[installed the {oadp-short} Operator].
 * You created a storage class.
 * You have access to the cluster with `cluster-admin` privileges.
 * You have access to the {oadp-short} subscription through a catalog source.
