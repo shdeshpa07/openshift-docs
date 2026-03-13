@@ -3122,20 +3122,8 @@ Topics:
   Dir: distr_tracing
   Distros: openshift-enterprise
   Topics:
-  - Name: Release notes for the Distributed Tracing Platform
-    File: distr-tracing-rn
   - Name: About the Distributed Tracing Platform
     File: distr-tracing-tempo-architecture
-  - Name: Installing the Distributed Tracing Platform
-    File: distr-tracing-tempo-installing
-  - Name: Configuring the Distributed Tracing Platform
-    File: distr-tracing-tempo-configuring
-  - Name: Troubleshooting the Distributed Tracing Platform
-    File: distr-tracing-tempo-troubleshooting
-  - Name: Upgrading the Distributed Tracing Platform
-    File: distr-tracing-tempo-updating
-  - Name: Removing the Distributed Tracing Platform
-    File: distr-tracing-tempo-removing
 - Name: Red Hat build of OpenTelemetry
   Dir: otel
   Distros: openshift-enterprise
