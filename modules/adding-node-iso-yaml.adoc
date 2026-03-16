@@ -68,7 +68,7 @@ hosts:
 +
 [source,terminal]
 ----
-$ oc adm node-image create nodes-config.yaml
+$ oc adm node-image create
 ----
 +
 [IMPORTANT]
