@@ -19,23 +19,26 @@ apiVersion: flows.netobserv.io/v1alpha1
 kind: FlowMetric
 metadata:
   name: flowmetric-cluster-external-ingress-traffic
-  namespace: netobserv                              <1>
+  namespace: netobserv
 spec:
-  metricName: cluster_external_ingress_bytes_total  <2>
-  type: Counter                                     <3>
+  metricName: cluster_external_ingress_bytes_total
+  type: Counter
   valueField: Bytes
-  direction: Ingress                                <4>
-  labels: [DstK8S_HostName,DstK8S_Namespace,DstK8S_OwnerName,DstK8S_OwnerType] <5>
-  filters:                                          <6>
+  direction: Ingress
+  labels: [DstK8S_HostName,DstK8S_Namespace,DstK8S_OwnerName,DstK8S_OwnerType]
+  filters:
   - field: SrcSubnetLabel
     matchType: Absence
 ----
-<1> The `FlowMetric` resources need to be created in the namespace defined in the `FlowCollector` `spec.namespace`, which is `netobserv` by default.
-<2> The name of the Prometheus metric, which in the web console appears with the prefix `netobserv-<metricName>`.
-<3> The `type` specifies the type of metric. The `Counter` `type` is useful for counting bytes or packets.
-<4> The direction of traffic to capture. If not specified, both ingress and egress are captured, which can lead to duplicated counts.
-<5> Labels define what the metrics look like and the relationship between the different entities and also define the metrics cardinality. For example, `SrcK8S_Name` is a high cardinality metric.
-<6> Refines results based on the listed criteria. In this example,  selecting only the cluster external traffic is done by matching only flows where `SrcSubnetLabel` is absent. This assumes the subnet labels feature is enabled (via `spec.processor.subnetLabels`), which is done by default.
+
+where:
+
+`metadata.namespace`:: Specifies the namespace where the `FlowMetric` resources are created. This must match the namespace defined in the `FlowCollector` resource `spec.namespace` field, which is `netobserv` by default.
+`spec.metricName`:: Specifies the name of the Prometheus metric, which in the {product-title} web console appears with the prefix `netobserv-<metricName>`.
+`spec.type`:: Specifies the type of metric. The `Counter` type is useful for counting bytes or packets.
+`spec.direction`:: Specifies the direction of traffic to capture. If not specified, both ingress and egress are captured, which can lead to duplicated counts.
+`spec.labels`:: Specifies the labels that define what the metrics look like, the relationship between the different entities, and the metrics cardinality. For example, `SrcK8S_Name` is a high cardinality metric.
+`spec.filters`:: Specifies the criteria to refine results based on the listed criteria. In this example, selecting only the cluster external traffic is done by matching only flows where `SrcSubnetLabel` is absent. This assumes the subnet labels feature is enabled (via `spec.processor.subnetLabels`), which is done by default
 
 [id="monitoring-rtt-latency-for-cluster-external-ingress-traffic_{context}"]
 == Monitoring RTT latency for cluster external ingress traffic
@@ -48,10 +51,10 @@ apiVersion: flows.netobserv.io/v1alpha1
 kind: FlowMetric
 metadata:
   name: flowmetric-cluster-external-ingress-rtt
-  namespace: netobserv    <1>
+  namespace: netobserv
 spec:
   metricName: cluster_external_ingress_rtt_seconds
-  type: Histogram                 <2>
+  type: Histogram
   valueField: TimeFlowRttNs
   direction: Ingress
   labels: [DstK8S_HostName,DstK8S_Namespace,DstK8S_OwnerName,DstK8S_OwnerType]
@@ -60,10 +63,13 @@ spec:
     matchType: Absence
   - field: TimeFlowRttNs
     matchType: Presence
-  divider: "1000000000"      <3>
-  buckets: [".001", ".005", ".01", ".02", ".03", ".04", ".05", ".075", ".1", ".25", "1"]  <4>
+  divider: "1000000000"
+  buckets: [".001", ".005", ".01", ".02", ".03", ".04", ".05", ".075", ".1", ".25", "1"]
 ----
-<1> The `FlowMetric` resources need to be created in the namespace defined in the `FlowCollector` `spec.namespace`, which is `netobserv` by default.
-<2> The `type` specifies the type of metric. The `Histogram` `type` is useful for a latency value (`TimeFlowRttNs`).
-<3> Since the Round-trip time (RTT) is provided as nanos in flows, use a divider of 1 billion to convert into seconds, which is standard in Prometheus guidelines.
-<4> The custom buckets specify precision on RTT, with optimal precision ranging between 5ms and 250ms.
+
+where:
+
+`metadata.namespace`:: Specifies the namespace where the `FlowMetric` resources are created. This must match the namespace defined in the `FlowCollector` resource `spec.namespace` field, which is `netobserv` by default.
+`spec.type`:: Specifies the type of metric. The `Histogram` type is useful for a latency value, such as `TimeFlowRttNs`.
+`spec.divider`:: Specifies the value used to divide the metric. Because the Round-trip time (RTT) is provided as nanoseconds in flows, use a divider of 1,000,000,000 to convert the value into seconds, which is standard in Prometheus guidelines.
+`spec.buckets`:: Specifies custom buckets for RTT precision. The optimal precision ranges between 5ms and 250ms.
