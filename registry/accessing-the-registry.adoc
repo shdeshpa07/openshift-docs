@@ -8,16 +8,10 @@ toc::[]
 
 [role="_abstract"]
 ifndef::openshift-dedicated,openshift-rosa[]
-Use the following sections for instructions on accessing the registry, including
-viewing logs and metrics, as well as securing and exposing the registry.
+You can access a registry to view logs and metrics. You can also secure and expose the registry.
 
-You can access the registry directly to invoke `podman` commands. This allows
-you to push images to or pull them from the integrated registry directly using
-operations like `podman push` or `podman pull`. To do so, you must be logged in
-to the registry using the `podman login` command. The operations you can perform
-depend on your user permissions, as described in the following sections.
+After you logged in to the registry by using the `podman login` command, you can push or pull images from the integrated registry directly by using `podman push` or `podman pull` commands. The commands that you can use depend on your user permissions.
 endif::openshift-dedicated,openshift-rosa[]
-
 ifdef::openshift-dedicated,openshift-rosa[]
 In {product-title}, Red Hat Site Reliability Engineering (SRE) manages the registry for you. However, you can check the status of the registry pods and view the registry logs.
 endif::openshift-dedicated,openshift-rosa[]
