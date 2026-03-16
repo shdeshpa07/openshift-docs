@@ -40,20 +40,23 @@ metadata:
 spec:
   metricName: network_policy_events_total
   type: Counter
-  labels: [NetworkEvents>Type, NetworkEvents>Namespace, NetworkEvents>Name, NetworkEvents>Action, NetworkEvents>Direction]       <1>
+  labels: [NetworkEvents>Type, NetworkEvents>Namespace, NetworkEvents>Name, NetworkEvents>Action, NetworkEvents>Direction]
   filters:
   - field: NetworkEvents>Feature
     value: acl
-  flatten: [NetworkEvents]       <2>
-  remap:                         <3>
+  flatten: [NetworkEvents]
+  remap:
     "NetworkEvents>Type": type
     "NetworkEvents>Namespace": namespace
     "NetworkEvents>Name": name
     "NetworkEvents>Direction": direction
 ----
-<1> These labels represent the nested fields for *Network Events* from the *Traffic flows* table. Each network event has a specific type, namespace, name, action, and direction. You can alternatively specify the `Interfaces` if `NetworkEvents` is unavailable in your {product-title} version.
-<2> Optional: You can choose to represent a field that contains a list of items as distinct items.
-<3> Optional: You can rename the fields in Prometheus.
++
+where:
+
+`spec.labels`:: Specifies the labels that represent the nested fields for *Network Events* from the *Traffic flows* table. Each network event has a specific type, namespace, name, action, and direction. You can alternatively specify `Interfaces` if `NetworkEvents` is unavailable in your version of {product-title}.
+`spec.flatten`:: Specifies an optional field that contains a list of items to be represented as distinct items.
+`spec.remap`:: Specifies an optional set of fields to rename in Prometheus.
 
 .Verification
 . In the web console, navigate to *Observe* -> *Dashboards* and scroll down to see the *Network Policy* tab.

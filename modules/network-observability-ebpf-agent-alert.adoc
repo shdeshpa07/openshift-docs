@@ -37,6 +37,9 @@ spec:
   agent:
     type: eBPF
     ebpf:
-      cacheMaxFlows: 200000 <1>
+      cacheMaxFlows: 200000
 ----
-<1> Increase the `cacheMaxFlows` value from its value at the time of the `NetObservAgentFlowsDropped` alert.
++
+where:
+
+`spec.agent.ebpf.cacheMaxFlows`:: Specifies the maximum number of flows to cache. If a `NetObservAgentFlowsDropped` alert occurs, increase this value from its current level.
