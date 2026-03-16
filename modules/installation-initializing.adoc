@@ -68,6 +68,7 @@ ifeval::["{context}" == "installing-gcp-customizations"]
 endif::[]
 ifeval::["{context}" == "installing-gcp-vpc"]
 :gcp:
+:gcp-vpc:
 endif::[]
 ifeval::["{context}" == "installing-gcp-shared-vpc"]
 :gcp:
@@ -88,6 +89,7 @@ ifeval::["{context}" == "installing-restricted-networks-gcp"]
 endif::[]
 ifeval::["{context}" == "installing-restricted-networks-gcp-installer-provisioned"]
 :gcp:
+:gcp-restricted:
 :restricted:
 endif::[]
 ifeval::["{context}" == "installing-ibm-cloud-customizations"]
@@ -452,6 +454,20 @@ endif::aws-outposts[]
 ifndef::restricted,nutanix,aws-outposts[]
 . Modify the `install-config.yaml` file. You can find more information about the available parameters in the "Installation configuration parameters" section.
 endif::restricted,nutanix,aws-outposts[]
+ifdef::gcp-vpc[]
+.. Define the network and subnets for the VPC to install the cluster in under the parent `platform.gcp` field:
++
+[source,yaml]
+----
+platform:
+  gcp:
+    network: <existing_vpc>
+    controlPlaneSubnet: <control_plane_subnet>
+    computeSubnet: <compute_subnet>
+----
++
+For `platform.gcp.network`, specify the name for the existing Google VPC. For `platform.gcp.controlPlaneSubnet` and `platform.gcp.computeSubnet`, specify the existing subnets to deploy the control plane machines and compute machines, respectively.
+endif::gcp-vpc[]
 ifdef::three-node-cluster[]
 +
 [NOTE]
@@ -574,19 +590,21 @@ where:
 `<control_plane_subnet>`:: Replace `<control_plane_subnet>` with the existing subnet name to deploy the control plane machines.
 `<compute_subnet>:: Replace `<compute_subnet>` with the existing subnet name to deploy compute machines.
 endif::azure+restricted[]
-ifdef::gcp+restricted[]
+ifdef::gcp-restricted[]
 +
 .. Define the network and subnets for the VPC to install the cluster in under the parent `platform.gcp` field:
 +
 [source,yaml]
 ----
-network: <existing_vpc>
-controlPlaneSubnet: <control_plane_subnet>
-computeSubnet: <compute_subnet>
+platform:
+  gcp:
+    network: <existing_vpc>
+    controlPlaneSubnet: <control_plane_subnet>
+    computeSubnet: <compute_subnet>
 ----
 +
 For `platform.gcp.network`, specify the name for the existing Google VPC. For `platform.gcp.controlPlaneSubnet` and `platform.gcp.computeSubnet`, specify the existing subnets to deploy the control plane machines and compute machines, respectively.
-endif::gcp+restricted[]
+endif::gcp-restricted[]
 ifdef::ibm-power-vs+restricted[]
 +
 .. Define the network for the VPC to install the cluster in under the parent `platform.powervs` field:
@@ -665,7 +683,7 @@ Only one VPE can be specified per service.
 endif::ibm-cloud[]
 ifdef::restricted[]
 +
-.. Set the publishing strategy to `Internal`:
+.. Optionally, set the publishing strategy to `Internal`:
 +
 [source,yaml]
 ----
@@ -757,6 +775,7 @@ ifeval::["{context}" == "installing-gcp-network-customizations"]
 endif::[]
 ifeval::["{context}" == "installing-gcp-vpc"]
 :!gcp:
+:!gcp-vpc:
 endif::[]
 ifeval::["{context}" == "installing-gcp-shared-vpc"]
 :!gcp:
@@ -774,6 +793,7 @@ ifeval::["{context}" == "installing-restricted-networks-gcp"]
 endif::[]
 ifeval::["{context}" == "installing-restricted-networks-gcp-installer-provisioned"]
 :!gcp:
+:!gcp-restricted:
 :!restricted:
 endif::[]
 ifeval::["{context}" == "installing-ibm-cloud-customizations"]
