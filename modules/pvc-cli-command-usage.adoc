@@ -18,14 +18,14 @@ To view PVC usage statistics, you must have the necessary privileges.
 
 * If you do not have admin privileges, complete the following steps:
 +
-** Create cluster roles for the user by running the following command:
+** Create cluster roles by running the following command:
 +
 [source,terminal]
 ----
 $ oc create clusterrole routes-view --verb=get,list --resource=routes
 ----
 +
-** Add the `routes-view` cluster role for the user by running the following command:
+** Add the `routes-view` cluster role by running the following command:
 +
 [source,terminal]
 ----
@@ -33,7 +33,7 @@ $ oc admin policy add-cluster-role-to-user routes-view _<user_name>_
 ----
 ** Replace `_<user_name>_` with the user name.
 +
-** Add the `cluster-monitoring-view` cluster role for the user by running the following command:
+** Add the `cluster-monitoring-view` cluster role by running the following command:
 +
 [source,terminal]
 ----
