@@ -60,7 +60,7 @@ spec:
   - name: podinfo
     downwardAPI:
       items:
-        - path: "hugepages_1G_request" <.>
+        - path: "hugepages_1G_request"
           resourceFieldRef:
             containerName: example
             resource: requests.hugepages-1Gi
