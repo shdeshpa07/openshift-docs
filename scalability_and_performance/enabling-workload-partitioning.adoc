@@ -40,3 +40,5 @@ include::snippets/performance-profile-workload-partitioning.adoc[]
 .Additional resources
 
 * xref:../edge_computing/ztp-reference-cluster-configuration-for-vdu.adoc#ztp-sno-du-enabling-workload-partitioning_sno-configure-for-vdu[Recommended single-node OpenShift cluster configuration for vDU application workloads]
+
+* xref:../scalability_and_performance/cnf-tuning-low-latency-nodes-with-perf-profile.adoc#cnf-about-the-profile-creator-tool_cnf-tuning-low-latency-nodes-with-perf-profile[About the Performance Profile Creator]
