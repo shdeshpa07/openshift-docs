@@ -2,13 +2,26 @@
 //
 // * release_notes/ocp-4-16-release-notes.adoc
 
-
 :_mod-docs-content-type: REFERENCE
-[id="zstream-4-16-54-bug-fixes_{context}"]
-= Bug fixes
+[id="zstream-4-16-54-about_{context}"]
+= RHBA-2025:22725 - {product-title} {product-version}.54 fixed issues advisory
+
+Issued: 10 December 2025
 
 [role="_abstract"]
-The following bugs are fixed for this release:
+{product-title} release {product-version}.54 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHBA-2025:22725[RHBA-2025:22725] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2025:22723[RHBA-2025:22723] advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.16.54 --pullspecs
+----
+
+[id="zstream-4-16-54-fixed-issues_{context}"]
+== Fixed issues
+
+
 
 * Before this update, a Kube State Metrics (KSM) deny-list had typographical errors as demonstrated in the following example:
 +
@@ -38,6 +51,11 @@ As a result, the entries are correctly separated. (link:https://issues.redhat.co
 
 * Before this update, gRPC connection logs were set at a highly verbose log level. This generated an excessive number of messages, which caused the logs to overflow. With this release, the gRPC connection logs have been moved to the V(4) log level. As a result, the logs no longer overflow, as these specific messages are now less verbose by default. (link:https://issues.redhat.com/browse/OCPBUGS-64632[OCPBUGS-64632])
 
-*   Before this update, a regression in `runc` prevented pods which had the `shareProcessNamespace` object set to `true` from running properly. With this release,that regression has been corrected. As a result, the underlying issue is resolved, and pods using the `shareProcessNamespace` object can now start and function as expected. (link:https://issues.redhat.com/browse/OCPBUGS-65978[OCPBUGS-65978])
+* Before this update, a regression in `runc` prevented pods which had the `shareProcessNamespace` object set to `true` from running properly. With this release,that regression has been corrected. As a result, the underlying issue is resolved, and pods using the `shareProcessNamespace` object can now start and function as expected. (link:https://issues.redhat.com/browse/OCPBUGS-65978[OCPBUGS-65978])
 
 * Before this update, the Azure Machine API provider attempted to use the default `platformUpdateDomainCount` of 5 even in regions that are restricted to a single fault domain. This caused machine creation to fail for all node types in affected regions because Azure only supports 1 update domain when the fault domain count is 1. With this release, the logic was updated to explicitly set the `platformUpdateDomainCount` to 1 whenever the `platformFaultDomainCount` is determined to be 1. As a result, machine availability sets are created with valid parameter combinations, allowing machines to successfully provision in Azure regions with a single fault domain. (link:https://issues.redhat.com/browse/OCPBUGS-66044[OCPBUGS-66044])
+
+[id="zstream-4-16-54-updating_{context}"]
+== Updating
+
+To update an existing {product-title} {product-version} cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].

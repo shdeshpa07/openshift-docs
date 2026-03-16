@@ -1,0 +1,37 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-16-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="ocp-4-16-23_{context}"]
+= RHSA-2024:9615 - {product-title} {product-version}.23 fixed issues and security update
+
+Issued: 20 November 2024
+
+[role="_abstract"]
+{product-title} release {product-version}.23 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2024:9615[RHSA-2024:9615] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2024:9618[RHSA-2024:9618] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.16.23 --pullspecs
+----
+
+[id="ocp-4-16-23-fixed-issues_{context}"]
+== Fixed issues
+
+* Previously, when the Cluster Resource Override Operator failed to run its operand controller, the Operator attempted to re-run the controller. Each re-run operation generated a new set of secrets that eventually constrained cluster namespace resources. With this release, the service account for a cluster now includes annotations that prevent the Operator from creating additional secrets when a secret already exists for the cluster. (link:https://issues.redhat.com/browse/OCPBUGS-44351[OCPBUGS-44351])
+
+* Previously, when the {vmw-full} vCenter cluster contained an ESXi host that did not have a standard port group defined, and the installation program tried to select that host to import the OVA, the import failed and the error `Invalid Configuration for device 0` was reported. With this release, the installation program verifies whether a standard port group for an ESXi host is defined and, if not, continues until it locates an ESXi host with a defined standard port group, or reports an error message if it fails to locate one, resolving the issue. (link:https://issues.redhat.com/browse/OCPBUGS-38930[OCPBUGS-38930])
+
+* Previously, when installing a cluster on {ibm-cloud-name} into an existing VPC, the installation program retrieved an unsupported VPC region. Attempting to install into a supported VPC region that follows the unsupported VPC region alphabetically caused the installation program to crash. With this release, the installation program is updated to ignore any VPC regions that are not fully available during resource lookups. (link:https://issues.redhat.com/browse/OCPBUGS-36290[OCPBUGS-36290])
+
+* Previously, when you used the limited live migration method, and a namespace in your cluster included a network policy that allowed communication with the host network, a communication issues existed for nodes in the cluster. More specifically, host network pods on nodes managed by different Container Network Interfaces could not communicate with pods in the namespace. With this release, a fix ensures that you can now use the live migration on a namespace that includes a network policy that allows communication with the host network without experiencing the communication issue. (link:https://issues.redhat.com/browse/OCPBUGS-43344[OCPBUGS-43344])
+
+[id="ocp-4-16-23-updating_{context}"]
+== Updating
+
+To update an existing {product-title} {product-version} cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster by using the CLI].

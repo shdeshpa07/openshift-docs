@@ -2,13 +2,26 @@
 //
 // * release_notes/ocp-4-16-release-notes.adoc
 
-
 :_mod-docs-content-type: REFERENCE
-[id="zstream-4-16-53-bug-fixes_{context}"]
-= Bug fixes
+[id="zstream-4-16-53-about_{context}"]
+= RHBA-2025:21825 - {product-title} {product-version}.53 fixed issues advisory
+
+Issued: 26 November 2025
 
 [role="_abstract"]
-The following bugs are fixed for this release:
+{product-title} release {product-version}.53 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHBA-2025:21825[RHBA-2025:21825] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2025:21823[RHBA-2025:21823] advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.16.53 --pullspecs
+----
+
+[id="zstream-4-16-53-fixed-issues_{context}"]
+== Fixed issues
+
+
 
 * Before this update, API and Ingress Virtual IP (VIP) addresses were automatically assigned even when a user-managed load balancer was in use. With this release, the API and Ingress VIPs are no longer automatically assigned. If these values are not explicitly set in the `install-config.yaml`, the installation fails with an error, prompting you to provide them. (link:https://issues.redhat.com/browse/OCPBUGS-53237[OCPBUGS-53237])
 
@@ -21,3 +34,8 @@ The following bugs are fixed for this release:
 * Before this update, the `/auth/error` page did not render correctly. As a consequence, the page was empty and error details did not appear. With this release, the front end error page content now renders on the `/auth/error` page. As a result, the expected error content is displayed. (link:https://issues.redhat.com/browse/OCPBUGS-64649[OCPBUGS-64649])
 
 * Before this update, during failover, the system's duplicate address detection (DAD) could incorrectly disable the Egress IPv6 address if it was briefly present on both nodes, breaking the connection. With this release, the Egress IPv6 is configured to skip the DAD check during failover, which guarantees uninterrupted egress IPv6 traffic after an Egress IP address successfully moves to a different node and ensures greater network stability. (link:https://issues.redhat.com/browse/OCPBUGS-64944[OCPBUGS-64944])
+
+[id="zstream-4-16-53-updating_{context}"]
+== Updating
+
+To update an existing {product-title} {product-version} cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
