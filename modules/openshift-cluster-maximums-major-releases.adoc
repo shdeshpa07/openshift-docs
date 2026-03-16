@@ -42,7 +42,7 @@ Red{nbsp}Hat does not provide direct guidance on sizing your {product-title} clu
 
 | Number of pods per namespace
 | 25,000
-| here are several control loops in the system that must iterate over all objects in a given namespace as a reaction to some changes in state. Having a large number of objects of a given type in a single namespace can make those loops expensive and slow down processing given state changes. The limit assumes that the system has enough CPU, memory, and disk to satisfy the application requirements.
+| There are several control loops in the system that must iterate over all objects in a given namespace as a reaction to some changes in state. Having a large number of objects of a given type in a single namespace can make those loops expensive and slow down processing given state changes. The limit assumes that the system has enough CPU, memory, and disk to satisfy the application requirements.
 
 | Number of routes per default 2-router deployment
 | 9,000
