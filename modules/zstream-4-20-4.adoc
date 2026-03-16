@@ -23,8 +23,6 @@ $ oc adm release info 4.20.4 --pullspecs
 [id="ocp-4-20-4-fixed-issues_{context}"]
 == Fixed issues
 
-The following issues are fixed for this release:
-
 * Before this update, the horizontal pod autoscaler (HPA) form in the web console incorrectly required you to provide values for both CPU and memory utilization, even though the API allows for HPAs to be created with a single metric or with no metrics (to use the API default). As a consequence, you could not use the form to create single-metric HPAs, for example, Memory-only, or HPAs that rely on the API default (80% CPU). This issue required you to use the YAML view for these common configurations. With this release, the HPA form logic is updated to align with the API so that the user interface no longer requires both fields to be completed. As a result, an empty utilization field correctly omits that HPA metric from the HPA manifest, which allows the API to apply its default behavior or create a single-metric HPA. You can use the HPA form to create single-metric HPAs, for example, CPU-only or Memory-only. If both utilization fields are left empty, the HPA is created and correctly falls back to the API default of 80% CPU utilization. (link:https://issues.redhat.com/browse/OCPBUGS-63339[OCPBUGS-63339])
 
 * Before this update, during rolling cluster updates from etcd 3.5.19 to a release of 3.6, the wrong membership data could be propagated to new members. As a consequence, cluster updates failed with an error indicating too many learner members in the cluster. With this release, etcd is updated to 3.5.24, which includes fixes that prevent membership-related errors. (link:https://issues.redhat.com/browse/OCPBUGS-63474[OCPBUGS-63474])

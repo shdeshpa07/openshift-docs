@@ -24,8 +24,6 @@ $ oc adm release info 4.20.14 --pullspecs
 [id="zstream-4-20-14-fixed-issues_{context}"]
 == Fixed issues
 
-The following issues are fixed for this release:
-
 * Before this update, Operator deployment templates with `hostUsers: false` values were not selected by Cluster Version Operator (CVO), and caused deployments to block user access configuration. As a consequence, deployments without `hostUsers: false` affected user access. With this release, the `hostUsers` issue in Operator deployment templates is fixed, and ensures that they are selected by CVO. As a result, Operator deployment templates with `hostUsers: false` are correctly applied, ensuring consistent user access configurations. (link:https://issues.redhat.com/browse/OCPBUGS-64828[OCPBUGS-64828])
 
 * Before this update, an invalid `installConfig Override` message caused a registration failure, leading to skipped re-registration in the `assisted-service` component. As a consequence, the installation failed. With this release, the issue with the invalid `installConfig Override` messages is fixed. As a result, `assisted-service` installations do not fail due to invalid `installConfig Override` messages. (link:https://issues.redhat.com/browse/OCPBUGS-65901[OCPBUGS-65901])
