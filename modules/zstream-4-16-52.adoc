@@ -21,8 +21,6 @@ $ oc adm release info 4.16.52 --pullspecs
 [id="ocp-4-16-52-fixed-issues_{context}"]
 == Fixed issues
 
-
-
 * Before this update, a Machine Config Operator (MCO) incorrectly set an `Upgradeable=False` condition to all new nodes that were added to a cluster. A `PoolUpdating` reason was provided for the `Upgradeable=False` condition. With this release, the MCO now correctly sets an `Upgradeable=True` condition to all new nodes that get added to a cluster, which resolves the issue. (link:https://issues.redhat.com/browse/OCPBUGS-57423[OCPBUGS-57423])
 
 * Before this update, the controller created and deleted a file with a random name when setting up a session to {aws-first}, which caused the controller to continuously allocate more memory to cache the session. With this release, the controller now uses the same file name instead of a random one, allowing the kernel to re-use the `dentry` object instead of requesting a new one for each session. As a result, excessive memory allocation is resolved. (link:https://issues.redhat.com/browse/OCPBUGS-63140[OCPBUGS-63140])

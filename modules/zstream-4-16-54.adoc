@@ -21,8 +21,6 @@ $ oc adm release info 4.16.54 --pullspecs
 [id="zstream-4-16-54-fixed-issues_{context}"]
 == Fixed issues
 
-
-
 * Before this update, a Kube State Metrics (KSM) deny-list had typographical errors as demonstrated in the following example:
 +
 [source,terminal,subs=""verbatim""]

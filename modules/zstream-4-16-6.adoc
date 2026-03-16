@@ -45,7 +45,7 @@ metadata:
 [id="ocp-4-16-6-fixed-issues_{context}"]
 == Fixed issues
 
-*  Previously, installer-created subnets were being tagged with `kubernetes.io/cluster/<clusterID>: shared`. With this release, subnets are now tagged with `kubernetes.io/cluster/<clusterID>: owned`. (link:https://issues.redhat.com/browse/OCPBUGS-37510[OCPBUGS-37510])
+* Previously, installer-created subnets were being tagged with `kubernetes.io/cluster/<clusterID>: shared`. With this release, subnets are now tagged with `kubernetes.io/cluster/<clusterID>: owned`. (link:https://issues.redhat.com/browse/OCPBUGS-37510[OCPBUGS-37510])
 
 * Previously, the same node was queued multiple times in the draining controller, which caused the the same node to be drained twice. With this release, a node will only be drained once. (link:https://issues.redhat.com/browse/OCPBUGS-37470[OCPBUGS-37470])
 
