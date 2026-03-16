@@ -1,0 +1,41 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-18-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-18-35_{context}"]
+= RHSA-2026:3905 - {product-title} {product-version}.35 image release, fixed issues, and security update
+
+Issued: 11 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.35 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:3905[RHSA-2026:3905] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:3875[RHSA-2026:3875] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.18.35 --pullspecs
+----
+
+[id="zstream-4-18-35-fixed-issues_{context}"]
+== Fixed issues
+
+The following issues are fixed for this release:
+
+* Before this update, the Cluster Network Operator (CNO) in {product-title} 4.18 overwrote your configurations. As a consequence, `multipathd` crashes occurred. With this release, the `Network.operator.openshift.io` cluster custom resource (CR) is modified to prevent CNO from overwriting the configuration. As a result, `multipathd` crashes are prevented in {product-title} 4.18. (link:https://issues.redhat.com/browse/OCPBUGS-74154[OCPBUGS-74154])
+
+* Before this update, when you installed a cluster with the Agent-based Installer and configured `installConfig` overrides such as enabling Federal Information Processing Standard (FIPS) mode, a failure to apply these overrides would not cause the application of other overrides to be retried. As a result, any error in the overrides caused all other overrides to be ignored. With this release, this application of overrides is checked for completion, so that either all of the overrides are applied successfully or the installation does not proceed. (link:https://issues.redhat.com/browse/OCPBUGS-74898[OCPBUGS-74898])
+
+* Before this update, when a bare-metal host (BMH) was marked as `Provisioned` or `ExternallyProvisioned`, the system would attempt to deprovision it or power it off first and the `DataImage` attached to the BMH would also prevent deletion. This issue blocked or slowed down host removal, which created operational inefficiencies. With this release, if the BMH has the `detached annotation` designation and deletion is requested, the BMH transitions to the deleting state, which permits direct deletion. (link:https://issues.redhat.com/browse/OCPBUGS-76988[OCPBUGS-76988])
+
+* Before this update, when a large number of nodes (such as a few hundred or more) were added simultaneously to a cluster, the nodes could hit a 300-second timeout and fail with a `context deadline exceeded` error. With this update, each node's network readiness is determined independently. As a result, nodes become ready incrementally as they finish initializing. (link:https://issues.redhat.com/browse/OCPBUGS-77083[OCPBUGS-77083])
+
+* Before this update, the user workload Prometheus Operator did not validate the `webhookURL` secret reference in the MSTeams receiver configuration of the `AlertmanagerConfig` custom resource (CR). As a consequence, an invalid or missing `webhookURL` secret could be accepted, which caused the `user workload` Alertmanager to crash at runtime. With this update, the user workload Prometheus Operator validates the `webhookURL` secret for MSTeams receivers. As a result, invalid configurations are rejected before the configurations can affect the Alertmanager. (link:https://issues.redhat.com/browse/OCPBUGS-77398[OCPBUGS-77398]) 
+
+[id="zstream-4-18-35-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.18 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
