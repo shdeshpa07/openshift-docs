@@ -29,8 +29,8 @@ deletionPolicy: Delete
 
 where:
 
-`snapshot.storage.kubernetes.io/is-default-class`:: Specifies the `VolumeSnapshotClass` configuration file to use when none is specified by `VolumeSnapshot`. Where `VolumeSnapshot` is a request for snapshot of a volume by a user.
+`snapshot.storage.kubernetes.io/is-default-class`:: Specifies the `VolumeSnapshotClass` configuration file to use when none is specified by `VolumeSnapshot`. Where `VolumeSnapshot` is a request for snapshot of a volume.
 
-`driver`:: Identifies the snapshot provisioner that manages the requests for snapshots of a volume by a user for this class.
+`driver`:: Identifies the snapshot provisioner that manages the requests for snapshots of a volume for this class.
 
 `deletionPolicy`:: Specifies the `VolumeSnapshotContent` objects and the backing snapshots that are kept or deleted when a bound `VolumeSnapshot` is deleted. Valid values are `Retain` or `Delete`.

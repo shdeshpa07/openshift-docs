@@ -54,8 +54,4 @@ include::modules/pvc-storage-class.adoc[leveloffset=+2]
 
 include::modules/pvc-claims-as-volumes.adoc[leveloffset=+2]
 
-include::modules/pvc-cli-command-usage.adoc[leveloffset=+2]
-
-include::modules/viewing-pvc-usage-statistics.adoc[leveloffset=+2]
-
 include::modules/storage-persistent-storage-fsGroup.adoc[leveloffset=+1]
