@@ -6,7 +6,8 @@
 [id="microshift-greenboot-workload-health-check-script-ex_{context}"]
 = Workload max duration or timeout script example
 
-The following example uses the {microshift-short} core services health check script as a template.
+[role="_abstract"]
+You can use the {microshift-short} core services health check script as a template to write your own health check scripts for your applications.
 
 [id="microshift-greenboot-app-health-check-basic-prereqs_{context}"]
 == Basic prerequisites for creating a health check script

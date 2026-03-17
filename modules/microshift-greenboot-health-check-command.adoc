@@ -6,6 +6,7 @@
 [id="microshift-greenboot-microshift-health-check-command_{context}"]
 = How to use the {microshift-short} health check command
 
+[role="_abstract"]
 The `microshift healthcheck` command checks whether a workload of the provided type exists and verifies its
 status for the specified timeout duration. The number of ready replicas, that is, pods, must match the expected amount.
 
