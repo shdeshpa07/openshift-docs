@@ -12,7 +12,7 @@ Because {mce} includes the HyperShift Operator, releases of {hcp} align with rel
 [id="hcp-matrix-mgmt_{context}"]
 == Management cluster support
 
-Any supported standalone {product-title} cluster can be a management cluster.
+Any supported {product-title} cluster can be a management cluster.
 
 [NOTE]
 ====
