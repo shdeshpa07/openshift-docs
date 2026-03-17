@@ -6,7 +6,8 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
-You can use greenboot health checks to assess the health of your workloads and applications.
+[role="_abstract"]
+You can use greenboot health checks on {microshift-short} to assess the health of your workloads and applications.
 
 include::modules/microshift-greenboot-how-workload-health-checks-work.adoc[leveloffset=+1]
 
@@ -18,6 +19,7 @@ include::modules/microshift-greenboot-workload-health-script-ex.adoc[leveloffset
 
 include::modules/microshift-greenboot-testing-workload-script.adoc[leveloffset=+2]
 
+[id="additional-resources_microshift-greenboot-workload-health-checks"]
 [role="_additional-resources"]
 == Additional resources
 
