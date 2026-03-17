@@ -4,10 +4,10 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="performing-a-backup-oadp-rosa-sts_{context}"]
-= Performing a backup with OADP and {product-title}
+= Example: Performing a backup with OADP and {product-title}
 
 [role="_abstract"]
-The following example `hello-world` application has no persistent volumes (PVs) attached. Perform a backup by using {oadp-first} with {product-title}.
+Perform a backup by using {oadp-first} with {product-title}. The following example `hello-world` application has no persistent volumes (PVs) attached.
 
 Either Data Protection Application (DPA) configuration will work.
 
@@ -161,7 +161,7 @@ You should see an output similar to the following example:
 ----
 Hello OpenShift!
 ----
-
++
 [NOTE]
 ====
 For troubleshooting tips, see the link:https://access.redhat.com/articles/5456281[troubleshooting documentation].
