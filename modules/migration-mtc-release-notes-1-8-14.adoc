@@ -1,0 +1,30 @@
+// Module included in the following assemblies:
+//
+//
+// * migration_toolkit_for_containers/mtc-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="migration-mtc-release-notes-1-8-14_{context}"]
+= {mtc-full} 1.8.14 release notes
+
+[role="_abstract"]
+{mtc-first} 1.8.14 release notes list resolved issues.
+
+{mtc-short} 1.8.14 restores full support for {ocp} versions 4.12 and 4.13. This release realigns the {mtc-short} upgrade path across all supported OpenShift versions, ensuring a stable foundation for future updates.
+
+
+[id="resolved-issues-1-8-14_{context}"]
+== Resolved issues
+
+Fixed incompatible Operator versions due to an incorrect {ocp} 4.18 catalog update::
+Before this update, the {ocp} 4.18 Operators catalog was accidentally pushed to 4.12 and later versions. As a consequence, clusters on {ocp} versions 4.12-4.17 installed incompatible Operator versions. With this release, {mtc-short} 1.8 support is extended to {ocp} 4.12 and 4.13. As a result, the bug fix updates the {mtc-short} Operator to the correct version in {ocp} catalogs to provide updates for impacted customers.
++
+If you are on {ocp} 4.12 and 4.13, upgrade to {mtc-short} 1.8.14 as soon as possible to ensure continued support and access to future security patches.
++
+link:https://issues.redhat.com/browse/MIG-1874[MIG-1874]
+
+
+{mtc-short} Operator includes latest `rsync` version::
+Before this update, the {mtc-short} Operator mistakenly included an older version of the `rsync` package. This release updates the {mtc-short} Operator to include the latest `rsync` package.
++
+link:https://issues.redhat.com/browse/MIG-1876[MIG-1876]
