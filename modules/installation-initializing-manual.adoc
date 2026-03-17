@@ -35,12 +35,14 @@ ifeval::["{context}" == "installing-vsphere"]
 endif::[]
 ifeval::["{context}" == "installing-restricted-networks-vsphere"]
 :restricted-upi:
+:vsphere-upi-vsphere:
 endif::[]
 ifeval::["{context}" == "installing-restricted-networks-bare-metal"]
 :restricted:
 endif::[]
 ifeval::["{context}" == "installing-vsphere-network-customizations"]
 :vsphere-upi:
+:vsphere-upi-vsphere:
 endif::[]
 ifeval::["{context}" == "installing-aws-china-region"]
 :aws-china:
@@ -352,7 +354,7 @@ For more information about the parameters, see "Installation configuration param
 endif::ash-default,ash-network[]
 
 ifdef::vsphere-upi-vsphere[]
-. If you are installing a three-node cluster, modify the `install-config.yaml` file by setting the `compute.replicas` parameter to `0`. This ensures that the cluster's control planes are schedulable. For more information, see "Installing a three-node cluster on {platform}".
+. If you are installing a three-node cluster or a cluster with user-provisioned infrastructure, set the `compute.replicas` parameter to `0`. In a three-node cluster, this ensures that the cluster's control planes are schedulable. For more information, see "Installing a three-node cluster". In a cluster with user-provisioned infrastructure, you must manually deploy compute machines before you finish installing {product-title}.
 endif::vsphere-upi-vsphere[]
 
 . Back up the `install-config.yaml` file so that you can use it to install many clusters.
@@ -373,12 +375,14 @@ ifeval::["{context}" == "installing-vsphere"]
 endif::[]
 ifeval::["{context}" == "installing-restricted-networks-vsphere"]
 :!restricted-upi:
+:!vsphere-upi-vsphere:
 endif::[]
 ifeval::["{context}" == "installing-restricted-networks-bare-metal"]
 :!restricted:
 endif::[]
 ifeval::["{context}" == "installing-vsphere-network-customizations"]
 :!vsphere-upi:
+:!vsphere-upi-vsphere:
 endif::[]
 ifeval::["{context}" == "installing-aws-china-region"]
 :!aws-china:

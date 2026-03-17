@@ -3430,6 +3430,8 @@ ifdef::vsphere[]
 [NOTE]
 ====
 This parameter applies only to installer-provisioned infrastructure without an external load balancer configured. You must not specify this parameter in user-provisioned infrastructure.
+
+The `apiVIP` and `ingressVIP` parameters must come from the same network segment as the `networking.machineNetwork` parameter. If the `networking.machineNetwork` parameter is set to `10.0.0.0/16` then the API and Ingress VIPs must be in one of the `10.0.0.0/16` machine networks.
 ====
 
 *Value:* Multiple IP addresses
@@ -3554,6 +3556,13 @@ ifdef::vsphere[]
         datastore:
 |Specifies the path to a vSphere datastore that stores virtual machines files for a failure domain. You must apply the `datastore` role to the vSphere vCenter datastore location.
 
+[IMPORTANT]
+====
+You can specify the path of any datastore that exists in a datastore cluster. By default, Storage vMotion is automatically enabled for a datastore cluster. Red Hat does not support Storage vMotion, so you must disable Storage vMotion to avoid data loss issues for your {product-title} cluster.
+
+If you must specify VMs across multiple datastores, use a `datastore` object to specify a failure domain in your cluster's `install-config.yaml` configuration file. For more information, see "VMware vSphere region and zone enablement".
+====
+
 *Value:* String
 endif::vsphere[]
 ifdef::agent[]
@@ -3628,7 +3637,16 @@ endif::vsphere[]
 |platform:
   vsphere:
     failureDomains:
-      topology
+      topology:
+        tagIDs:
+|Optional: Specifies the ID of the tag to be associated by the installation program. Each VM created by {product-title} is assigned a unique tag that is specific to the cluster. The assigned tag enables the installation program to identify and remove the associated VMs when a cluster is decommissioned. You can list up to ten additional tag IDs to be attached to the VMs provisioned by the installation program. For more information about determining the tag ID, see the link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-E8E854DD-AA97-4E0C-8419-CE84F93C4058.html[vSphere Tags and Attributes documentation].
+
+*Value:* String, for example `urn:vmomi:InventoryServiceTag:208e713c-cae3-4b7f-918e-4051ca7d1f97:GLOBAL`.
+
+|platform:
+  vsphere:
+    failureDomains:
+      topology:
         template:
 |Specifies the absolute path to a pre-existing {op-system-first} image template or virtual machine. The installation program can use the image template or virtual machine to quickly install {op-system} on vSphere hosts. Consider using this parameter as an alternative to uploading an {op-system} image on vSphere hosts. This parameter is available for use only on installer-provisioned infrastructure.
 
@@ -3642,6 +3660,8 @@ ifdef::vsphere[]
 [NOTE]
 ====
 This parameter applies only to installer-provisioned infrastructure without an external load balancer configured. You must not specify this parameter in user-provisioned infrastructure.
+
+The `apiVIP` and `ingressVIP` parameters must come from the same network segment as the `networking.machineNetwork` parameter. If the `networking.machineNetwork` parameter is set to `10.0.0.0/16` then the API and Ingress VIPs must be in one of the `10.0.0.0/16` machine networks.
 ====
 
 *Value:* Multiple IP addresses
@@ -3816,7 +3836,7 @@ Optional VMware vSphere machine pool configuration parameters are described in t
 |platform:
   vsphere:
     clusterOSImage:
-|The location from which the installation program downloads the {op-system-first} image. Before setting a path value for this parameter, ensure that the default {op-system} boot image in the {product-title} release matches the {op-system} image template or virtual machine version; otherwise, cluster installation might fail.
+|The location from which the installation program downloads the {op-system-first} image. Before setting a path value for this parameter, ensure that the default {op-system} boot image in the {product-title} release matches the {op-system} image template or virtual machine version; otherwise, cluster installation might fail. As an alternative to this configuration, you can use the `topology.template` parameter to point to the path in your vCenter environment that includes an {op-system} image in Open Virtual Appliance (OVA) format.
 
 *Value:* An HTTP or HTTPS URL, optionally with a SHA-256 checksum. For example, `\https://mirror.openshift.com/images/rhcos-<version>-vmware.<architecture>.ova`.
 
