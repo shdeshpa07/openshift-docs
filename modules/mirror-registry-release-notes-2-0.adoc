@@ -25,6 +25,17 @@ The following bugs were fixed as part of this release:
 
 * link:https://redhat.atlassian.net/browse/PROJQUAY-10093[PROJQUAY-10093]. The _Mirror registry for Red{nbsp}Hat OpenShift_ has been upgraded to use the latest Redis 6 (`redis-6:1-1766406130`) version.
 
+[id="mirror-registry-for-openshift-2-0-9_{context}"]
+== Mirror registry for Red{nbsp}Hat OpenShift 2.0.9
+
+Issued: 17 November 2025
+
+_Mirror registry for Red{nbsp}Hat OpenShift_ is now available with Red{nbsp}Hat Quay 3.12.13.
+
+The following advisory is available for the _mirror registry for Red{nbsp}Hat OpenShift_:
+
+* link:https://access.redhat.com/errata/RHBA-2025:21600[RHBA-2025:21600 - mirror registry for Red{nbsp}Hat OpenShift 2.0.9]
+
 [id="mirror-registry-for-openshift-2-0-8_{context}"]
 == Mirror registry for Red{nbsp}Hat OpenShift 2.0.8
 
