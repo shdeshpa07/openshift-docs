@@ -15,11 +15,11 @@ include::modules/storage-ephemeral-storage-types.adoc[leveloffset=+1]
 
 include::modules/storage-ephemeral-storage-manage.adoc[leveloffset=+1]
 
-ifndef::openshift-dedicated,openshift-rosa,openshift-rosa-hcp[]
+ifndef::openshift-dedicated,openshift-rosa[]
 [id="additional-resources_{context}"]
 == Additional resources
 
 * xref:../applications/quotas/quotas-setting-per-project.adoc#quotas-setting-per-project_quotas-setting-per-project[Resources managed by quotas]
-endif::openshift-dedicated,openshift-rosa,openshift-rosa-hcp[]
+endif::openshift-dedicated,openshift-rosa[]
 
 include::modules/storage-ephemeral-storage-monitoring.adoc[leveloffset=+1]
