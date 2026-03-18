@@ -14,7 +14,7 @@ Instead of logging in to the default {product-registry} from within the cluster,
 
 .Procedure
 
-. To expose the registry by using the `defaultRoute` parameter that exists in the `configs.imageregistry.operator.openshift.io` resource, set defaultRoute` to `true` by running the following command:
+. To expose the registry by using the `defaultRoute` parameter that exists in the `configs.imageregistry.operator.openshift.io` resource, set `defaultRoute` to `true` by running the following command:
 +
 [source,terminal]
 ----
