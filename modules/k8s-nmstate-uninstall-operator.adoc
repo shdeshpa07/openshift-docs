@@ -79,10 +79,26 @@ INDEX=$(oc get console.operator.openshift.io cluster -o json | jq -r '.spec.plug
 $ oc patch console.operator.openshift.io cluster --type=json -p "[{\"op\": \"remove\", \"path\": \"/spec/plugins/$INDEX\"}]"
 ----
 +
-
 ** `INDEX` is an auxiliary variable. You can specify a different name for this variable.
 
-. Delete all the custom resource definitions (CRDs), such as `nmstates.nmstate.io`, by running the following commands:
+. Optional: To preserve CR instances so that you can restore them after you delete CRDs, enter the following command:
++
+[source,terminal]
+----
+$ oc get -A nncp -o yaml > cluster-nncp.yaml
+----
++
+[IMPORTANT]
+====
+To reuse preserved CRs, such as NNCPs, you must uninstall the Kubernetes NMState Operator, reinstall the Kubernetes NMState Operator, and then run the following command to restore the CRs:
+
+[source,terminal]
+----
+$ oc apply -f cluster-nncp.yaml
+----
+====
+
+. Delete all the CRDs, such as `nmstates.nmstate.io`, by running the following commands:
 +
 [source,terminal]
 ----
