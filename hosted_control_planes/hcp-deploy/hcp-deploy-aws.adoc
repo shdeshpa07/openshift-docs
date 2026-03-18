@@ -42,8 +42,6 @@ include::modules/hcp-aws-enable-private-link.adoc[leveloffset=+2]
 
 include::modules/hcp-aws-enable-ext-dns.adoc[leveloffset=+1]
 
-include::modules/hcp-aws-enable-ext-dns-prereq.adoc[leveloffset=+2]
-
 include::modules/hcp-aws-set-up-ext-dns.adoc[leveloffset=+2]
 
 include::modules/hcp-aws-create-dns-hosted-zone.adoc[leveloffset=+2]
