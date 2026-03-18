@@ -2,15 +2,28 @@
 //
 // * hosted_control_planes/hcp-deploy/hcp-deploy-aws.adoc
 
-:_mod-docs-content-type: CONCEPT
+:_mod-docs-content-type: PROCEDURE
 [id="hcp-aws-set-up-ext-dns_{context}"]
 = Setting up external DNS for {hcp}
 
+[role="_abstract"]
+To automate the management of DNS records, you can set up external DNS for {hcp} on {aws-short}. You need this configuration to ensure that when you create or modify services, the corresponding DNS records in your {aws-short} Route 53 public hosted zones update automatically.
+
 You can provision {hcp} with external DNS or service-level DNS.
+
+.Prerequisites
+
+* You created an external public domain.
+
+* You have access to the {aws-short} Route53 Management console.
+
+* You enabled {aws-short} PrivateLink for {hcp}.
+
+.Procedure
 
 . Create an {aws-first} credential secret for the HyperShift Operator and name it `hypershift-operator-external-dns-credentials` in the `local-cluster` namespace.
 
-. See the following table to verify that the secret has the required fields:
+. Verify that the secret has the required fields. For your reference, the required fields are detailed in the following table.
 +
 .Required fields for the {aws-short} secret
 [options="header"]
@@ -38,8 +51,7 @@ You can provision {hcp} with external DNS or service-level DNS.
 | Optional when you use the {aws-short} DNS service
 |===
 
-
-. To create an {aws-short} secret, run the following command:
+. Create an {aws-short} secret by running the following command:
 +
 [source,terminal]
 ----

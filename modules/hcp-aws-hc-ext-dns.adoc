@@ -6,17 +6,22 @@
 [id="hcp-aws-hc-ext-dns_{context}"]
 = Creating a hosted cluster by using the external DNS on {aws-short}
 
-To create a hosted cluster by using the `PublicAndPrivate` or `Public` publishing strategy on {aws-first}, you must have the following artifacts configured in your management cluster:
+[role="_abstract"]
+When you create a hosted cluster on {aws-short}, using external DNS provides advantages over standard installation methods. With external DNS, you can automatically synchronize your cluster's service endpoints with {aws-short} Route 53. 
 
-* The public DNS hosted zone
-* The External DNS Operator
-* The HyperShift Operator
+Without external DNS, you must manually manage DNS records for every new service or ingress, which increases the risk of configuration errors and downtime.
 
-You can deploy a hosted cluster, by using the `hcp` command-line interface (CLI).
+.Prerequisites
+
+* You configured the following artifacts in your management cluster:
+
+** The public DNS hosted zone
+** The External DNS Operator
+** The HyperShift Operator
 
 .Procedure
 
-. To access your management cluster, enter the following command:
+. On the `hcp` command-line interface (CLI), enter the following command to access your management cluster:
 +
 [source,terminal]
 ----
@@ -42,29 +47,35 @@ external-dns-7c89788c69-rn8gp   1/1     Running   0          40s
 [source,terminal]
 ----
 $ hcp create cluster aws \
-    --role-arn <arn_role> \ <1>
-    --instance-type <instance_type> \ <2>
-    --region <region> \ <3>
+    --role-arn <arn_role> \
+    --instance-type <instance_type> \
+    --region <region> \
     --auto-repair \
     --generate-ssh \
-    --name <hosted_cluster_name> \ <4>
+    --name <hosted_cluster_name> \
     --namespace clusters \
-    --base-domain <service_consumer_domain> \ <5>
-    --node-pool-replicas <node_replica_count> \ <6>
-    --pull-secret <path_to_your_pull_secret> \ <7>
-    --release-image quay.io/openshift-release-dev/ocp-release:<ocp_release_image> \ <8>
-    --external-dns-domain=<service_provider_domain> \ <9>
-    --endpoint-access=PublicAndPrivate <10>
-    --sts-creds <path_to_sts_credential_file> <11>
+    --base-domain <service_consumer_domain> \
+    --node-pool-replicas <node_replica_count> \
+    --pull-secret <path_to_your_pull_secret> \
+    --release-image quay.io/openshift-release-dev/ocp-release:<ocp_release_image> \
+    --external-dns-domain=<service_provider_domain> \
+    --endpoint-access=<endpoint_access_configuration> \
+    --sts-creds <path_to_sts_credential_file>
 ----
-<1> Specify the Amazon Resource Name (ARN), for example, `arn:aws:iam::820196288204:role/myrole`.
-<2> Specify the instance type, for example, `m6i.xlarge`.
-<3> Specify the {aws-short} region, for example, `us-east-1`.
-<4> Specify your hosted cluster name, for example, `my-external-aws`.
-<5> Specify the public hosted zone that the service consumer owns, for example, `service-consumer-domain.com`.
-<6> Specify the node replica count, for example, `2`.
-<7> Specify the path to your pull secret file.
-<8> Specify the supported {product-title} version that you want to use, for example, `4.18.0-multi`.
-<9> Specify the public hosted zone that the service provider owns, for example, `service-provider-domain.com`.
-<10> Set as `PublicAndPrivate`. You can use external DNS with `Public` or `PublicAndPrivate` configurations only.
-<11> Specify the path to your {aws-short} STS credentials file, for example, `/home/user/sts-creds/sts-creds.json`.
++
+where:
++
+--
+`<arn_role>`:: Specifies the Amazon Resource Name (ARN), for example, `arn:aws:iam::820196288204:role/myrole`.
+`<instance_types>`:: Specifies the instance type, for example, `m6i.xlarge`.
+`<region>`:: Specifies the {aws-short} region, for example, `us-east-1`.
+`<hosted_cluster_name>`:: Specifies your hosted cluster name, for example, `my-external-aws`.
+`<service_consumer_domain>`:: Specifies the public hosted zone that the service consumer owns, for example, `service-consumer-domain.com`.
+`<node_replica_count>`:: Specifies the node replica count, for example, `2`.
+`<path_to_your_pull_secret>`:: Specifies the path to your pull secret file.
+`<ocp_release_image>`:: Specifies the supported {product-title} version that you want to use, for example, `4.18.0-multi`.
+`<service_provider_domain>`:: Specifies the public hosted zone that the service provider owns, for example, `service-provider-domain.com`.
+`<endpoint_access_configuraton>`:: Specifies the endpoint access configuration for the external DNS. Set as `PublicAndPrivate`. You can use external DNS with `Public` or `PublicAndPrivate` configurations only.
+`<path_to_sts_credential_file>`:: Specifies the path to your {aws-short} STS credentials file, for example, `/home/user/sts-creds/sts-creds.json`.
+--
+
