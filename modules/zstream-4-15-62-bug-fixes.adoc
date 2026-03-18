@@ -1,0 +1,18 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-15-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-15-62-bug-fixes_{context}"]
+= Fixed issues
+
+[role="_abstract"]
+* Before this update, when using the `SiteConfig` custom resources (CR) to delete a cluster or a node, the `BareMetalHost` CR was stuck in the `Deprovisioning` state. With this release, the bug is fixed to ensure that the order deletion is correct. The fix requires {gitops-title} 1.13 or later version. (link:https://redhat.atlassian.net/browse/OCPBUGS-47798[OCPBUGS-47798])
+
+* Before this update, the `Bad Gateway` error occurred when importing an image from Quay.io. As a consequence, end users encountered failed image imports with this error. With this release, the {quay} API request issue for image import is fixed, resolving the `Bad Gateway` error. As a result, successful image imports are possible for users. (link:https://redhat.atlassian.net/browse/OCPBUGS-74670[OCPBUGS-74670])
+
+* Before this update, an {azure-first} OAuth issue occurred during the upgrade from {product-title} 4.18.14 to {product-title} 4.18.22 in {hcp} clusters. As a consequence, {azure-short} OAuth authentication failed, causing user authentication issues. With this release ({product-title} 4.15.0-0.nightly-2026-02-24-133955), the {azure-short} OAuth authentication issue is fixed. As a result, {azure-short} OAuth authentication issues are resolved, enabling successful login for hosted clusters. (link:https://issues.redhat.com/browse/OCPBUGS-74671[OCPBUGS-74671])
+
+* Before this update, aggregated API servers on {product-title} used in-memory loopback certificates that were valid for one year. With this release, these servers use in-memory loopback certificates that are valid for three years. (link:https://redhat.atlassian.net/browse/OCPBUGS-74921[OCPBUGS-74921])
+
+* Before this update, service account creation with the `openshift/local/google` provider in earlier {product-title} versions resulted in inconsistent results during service account creation. As a consequence, this issue caused errors during the apply process, impacting cluster provisioning in {gcp-first}. With this release, the issue is resolved by upgrading Terraform and the provider that are included in {product-title} 4.15.0-0.nightly-2026-03-07-214126. As a result, service account creation issues are resolved, reducing inconsistencies during cluster installation in {gcp-first}. (link:https://issues.redhat.com/browse/OCPBUGS-76929[OCPBUGS-76929])
