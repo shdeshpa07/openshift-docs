@@ -1,0 +1,39 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-17-release-notes.adoc
+
+:_mod-docs-content-type: CONCEPT
+[id="zstream-4-17-51-about_{context}"]
+= RHSA-2026:4510 - {product-title} {product-version}.51 fixed issues and security update
+
+Issued: 18 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.51 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:4510[RHSA-2026:4510] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:4479[RHBA-2026:4479] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.17.51--pullspecs
+----
+
+[id="zstream-4-17-51-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, when a bare-metal Host (BMH) was marked as `Provisioned` or `ExternallyProvisioned`, the system would try to deprovision it or power it off first and the `DataImage` attached to the BMH would also prevent deletion. This blocked or slowed down host removal, creating operational inefficiencies. With this release, if the BMH has the ‘detached annotation’ and deletion is requested, the BMH transitions to the deleting state, allowing for direct deletion. (link:https://redhat.atlassian.net/browse/OCPBUGS-77185[OCPBUGS-77185])
+
+* Before this update, a regression introduced in version {product-title} 4.15 impacted the `AlertingRule` logic, leading to duplicate `prometheusRules` with a different hash but with the same alerting rule. This regression caused the system to generate duplicate alerts. Because one of these alerts was no longer maintained, this behavior could be confusing and might lead to stale expressions being evaluated. With this release, the underlying regression has been resolved, restoring the intended behavior and logic to the `AlertingRule` component. (link:https://redhat.atlassian.net/browse/OCPBUGS-77275[OCPBUGS-77275])
+
+* Before this update, the user workload Prometheus Operator did not validate the `webhookURL` secret reference in the Microsoft Teams receiver configuration of the `AlertmanagerConfig` custom resource (CR). As a consequence, an invalid or missing `webhookURL` secret could be accepted, which caused the user workload `Alertmanager` to crash at runtime. With this update, the user workload Prometheus Operator validates the `webhookURL` secret for Microsoft Teams receivers. As a result, invalid configurations are rejected before the configurations can affect the `Alertmanager`. (link:https://redhat.atlassian.net/browse/OCPBUGS-77452[OCPBUGS-77452])
+
+* Before this update, the system failed to correctly flush stale `conntrack` entries for User Datagram Protocoal (UDP) `NodePort` and `LoadBalancer` services when an `EndpointSlice` was updated, specifically in scenarios where the backend pod resided on a different node. This resulted in traffic being routed to obsolete endpoints, causing intermittent connectivity drops for UDP streams. With this release, the logic has been corrected to ensure `conntrack` entries are properly cleared by filtering for the `nodePort` regardless of the pod's location. (link:https://redhat.atlassian.net/browse/OCPBUGS-77568[OCPBUGS-77568])
+
+* Before this update, the {azure-first} installation process would fail when deploying into pre-existing virtual networks (VNets) that used an IP range different from the installation default. This occurred because the installation program selected an IP address as an internal `loadbalancer` front end IP address from the default subnet rather than the pre-configured subnet. With this release, the installation logic has been updated to dynamically detect and respect the Classless Inter-Domain Routing (CIDR) blocks of pre-existing VNets. (link:https://redhat.atlassian.net/browse/OCPBUGS-77791[OCPBUGS-77791])
+
+[id="zstream-4-17-51-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.17 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
