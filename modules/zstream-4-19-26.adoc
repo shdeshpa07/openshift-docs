@@ -1,0 +1,53 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-20-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-19-26_{context}"]
+= RHSA-2026:4434 - {product-title} {product-version}.26 fixed issues and security update
+
+Issued: 18 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.26 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:4434[RHSA-2026:4434] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:4427[RHBA-2026:4427] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.19.26 --pullspecs
+----
+
+[id="zstream-4-19-26-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, the daemon set failed to update the `kubeconfig` token due to an incorrect file path reference. As a consequence, user tokens expired and caused service disruptions. With this release, the daemon set is updated to correctly renew the `kubeconfig` token, preventing future service disruptions. (link:https://issues.redhat.com/browse/OCPBUGS-67208[OCPBUGS-67208])
+
+* Before this update, a loadbalancer service creation without an IP address during a {hcp} cluster upgrade from {product-title} 4.18 to {product-title} 4.19 blocked the upgrade process. As a consequence, a loadbalancer service creation blocked the cluster upgrade, causing an upgrade failure. With this release, a loadbalancer service creation that was blocked during upgrade is resolved, enabling a smooth upgrade process. (link:https://issues.redhat.com/browse/OCPBUGS-75932[OCPBUGS-75932])
+
+* Before this update, unauthorized access to the `8445` port on {vmw-first} for the `vmware-vsphere-csi-driver-operator-metrics` metric occurred. As a consequence, users encountered a `500` error when they accessed metric endpoints on {vmw-short} Infrastructure as a Service (IAAS). With this release, the fix for the `8445` port access issue in VMware `vsphere-csi-driver-operator-metrics` is included. As a result, users do not get a `500` error when accessing the `vmware-vsphere-csi-driver-operator-metrics` endpoint. (link:https://issues.redhat.com/browse/OCPBUGS-77007[OCPBUGS-77007])
+
+* Before this update, duplicate default routes in the Open Virtual Network (OVN) Northbound database caused compute nodes to get stuck in the `NotReady` state. As a consequence, 259 out of 359 nodes consistently failed to join the network. With this release, the duplicate default routes in the OVN Northbound database are fixed, allowing compute nodes to join the network. As a result, the number of stuck nodes decreases, and cluster functionality improves. (link:https://issues.redhat.com/browse/OCPBUGS-77082[OCPBUGS-77082])
+
+* Before this update, a `V4SubnetAllocationThresholdExceeded` alert was triggered due to insufficient subnet allocation with a host prefix of `23` in a cluster with 11 nodes. As a consequence, the `V4SubnetAllocationThresholdExceeded` alert triggered with only 11 nodes, causing potential network instability. With this release, cluster network configuration is adjusted to increase the `V4SubnetAllocationThreshold` alert. As a result, `V4SubnetAllocationThresholdExceeded` alerts do not trigger for clusters with 11 nodes and the specified `clusterNetwork` configuration. (link:https://issues.redhat.com/browse/OCPBUGS-77096[OCPBUGS-77096])
+
+* Before {product-title} 4.19, the `ingress-to-route` metrics code misidentified managed ingresses as `unmanaged` in the same namespace, causing `UnmanagedRoutes` alerts. With this release, a metrics code fix resolves the unmanaged routes alert issue. (link:https://issues.redhat.com/browse/OCPBUGS-77172[OCPBUGS-77172])
+
+* Before this update, a missing Kubernetes secret referenced in a custom `AlertManagerConfig`caused a Prometheus Operator configuration generation failure. As a consequence, user-defined `AlertManagerConfig` referencing non-existent Kubernetes Secret caused monitoring Operator degradation. With this release, the `AlertManagerConfig` issue is resolved, and non-existent secrets do not impact `AlertManagerConfig` reconciliation. (link:https://issues.redhat.com/browse/OCPBUGS-77269[OCPBUGS-77269])
+
+* Before this update, duplicate `PrometheusRule` objects were created due to the controller updating rules without replacing existing ones. This caused inconsistency in rule application, affecting monitoring performance. With this release, duplicate `PrometheusRule` objects are removed, ensuring that updated rules replace existing ones. As a result, duplicate `PrometheusRules` are resolved, ensuring consistent rule versions across clusters. (link:https://issues.redhat.com/browse/OCPBUGS-77273[OCPBUGS-77273])
+
+* Before this update, frequent updates by `hypershift-controlplane-manager` caused `ignition-server` pods to frequently restart, causing service disruptions. With this release, the frequency of `ignition-server` pod restarts is resolved by reducing `hypershift-controlplane-manager` updates. As a result, service stability for users is improved. (link:https://issues.redhat.com/browse/OCPBUGS-77367[OCPBUGS-77367])
+
+* Before this update, Open Virtual Network (OVN) database updates were not propagating to all nodes, and caused stale pod IP addresses to receive User Diagram Protocol (UDP) traffic. As a consequence, UDP traffic was routed to stale pod IP addresses, and caused connections to fail. With this release, UDP traffic is correctly routed to the updated pod endpoints, improving service availability and reducing errors. (link:https://issues.redhat.com/browse/OCPBUGS-77442[OCPBUGS-77442])
+
+* Before this update, image mirroring failed due to the `use-sigstore-attachments` option set to `false` in the `default.yaml` file, causing missing signatures. As a consequence, users experienced a mirror failure and `image not found` errors. With this release, sigstore attachments for the Docker registry are disabled to correct the mirroring failure. As a result, images mirror successfully without errors due to missing signatures.(link:https://issues.redhat.com/browse/OCPBUGS-77663[OCPBUGS-77663])
+
+* Before this update, frequent updates in deployment and the container environment caused `ignition-server` pods to frequently restart. As a consequence, service interruptions occurred. With this release, the `ignition-server` pod restarts are fixed, and no more updates are applied. As a result, service stability is improved.(link:https://issues.redhat.com/browse/OCPBUGS-77844[OCPBUGS-77884])
+
+[id="zstream-4-19-26-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.19 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
