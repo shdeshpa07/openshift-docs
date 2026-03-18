@@ -30,6 +30,7 @@ You can use image builder to create `rpm-ostree` system images with embedded {mi
 ----
 $ sudo dnf install -y microshift-release-info-<release_version>
 ----
++
 Replace `<release_version>` with the numerical value of the release you are deploying, using the entire version number, such as `4.16.0`.
 
 .. List the contents of the `/usr/share/microshift/release` directory to verify the presence of the release information files by running the following command:
@@ -56,6 +57,7 @@ If you installed the `microshift-release-info` RPM, you can proceed to step 4.
 ----
 $ sudo dnf download microshift-release-info-<release_version>
 ----
++
 Replace `<release_version>` with the numerical value of the release you are deploying, using the entire version number, such as `4.16.0`.
 +
 .Example rpm
