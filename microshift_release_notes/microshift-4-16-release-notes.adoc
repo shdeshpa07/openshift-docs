@@ -82,3 +82,5 @@ include::modules/microshift-4-16-32-dp.adoc[leveloffset=+2]
 include::modules/microshift-4-16-40-dp.adoc[leveloffset=+2]
 
 include::modules/microshift-4-16-47-dp.adoc[leveloffset=+2]
+
+include::modules/microshift-4-16-58-dp.adoc[leveloffset=+2]
