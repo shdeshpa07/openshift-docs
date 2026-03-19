@@ -1,0 +1,45 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-16-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-16-58_{context}"]
+= RHSA-2026:4482 - {product-title} {product-version}.58 fixed issues and security updates
+
+Issued: 19 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.58 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:4482[RHSA-2026:4482] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:4464[RHSA-2026:4464] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.16.58 --pullspecs
+----
+
+[id="zstream-4-16-58-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, the bonded network configuration in the Assisted Installer caused a mismatch between the `bootMACAddress` configuration  and the provisioned host, leading to the Ironic agent failing to find the corresponding bare-metal Host (BMH). As a consequence, end users could not provision hosts in a cluster due to a missing `bootMACAddress` configuration. With this release, the bonded network configuration issue in {product-title} {product-version} is fixed for versions above {product-title} {product-version}. As a result, cluster deployment does not become unresponsive, improving the user's experience in {product-title} {product-version}. (link:https://issues.redhat.com/browse/OCPBUGS-61165[OCPBUGS-61165])
+
+* Before this update, `iptables-alerter` pods experienced high CPU usage in some clusters due to an issue in the upgrade. As a consequence, those `iptables-alerter` pods could experience performance degradation. With this release, `iptables-alerter` CPU usage is reduced by optimizing the code. As a result, high CPU usage for `iptables-alerter` pods is resolved, improving cluster performance. (link:https://issues.redhat.com/browse/OCPBUGS-75890[OCPBUGS-75890])
+
+* Before this update, the service account creation in {product-title} clusters on {gcp-first} resulted in inconsistent provider results. As a consequence, service account creation issues affected service account key creation in {gcp-short}. With this release, the service account creation issue is fixed by upgrading Terraform for {product-title} 4.12+. As a result, service account creation consistency is improved. (link:https://issues.redhat.com/browse/OCPBUGS-76586[OCPBUGS-76586])
+
+* Before this update, confusion and maintenance issues were present with the `collect-profiles` job. As a consequence, end users experienced difficulty with the `collect-profiles` job, making it hard to maintain. With this release, the `collect-profiles` job is removed, reducing user confusion and maintenance effort. As a result, the user experience is simplified. (link:https://issues.redhat.com/browse/OCPBUGS-77169[OCPBUGS-77169])
+
+* Before this update, when service endpoints were deleted and re-created in {product-title} clusters by using OVN-Kubernetes networking and the service port differed from the endpoint port, stale User Datagram Protocol (UDP) connection tracking (conntrack) entries could remain on worker nodes. This occurred because the `conntrack` cleanup logic incorrectly used the endpoint port, which is the target port on the pod, instead of the externally-facing service port that clients connect to when attempting to delete stale entries. With this release, the cleanup process uses the service port when deleting or updating service endpoints. This change ensures that stale conntrack entries are correctly matched and removed. Network connectivity now remains reliable during service endpoint lifecycle changes. (link:https://issues.redhat.com/browse/OCPBUGS-77187[OCPBUGS-77187])
+
+* Before this update, duplicate `PrometheusRule` objects were created due to changes in rules over time and inconsistent updates in the `prometheus-k8s-rulefiles-0` config map. As a consequence, inconsistent monitoring occurred. With this release, duplicate `PrometheusRules` are removed from the config map, ensuring consistent rule versions across clusters. As a result, duplicate `PrometheusRule` objects no longer occur, ensuring consistent rule usage across clusters. (link:https://issues.redhat.com/browse/OCPBUGS-77276[OCPBUGS-77276])
+
+* Before this update, when a bare-metal Host (BMH) was marked as `Provisioned` or `ExternallyProvisioned`, the system would try to de-provision it or power it off first and the `DataImage` attached to the BMH would also prevent deletion. This blocked or slowed down host removal, creating operational inefficiencies. With this release, if the BMH has the `detached annotation` and deletion is requested, the BMH transitions to the deleting state, allowing for direct deletion. (link:https://issues.redhat.com/browse/OCPBUGS-77278[OCPBUGS-77278])
+
+* Before this update, `NodePort UDP traffic` test passed unexpectedly due to service pod cycling on the same node. As a consequence, `NodePort UDP traffic E2E` tests failed due to service pod cycling issue. With this release, `NodePort UDP traffic E2E` tests pass due to fixed service connectivity. As a result, `NodePort UDP traffic E2E` tests now pass, ensuring stable UDP traffic for NodePort services across nodes. (link:https://issues.redhat.com/browse/OCPBUGS-77685[OCPBUGS-77685])
+
+[id="zstream-4-16-58-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.16 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].

@@ -23,8 +23,6 @@ $ oc adm release info 4.16.57 --pullspecs
 [id="zstream-4-16-57-fixed-issues_{context}"]
 == Fixed issues
 
-
-
 * Before this update, a bug in the `oc adm inspect --all-namespaces` command construction prevented the `must-gather` utility from correctly gathering information about leases, `csistoragecapacities` resources, and the `assisted-installer` namespace. With this release, the `must-gather` utility gathers the information correctly. (link:https://issues.redhat.com/browse/OCPBUGS-66106[OCPBUGS-66106])
 
 * Before this update, aggregated API servers on {product-title} used in-memory loopback certificates that were valid for only one year. With this release, these servers now use in-memory loopback certificates that are valid for three years. (link:https://issues.redhat.com/browse/OCPBUGS-74110[OCPBUGS-74110])

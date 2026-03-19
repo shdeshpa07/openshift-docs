@@ -21,8 +21,6 @@ $ oc adm release info 4.16.56 --pullspecs
 [id="zstream-4-16-56-fixed-issues_{context}"]
 == Fixed Issues
 
-
-
 * Before this update, HAProxy pods frequently exceeded the `maxConn` limit because idle connections remained open when using the `idle-close-on-response` setting. As a consequence, HAProxy pods entered a CrashLoop state, resulting in performance degradation and persistent reconciliation failures. With this release, the IdleConnectionTerminationPolicy is activated to ensure idle connections are closed correctly. As a result, HAProxy pods in {product-title} 4.18.0 no longer exceed the maxConn limit or experience crashes related to connection buildup.(link:https://issues.redhat.com/browse/OCPBUGS-71202[OCPBUGS-71202])
 
 * Before this update, a validation error occurred during the creation of user accounts with special characters in the email address. As a consequence, user account creation failed. With this release, the validation error is resolved. As a result, user account creation with special characters in the email address is successful. (link:https://issues.redhat.com/browse/OCPBUGS-72541[OCPBUGS-72541])
