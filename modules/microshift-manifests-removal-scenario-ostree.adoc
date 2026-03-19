@@ -6,7 +6,8 @@
 [id="microshift-manifests-removal-scenario-ostree_{context}"]
 = Removing manifests for OSTree systems
 
-Use the following procedure to completely delete the resource defined in the manifests.
+[role="_abstract"]
+On OSTree-based {microshift-short} systems, you can remove a resource by packaging the manifest in an RPM, adding it to a blueprint, and letting {microshift-short} process the `delete` directory.
 
 [IMPORTANT]
 ====

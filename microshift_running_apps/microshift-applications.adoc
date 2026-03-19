@@ -6,7 +6,10 @@ include::_attributes/attributes-microshift.adoc[]
 
 toc::[]
 
-You can use the `kustomize` configuration management tool with application manifests to deploy applications. Read through the following procedures for an example of how Kustomize works in {microshift-short}.
+[role="_abstract"]
+You can use the `kustomize` configuration management tool with application manifests to deploy applications on {microshift-short}.
+
+Read through the following procedures for an example of how Kustomize works in {microshift-short}.
 
 include::modules/microshift-manifests-overview.adoc[leveloffset=+1]
 
