@@ -7,7 +7,8 @@
 [id="update-single-node-openshift_{context}"]
 = About updating single node {product-title}
 
-You can update, or upgrade, a single-node {product-title} cluster by using either the console or CLI.
+[role="_abstract"]
+You can update a single-node {product-title} cluster by using either the console or CLI.
 
 However, note the following limitations:
 
