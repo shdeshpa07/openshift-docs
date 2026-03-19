@@ -6,6 +6,7 @@
 [id="microshift-low-latency-tuned-conc_{context}"]
 = Tuning Red Hat Enterprise Linux 9
 
+[role="_abstract"]
 As a {op-system-base-full} system administrator, you can use the TuneD service to optimize the performance profile of {op-system-base} for a variety of use cases. TuneD monitors and optimizes system performance under certain workloads, including latency performance.
 
 * Use TuneD profiles to tune your system for different use cases, such as deploying a low-latency {microshift-short} node.

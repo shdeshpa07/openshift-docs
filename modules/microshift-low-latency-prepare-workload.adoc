@@ -6,7 +6,8 @@
 [id="microshift-low-latency-prepare-workload_{context}"]
 = Preparing a {microshift-short} workload for low latency
 
-To take advantage of low latency, workloads running on {microshift-short} must have the `microshift-low-latency` container runtime configuration set by using the `RuntimeClass` feature. The CRI-O `RuntimeClass` object is installed with the `microshift-low-latency` RPM, so only the pod annotations need to be configured.
+[role="_abstract"]
+To use low latency, configure pod annotations to set the `microshift-low-latency` container runtime configuration for your workloads by using the `RuntimeClass` feature.
 
 .Prerequisites
 * You installed the `microshift-low-latency` RPM package.
@@ -25,7 +26,7 @@ cpu-load-balancing.crio.io: "disable"
 cpu-freq-governor.crio.io: "<governor>"
 ----
 +
-.Example pod that runs `oslat` test:
+Example pod that runs `oslat` test:
 +
 [source,yaml]
 ----
@@ -34,13 +35,13 @@ kind: Pod
 metadata:
   name: oslat
   annotations:
-    cpu-load-balancing.crio.io: "disable" # <1>
-    irq-load-balancing.crio.io: "disable" # <2>
-    cpu-quota.crio.io: "disable" # <3>
-    cpu-c-states.crio.io: "disable" # <4>
-    cpu-freq-governor.crio.io: "<governor>" # <5>
+    cpu-load-balancing.crio.io: "disable" 
+    irq-load-balancing.crio.io: "disable" 
+    cpu-quota.crio.io: "disable" 
+    cpu-c-states.crio.io: "disable" 
+    cpu-freq-governor.crio.io: "<governor>" 
 spec:
-  runtimeClassName: microshift-low-latency # <6>
+  runtimeClassName: microshift-low-latency 
   containers:
   - name: oslat
     image: quay.io/container-perf-tools/oslat
@@ -75,12 +76,13 @@ spec:
           - IPC_LOCK
 
 ----
-<1> Disables the CPU load balancing for the pod.
-<2> Opts the pod out of interrupt handling (IRQ).
-<3> Disables the CPU completely fair scheduler (CFS) quota at the pod run time.
-<4> Enables or disables C-states for each CPU. Set the value to `disable` to provide the best performance for a high-priority pod.
-<5> Sets the `cpufreq` governor for each CPU. The `performance` governor is recommended for high-priority workloads.
-<6> The `runtimeClassName` must match the name of the performance profile configured in the node. For example, `microshift-low-latency`.
++
+`metadata.annotations.cpu-load-balancing.crio.io`:: Disables the CPU load balancing for the pod.
+`metadata.annotations.irq-load-balancing.crio.io`:: Opts the pod out of interrupt handling (IRQ).
+`metadata.annotations.cpu-quota.crio.io`:: Disables the CPU completely fair scheduler (CFS) quota at the pod run time.
+`metadata.annotations.cpu-c-states.crio.io`:: Enables or disables C-states for each CPU. Set the value to `disable` to provide the best performance for a high-priority pod.
+`metadata.annotations.cpu-freq-governor.crio.io`:: Sets the `cpufreq` governor for each CPU. The `performance` governor is recommended for high-priority workloads.
+`spec.runtimeClassName`:: The `runtimeClassName` must match the name of the performance profile configured in the node. For example, `microshift-low-latency`.
 +
 [NOTE]
 ====
@@ -91,4 +93,3 @@ Disable CPU load balancing only when the CPU manager static policy is enabled an
 ====
 For the pod to have the `Guaranteed` QoS class, it must have the same values of CPU and memory in requests and limits. See link:https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/#guaranteed[Guaranteed] (Kubernetes upstream documentation)
 ====
-
