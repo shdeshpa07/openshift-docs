@@ -2948,6 +2948,8 @@ For any {product-title} release, always review the instructions on xref:../updat
 ====
 
 //  4.17.50
+include::modules/zstream-4-17-51.adoc[leveloffset=+2]
+//  4.17.50
 include::modules/zstream-4-17-50.adoc[leveloffset=+2]
 
 //  4.17.49
