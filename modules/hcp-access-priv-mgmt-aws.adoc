@@ -4,9 +4,10 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="hcp-access-private-hc-aws_{context}"]
-= Accessing a private management cluster on {aws-short}
+= Accessing a private hosted cluster on {aws-short}
 
-You can access your private management cluster by using the command-line interface (CLI).
+[role="_abstract"]
+After you create a private hosted cluster, you can access it by using the command-line interface (CLI).
 
 .Procedure
 
