@@ -23,8 +23,6 @@ $ oc adm release info 4.20.8 --pullspecs
 [id="zstream-4-20-8-fixed-issues_{context}"]
 == Fixed issues
 
-The following issues are fixed for this release:
-
 * Before this update, resizing or cloning small {gcp-first} hyperdisk volumes failed due to an input/output operations per second (IOPS) validation error from the {gcp-first} Application Programming Interface (API). This occurred because the Container Storage Interface (CSI) driver did not automatically adjust the provisioned IOPS to meet the minimum requirements of the new volume size. With this release, the driver is updated to correctly calculate and provide the required IOPS during volume expansion operations. (link:https://issues.redhat.com/browse/OCPBUGS-62117[OCPBUGS-62117])
 
 * Before this update, when a `MachineDeployment` controller upgraded its machines and the cluster autoscaler was also scaling the `MachineDeployment` controller, it was possible for the cluster autoscaler to remove new machines by scaling down the `MachineDeployment` controller for underused nodes. With this release, scaling down machines does not occur when a `MachineDeployment` controller is in the process of upgrading its machines. (link:https://issues.redhat.com/browse/OCPBUGS-63495[OCPBUGS-63495])

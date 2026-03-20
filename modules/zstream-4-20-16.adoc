@@ -23,7 +23,7 @@ $ oc adm release info 4.20.16 --pullspecs
 [id="zstream-4-20-16-fixed-issues_{context}"]
 == Fixed issues
 
-The following issues are fixed for this release:
+
 
 * Before this update, the Machine API Provider OpenStack (MAPO) created an event for every single reconcile, even when no significant state changes such as creation, update, or deletion had occurred. This excessive event generation led to significant noise in event logs, created potential performance degradation, and often disrupted monitoring and alerting systems. With this release, the reconcile function has been modified to capture the original `ResourceVersion` value and only emit an event when the machine `ResourceVersion` value changes, indicating an actual modification. Additionally, the event name was changed from `Reconciled` to `Updated` to better align with other machine API providers.  (link:https://issues.redhat.com/browse/OCPBUGS-69645[OCPBUGS-69645])
 

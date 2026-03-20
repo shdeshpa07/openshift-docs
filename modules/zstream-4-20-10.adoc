@@ -23,14 +23,10 @@ $ oc adm release info 4.20.10 --pullspecs
 [id="zstream-4-20-10-enhancements_{context}"]
 == Enhancements
 
-The following enhancements are included in this z-stream release:
-
 * With this update, the Cluster Network Operator now supports `KubeVirt` as a platform for dual-stack networking in {VirtProductName}, resolving a previous issue where `KubeVirt` was not recognized as a supported platform for dual-stack. This enhancement enables successful deployment of a Hosted Control Plane on {VirtProductName} with IPv4/IPv6 dual-stack networking. This improvement reduces deployment failures and ensure a smoother experience for users deploying {VirtProductName} with `KubeVirt`. (link:https://issues.redhat.com/browse/OCPBUGS-66235[OCPBUGS-66235])
 
 [id="zstream-4-20-10-fixed-issues_{context}"]
 == Fixed issues
-
-The following issues are fixed for this release:
 
 * Before this update, when a HyperShift `HostedCluster` used external Domain Name Service (DNS) domains and endpoint access with PublicAndPrivate, the `allowedCIDRBlocks` parameters were wrongly applied only to the internal `kube-apiserver`, leaving the control plane Operator in an error state. With this release, the control plane Operator functions correctly and the `LoadBalancerSourceRanges` configuration has been added to the external router `LoadBalancer` service, ensuring that external `kube-apiserver` access is now properly restricted to the specified `allowedCIDRBlocks`. (link:https://issues.redhat.com/browse/OCPBUGS-63509[OCPBUGS-63509])
 

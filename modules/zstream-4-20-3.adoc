@@ -23,8 +23,6 @@ $ oc adm release info 4.20.3 --pullspecs
 [id="ocp-4-20-3-fixed-issues_{context}"]
 == Fixed issues
 
-The following issues are fixed for this release:
-
 * Before this update, the communication matrix project failed to create EndPointSlice objects for open ports 9193 and 9194 on the primary node because of a missing service connection. As a consequence, inaccurate communication matrixes resulted. With this release, the service is connected to open ports 9193 and 9194, which resolve the missing EndPointSlice objects. As a result, open ports 9193 and 9194 on the primary node are associated with a service, resulting in accurate communication matrixes for {product-title} users. (link:https://issues.redhat.com/browse/OCPBUGS-63587[OCPBUGS-63587])
 
 * Before this update, the metric denylist incorrectly formatted the regular expression for the `kube_customresource`, omitting the `annotations` field. As a consequence, users experienced missing metrics due to an incorrect denylist configuration. With this release, unnecessary entries are removed from the metric denylist. As a result, registry metrics include missing annotations, which improves data accuracy. (link:https://issues.redhat.com/browse/OCPBUGS-64577[OCPBUGS-64577])

@@ -23,14 +23,10 @@ $ oc adm release info 4.20.1 --pullspecs
 [id="ocp-4-20-1-known-issues_{context}"]
 == Known issues
 
-This release contains the following known issues:
-
 * Starting with {product-title} 4.20, there is a decrease in the default maximum open files soft limit for containers. As a consequence, end users may experience application failures. To work around this problem, increase the container runtimes (CRI-O) ulimit configuration. (link:https://issues.redhat.com/browse/OCPBUGS-62095[OCPBUGS-62095])
 
 [id="ocp-4-20-1-fixed-issues_{context}"]
 == Fixed issues
-
-The following issues are fixed for this release:
 
 * Before this update, iDRAC10 hardware provisioning was failing due to an incorrect data type for the Dell Original Equipment Manufacturer (OEM) `Target` property and the use of an incorrect virtual media slot. As a result, users were unable to provision Dell iDRAC10 servers. With this release, the Dell iDRAC10 can be provisioned. (link:https://issues.redhat.com/browse/OCPBUGS-52427[OCPBUGS-52427])
 

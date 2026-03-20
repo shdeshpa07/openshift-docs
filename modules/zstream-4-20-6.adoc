@@ -23,9 +23,6 @@ $ oc adm release info 4.20.6 --pullspecs
 [id="zstream-4-20-6-enhancements_{context}"]
 == Enhancements
 
-
-The following enhancements are included in this z-stream release:
-
 Support for installing a cluster without an external registry (Technology Preview)::
 As a Technology Preview feature, you can deploy a cluster without an external registry, using self-contained installation media that also provides a simplified user interface similar to the {ai-full} during on-premise installations.
 
@@ -35,8 +32,6 @@ For more information, see the following documentation:
 
 [id="zstream-4-20-6-fixed-issues_{context}"]
 == Fixed issues
-
-The following issues are fixed for this release:
 
 * Before this update, the `CloudFront` object distribution was not deleted due to a failed tag-based retrieval, and caused persistence of resources, including the origin access identity. With this release, the `CloudFront` origin access identity is deleted after using the distribution command. As a result, the `CloudFront` object distribution and origin access identity are deleted after using the delete command. (link:https://issues.redhat.com/browse/OCPBUGS-63690[OCPBUGS-63690])
 

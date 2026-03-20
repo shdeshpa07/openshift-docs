@@ -3015,51 +3015,49 @@ In both cases, the installation program generates a user-assigned identity. (lin
 
 // [id="ocp-storage-core-release-known-issues_{context}"]
 
-// 4.20.14 about async
+//z-stream release notes
+
 include::modules/rn-async-errata.adoc[leveloffset=+1]
 
-// 4.20.16 RNs
-include::modules/zstream-4-20-16.adoc[leveloffset=+2]
-
-// 4-20-15 release notes enhancements
+// 4.20.15 release notes
 include::modules/zstream-4-20-15.adoc[leveloffset=+2]
 
 
-// 4.20.14 RNs
+// 4.20.14 release notes
 include::modules/zstream-4-20-14.adoc[leveloffset=+2]
 
-// 4-20-13 release notes
+// 4.20.13 release notes
 include::modules/zstream-4-20-13.adoc[leveloffset=+2]
 
-// 4-20-12 release notes enhancements
+// 4.20.12 release notes
 include::modules/zstream-4-20-12.adoc[leveloffset=+2]
 
-// About 4-20-11 release notes
+// 4.20.11 release notes
 include::modules/zstream-4-20-11.adoc[leveloffset=+2]
 
-// About 4-20-10 release notes
+// 4.20.10 release notes
 include::modules/zstream-4-20-10.adoc[leveloffset=+2]
 
-// About 4-20-8 release notes
+// 4.20.8 release notes
 include::modules/zstream-4-20-8.adoc[leveloffset=+2]
 
-// About 4-20-6 release notes
+// 4.20.6 release notes
 include::modules/zstream-4-20-6.adoc[leveloffset=+2]
 
-// About 4-20-5 release notes
+// 4.20.5 release notes
 include::modules/zstream-4-20-5.adoc[leveloffset=+2]
 
-// About 4-20-5 release notes
+// 4.20.4 release notes
 include::modules/zstream-4-20-4.adoc[leveloffset=+2]
 
-// About 4-20-5 release notes
+// 4.20.3 release notes
 include::modules/zstream-4-20-3.adoc[leveloffset=+2]
 
-// About 4-20-5 release notes
+// 4.20.2 release notes
 include::modules/zstream-4-20-2.adoc[leveloffset=+2]
 
-// About 4-20-5 release notes
+// 4.20.1 release notes
 include::modules/zstream-4-20-1.adoc[leveloffset=+2]
 
-// About 4-20-5 release notes
+// 4.20.0 release notes
 include::modules/zstream-4-20-0.adoc[leveloffset=+2]

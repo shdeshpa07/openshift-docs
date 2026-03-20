@@ -23,14 +23,10 @@ $ oc adm release info 4.20.2 --pullspecs
 [id="ocp-4-20-2-enhancements_{context}"]
 == Enhancements
 
-The following enhancements are included in this z-stream release:
-
 * With this update, the `adm upgrade recommend` command now retrieves and displays critical and non-critical alerts that can be used by cluster administrators for cluster updates. Cluster administrators can also use a new `--accept` option with the `--version` command  to accept specific acceptable issues. The command exits nonzero if unaccepted issues are detected. (link:https://issues.redhat.com/browse/OCPBUGS-61757[OCPBUGS-61757])
 
 [id="ocp-4-20-2-fixed-issues_{context}"]
 == Fixed issues
-
-The following issues are fixed for this release:
 
 * Before this update, if NetworkManager was restarted or crashed on a node with a `br-ex` interface managed by NMState, the node lost network connectivity. With this release, a fallback check in the dispatcher script was added to detect NMState-managed `br-ex` interfaces by checking for the `br-ex-br` bridge ID when the standard `br-ex` bridge ID is not found. As a result, nodes with this interface type do not lose network connectivity when NetworkManager restarts or crashes. (link:https://issues.redhat.com/browse/OCPBUGS-62167[OCPBUGS-62167])
 

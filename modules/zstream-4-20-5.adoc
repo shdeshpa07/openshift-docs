@@ -59,9 +59,6 @@ For more information, see xref:../authentication/external-auth.adoc#external-aut
 [id="zstream-4-20-5-known-issues_{context}"]
 == Known issues
 
-This release contains the following known issues:
-
-
 * When using GitLab or Google as the external OIDC identity provider for direct authentication, clicking *Log out* from the {product-title} web console does not log you out of the console. (link:https://issues.redhat.com/browse/OCPBUGS-61649[OCPBUGS-61649])
 
 * When using Active Directory Federation Services for Windows Server as the external OIDC identity provider for direct authentication, logging into the {product-title} web console the first time produces an authentication error. As a workaround, reload the web console until it displays properly. (link:https://issues.redhat.com/browse/OCPBUGS-62142[OCPBUGS-62142])
@@ -70,8 +67,6 @@ This release contains the following known issues:
 
 [id="zstream-4-20-5-bug-fixes_{context}"]
 == Fixed issues
-
-The following issues are fixed for this release:
 
 * Before this update, the `oauth` pods in the `openshift-authentication` namespaces could get stuck while rolling out changes when one of the corresponding nodes these pods are running on is not ready or not available. This was causing authentication to completely stop until the blocked rollout concludes. With this release, the pods can proceed with the rolling update even when an unhealthy node is down or unavailable (link:https://issues.redhat.com/browse/OCPBUGS-61896[OCPBUGS-61896])
 
