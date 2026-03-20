@@ -6,6 +6,7 @@
 [id="update-using-custom-machine-config-pools-mcp-remove_{context}"]
 = Moving a node to the original machine config pool
 
+[role="_abstract"]
 After you update and verify applications on nodes in a custom machine config pool (MCP), move the nodes back to their original MCP by removing the custom label that you added to the nodes.
 
 [IMPORTANT]
