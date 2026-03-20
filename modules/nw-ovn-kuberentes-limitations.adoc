@@ -6,7 +6,8 @@
 [id="nw-ovn-kubernetes-limitations_{context}"]
 = OVN-Kubernetes IPv6 and dual-stack limitations
 
-The OVN-Kubernetes network plugin has the following limitations:
+[role="abstract"]
+IPv6 and dual-stack networking for the OVN-Kubernetes network plugin in {microshift-short} have specific limitations that affect gateway configuration, routing, and cluster stability.
 
 // The foll limitation is also recorded in the installation section.
 * For clusters configured for dual-stack networking, both IPv4 and IPv6 traffic must use the same network interface as the default gateway.
