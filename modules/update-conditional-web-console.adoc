@@ -6,6 +6,7 @@
 [id="update-conditional-web-console_{context}"]
 = Viewing conditional updates in the web console
 
+[role="_abstract"]
 You can view and assess the risks associated with particular updates with conditional updates.
 
 .Prerequisites

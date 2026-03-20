@@ -2,10 +2,14 @@
 //
 // * updating/updating_a_cluster/updating-cluster-web-console.adoc
 
+:_mod-docs-content-type: CONCEPT
 [id="update-using-custom-machine-config-pools-canary_{context}"]
 = Performing a canary rollout update
 
-In some specific use cases, you might want a more controlled update process where you do not want specific nodes updated concurrently with the rest of the cluster. These use cases include, but are not limited to:
+[role="_abstract"]
+In some specific use cases, you might want a more controlled update process where you do not want specific nodes updated concurrently with the rest of the cluster.
+
+These use cases include, but are not limited to the following situations:
 
 * You have mission-critical applications that you do not want unavailable during the update. You can slowly test the applications on your nodes in small batches after the update.
 * You have a small maintenance window that does not allow the time for all nodes to be updated, or you have multiple maintenance windows.
@@ -29,4 +33,4 @@ The rolling update process described in this topic involves:
 Pausing an MCP should be done with careful consideration and for short periods of time only.
 ====
 
-//link that follows is in the assembly: updating-cluster-between-minor
+If you want to use the canary rollout update process, see "Performing a canary rollout update".
