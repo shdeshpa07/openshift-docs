@@ -6,7 +6,10 @@
 [id="update-using-custom-machine-config-pools-about_{context}"]
 = About performing a canary rollout update
 
-The following steps outline the high-level workflow of the canary rollout update process:
+[role="_abstract"]
+The process of a canary update can be understood as several high-level steps.
+
+The following steps outline the high-level workflow of the process:
 
 . Create custom machine config pools (MCP) based on the worker pool.
 +
