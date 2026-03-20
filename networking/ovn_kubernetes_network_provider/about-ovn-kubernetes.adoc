@@ -37,7 +37,7 @@ OVN-Kubernetes runs a daemon on each node. There are daemon sets for the databas
 include::modules/nw-ovn-kubernetes-features.adoc[leveloffset=+1]
 
 // OVN-Kubernetes IPv6 and dual-stack limitations
-include::modules/nw-ovn-kuberentes-limitations.adoc[leveloffset=+1]
+include::modules/nw-ovn-kubernetes-limitations.adoc[leveloffset=+1]
 
 // Session affinity
 include::modules/nw-ovn-kubernetes-session-affinity.adoc[leveloffset=+1]
