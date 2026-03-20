@@ -6,6 +6,7 @@
 [id="update-using-custom-machine-config-pools-unpause_{context}"]
 = Unpausing the machine config pools
 
+[role="_abstract"]
 After the {product-title} update is complete, unpause your custom machine config pools (MCP) one at a time. Unpausing an MCP allows the Machine Config Operator (MCO) to update the nodes associated with that MCP.
 
 .Procedure
@@ -45,7 +46,7 @@ $ oc get machineconfigpools
 . Test your applications on the updated nodes to ensure that they are working as expected.
 
 . Repeat this process for any other paused MCPs, one at a time.
-
++
 [NOTE]
 ====
 In case of a failure, such as your applications not working on the updated nodes, you can cordon and drain the nodes in the pool, which moves the application pods to other nodes to help maintain the quality-of-service for the applications. This first MCP should be no larger than the excess capacity.
