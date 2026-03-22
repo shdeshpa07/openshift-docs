@@ -24,11 +24,11 @@ data:
 
   custom-v6-rules.txt: |
     # accept NDP
-    -p icmpv6 --icmpv6-type neighbor-solicitation -j ACCEPT <1>
-    -p icmpv6 --icmpv6-type neighbor-advertisement -j ACCEPT <2>
+    -p icmpv6 --icmpv6-type neighbor-solicitation -j ACCEPT
+    -p icmpv6 --icmpv6-type neighbor-advertisement -j ACCEPT
     # accept RA/RS
-    -p icmpv6 --icmpv6-type router-solicitation -j ACCEPT <3>
-    -p icmpv6 --icmpv6-type router-advertisement -j ACCEPT <4>
+    -p icmpv6 --icmpv6-type router-solicitation -j ACCEPT
+    -p icmpv6 --icmpv6-type router-advertisement -j ACCEPT
 ----
 
 where:
