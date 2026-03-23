@@ -6,11 +6,12 @@
 [id="update-using-custom-machine-config-pools-pause_{context}"]
 = Pausing the machine config pools
 
+[role="_abstract"]
 After you create your custom machine config pools (MCPs), you then pause those MCPs. Pausing an MCP prevents the Machine Config Operator (MCO) from updating the nodes associated with that MCP.
 
 .Procedure
 
-. Patch the MCP that you want paused by running the following command:
+* Patch the MCP that you want paused by running the following command:
 +
 [source,terminal]
 ----
