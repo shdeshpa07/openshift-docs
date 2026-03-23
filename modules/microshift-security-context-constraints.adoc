@@ -7,9 +7,8 @@
 
 = Security context constraint synchronization with pod security standards
 
-{microshift-short} includes link:https://kubernetes.io/docs/concepts/security/pod-security-admission[Kubernetes pod security admission].
-
-In addition to the global pod security admission control configuration, a controller exists that applies pod security admission control `warn` and `audit` labels to namespaces according to the security context constraint (SCC) permissions of the service accounts that are in a given namespace.
+[role="_abstract"]
+{microshift-short} includes Kubernetes pod security admission (PSA) and a controller that applies PSA labels to namespaces based on the security context constraint (SCC) permissions of service accounts in that namespace.
 
 [IMPORTANT]
 ====

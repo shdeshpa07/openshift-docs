@@ -6,6 +6,7 @@
 [id="microshift-embed-app-rpms-tutorial_{context}"]
 = Embed application RPMs tutorial
 
+[role="_abstract"]
 The following tutorial reviews the {microshift-short} installation steps and adds a description of the workflow for embedding applications. If you are already familiar with `rpm-ostree` systems such as {op-system-ostree-first} and {microshift-short}, you can go straight to the procedures.
 
 [id="microshift-installation-workflow-review_{context}"]
