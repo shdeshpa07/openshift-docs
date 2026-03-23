@@ -6,6 +6,7 @@
 [id="update-using-custom-machine-config-pools-mcp_{context}"]
 = Creating machine config pools to perform a canary rollout update
 
+[role="_abstract"]
 To perform a canary rollout update, you must first create one or more custom machine config pools (MCP).
 
 .Procedure
@@ -56,22 +57,25 @@ node/ci-ln-gtrwm8t-f76d1-spbl7-worker-a-xk76k labeled
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfigPool
 metadata:
-  name: workerpool-canary <1>
+  name: workerpool-canary
 spec:
   machineConfigSelector:
     matchExpressions:
       - {
          key: machineconfiguration.openshift.io/role,
          operator: In,
-         values: [worker,workerpool-canary] <2>
+         values: [worker,workerpool-canary]
         }
   nodeSelector:
     matchLabels:
-      node-role.kubernetes.io/workerpool-canary: "" <3>
+      node-role.kubernetes.io/workerpool-canary: ""
 ----
-<1> Specify a name for the MCP.
-<2> Specify the `worker` and custom MCP name.
-<3> Specify the custom label you added to the nodes that you want in this pool.
++
+where:
++
+`metadata.name`:: Specifies a name for the MCP.
+`spec.machineConfigSelector.matchExpressions.values`:: Specifies the `worker` and custom MCP name.
+`spec.nodeSelectormatchLabels.node-role.kubernetes.io/workerpool-canary`:: Specifies the custom label you added to the nodes that you want in this pool.
 
 .. Create the `MachineConfigPool` object by running the following command:
 +
