@@ -9,7 +9,7 @@ ifeval::["{context}" == "generate-seed"]
 :ibu:
 endif::[]
 
-:_mod-docs-content-type: PROCEDURE
+:_mod-docs-content-type: CONCEPT
 [id="cnf-image-based-upgrade-seed-image-config_{context}"]
 = Seed image configuration
 
@@ -109,6 +109,10 @@ The following table lists the components, resources, and configurations that you
 
 |`StorageLVMCluster.yaml`
 |No
+
+|`SriovVrbClusterConfig.yaml`
+|Yes
+
 |====
 
 ifdef::ibu[]
