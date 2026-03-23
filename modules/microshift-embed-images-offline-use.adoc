@@ -6,6 +6,7 @@
 [id="microshift-embed-images-offline-use_{context}"]
 = Embedding workload container images for offline use
 
+[role="_abstract"]
 To embed container images in devices at the edge that do not have any network connection, you must create a new container, mount the ISO, and then copy the contents into the file system.
 
 .Prerequisites
@@ -25,9 +26,9 @@ $ oc kustomize ~/manifests | grep "image:" | grep -oE '[^ ]+$' | while read line
 
 . Push the updated blueprint to image builder by running the following command:
 +
-[source, terminal]
+[source,terminal,subs="+quotes"]
 ----
-$ sudo composer-cli blueprints push <my_blueprint>.toml
+$ sudo composer-cli blueprints push _<my_blueprint>_.toml
 ----
 
 . If your workload containers are located in a private repository, you must provide image builder with the necessary pull secrets:
@@ -38,18 +39,19 @@ $ sudo composer-cli blueprints push <my_blueprint>.toml
 +
 .Example directory and file
 +
-[source,terminal]
+[source,terminal,subs="+quotes"]
 ----
 [containers]
-auth_file_path = "/<path>/pull-secret.json" <1>
+auth_file_path = "/_<path>_/pull-secret.json"
 ----
-<1> Use the custom location previously set for copying and retrieving images.
++
+Use the custom location previously set for copying and retrieving images.
 
 . Build the container image by running the following command:
 +
-[source,terminal]
+[source,terminal,subs="+quotes"]
 ----
-$ sudo composer-cli compose start-ostree <my_blueprint> edge-commit
+$ sudo composer-cli compose start-ostree _<my_blueprint>_ edge-commit
 ----
 
 . Proceed with your preferred `rpm-ostree` image flow, such as waiting for the build to complete, exporting the image and integrating it into your `rpm-ostree` repository or creating a bootable ISO.
