@@ -3,11 +3,25 @@
 // * release_notes/ocp-4-17-release-notes.adoc
 
 :_mod-docs-content-type: REFERENCE
-[id="zstream-4-17-46-fixed-issues_{context}"]
-= Fixed issues
+[id="zstream-4-17-46-about_{context}"]
+= RHBA-2026:23120 - {product-title} {product-version}.46 fixed issues
+
+Issued: 06 January 2026
 
 [role="_abstract"]
-The following issues are fixed with this release:
+{product-title} release {product-version}.46 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHBA-2026:23120[RHBA-2026:23120] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2025:23118[RHBA-2025:23118] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.17.46--pullspecs
+----
+
+[id="zstream-4-17-46-fixed-issues_{context}"]
+== Fixed issues
 
 * Before this update, when an IDMS or ICSP in the management cluster defined a source that pointed to `registry.redhat.io` or `registry.redhat.io/redhat`, and the mirror registry did not contain the required OLM catalog images, the provisioning of the `HostedCluster` object stalled due to unauthorized image pulls. As a consequence, the `HostedCluster` object was not deployed, and was blocked from pulling essential catalog images from the mirrored registry. With this release, the provisioning explicitly fails and blocks if a required image cannot be pulled due to authorization errors. In addition, the logic for registry overrides is improved to allow matches on the root of the registry, such as `registry.redhat.io`, for OLM CatalogSource image resolution. Also, a fallback mechanism is introduced to use the original image reference if the registry override does not yield a working image. As a result, the `HostedCluster` object is deployed, even in scenarios where the mirror registry lacks the required OLM catalog images, because the system correctly falls back to pull from the original source when appropriate. (link:https://issues.redhat.com/browse/OCPBUGS-57123[OCPBUGS-57123]).
 
@@ -18,3 +32,8 @@ The following issues are fixed with this release:
 * Before this update, when you directly navigated to a page created by a web console dynamic plugin, the web console might have redirected you to a different URL. With this release, the URL redirect is removed. (link:https://issues.redhat.com/browse/OCPBUGS-65933[OCPBUGS-65933])
 
 * Before this update, the {azure-short} Machine API provider attempted to use the default `platformUpdateDomainCount` of `5` even in regions that are restricted to a single fault domain. This caused machine creation to fail for all node types in affected regions because {azure-short} only supports one update domain when the fault domain count is `1`. With this release, the logic was updated to explicitly set the `platformUpdateDomainCount` parameter to `1` whenever the `platformFaultDomainCount` parameter is determined to be `1`. As a result, Machine Availability Sets are created with valid parameter combinations, which allows machines to successfully provision in {azure-short} regions with a single fault domain. (link:https://issues.redhat.com/browse/OCPBUGS-65954[OCPBUGS-65954])
+
+[id="zstream-4-17-46-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.17 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
