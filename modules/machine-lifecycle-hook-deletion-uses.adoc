@@ -6,8 +6,10 @@
 [id="machine-lifecycle-hook-deletion-uses_{context}"]
 = Machine deletion lifecycle hook examples for Operator developers
 
-Operators can use lifecycle hooks for the machine deletion phase to modify the machine deletion process. The following examples demonstrate possible ways that an Operator can use this functionality.
+[role="_abstract"]
+Operators can use lifecycle hooks for the machine deletion phase to modify the machine deletion process.
 
+The following examples demonstrate possible ways that an Operator can use this functionality.
 
 [id="machine-lifecycle-hook-deletion-uses-predrain_{context}"]
 == Example use cases for `preDrain` lifecycle hooks
