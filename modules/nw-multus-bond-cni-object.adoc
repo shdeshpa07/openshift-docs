@@ -22,7 +22,7 @@ The following table describes the configuration parameters for the Bond CNI plug
 
 |`cniVersion`
 |`string`
-|The CNI specification version.
+|The CNI specification version. A minimum version of `0.3.1` is required.
 
 |`type`
 |`string`
