@@ -6,15 +6,18 @@
 [id="updating-control-plane-only-update-cli_{context}"]
 = Control Plane Only update using the CLI
 
+[role="_abstract"]
+You can perform a Control Plane Only update by using the {oc-first}.
+
 .Prerequisites
 
-* Verify that machine config pools are unpaused.
-* Have access to the {product-title} web console as a user with `cluster-admin` privileges.
-* Update the OpenShift CLI (`oc`) to the target version before each update.
-
+* You verified that machine config pools are unpaused.
+* You have access to the {product-title} web console as a user with `cluster-admin` privileges.
+* You updated the {oc-first} to the target version before each update.
++
 [IMPORTANT]
 ====
-It is highly discouraged to skip this prerequisite. If the OpenShift CLI (`oc`) is not updated to the target version before your update, unexpected issues may occur.
+It is highly discouraged to skip this prerequisite. If the {oc-first} is not updated to the target version before your update, unexpected issues may occur.
 ====
 
 .Procedure
