@@ -12,6 +12,9 @@ WARNING: This assembly has been moved into a subdirectory for 4.14+. Changes to 
 To do: Remove this comment once 4.13 docs are EOL.
 ////
 
+[role="_abstract"]
+To reduce the rebooting of non-control plane hosts during cluster updates, you can perform a Control Plane Only update for your cluster.
+
 Due to fundamental Kubernetes design, all {product-title} updates between minor versions must be serialized.
 You must update from {product-title} <4.y> to <4.y+1>, and then to <4.y+2>. You cannot update from {product-title} <4.y> to <4.y+2> directly.
 However, administrators who want to update between two even-numbered minor versions can do so incurring only a single reboot of non-control plane hosts.

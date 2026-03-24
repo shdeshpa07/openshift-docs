@@ -6,6 +6,9 @@
 [id="update-vsphere-virtual-hardware-on-compute-nodes_{context}"]
 = Updating the virtual hardware for compute nodes on vSphere
 
+[role="_abstract"]
+You can update the virtual hardware for compute nodes on vSphere.
+
 To reduce the risk of downtime, it is recommended that compute nodes be updated serially.
 
 [NOTE]
@@ -20,7 +23,7 @@ Multiple compute nodes can be updated in parallel given workloads are tolerant o
 
 .Procedure
 
-. List the compute nodes in your cluster.
+. List the compute nodes in your cluster by running the following command:
 +
 [source,terminal]
 ----
@@ -38,36 +41,36 @@ compute-node-2    Ready    worker   30m   v1.31.3
 +
 Note the names of your compute nodes.
 
-. Mark the compute node as unschedulable:
+. Mark the compute node as unschedulable by running the following command:
 +
 [source,terminal]
 ----
 $ oc adm cordon <compute_node>
 ----
 
-. Evacuate the pods from the compute node. There are several ways to do this. For example, you can evacuate all or selected pods on a node:
+. Evacuate the pods from the compute node. There are several ways to do this. For example, you can evacuate all or selected pods on a node by running the following command:
 +
 [source,terminal]
 ----
 $ oc adm drain <compute_node> [--pod-selector=<pod_selector>]
 ----
 +
-See the "Evacuating pods on nodes" section for other options to evacuate pods from a node.
+See "Evacuating pods on nodes" for other options to evacuate pods from a node.
 
 . Shut down the virtual machine (VM) associated with the compute node. Do this in the vSphere client by right-clicking the VM and selecting *Power* -> *Shut Down Guest OS*. Do not shut down the VM using *Power Off* because it might not shut down safely.
 
-. Update the VM in the vSphere client. Follow link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-60768C2F-72E1-42E0-8A17-CA76849F2950.html[Upgrade the Compatibility of a Virtual Machine Manually] in the VMware documentation for more information.
+. Update the VM in the vSphere client. Follow link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-60768C2F-72E1-42E0-8A17-CA76849F2950.html[Upgrade the Compatibility of a Virtual Machine Manually] (VMware vSphere documentation).
 
 . Power on the VM associated with the compute node. Do this in the vSphere client by right-clicking the VM and selecting *Power On*.
 
-. Wait for the node to report as `Ready`:
+. Run the following command and wait for the node to report as `Ready`:
 +
 [source,terminal]
 ----
 $ oc wait --for=condition=Ready node/<compute_node>
 ----
 
-. Mark the compute node as schedulable again:
+. Mark the compute node as schedulable again by running the following command:
 +
 [source,terminal]
 ----
