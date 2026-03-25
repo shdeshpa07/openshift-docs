@@ -7,8 +7,7 @@
 = Installing the OADP Operator and providing the IAM role
 
 [role="_abstract"]
-AWS Security Token Service (AWS STS) is a global web service that provides short-term credentials for IAM or federated users. {product-title} with {sts-short} is the recommended credential mode. This document describes how to install {oadp-first} on clusters with {aws-short} {sts-short}.
-
+Install {oadp-first} on clusters with {aws-short} {sts-short}. AWS Security Token Service (AWS STS) is a global web service that provides short-term credentials for IAM or federated users. {product-title} with {sts-short} is the recommended credential mode.
 
 [IMPORTANT]
 ====
@@ -27,6 +26,7 @@ For backing up volumes, OADP on ROSA with {aws-short} {sts-short} recommends nat
 
 In an Amazon ROSA cluster that uses STS authentication, restoring backed-up data in a different {aws-short} region is not supported.
 ====
+
 
 .Prerequisites
 
@@ -57,10 +57,13 @@ $ cat <<EOF > ${SCRATCH}/credentials
   [default]
   role_arn = ${ROLE_ARN}
   web_identity_token_file = /var/run/secrets/openshift/serviceaccount/token
-  region = <aws_region> # <1>
+  region = <aws_region>
 EOF
 ----
-<1> Replace `<aws_region>` with the AWS region to use for the {sts-short} endpoint.
++
+
+Replace `<aws_region>` with the AWS region to use for the {sts-short} endpoint.
+
 .. Create a namespace for OADP:
 +
 [source,terminal]
@@ -76,12 +79,14 @@ $ oc -n openshift-adp create secret generic cloud-credentials \
   --from-file=${SCRATCH}/credentials
 ----
 +
+--
 [NOTE]
 ====
 In {product-title} versions 4.15 and later, the OADP Operator supports a new standardized {sts-short} workflow through the Operator Lifecycle Manager (OLM) and Cloud Credentials Operator (CCO). In this workflow, you do not need to create the above secret, you only need to supply the role ARN during the installation of OLM-managed operators using the {product-title} web console, for more information see _Installing from software catalog using the web console_.
 
 The preceding secret is created automatically by CCO.
 ====
+--
 
 . Install the OADP Operator:
 .. In the {product-title} web console, browse to *Ecosystem* -> *Software Catalog*.
@@ -117,9 +122,7 @@ $ oc get pvc -n <namespace>
 ----
 
 +
-.Example output
 
-+
 [source,terminal]
 ----
 NAME     STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -135,8 +138,7 @@ $ oc get storageclass
 ----
 
 +
-.Example output
-+
+
 [source,terminal]
 ----
 NAME                PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
@@ -171,7 +173,7 @@ $ cat << EOF | oc create -f -
     name: ${CLUSTER_NAME}-dpa
     namespace: openshift-adp
   spec:
-    backupImages: true # <1>
+    backupImages: true
     features:
       dataMover:
         enable: false
@@ -192,19 +194,22 @@ $ cat << EOF | oc create -f -
         - openshift
         - aws
         - csi
-      nodeAgent:  # <2>
+      nodeAgent:
         enable: false
-        uploaderType: kopia # <3>
+        uploaderType: kopia
 EOF
 ----
++
+where:
++
 ifndef::openshift-rosa,openshift-rosa-hcp[]
-<1> ROSA supports internal image backup. Set this field to `false` if you do not want to use image backup.
+`backupImages`:: ROSA supports internal image backup. Set this field to `false` if you do not want to use image backup.
 endif::openshift-rosa,openshift-rosa-hcp[]
 ifdef::openshift-rosa,openshift-rosa-hcp[]
-<1> {product-title} supports internal image backup. Set this field to `false` if you do not want to use image backup.
+`backupImages`:: {product-title} supports internal image backup. Set this field to `false` if you do not want to use image backup.
 endif::openshift-rosa,openshift-rosa-hcp[]
-<2> See the important note regarding the `nodeAgent` attribute at the end of this procedure.
-<3> The type of uploader. The built-in Data Mover uses Kopia as the default uploader mechanism regardless of the value of the `uploaderType` field.
+`nodeAgent`:: See the important note regarding the `nodeAgent` attribute at the end of this procedure.
+`uploaderType`:: Specifies the type of uploader. The built-in Data Mover uses Kopia as the default uploader mechanism regardless of the value of the `uploaderType` field.
 +
 // . Create the `DataProtectionApplication` resource, which is used to configure the connection to the storage where the backups and volume snapshots are stored:
 
@@ -219,7 +224,7 @@ $ cat << EOF | oc create -f -
     name: ${CLUSTER_NAME}-dpa
     namespace: openshift-adp
   spec:
-    backupImages: true # <1>
+    backupImages: true
     backupLocations:
     - bucket:
         cloudStorageRef:
@@ -236,33 +241,39 @@ $ cat << EOF | oc create -f -
         defaultPlugins:
         - openshift
         - aws
-      nodeAgent: # <2>
+      nodeAgent:
         enable: false
         uploaderType: restic
     snapshotLocations:
       - velero:
           config:
-            credentialsFile: /tmp/credentials/openshift-adp/cloud-credentials-credentials # <3>
-            enableSharedConfig: "true" # <4>
-            profile: default # <5>
-            region: ${REGION} # <6>
+            credentialsFile: /tmp/credentials/openshift-adp/cloud-credentials-credentials
+            enableSharedConfig: "true"
+            profile: default
+            region: ${REGION}
           provider: aws
 EOF
 ----
++
+where:
++
 ifndef::openshift-rosa,openshift-rosa-hcp[]
-<1> ROSA supports internal image backup. Set this field to `false` if you do not want to use image backup.
+`backupImages`:: ROSA supports internal image backup. Set this field to `false` if you do not want to use image backup.
 endif::openshift-rosa,openshift-rosa-hcp[]
 ifdef::openshift-rosa,openshift-rosa-hcp[]
-<1> {product-title} supports internal image backup. Set this field to `false` if you do not want to use image backup.
+`backupImages`:: {product-title} supports internal image backup. Set this field to `false` if you do not want to use image backup.
 endif::openshift-rosa,openshift-rosa-hcp[]
-<2> See the important note regarding the `nodeAgent` attribute at the end of this procedure.
-<3> The `credentialsFile` field is the mounted location of the bucket credential on the pod.
-<4> The `enableSharedConfig` field allows the `snapshotLocations` to share or reuse the credential defined for the bucket.
-<5> Use the profile name set in the {aws-short} credentials file.
-<6> Specify `region` as your {aws-short} region. This must be the same as the cluster region.
+`nodeAgent`:: See the important note regarding the `nodeAgent` attribute at the end of this procedure.
+`credentialsFile`:: Specifies the mounted location of the bucket credential on the pod.
+`enableSharedConfig`:: Specifies whether the `snapshotLocations` can share or reuse the credential defined for the bucket.
+`profile`:: Specifies the profile name set in the {aws-short} credentials file.
+`region`:: Specifies your {aws-short} region. This must be the same as the cluster region.
 +
 You are now ready to back up and restore {product-title} applications, as described in _Backing up applications_.
 
++
+
+--
 [IMPORTANT]
 ====
 The `enable` parameter of `restic` is set to `false` in this configuration, because OADP does not support Restic in 
@@ -273,23 +284,10 @@ ifdef::openshift-rosa,openshift-rosa-hcp[]
 {product-title} 
 endif::openshift-rosa,openshift-rosa-hcp[]
 environments.
-
-If you use OADP 1.2, replace this configuration:
-
-[source,terminal]
-----
-nodeAgent:
-  enable: false
-  uploaderType: restic
-----
-with the following configuration:
-
-[source,terminal]
-----
-restic:
-  enable: false
-----
 ====
+--
+
++
 
 If you want to use two different clusters for backing up and restoring, the two clusters must have the same {aws-short} S3 storage names in both the cloud storage CR and the OADP `DataProtectionApplication` configuration.
 
