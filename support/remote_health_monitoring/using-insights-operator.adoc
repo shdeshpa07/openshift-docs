@@ -92,8 +92,7 @@ include::modules/running-insights-operator-gather-web-console.adoc[leveloffset=+
 include::modules/running-insights-operator-gather-cli.adoc[leveloffset=+2]
 
 [role="_additional-resources"]
-[id="additional-resources"]
-.Additional resources
+== Additional resources
 * link:https://github.com/openshift/insights-operator/blob/master/docs/gathered-data.md[{insights-operator} Gathered Data GitHub repository]
 
 endif::openshift-rosa,openshift-rosa-hcp,openshift-dedicated[]
