@@ -4,9 +4,12 @@
 
 :_mod-docs-content-type: REFERENCE
 [id="nw-udn-additional-config-details_{context}"]
-== Additional configuration details for a UserDefinedNetworks CR
+= Additional configuration details for a UserDefinedNetworks CR
 
-The following table explains additional configurations for UDN that are optional. It is not recommended to set these fields without explicit need and understanding of OVN-Kubernetes network topology.
+[role="_abstract"]
+Configure optional advanced settings for `UserDefinedNetwork` CRs when default values conflict with your network topology or when you need persistent IP addresses, custom gateways, or specific subnet configurations.
+
+It is not recommended to set these fields without explicit need and understanding of OVN-Kubernetes network topology.
 
 .`UserDefinedNetworks` optional configurations
 [cols="1,1,7", options="header"]

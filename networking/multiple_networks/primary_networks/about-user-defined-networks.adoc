@@ -12,6 +12,10 @@ include::snippets/technology-preview.adoc[]
 [role="_abstract"]
 User-defined networks (UDNs) extend OVN-Kubernetes to enable custom layer 2 and layer 3 network segments with default isolation, providing enhanced network flexibility, security, and segmentation capabilities for multitenant deployments and custom network architectures.
 
+[NOTE]
+====
+Support for the Localnet topology on both primary and secondary networks is available beginning with {product-title} 4.18. It is not available in this version.
+====
 
 //about UDN
 include::modules/nw-udn-overview.adoc[leveloffset=+1]
