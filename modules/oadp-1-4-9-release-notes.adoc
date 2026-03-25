@@ -1,0 +1,64 @@
+// Module included in the following assemblies:
+//
+// * backup_and_restore/application_backup_and_restore/release-notes/oadp-1-4-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+
+[id="oadp-1-4-9-release-notes_{context}"]
+= {oadp-short} 1.4.9 release notes
+
+[role="_abstract"]
+The {oadp-first} 1.4.9 release notes list resolved issues.
+
+
+[id="resolved-issues-1-4-9_{context}"]
+== Resolved issues
+
+File system backups no longer create `PodVolumeBackup` CRs for excluded PVCs::
+Before this update, when performing a file system (FS) backup with `defaultVolumesToFsBackup: true` and explicitly excluding `persistentvolumeclaims` (PVCs) using `includedResources`, `PodVolumeBackup` resources were still created for these excluded PVCs.
+With this release, the backup logic was updated to correctly identify and skip the creation of `PodVolumeBackup` resources for `persistentvolumeclaims` types when they are explicitly excluded from the backup configuration. As a result, `PodVolumeBackup` CRs are no longer created for excluded PVCs.
++
+link:https://redhat.atlassian.net/browse/OADP-3009[OADP-3009]
+
+S3 storage uses proxy values with `insecureSkipTLSVerify: "true"`::
+Before this update, when running image registry backups to S3 storage in a proxy-required environment, setting `insecureSkipTLSVerify: "true"` caused the system to ignore the configured proxy, leading to backups hanging or failing. With this release, the backup logic has been updated to properly respect proxy settings. As a result, backups using `backupImages: true` now complete successfully regardless of whether `insecureSkipTLSVerify` is set to "true" or "false".
++
+link:https://redhat.atlassian.net/browse/OADP-3143[OADP-3143]
+
+DPA reconciliation fails with a clear error when a VSL references a missing credential key::
+Before this update, the `DataProtectionApplication` (DPA) did not validate that the `VolumeSnapshotLocation` (VSL) `credential.key` existed in the referenced secret, so a DPA could reconcile successfully with a wrong key name. This allowed misconfigured VSL credentials to pass reconciliation but later caused backups to fail validation with an error indicating that the secret was missing data for the specified key. With this release, DPA reconciliation checks that the `credential.key` exists in the referenced secret and fails with a clear error message when it does not exist.
++
+link:https://redhat.atlassian.net/browse/OADP-4833[OADP-4833]
+
+Restricted permissions for Velero cloud credentials::
+Before this update, the Velero `/credentials/cloud` secret was mounted with incorrect permissions, making it world-readable. As a consequence, any process or user with access to the container file system could read sensitive cloud credential data. With this release, the Velero secret default permissions were changed to `0640`. As a result, access to the credentials file is limited to the intended owner or group.
++
+link:https://redhat.atlassian.net/browse/OADP-5072[OADP-5072]
+
+
+Improved error when imagestream backups run without `oadp-<bsl_name>-<bsl_provider>-registry-secret`::
+Before this update, when the backup and the Backup Storage Location (BSL) are managed outside the scope of the Data Protection Application (DPA), the DPA did not create the relevant `oadp-<bsl_name>-<bsl_provider>-registry-secret`. As a result, the OpenShift Velero plugin panicked on the imagestream backup with the following panic error:
++
+[source,terminal]
+----
+024-02-27T10:46:50.028951744Z time="2024-02-27T10:46:50Z" level=error msg="Error backing up item"
+backup=openshift-adp/<backup name> error="error executing custom action (groupResource=imagestreams.image.openshift.io,
+namespace=<BSL Name>, name=postgres): rpc error: code = Aborted desc = plugin panicked:
+runtime error: index out of range with length 1, stack trace: goroutine 94…
+----
++
+With this release, if the required secret is missing, the plugin returns an error message indicating missing `oadp-<bsl_name>-<bsl_provider>-registry-secret`.
++
+link:https://redhat.atlassian.net/browse/OADP-5076[OADP-5076]
+
+{sno-caps} clusters no longer crash due to premature CRD sync before API initialization::
+Before this update, the controller crashed during image-based upgrade (IBU) due to missing {ocp} custom resource definitions (CRDs) before they were fully initialized. As a consequence, this failure delayed `DataProtectionApplication` (DPA) reconciliation during IBU upgrade by 8 minutes. This release resolves this issue by requiring the controller to wait for {ocp} CRDs to load before starting in the IBU environment on {sno}, while also disabling leader election. This change shortens the DPA reconciliation window and improves the overall upgrade duration for {sno} clusters.
++
+link:https://issues.redhat.com/browse/OADP-7419[OADP-7419]
+
+
+{oadp-short} 1.4.9 fixes the following CVEs::
+
+* link:https://access.redhat.com/security/cve/cve-2025-61726[CVE-2025-61726]
+
+* link:https://access.redhat.com/security/cve/cve-2025-61728[CVE-2025-61728]
