@@ -6,7 +6,7 @@
 [id="nw-multus-host-device-object_{context}"]
 = Configuration for a host device secondary network
 
-[role="_abstract"] 
+[role="_abstract"]
 The host device CNI plugin JSON configuration object describes the configuration parameters for the host-device CNI plugin.
 
 [NOTE]
@@ -22,7 +22,7 @@ The following table details the configuration parameters:
 
 |`cniVersion`
 |`string`
-|The CNI specification version. The `0.3.1` value is required.
+|The CNI specification version. A minimum version of `0.3.1` is required.
 
 |`name`
 |`string`
