@@ -1,0 +1,67 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-20-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-20-17_{context}"]
+= RHSA-2026:5142 - {product-title} {product-version}.17 fixed issues
+
+Issued: 25 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.17 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:5142[RHSA-2026:5142] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:5140[RHBA-2026:5140] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.20.17 --pullspecs
+----
+
+[id="zstream-4-20-17-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, volume expansion timed out when the requested size did not align to LVM extent boundaries (typically 4MB). As a consequence, the expansion succeeded at the LVM level, but the CSI driver waited indefinitely for the exact size match. With this release, the timeout issue is resolved. (link:https://issues.redhat.com/browse/OCPBUGS-51139[OCPBUGS-51139])
+
+* Before this update, frequent updates in deployment and image overrides caused Ignition-server pods to frequently restart due to registry override issues in hypershift Operator is fixed. As a result, Ignition-server pod restarts are resolved, improving cluster stability. (link:https://issues.redhat.com/browse/OCPBUGS-65682[OCPBUGS-65682])
+
+* Before this update, when the Telco RAN Reference Design Specification (RDS) was applied to disable `chronyd` via Tuned profiles, the dependent `chrony-wait` service failed because it timed out waiting for the disabled `chronyd` service to start. With this update, the RDS configuration updates the `chrony-wait` service to perform a one-time synchronization check, eliminating the need for a separate `sync-time-once` service. As a result, the `chrony-wait` service successfully completes even when `chronyd` is disabled, preventing the service failure. (link:https://issues.redhat.com/browse/OCPBUGS-73912[OCPBUGS-73912])
+
+* Before this update, Kubevirt machine objects were limited to one IPv4 address, preventing dual-stack HCP cluster CSR auto-approval. As a consequence, dual-stack HCP cluster deployment failed, preventing automatic CSR approval due to IPv6 address limitation. With this release, dual-stack HCP cluster IP support has been expanded in kubevirt. As a result, dual-stack HCP clusters on OpenShift Virtualization now correctly display both IP addresses, enabling automatic CSR approval. (link:https://issues.redhat.com/browse/OCPBUGS-74338[OCPBUGS-74338])
+
+* Before this update, the Baseboard Management Controller (BMC) firmware lacked a structured error response for `UserName` and `Password` parameters, which caused the BMC to reject ISO mounting during NVIDIA Deep GPU Xceleration (DGX) B200 node provisioning. As a consequence, automated provisioning failed. With this release, the firmware handling of credentials is updated, which adds handling for missing `UserName` and `Password` parameters in the Redfish InsertMedia response. As a result, Bare Metal Operator (BMO) and Ironic mounting failures are resolved and automated provisioning of NVIDIA DGX B200 nodes is enabled. (link:https://issues.redhat.com/browse/OCPBUGS-74405[OCPBUGS-74405]) 
+
+* Before this update, the minimal collection profile did not include the `kube_pod_labels` metric. As a consequence, the status for the control plane was displayed as `unknown` on the web console. With this release, the `kube_pod_labels` metric is included. As a result, the displayed status for the control plane is correct. (link:https://issues.redhat.com/browse/OCPBUGS-74490[OCPBUGS-74490])
+
+* Before this update, the Cluster Version Operator (CVO)  lacked metrics access in ROSA HCP clusters with RHOBS monitoring due to missing permissions and network policy issues. As a consequence, users could not perform conditional update risk assessment on these clusters. With this release, CVO now accesses metrics with RHOBS monitoring, enabling conditional update risk evaluation. As a result, the CVO can now query Prometheus metrics to properly evaluate conditional update risks, providing accurate update recommendations for cluster upgrades. (link:https://issues.redhat.com/browse/OCPBUGS-76324[OCPBUGS-76324])
+
+* Before this update, the Security Context Constraints (SCC) had the `readOnlyRootFilesystem` value set to `true`. As a consequence, read-only file system errors occurred. With this release, the `readOnlyRootFilesystem` value is explicitly set to `false`. As a result, read-only file system errors do not occur. (link:https://issues.redhat.com/browse/OCPBUGS-76340[OCPBUGS-76340])
+
+* Before this update, Open Virtual Network (OVN) database updates were not propagating to all nodes, and caused stale pod IP addresses to receive User Diagram Protocol (UDP) traffic. As a consequence, UDP traffic was routed to stale pod IP addresses, and caused connections to fail. With this release, UDP traffic is correctly routed to the updated pod endpoints, improving service availability and reducing errors. (link:https://issues.redhat.com/browse/OCPBUGS-77357[OCPBUGS-77357])
+
+* Before this update, frequent ignition-server pod updates led to continuous restarts due to changes in deployment and container image. As a consequence, ignition-server pods frequently restarted, causing service instability for you. With this release, the ignition-server pod does not flap and restart due to hypershift-controlplane-manager updates. As a result, ignition-server pod restarts are reduced, improving service stability. (link:https://issues.redhat.com/browse/OCPBUGS-77366[OCPBUGS-77366])
+
+* Before this update, `oc-mirror v2` failed in containerized environments because of user ID lookup failure in the `registries` module. As a consequence, users experienced failure in containerized environments during the signature preparation phase due to unknown user IDs. With this release, `oc-mirror` now works in containerized environments with dynamic UIDs. As a result, `oc-mirror v2` in containerized environments such as OpenShift CI, no longer fails due to the "unknown userid" error, improving its compatibility and reliability. (link:https://issues.redhat.com/browse/OCPBUGS-77416[OCPBUGS-77416])
+
+* Before this update, hardcoded port for Kubernetes API Server(KAS) access conflicted with custom port for API Server in 4.20 and later releases, causing user inability to install Operators due to API Server port mismatch. With this release, network policy port customization for KAS is now supported, fixing egress issues. As a result, Operator installation no longer fails due to incorrect API server port configuration. (link:https://issues.redhat.com/browse/OCPBUGS-77582[OCPBUGS-77582])
+
+* Before this update, Hub RDS failed to create Cluster Logging Operator CRs due to missing RBAC permissions. As a consequence, Hub RDS lacked necessary RBAC permissions, preventing creation of Cluster Logging Operator CRs, affecting log collection. With this release, Hub RDS RBAC permissions for Cluster Logging Oerator CRs are added. As a result, Hub RDS now creates Cluster Logging Operator CRs with necessary permissions, improving log collection for end users. (link:https://issues.redhat.com/browse/OCPBUGS-77590[OCPBUGS-77590])
+
+* Before this update, the Downloads pod was not serving the RHEL 8 and RHEL 9 binaries. With this release, the Downloads pod link is available though the *Command Line Tools* link on the Masthead. (link:https://issues.redhat.com/browse/OCPBUGS-77771[OCPBUGS-77771])
+
+* Before this update, faulty `vCenter` matching logic caused boot image update failures in multi center vSphere clusters. As a consequence, the Machine Config Operator (MCO) degraded when boot image updates were enabled for this scenario. With this update, the matching `vCenter` logic is fixed. As a result, boot image updates work as expected in 4.20.17 for multi center vSphere clusters. (link:https://issues.redhat.com/browse/OCPBUGS-77883[OCPBUGS-77883])
+
+* Before this update, when you clicked *Add access* on the *Project access* tab on the *Project* details page while in the Developer perspective, the *Save* button was disabled and a potential error occurred. With this update, the *Project access* tab works as expected. (link:https://issues.redhat.com/browse/OCPBUGS-77951[OCPBUGS-77951])
+
+* Before this update, `NetworkPolicy` egress rules in OLM v0 hardcoded port 6443 for `kube-apiserver` access across static manifests and generated policies. Because HyperShift allows custom API server ports that differ from 6443, OLM v0 components (`olm-operator`, `catalog-operator`, `packageserver`) did not communicate with `kube-apiserver` in HyperShift clusters that used custom API ports. As a consequence, Operator installation and catalog operations were prevented. With this update, `NetworkPolicy` egress rules are updated to use a wildcard (egress: [{}]) for `kube-apiserver` traffic in both static manifests and dynamic policy generation code. Explicit DNS rules (ports 53, 5353) are also added for future policy refinements. As a result, OLM v0 supports HyperShift deployments with any configured API server port. (link:https://issues.redhat.com/browse/OCPBUGS-77958[OCPBUGS-77958])
+
+* Before this update, the etcd Operator randomly removed control plane nodes, causing duplication and potential cluster downtime. As a consequence, user experience was disrupted, leading to a potential loss of control plane nodes in the etcd cluster. With this release, the etcd Operator prioritizes removing members in the same failure domain index, reducing potential duplication and improving cluster stability. As a result, the etcd Operator ensures the control plane remains stable with three nodes, preventing potential service disruptions. (link:https://issues.redhat.com/browse/OCPBUGS-78047[OCPBUGS-78047])
+
+* Before this update, the Cluster Version Operator (CVO) incorrectly updated the `kube-rbac-proxy` ConfigMap due to an unidentified difference in the configuration. As a consequence, ConfigMap updates caused `kube-rbac-proxy-crio` pods to restart unnecessarily in {product-title} clusters. With this release, CVO no longer updates the `kube-rbac-proxy` ConfigMap in the `openshift-machine-config-operator` namespace. As a result, there are no unnecessary restarts of the `kube-rbac-proxy-crio` pods. (link:https://issues.redhat.com/browse/OCPBUGS-78049[OCPBUGS-78049])
+
+[id="zstream-4-20-17-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.20 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
