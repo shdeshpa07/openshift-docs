@@ -13,9 +13,9 @@ The below table uses inputs derived from the telco RAN DU RDS and the hub cluste
 
 [NOTE]
 ====
-The following numbers are estimated.
-Tune the values for more accurate results.
-Add an engineering margin, for example +20%, to the results to account for potential estimation inaccuracies.
+The following numbers are estimates. Tune the values for more accurate results. Add an engineering margin, for example +20%, to the results to account for potential estimation inaccuracies.
+
+Storage requirements strongly depend on the number of replicas per different components. The {rh-rhacm} `MultiClusterObservability` custom resource allows sizing configuration for the observability stack, which corresponds to the number of replicas. The following sizing values are based on the default size.
 ====
 
 .Cluster requirements
@@ -69,10 +69,11 @@ With these input values, the sizing calculator as described in the Red Hat Knowl
 .Storage requirements
 [options="header"]
 |====
-2+|`thanos rule` PV 2+|`thanos store` PV 2+|Object bucket^[1]^
+|`thanos rule` PV 2+|`thanos store` PV 2+|Object bucket
 
-|*Per replica* |*Total* |*Per replica* |*Total* |*Per day* |*Total*
+|*Per replica* |*Total* |*Per replica* |*Total* |*Total*
 
-|30 GiB |90 GiB |100 GiB |300 GiB |15 GiB |101 GiB
+|30 GiB |90 GiB |100 GiB |300 GiB |310 GiB
 |====
-[1] For the object bucket, it is assumed that downsampling is disabled, so that only raw data is calculated for storage requirements.
+
+* It is not possible to set the `Object bucket` size in the MCO custom resource with downsampling enabled. This option may be available in the future.

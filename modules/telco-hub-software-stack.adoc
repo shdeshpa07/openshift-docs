@@ -7,7 +7,7 @@
 [id="telco-hub-software-stack_{context}"]
 = Telco hub reference configuration software specifications
 
-The telco hub 4.19 solution has been validated using the following Red{nbsp}Hat software products for {product-title} clusters.
+The telco hub 4.20 solution has been validated using the following Red{nbsp}Hat software products for {product-title} clusters.
 
 .Telco hub cluster validated software components
 [cols=2*, width="80%", options="header"]
@@ -15,28 +15,28 @@ The telco hub 4.19 solution has been validated using the following Red{nbsp}Hat 
 |Component |Software version
 
 |{product-title}
-|4.19
-
-|Local Storage Operator
-|4.19
-
-|{odf-first}
-|4.18
+|4.20
 
 |{rh-rhacm-first}
-|2.13
+|2.15
+
+|Local Storage Operator
+|4.20
+
+|{odf-first}
+|4.20
 
 |{gitops-title}
-|1.16
+|1.18
 
 |{ztp-first} plugins
-|4.19
+|4.20
 
 |{mce-short} PolicyGenerator plugin
-|2.13
+|2.10
 
 |{cgu-operator-first}
-|4.19
+|4.20
 
 |Cluster Logging Operator
 |6.2
