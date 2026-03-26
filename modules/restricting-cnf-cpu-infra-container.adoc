@@ -5,10 +5,10 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="restricting-cnf-cpu-infra-container_{context}"]
-= Restricting CPUs for infra and application containers
+= Partitioning CPUs for infra and application containers
 
 [role="_abstract"]
-To ensure optimal cluster stability and performance, restrict CPUs for infrastructure and application containers. This configuration isolates workloads to specific CPU sets, preventing resource contention between critical system components and user applications.
+By partitioning CPUs, you can prevent noisy processes from interfering with latency-sensitive processes by separating the processes from each other.
 
 .Procedure
 

@@ -7,7 +7,7 @@
 = Scheduling a low latency workload onto a compute node
 
 [role="_abstract"]
-To run low latency workloads, schedule them onto a compute node associated with a performance profile that configures real-time capabilities. This ensures that the node is tuned to meet the specific timing and performance requirements of your application.
+You can schedule low latency workloads onto a compute node where a performance profile that configures real-time capabilities is applied.
 
 [NOTE]
 ====
@@ -105,8 +105,6 @@ Cpus_allowed_list:  2-3
 ----
 
 .Verification
-
-Ensure the node configuration is applied correctly.
 
 . Log in to the node to verify the configuration.
 +

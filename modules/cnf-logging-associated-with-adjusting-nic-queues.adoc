@@ -7,7 +7,7 @@
 = Logging associated with adjusting NIC queues
 
 [role="_abstract"]
-To verify NIC queue adjustments, review the Tuned daemon logs. These logs record messages detailing the assigned devices so that you can confirm that the system applied your configuration changes correctly.
+To verify NIC queue adjustments, review the Tuned daemon logs. These log messages detail the assigned devices that are recorded in the respective Tuned daemon logs.
 
 The following messages might be recorded to the `/var/log/tuned/tuned.log` file:
 

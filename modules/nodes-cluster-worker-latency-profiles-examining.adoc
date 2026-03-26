@@ -7,9 +7,7 @@
 = Displaying resulting values of worker latency profile
 
 [role="_abstract"]
-To verify the configuration of your compute nodes, display the resulting values of the worker latency profile configured for those nodes. This ensures that the Kubelet parameters are correctly adjusted for high latency environments and helps you confirm system stability.
-
-The following procedure uses example commands to display the values in the worker latency profile configured for your node.
+You can run specific commands to display the values for the worker latency profile. You can then check the displayed values for information accuracy.
 
 .Procedure
 
