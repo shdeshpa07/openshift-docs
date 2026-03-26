@@ -1,0 +1,44 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-18-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-18-36_{context}"]
+= RHSA-2026:5133 - {product-title} {product-version}.36 image release, fixed issues, and security update
+
+Issued: 25 March 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.36 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:5133[RHSA-2026:5133] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:5126[RHBA-2026:5126] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.18.36 --pullspecs
+----
+
+[id="zstream-4-18-36-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, in versions before Kubernetes Descheduler Operator (KDO) 5.1.2, the `LowNodeUtilization` descheduler plugin allowed users to modify the list of included namespaces. This inadvertently permitted the removal of `openshift-*` namespaces from the protected list. With this release, the KDO 5.1.2 update reinstates and enforces these protections, ensuring that pods in OpenShift-managed namespaces are shielded from eviction regardless of custom plugin settings. (link:https://redhat.atlassian.net/browse/OCPBUGS-54414[OCPBUGS-54414])
+
+* Before this update, when the Telco RAN Reference Design Specification (RDS) was applied to disable `chronyd` via Tuned profiles, the dependent `chrony-wait` service failed because it timed out waiting for the disabled `chronyd` service to start. With this update, the RDS configuration updates the `chrony-wait` service to perform a one-time synchronization check, eliminating the need for a separate `sync-time-once` service. As a result, the `chrony-wait` service successfully completes even when `chronyd` is disabled, preventing the service failure.(link:https://redhat.atlassian.net/browse/OCPBUGS-74982[OCPBUGS-74982])
+
+* Before this update, cluster namespaces with "nodes" suffix in their name would cause the Performance Profile Creator (PPC) to fail when mistaking incorrect `namespace` directories with the must-gather `nodes` directories in the must-gather processed by the PPC. With this release, the PPC now correctly excludes the `namespaces` directory when processing the must-gather data to create a suggested `PerformanceProfile`.   (link:https://redhat.atlassian.net/browse/OCPBUGS-75954[OCPBUGS-75954])
+
+* Before this update, the Cluster Version Operator (CVO) on {product-rosa} Hosted Control Plane (HCP) clusters using Red Hat Observability Service (RHOBS) monitoring (`--rhobs-monitoring=true`), was unable to access the Prometheus metrics endpoint, which meant conditional update risks could not be properly evaluated. This prevented users from receiving accurate risk assessments, often stalling or complicating the upgrade process. With this release, the `--rhobs-monitoring` flag automatically enables CVO access to the RHOBS Prometheus endpoint, supported by updated network policies that allow for proper egress based on the specific stack configuration. Additionally, a new `--cvo-prometheus-url` flag has been introduced for optional customization of the endpoint. (link:https://redhat.atlassian.net/browse/OCPBUGS-76532[OCPBUGS-76532])
+
+* Before this update, a regression introduced in version {product-title} 4.15 impacted the `AlertingRule` logic, leading to duplicate `prometheusRules` with a different hash but with the same alerting rule. This regression caused the system to generate duplicate alerts. Because one of these alerts was no longer maintained, this behavior could be confusing and might lead to stale expressions being evaluated. With this release, the underlying regression has been resolved, restoring the intended behavior and logic to the `AlertingRule` component. (link:https://redhat.atlassian.net/browse/OCPBUGS-77274[OCPBUGS-77274])
+
+* Before this update, the ignition server deployment used a global `mirroredReleaseImage` state that could be modified by concurrent image lookup operations from various reconciliation processes, which resulted in race conditions. Consequently, the `MIRRORED_RELEASE_IMAGE` environment variable would flap between the original image and its mirror registry, triggering constant deployment regenerations. With this release, the global mirror state has been replaced with image-specific lookup logic that deterministically resolves mirrors based on the specific control plane release image and registry policies, including validated filtering for empty registry entries. (link:https://redhat.atlassian.net/browse/OCPBUGS-77368[OCPBUGS-77368])
+
+* Before this update, the MetalLB Operator in {product-title} 4.18 included a specific upstream logic change that caused a node to stop announcing its IP addresses to peers if the node was marked as `cordoned`.  As a result, when a cluster administrator cordoned a node for maintenance, the node immediately ceased all Border Gateway Protocol (BGP) or L2 advertisements. This triggered unexpected network outages and scenarios where service traffic was dropped prematurely before it could be gracefully migrated to other healthy nodes in the cluster. With this release, the advertisement logic has been reverted to align with the corrected behavior. This ensures that a node's scheduling status (`cordoned`) no longer influences its ability to announce addresses, maintaining network reachability regardless of the node's availability for new pods. (link:https://redhat.atlassian.net/browse/OCPBUGS-77505[OCPBUGS-77505])
+
+
+[id="zstream-4-18-36-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.18 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
