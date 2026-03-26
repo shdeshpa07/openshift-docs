@@ -1470,6 +1470,8 @@ Topics:
     File: edit-additional-network
   - Name: Removing an additional network
     File: remove-additional-network
+  - Name: Enabling multi-networking for advanced use cases with CNI Plugin chaining
+    File: about-chaining
   - Name: Assigning a secondary network to a VRF
     File: assigning-a-secondary-network-to-a-vrf
 - Name: Hardware networks
