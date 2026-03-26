@@ -6,18 +6,42 @@
 [id="hosted-cluster-etcd-backup-restore-on-premise_{context}"]
 = Backing up and restoring etcd on a hosted cluster in an on-premise environment
 
+[role="_abstract"]
 By backing up and restoring etcd on a hosted cluster, you can fix failures, such as corrupted or missing data in an etcd member of a three node cluster. If multiple members of the etcd cluster encounter data loss or have a `CrashLoopBackOff` status, this approach helps prevent an etcd quorum loss.
 
-:FeatureName: Restoring etcd on a different management cluster for bare metal
+:FeatureName: Restoring etcd on a hosted cluster in an on-premise environment
 include::snippets/technology-preview.adoc[]
 
 .Prerequisites
 
 * The `oc` and `jq` binaries have been installed.
 
+* Management cluster prerequisites:
++
+** A valid `StorageClass` resource is configured in the management cluster.
+** You have `cluster-admin` access to the management cluster.
+** You have access to online storage that is compatible with OpenShift ADP cloud storage providers, such as {aws-first} S3, {azure-first}, {gcp-first}, or MinIO. If you use S3 for backup storage, ensure that IAM roles and policies are configured. For more information, see "Configuring Amazon Web Services".
+** Hosted control plane pods are accessible and functioning properly.
+** You have access to the `openshift-adp` subscription through a `CatalogSource` object.
+
+* Hosted cluster service publishing strategy prerequisites:
++
+** When you restore a hosted cluster to a different management cluster, all services in the hosted cluster must be configured with a fixed hostname in its `servicePublishingStrategy` property. This requirement applies to all platforms: {aws-short}, Agent, {VirtProductName}, and {rh-openstack-first}.
+** The `APIServer` service must have a fixed hostname. Otherwise, the restore process fails and nodes cannot rejoin the cluster. For {hcp} on {aws-short}, the `APIServer` service can also use a `Route` service publishing strategy with a fixed hostname.
+** For production environments, it is strongly recommended to configure all services with fixed hostnames. By having fixed hostnames, you can ensure full service continuity and DNS consistency during the restore process on a different management cluster.
+
+* For {hcp} on {aws-short}, the OIDC provider configuration must be accessible so that any necessary fixes can be completed after the restore process. See the following procedure for more information about applying any necessary fixes.
+
+* For {hcp} on bare metal, the `InfraEnv` resource must reside in a different namespace from the hosted control plane namespace. Do not delete the `InfraEnv` resource during the backup or restore process.
+
+[IMPORTANT]
+====
+After you back up the hosted cluster, you must back up workloads in the data cluster and then destroy the original hosted cluster so that the restore process can begin.
+====
+
 .Procedure
 
-. First, set up your environment variables:
+. Set up your environment variables:
 +
 .. Set up environment variables for your hosted cluster by entering the following commands, replacing values as necessary:
 +
@@ -44,7 +68,7 @@ $ oc patch -n ${HOSTED_CLUSTER_NAMESPACE} hostedclusters/${CLUSTER_NAME} \
   -p '{"spec":{"pausedUntil":"true"}}' --type=merge
 ----
 
-. Next, take a snapshot of etcd by using one of the following methods:
+. Take a snapshot of etcd by using one of the following methods:
 +
 .. Use a previously backed-up snapshot of etcd.
 +
@@ -110,7 +134,7 @@ $ oc cp -c etcd \
   /tmp/etcd.snapshot.db
 ----
 
-. Next, scale down the etcd statefulset by entering the following command:
+. Scale down the etcd statefulset by entering the following command:
 +
 [source,terminal]
 ----
@@ -293,3 +317,12 @@ $ oc annotate hostedcluster -n \
 ----
 +
 After a few minutes, the control plane pods start running.
+
+. If your hosted cluster is on {aws-short} and you need to apply OIDC fixes after the restore process, enter the following command:
++
+[source,terminal]
+----
+$ hcp fix dr-oidc-iam --hc-name <hosted_cluster_name> --hc-namespace <hosted_cluster_namespace> --aws-creds ~/.aws/credentials[4:48 AM]
+----
++
+This command regenerates the OIDC in S3 in case OIDC is deleted.
