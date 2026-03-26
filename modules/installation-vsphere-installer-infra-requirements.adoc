@@ -39,6 +39,10 @@ ifdef::upi[]
 To install an {product-title} cluster in a vCenter, your vSphere account must include privileges for reading and creating the required resources. Using an account that has global administrative privileges is the simplest way to access all of the necessary permissions.
 endif::upi[]
 
+[NOTE]
+====
+The following tables do not explicitly list the ESXi host object. In the {vmw-short} hierarchy, ESXi hosts are child objects of the cluster. If you apply your custom role to the vSphere vCenter Cluster object with the "Propagate to children" setting enabled, the required privileges automatically propagate down to the ESXi hosts. You do not need to apply permissions directly to individual ESXi host objects.
+====
 
 .Roles and privileges required for installation in vSphere API
 [%collapsible]
