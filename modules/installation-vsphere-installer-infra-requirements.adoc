@@ -70,7 +70,7 @@ The following tables do not explicitly list the ESXi host object. In the {vmw-sh
 `StorageProfile.View`
 
 |vSphere vCenter Cluster
-|If VMs need creation in the cluster root
+|Always
 |
 [%hardbreaks]
 `Host.Config.Storage`
@@ -205,7 +205,7 @@ endif::upi[]
 `"VM storage policies"."View VM storage policies"`
 
 |vSphere vCenter Cluster
-|For VMs creation in the cluster root
+|Always
 |
 [%hardbreaks]
 `Host.Configuration."Storage partition configuration"`
@@ -350,12 +350,8 @@ ifdef::ipi[]
 |Listed required privileges
 endif::ipi[]
 
-.2+|vSphere vCenter Cluster
-|Existing resource pool
-|False
-|`ReadOnly` permission
-
-|VMs in cluster root
+|vSphere vCenter Cluster
+|Always
 |True
 |Listed required privileges
 
