@@ -5,7 +5,8 @@
 [id="scaling-up-the-3scale-api-management-operator-and-deployment_{context}"]
 = Scaling up the 3scale API Management operator and deployment
 
-You can scale up the Red{nbsp}Hat 3scale API Management operator and any deployment that was manually scaled down. After a few minutes, 3scale installation should be fully functional, and its state should match the backed-up state.
+[role="_abstract"]
+Scale up the Red{nbsp}Hat 3scale API Management operator and any deployment that was manually scaled down during the restore process. This helps you to bring your 3scale installation back to a fully functional state matching the backed-up configuration.
 
 .Prerequisites
 

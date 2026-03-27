@@ -5,11 +5,8 @@
 [id="restoring-the-mysql-database_{context}"]
 = Restoring a MySQL database
 
-Restoring a MySQL database re-creates the following resources:
-
-* The `Pod`, `ReplicationController`, and `Deployment` objects.
-* The additional persistent volumes (PVs) and associated persistent volume claims (PVCs).
-* The MySQL dump, which the `example-claim` PVC contains.
+[role="_abstract"]
+Restore a MySQL database by scaling down Red{nbsp}Hat 3scale API Management components and creating a Velero `Restore` custom resource (CR). This helps you to recover your 3scale MySQL data, persistent volumes, and associated resources.
 
 [WARNING]
 ====
@@ -102,7 +99,7 @@ metadata:
   name: restore-mysql
   namespace: openshift-adp
 spec:
-  backupName: mysql-backup <1>
+  backupName: mysql-backup
   excludedResources:
     - nodes
     - events
@@ -126,7 +123,7 @@ spec:
 
                   mysql -h 127.0.0.1 -D system -u root
                   --password=$MYSQL_ROOT_PASSWORD <
-                  /var/lib/mysqldump/data/dump.sql <2>
+                  /var/lib/mysqldump/data/dump.sql
               container: system-mysql
               execTimeout: 80s
               onError: Fail
@@ -134,8 +131,11 @@ spec:
   itemOperationTimeout: 1h0m0s
   restorePVs: true
 ----
-<1> Restoring the MySQL backup.
-<2> A path where the data is restored from.
++
+where:
+
+`mysql-backup`:: Specifies the name of the MySQL backup to restore.
+`/var/lib/mysqldump/data/dump.sql`:: Specifies the path where the data is restored from.
 
 . Restore the MySQL database by running the following command:
 +
@@ -143,8 +143,6 @@ spec:
 ----
 $ oc create -f restore-mysql.yaml
 ----
-+
-.Example output
 +
 [source,terminal]
 ----
