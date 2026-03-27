@@ -4,11 +4,11 @@
 include::_attributes/common-attributes.adoc[]
 :context: backing-up-applications
 
-When performing a backup, it is possible to specify one or more commands to execute in a container within a pod, based on the pod being backed up.
+[role="_abstract"]
+Create backup hooks to run commands in a container in a pod by editing the `Backup` custom resource (CR). This helps you to run pre-backup and post-backup actions such as quiescing a database or flushing data to disk.
 
 The commands can be configured to performed before any custom action processing (_Pre_ hooks), or after all custom actions have been completed and any additional items specified by the custom action have been backed up (_Post_ hooks).
 
-You create backup hooks to run commands in a container in a pod by editing the `Backup` custom resource (CR).
 
 .Procedure
 
@@ -26,35 +26,38 @@ spec:
     resources:
       - name: <hook_name>
         includedNamespaces:
-        - <namespace> <1>
-        excludedNamespaces: <2>
+        - <namespace>
+        excludedNamespaces:
         - <namespace>
         includedResources: []
-        - pods <3>
-        excludedResources: [] <4>
-        labelSelector: <5>
+        - pods
+        excludedResources: []
+        labelSelector:
           matchLabels:
             app: velero
             component: server
-        pre: <6>
+        pre:
           - exec:
-              container: <container> <7>
+              container: <container>
               command:
-              - /bin/uname <8>
+              - /bin/uname
               - -a
-              onError: Fail <9>
-              timeout: 30s <10>
-        post: <11>
+              onError: Fail
+              timeout: 30s
+        post:
 ...
 ----
-<1> Optional: You can specify namespaces to which the hook applies. If this value is not specified, the hook applies to all namespaces.
-<2> Optional: You can specify namespaces to which the hook does not apply.
-<3> Currently, pods are the only supported resource that hooks can apply to.
-<4> Optional: You can specify resources to which the hook does not apply.
-<5> Optional: This hook only applies to objects matching the label. If this value is not specified, the hook applies to all objects.
-<6> Array of hooks to run before the backup.
-<7> Optional: If the container is not specified, the command runs in the first container in the pod.
-<8> This is the entry point for the `init` container being added.
-<9> Allowed values for error handling are `Fail` and `Continue`. The default is `Fail`.
-<10> Optional: How long to wait for the commands to run. The default is `30s`.
-<11> This block defines an array of hooks to run after the backup, with the same parameters as the pre-backup hooks.
++
+where:
+
+`<namespace>`:: Optional: Specifies the namespaces to which the hook applies. If this value is not specified, the hook applies to all namespaces.
+`excludedNamespaces`:: Optional: Specifies the namespaces to which the hook does not apply.
+`pods`:: Currently, pods are the only supported resource that hooks can apply to.
+`excludedResources`:: Optional: Specifies the resources to which the hook does not apply.
+`labelSelector`:: Optional: This hook only applies to objects matching the label. If this value is not specified, the hook applies to all objects.
+`pre`:: Specifies an array of hooks to run before the backup.
+`<container>`:: Optional: Specifies the container in which the command runs. If the container is not specified, the command runs in the first container in the pod.
+`/bin/uname`:: Specifies the entry point for the `init` container being added.
+`onError: Fail`:: Specifies the error handling behavior. Allowed values are `Fail` and `Continue`. The default is `Fail`.
+`timeout: 30s`:: Optional: Specifies how long to wait for the commands to run. The default is `30s`.
+`post`:: Specifies an array of hooks to run after the backup, with the same parameters as the pre-backup hooks.
