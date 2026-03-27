@@ -7,7 +7,7 @@
 = Creating restore hooks
 
 [role="_abstract"]
-You create restore hooks to run commands in a container in a pod by editing the `Restore` custom resource (CR).
+Create restore hooks to run commands in a container in a pod by editing the `Restore` custom resource (CR).
 
 You can create two types of restore hooks:
 
@@ -33,13 +33,13 @@ spec:
     resources:
       - name: <hook_name>
         includedNamespaces:
-        - <namespace> <1>
+        - <namespace>
         excludedNamespaces:
         - <namespace>
         includedResources:
-        - pods <2>
+        - pods
         excludedResources: []
-        labelSelector: <3>
+        labelSelector:
           matchLabels:
             app: velero
             component: server
@@ -54,25 +54,28 @@ spec:
               command:
               - /bin/ash
               - -c
-            timeout: <4>
+            timeout:
         - exec:
-            container: <container> <5>
+            container: <container>
             command:
-            - /bin/bash <6>
+            - /bin/bash
             - -c
             - "psql < /backup/backup.sql"
-            waitTimeout: 5m <7>
-            execTimeout: 1m <8>
-            onError: Continue <9>
+            waitTimeout: 5m
+            execTimeout: 1m
+            onError: Continue
 ----
-<1> Optional: Array of namespaces to which the hook applies. If this value is not specified, the hook applies to all namespaces.
-<2> Currently, pods are the only supported resource that hooks can apply to.
-<3> Optional: This hook only applies to objects matching the label selector.
-<4> Optional: Timeout specifies the maximum length of time Velero waits for `initContainers` to complete.
-<5> Optional: If the container is not specified, the command runs in the first container in the pod.
-<6> This is the entrypoint for the init container being added.
-<7> Optional: How long to wait for a container to become ready. This should be long enough for the container to start and for any preceding hooks in the same container to complete. If not set, the restore process waits indefinitely.
-<8> Optional: How long to wait for the commands to run. The default is `30s`.
-<9> Allowed values for error handling are `Fail` and `Continue`:
++
+where:
+
+`<namespace>`:: Optional: Specifies an array of namespaces to which the hook applies. If this value is not specified, the hook applies to all namespaces.
+`pods`:: Currently, pods are the only supported resource that hooks can apply to.
+`labelSelector`:: Optional: This hook only applies to objects matching the label selector.
+`timeout`:: Optional: Specifies the maximum length of time Velero waits for `initContainers` to complete.
+`<container>`:: Optional: Specifies the container in which the command runs. If the container is not specified, the command runs in the first container in the pod.
+`/bin/bash`:: Specifies the entrypoint for the init container being added.
+`waitTimeout: 5m`:: Optional: Specifies how long to wait for a container to become ready. This should be long enough for the container to start and for any preceding hooks in the same container to complete. If not set, the restore process waits indefinitely.
+`execTimeout: 1m`:: Optional: Specifies how long to wait for the commands to run. The default is `30s`.
+`onError: Continue`:: Specifies the error handling behavior. Allowed values are `Fail` and `Continue`:
 ** `Continue`: Only command failures are logged.
 ** `Fail`: No more restore hooks run in any container in any pod. The status of the `Restore` CR will be `PartiallyFailed`.

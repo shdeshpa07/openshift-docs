@@ -7,14 +7,10 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-You can use OADP to back up and restore Kubernetes volumes attached to pods from the file system of the volumes. This process is called File System Backup (FSB) or Pod Volume Backup (PVB). It is accomplished by using modules from the open source backup tools Restic or Kopia.
+[role="_abstract"]
+Use {oadp-short} File System Backup (FSB) with Kopia or Restic to back up and restore Kubernetes volumes attached to pods when snapshots are not available. This helps you to protect application data on NFS or other non-snapshot storage.
 
 If your cloud provider does not support snapshots or if your applications are on NFS data volumes, you can create backups by using FSB.
-
-[NOTE]
-====
-link:https://restic.net/[Restic] is installed by the OADP Operator by default. If you prefer, you can install link:https://kopia.io/[Kopia] instead.
-====
 
 FSB integration with OADP provides a solution for backing up and restoring almost any type of Kubernetes volumes. This integration is an additional capability of OADP and is not a replacement for existing functionality.
 
@@ -33,9 +29,15 @@ In OADP version 1.2 and earlier, you can only use Restic for backing up applicat
 
 [IMPORTANT]
 ====
-FSB does not support backing up `hostPath` volumes. For more information, see link:https://velero.io/docs/v1.12/file-system-backup/#limitations[FSB limitations].
+FSB does not support backing up `hostPath` volumes. For more information, see _FSB limitations_.
 ====
 
 include::snippets/pod-volume-restore-snapshot-read-only.adoc[]
 
 include::modules/oadp-backingup-using-kopia.adoc[leveloffset=+1]
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://velero.io/docs/v1.12/file-system-backup/#limitations[FSB limitations]
