@@ -78,8 +78,5 @@ where:
 +
 `failSwapOn`:: Set to `false` to enable swap memory use on the associated nodes. Set to `true` to disable swap memory use.
 `swapBehavior`:: Optional: Specify the swap memory behavior for {product-title} pods.
-+
-* `NoSwap`: {product-title} pods cannot use swap. This is the default.
-* `LimitedSwap`: {product-title} pods of Burstable QoS class only are permitted to employ swap.
 
 . Enable swap memory on the machines.
