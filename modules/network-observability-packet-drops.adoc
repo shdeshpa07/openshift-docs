@@ -36,11 +36,14 @@ spec:
     type: eBPF
     ebpf:
       features:
-       - PacketDrop            <1>
-      privileged: true         <2>
+       - PacketDrop
+      privileged: true
 ----
-<1> You can start reporting the packet drops of each network flow by listing the `PacketDrop` parameter in the `spec.agent.ebpf.features` specification list.
-<2> The `spec.agent.ebpf.privileged` specification value must be `true` for packet drop tracking.
++
+where:
+
+`spec.agent.ebpf.features`:: Specifies the features to enable. Include `PacketDrop` to start reporting packet drops for each network flow.
+`spec.agent.ebpf.privileged`:: Specifies whether privileged mode is enabled. Must be set to `true` for packet drop tracking.
 
 .Verification
 * When you refresh the *Network Traffic* page, the *Overview*, *Traffic Flow*, and *Topology* views display new information about packet drops:

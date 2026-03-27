@@ -34,12 +34,16 @@ metadata:
 spec:
   agent:
     ebpf:
-      sampling: 1  <1>
+      sampling: 1
       privileged: true
       features:
       - UDNMapping
 ----
-<1> Recommended so all flows are observed.
++
+where:
+
+`spec.agent.ebpf.sampling`:: Specifies sampling rate for network events. Set to a value of `1` to capture all network events. If sampling `1` is too resource heavy, set sampling to something more appropriate for your needs.
+`spec.agent.ebpf.privileged`:: Specifies whether privileged mode is enabled. Must be set to `true` for user-defined network mapping.
 
 .Verification
 
