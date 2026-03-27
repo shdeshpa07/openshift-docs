@@ -1,6 +1,7 @@
 // Module included in the following assemblies:
 //
 // * machine_management/deleting-machine.adoc
+// * machine_management/control_plane_machine_management/cpmso-resiliency.adoc
 
 :_mod-docs-content-type: CONCEPT
 [id="machine-lifecycle-hook-deletion-etcd_{context}"]
