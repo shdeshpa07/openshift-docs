@@ -7,7 +7,7 @@
 = Data storage management
 
 [role="_abstract"]
-To effectively manage data storage in {product-title}, review the main directories where components write data. By viewing this reference, you can identify the specific paths used by system components, so that you can plan for capacity requirements and perform necessary maintenance.
+To effectively manage data storage in {product-title}, review the main directories where components write data.
 
 The following table summarizes the main directories that {product-title} components write data to.
 

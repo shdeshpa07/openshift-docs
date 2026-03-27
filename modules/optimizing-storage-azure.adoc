@@ -3,12 +3,11 @@
 // * ../scalability_and_performance/optimization/optimizing-storage.adoc
 
 :_mod-docs-content-type: REFERENCE
-
 [id="optimizing-storage-azure_{context}"]
 = Optimizing storage performance for Microsoft Azure
 
 [role="_abstract"]
-To ensure optimal cluster performance on {azure-full}, configure faster storage for {product-title} and Kubernetes. Prioritize high-performance disks for etcd on the control plane nodes, as these components are sensitive to disk latency.
+To ensure optimal cluster performance on {azure-full}, configure faster storage for {product-title} and Kubernetes. Red{nbsp}Hat recommends faster storage, particularly for etcd on the control plane nodes.
 
 For production {azure-short} clusters and clusters with intensive workloads, the virtual machine operating system disk for control plane machines should be able to sustain a tested and recommended minimum throughput of 5000 IOPS / 200 MBps.
 This throughput can be provided by having a minimum of 1 TiB Premium SSD (P30).

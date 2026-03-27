@@ -7,7 +7,7 @@
 = Recommended practices for scaling the cluster
 
 [role="_abstract"]
-To scale your cluster effectively, apply the recommended practices for installations with cloud provider integration. By understanding this guidance, you can optimize performance and ensure stability as you increase the size of your environment.
+For a cluster installation on a cloud provider, review the recommended practices for scaling the cluster.
 
 Apply the following best practices to scale the number of compute machines in your {product-title} cluster. You scale the worker machines by increasing or decreasing the number of replicas that are defined in the compute machine set.
 

@@ -7,7 +7,7 @@
 = Recommended practices for installing large-scale clusters
 
 [role="_abstract"]
-To support large clusters or scale to higher node counts, configure the cluster network `cidr` in your `install-config.yaml` file before installation. Setting this address range correctly ensures your cluster has sufficient capacity for the required number of nodes.
+When installing large clusters or scaling the cluster to larger node counts, set the cluster network `cidr` accordingly in your `install-config.yaml` file before you install the cluster.
 
 .Example `install-config.yaml` file with a network configuration for a cluster with a large node count
 [source,yaml]

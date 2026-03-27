@@ -8,7 +8,7 @@
 = Recommended configurable storage technology
 
 [role="_abstract"]
-To select the optimal storage solution for your {product-title} cluster application, review the recommended and configurable storage technologies. By reviewing this summary, you can identify the supported options that best meet your specific workload requirements.
+Review the recommended and configurable storage technologies for the given {product-title} cluster application.
 
 .Recommended and configurable storage technology
 [options="header"]
