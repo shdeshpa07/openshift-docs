@@ -8,9 +8,9 @@
 [id="machineset-modifying_{context}"]
 = Modifying a compute machine set by using the CLI
 
-You can modify the configuration of a compute machine set, and then propagate the changes to the machines in your cluster by using the CLI.
+[role="_abstract"]
+To enable features or change the properties of machines, you can modify the configuration of a compute machine set using the CLI. You can then propagate the changes to the machines in your cluster.
 
-By updating the compute machine set configuration, you can enable features or change the properties of the machines it creates.
 When you modify a compute machine set, your changes only apply to compute machines that are created after you save the updated `MachineSet` custom resource (CR).
 The changes do not affect existing machines.
 
@@ -113,10 +113,11 @@ metadata:
   namespace: openshift-machine-api
 #end::MAPI[]
 spec:
-  replicas: 2 # <1>
+  replicas: 2
 # ...
 ----
-<1> The examples in this procedure show a compute machine set that has a `replicas` value of `2`.
++
+The examples in this procedure show a compute machine set that has a `replicas` value of `2`.
 
 . Update the compute machine set CR with the configuration options that you want and save your changes.
 
@@ -181,7 +182,7 @@ end::MAPI[]
 tag::CAPI[]
 [source,terminal]
 ----
-$ oc scale --replicas=4 \// <1>
+$ oc scale --replicas=4 \
   machinesets.cluster.x-k8s.io <machine_set_name> \
   -n openshift-cluster-api
 ----
@@ -189,12 +190,13 @@ end::CAPI[]
 tag::MAPI[]
 [source,terminal]
 ----
-$ oc scale --replicas=4 \// <1>
+$ oc scale --replicas=4 \
   machineset.machine.openshift.io <machine_set_name> \
   -n openshift-machine-api
 ----
 end::MAPI[]
-<1> The original example value of `2` is doubled to `4`.
++
+The original example value of `2` is doubled to `4`.
 
 . List the machines that are managed by the updated compute machine set by running the following command:
 +
@@ -244,7 +246,7 @@ When the new machines are in the `Running` phase, you can scale the compute mach
 tag::CAPI[]
 [source,terminal]
 ----
-$ oc scale --replicas=2 \// <1>
+$ oc scale --replicas=2 \
   machinesets.cluster.x-k8s.io <machine_set_name> \
   -n openshift-cluster-api
 ----
@@ -252,12 +254,13 @@ end::CAPI[]
 tag::MAPI[]
 [source,terminal]
 ----
-$ oc scale --replicas=2 \// <1>
+$ oc scale --replicas=2 \
   machineset.machine.openshift.io <machine_set_name> \
   -n openshift-machine-api
 ----
 end::MAPI[]
-<1> The original example value of `2`.
++
+The `replicas` parameter is set to the original example value of `2`.
 
 .Verification
 
