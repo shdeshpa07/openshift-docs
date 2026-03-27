@@ -7,7 +7,7 @@
 = Disabling the cpuset cgroup controller
 
 [role="_abstract"]
-To allow the kernel scheduler to freely distribute processes across all available resources, disable the `cpuset` cgroup controller. This configuration prevents the system from enforcing processor affinity constraints, ensuring that tasks can use any available CPU or memory node.
+You can disable the cpuset cgroup controller. Disabling the controller requires a restart of the libvirtd daemon. 
 
 [NOTE]
 ====

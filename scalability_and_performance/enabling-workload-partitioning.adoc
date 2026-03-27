@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To prevent platform processes from interrupting your applications, configure workload partitioning. This isolates {product-title} services and infrastructure pods to a reserved set of CPUs, ensuring that the remaining compute resources are available exclusively for your customer workloads.
+Workload partitioning separates compute node CPU resources into distinct CPU sets. Ensure that you keep platform pods on the specified cores to avoid interrupting the CPUs the customer workloads are running on. 
 
 The minimum number of reserved CPUs required for the cluster management is four CPU Hyper-Threads (HTs).
 

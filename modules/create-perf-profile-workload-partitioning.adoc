@@ -7,7 +7,7 @@
 = Performance profiles and workload partitioning
 
 [role="_abstract"]
-To enable workload partitioning, apply a performance profile. This configuration specifies the isolated and reserved CPUs, ensuring that customer workloads run on dedicated cores without interruption from platform processes.
+To enable workload partitioning, apply a performance profile.
 
 An appropriately configured performance profile specifies the `isolated` and `reserved` CPUs. Create a performance profile by using the Performance Profile Creator (PPC) tool.
 

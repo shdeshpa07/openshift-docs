@@ -8,7 +8,7 @@
 = Configuring huge pages at boot time
 
 [role="_abstract"]
-To ensure nodes in your {product-title} cluster pre-allocate memory for specific workloads, reserve huge pages at boot time. This configuration sets aside memory resources during system startup, offering a distinct alternative to run-time allocation.
+To ensure nodes in your {product-title} cluster pre-allocate memory for specific workloads, reserve huge pages at boot time.
 
 There are two ways of reserving huge pages: at boot time and at run time. Reserving at boot time increases the possibility of success because the memory has not yet been significantly fragmented. The Node Tuning Operator currently supports boot-time allocation of huge pages on specific nodes.
 

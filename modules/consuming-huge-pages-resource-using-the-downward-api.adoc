@@ -9,7 +9,7 @@
 = Consuming huge pages resources using the Downward API
 
 [role="_abstract"]
-To inject information about the huge pages resources consumed by a container, use the Downward API. This configuration enables applications to retrieve and use their own memory usage data directly.
+To inject information about the huge pages resources consumed by a container, use the Downward API.
 
 You can inject the resource allocation as environment variables, a volume plugin, or both. Applications that you develop and run in the container can determine the resources that are available by reading the environment variables or files in the specified volumes.
 
