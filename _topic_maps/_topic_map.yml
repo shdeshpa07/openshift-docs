@@ -1286,22 +1286,28 @@ Topics:
   Dir: zero_trust_workload_identity_manager
   Distros: openshift-enterprise
   Topics:
-  - Name: Zero Trust Workload Identity Manager overview
-    File: zero-trust-manager-overview
-  - Name: Zero Trust Workload Identity Manager release notes
-    File: zero-trust-manager-release-notes
-  - Name: Installing Zero Trust Workload Identity Manager
-    File: zero-trust-manager-install
-  - Name: Deploying Zero Trust Workload Identity Manager operands
-    File: zero-trust-manager-configuration
-  - Name: Configuring Zero Trust Workload Identity Manager OIDC Federation
-    File: zero-trust-manager-oidc-federation
-  - Name: Enabling create-only mode for the Zero Trust Workload Identity Manager
-    File: zero-trust-manager-reconciliation
-  - Name: Monitoring Zero Trust Workload Identity Manager
-    File: zero-trust-manager-monitoring
-  - Name: Uninstalling the Zero Trust Workload Identity Manager
-    File: zero-trust-manager-uninstall
+   - Name: Zero Trust Workload Identity Manager overview
+     File: zero-trust-manager-overview
+   - Name: Zero Trust Workload Identity Manager components
+     File: zero-trust-manager-components
+   - Name: Zero Trust Workload Identity Manager release notes
+     File: zero-trust-manager-release-notes
+   - Name: Installing Zero Trust Workload Identity Manager
+     File: zero-trust-manager-install
+   - Name: Deploying Zero Trust Workload Identity Manager operands
+     File: zero-trust-manager-configuration
+   - Name: Configuring the egress proxy
+     File: zero-trust-manager-proxy
+   - Name: Configuring Zero Trust Workload Identity Manager OIDC Federation
+     File: zero-trust-manager-oidc-federation
+   - Name: Configuring Zero Trust Workload Identity Manager SPIRE Federation
+     File: zero-trust-manager-spire-federation
+   - Name: Enabling create-only mode for the Zero Trust Workload Identity Manager
+     File: zero-trust-manager-reconciliation
+   - Name: Monitoring Zero Trust Workload Identity Manager
+     File: zero-trust-manager-monitoring
+   - Name: Uninstalling the Zero Trust Workload Identity Manager
+     File: zero-trust-manager-uninstall
 - Name: External Secrets Operator for Red Hat OpenShift
   Dir: external_secrets_operator
   Distros: openshift-enterprise
