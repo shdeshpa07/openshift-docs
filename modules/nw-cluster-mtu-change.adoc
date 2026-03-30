@@ -23,6 +23,7 @@ endif::[]
 ifndef::outposts[]
 = Changing the cluster network MTU
 endif::outposts[]
+
 ifdef::outposts[]
 = Changing the cluster network MTU to support AWS Outposts
 endif::outposts[]
