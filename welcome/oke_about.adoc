@@ -194,7 +194,7 @@ the kubevirt.io open source project.
 === Advanced cluster management
 {oke} is compatible with your additional purchase of {rh-rhacm-first} for
 Kubernetes. An {oke} subscription does not offer a cluster-wide log aggregation
-solution or support Fluentd, or Kibana-based logging solutions.
+solution.
 {SMProductName} capabilities derived from the open-source istio.io and kiali.io
 projects that offer OpenTracing observability for containerized services on
 {product-title} are not supported in {oke}.
