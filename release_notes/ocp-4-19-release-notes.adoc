@@ -903,7 +903,7 @@ For more information, see xref:../updating/preparing_for_updates/updating-cluste
 ==== Allocate API and ingress load balancers to specific subnets
 With this release, you can now allocate load balancers to customize deployments when installing an {product-title} cluster on AWS. This feature ensures optimal traffic distribution, high application availability, uninterrupted service, and network segmentation.
 
-For more information, see xref:../installing/installing_aws/installation-config-parameters-aws.adoc#installation-configuration-parameters-network_installation-config-parameters-aws[Installation configuration parameters on AWS] and xref:../networking/ingress_load_balancing/configuring_ingress_cluster_traffic/allocating-load-balancers.adoc#allocating-load-balancers[Allocating load balancers to specific subnets].
+For more information, see xref:../installing/installing_aws/installation-config-parameters-aws.adoc#installation-configuration-parameters-network_installation-config-parameters-aws[Installation configuration parameters on AWS] and xref:../installing/installing_aws/ipi/installing-aws-vpc.adoc#allocating-load-balancers_installing-aws-vpc[Allocating load balancers to specific subnets].
 
 [id="ocp-4-19-networking-ptp-dual-oc_{context}"]
 ==== Dual-port NICs for improved redundancy in PTP ordinary clocks (Technology Preview)
