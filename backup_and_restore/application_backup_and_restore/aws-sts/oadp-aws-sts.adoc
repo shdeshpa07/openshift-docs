@@ -7,13 +7,13 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-You install the {oadp-first} with {aws-first} by installing the OADP Operator. The Operator installs {velero-link}.
+Install the {oadp-first} with {aws-first} by installing the OADP Operator. The Operator installs {velero-link}.
 
 include::snippets/oadp-mtc-operator.adoc[]
 
-You configure {aws-short} for Velero, create a default `Secret`, and then install the Data Protection Application. For more details, see xref:../../../backup_and_restore/application_backup_and_restore/installing/oadp-installing-operator.adoc#oadp-installing-operator-doc[Installing the OADP Operator].
+You configure {aws-short} for Velero, create a default `Secret`, and then install the Data Protection Application. For more details, see _Installing the OADP Operator_.
 
-To install the OADP Operator in a restricted network environment, you must first disable the default software catalog sources and mirror the Operator catalog. See xref:../../../disconnected/using-olm.adoc#olm-restricted-networks[Using Operator Lifecycle Manager in disconnected environments] for details.
+To install the OADP Operator in a restricted network environment, you must first disable the default software catalog sources and mirror the Operator catalog. See _Using Operator Lifecycle Manager in disconnected environments_.
 
 You can install {oadp-short} on an AWS {sts-first} (AWS STS) cluster manually. Amazon {aws-short} provides {aws-short} STS as a web service that enables you to request temporary, limited-privilege credentials for users. You use STS to provide trusted users with temporary access to resources via API calls, your {aws-short} console, or the {aws-short} command-line interface (CLI).
 
@@ -26,19 +26,19 @@ This process is performed in the following two stages:
 
 include::modules/preparing-aws-sts-credentials-for-oadp.adoc[leveloffset=+1]
 
-include::modules/oadp-setting-resource-limits-and-requests.adoc[leveloffset=+2]
-
 include::modules/installing-oadp-aws-sts.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 .Additional resources
 
+* xref:../../../backup_and_restore/application_backup_and_restore/installing/oadp-installing-operator.adoc#oadp-installing-operator-doc[Installing the OADP Operator]
+
+* xref:../../../disconnected/using-olm.adoc#olm-restricted-networks[Using Operator Lifecycle Manager in disconnected environments]
+
 * xref:../../../operators/user/olm-installing-operators-in-namespace.adoc#olm-installing-from-software-catalog-using-web-console_olm-installing-operators-in-namespace[Installing from the software catalog using the web console]
+
 * xref:../../../backup_and_restore/application_backup_and_restore/backing_up_and_restoring/backing-up-applications.adoc#backing-up-applications[Backing up applications]
 
-[id="oadp-aws-sts-backing-up-and-cleaning"]
-== Backing up workload on OADP AWS STS, with an optional cleanup
-
-include::modules/performing-a-backup-oadp-aws-sts.adoc[leveloffset=+2]
+include::modules/performing-a-backup-oadp-aws-sts.adoc[leveloffset=+1]
 
 include::modules/cleanup-a-backup-oadp-aws-sts.adoc[leveloffset=+2]
