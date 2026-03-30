@@ -15,6 +15,7 @@ include::modules/virt-NUMA-prereqs.adoc[leveloffset=+1]
 [id="virt-NUMA-topology-create-VM"]
 == Creating a VM with NUMA functionality enabled
 
+[role="_abstract"]
 VM owners can enable NUMA with `ComputeExclusive` (CX) instance types, which are specifically designed for high-performance, compute-intensive workloads, and are configured to use NUMA features.
 
 For information about creating VMs using a CX instance type, see xref:../../../virt/creating_vm/virt-creating-vms-from-instance-types.adoc#virt-creating-vms-from-instance-types[Creating virtual machines from instance types].
