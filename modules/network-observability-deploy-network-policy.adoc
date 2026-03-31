@@ -36,9 +36,12 @@ metadata:
 spec:
   namespace: netobserv
   networkPolicy:
-    enable: true <1>
-    additionalNamespaces: ["openshift-console", "openshift-monitoring"] <2>
+    enable: true
+    additionalNamespaces: ["openshift-console", "openshift-monitoring"]
 # ...
 ----
-<1> By default, the `enable` value is `true`.
-<2> Default values are `["openshift-console", "openshift-monitoring"]`.
++
+where:
+
+`spec.networkPolicy.enable`:: Specifies whether to enable network policy management. The default value is `true`.
+`spec.networkPolicy.additionalNamespaces`:: Specifies the namespaces to include in the network policy. The default values are `["openshift-console", "openshift-monitoring"]`.
