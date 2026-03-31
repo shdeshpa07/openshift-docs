@@ -6,7 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-You can expose a virtual machine within the cluster or outside the cluster by creating a `Service` object.
+[role="_abstract"]
+You can expose a virtual machine (VM) within the cluster or outside the cluster by creating a `Service` object. By exposing a VM as a Kubernetes service, you can leverage native load balancing and observability tools that provide unified traffic management, consistent SSL termination, and centralized security policies across hybrid workloads.
 
 include::modules/virt-about-services.adoc[leveloffset=+1]
 

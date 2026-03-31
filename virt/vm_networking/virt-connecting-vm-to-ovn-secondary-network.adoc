@@ -6,18 +6,17 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 ifdef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
-You can connect a VM to an Open Virtual Network (OVN)-Kubernetes secondary network. {VirtProductName} supports the `layer2` topology for OVN-Kubernetes.
-
-A `layer2` topology connects workloads by a cluster-wide logical switch. The OVN-Kubernetes Container Network Interface (CNI) plugin uses the Geneve (Generic Network Virtualization Encapsulation) protocol to create an overlay network between nodes. You can use this overlay network to connect VMs on different nodes, without having to configure any additional physical networking infrastructure.
+You can connect a VM to an OVN-Kubernetes custom secondary overlay network. A layer 2 topology connects workloads by a cluster-wide logical switch. The OVN-Kubernetes Container Network Interface (CNI) plugin uses the Geneve (Generic Network Virtualization Encapsulation) protocol to create an overlay network between nodes. You can use this overlay network to connect VMs on different nodes, without having to configure any additional physical networking infrastructure.
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
 ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
-You can connect a virtual machine (VM) to an OVN-Kubernetes secondary network. {VirtProductName} supports the `layer2` and `localnet` topologies for OVN-Kubernetes.
+You can connect a virtual machine (VM) to an OVN-Kubernetes secondary network. {VirtProductName} supports the layer 2 and localnet topologies for OVN-Kubernetes.
 
-* A `layer2` topology connects workloads by a cluster-wide logical switch. The OVN-Kubernetes Container Network Interface (CNI) plugin uses the Geneve (Generic Network Virtualization Encapsulation) protocol to create an overlay network between nodes. You can use this overlay network to connect VMs on different nodes, without having to configure any additional physical networking infrastructure.
+* A layer 2 topology connects workloads by a cluster-wide logical switch. The OVN-Kubernetes Container Network Interface (CNI) plugin uses the Geneve (Generic Network Virtualization Encapsulation) protocol to create an overlay network between nodes. You can use this overlay network to connect VMs on different nodes, without having to configure any additional physical networking infrastructure.
 
-* A `localnet` topology connects the secondary network to the physical underlay. This enables both east-west cluster traffic and access to services running outside the cluster, but it requires additional configuration of the underlying Open vSwitch (OVS) system on cluster nodes.
+* A localnet topology connects the secondary network to the physical underlay. This enables both east-west cluster traffic and access to services running outside the cluster, but it requires additional configuration of the underlying Open vSwitch (OVS) system on cluster nodes.
 
 [NOTE]
 ====
