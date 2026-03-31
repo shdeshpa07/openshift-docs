@@ -7,7 +7,7 @@
 = Scaling clusters by using Octavia
 
 [role="_abstract"]
-To ensure high availability and distribute traffic across multiple cluster API access points in {product-title} on {rh-openstack}, create an Octavia load balancer. Configuring your cluster to use multiple balancers prevents network bottlenecks and ensures continuous access to your API services.
+If you want to use multiple API load balancers, create an Octavia load balancer and then configure your cluster to use it.
 
 .Prerequisites
 

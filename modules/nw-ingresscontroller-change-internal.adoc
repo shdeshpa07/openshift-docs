@@ -7,9 +7,7 @@
 = Configuring the Ingress Controller endpoint publishing scope to Internal
 
 [role="_abstract"]
-To restrict cluster access to internal traffic and enhance network security in {product-title}, change the Ingress Controller scope from `External` to `Internal`.
-
-When a cluster administrator installs a new cluster without specifying that the cluster is private, the default Ingress Controller is created with a `scope` set to `External`.
+As a cluster administrator, when you install a new cluster without specifying that the cluster is private, the default Ingress Controller is created with a `scope` set to `External`. You can change an `External` scoped Ingress Controller to `Internal`.
 
 .Prerequisites
 

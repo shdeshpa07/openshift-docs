@@ -7,9 +7,7 @@
 = Attaching an ExternalIP to a service
 
 [role="_abstract"]
-To route traffic from external networks to your applications in {product-title}, attach an ExternalIP resource to a service. 
-
-If you configured your cluster to automatically attach the resource to a service, you might not need to manually attach an ExternalIP to the service.
+You can attach an ExternalIP resource to a service. If you configured your cluster to automatically attach the resource to a service, you might not need to manually attach an ExternalIP to the service.
 
 The examples in the procedure use a scenario that manually attaches an ExternalIP resource to a service in a cluster with an IP failover configuration. 
 
