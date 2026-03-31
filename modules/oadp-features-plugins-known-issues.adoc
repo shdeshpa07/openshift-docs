@@ -12,7 +12,7 @@ The following section describes known issues in {oadp-first} plugins:
 [id="velero-plugin-panic_{context}"]
 == Velero plugin panics during imagestream backups due to a missing secret
 
-When the backup and the Backup Storage Location (BSL) are managed outside the scope of the Data Protection Application (DPA), the OADP controller, meaning the DPA reconciliation does not create the relevant `oadp-<bsl_name>-<bsl_provider>-registry-secret`.
+When the backup and the Backup Storage Location (BSL) are managed outside the scope of the Data Protection Application (DPA), the OADP controller, so the DPA reconciliation, does not create the relevant `oadp-<bsl_name>-<bsl_provider>-registry-secret`. This known issue is present in {oadp-short} versions up to 1.4.8, and it is fixed in version 1.4.9.
 
 When the backup is run, the OpenShift Velero plugin panics on the imagestream backup, with the following panic error:
 
