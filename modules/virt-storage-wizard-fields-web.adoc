@@ -77,10 +77,4 @@ This mode is required for live migration.
 ====
 |ReadOnlyMany (ROX)
 |Volume can be mounted as read only by many nodes.
-[NOTE]
-====
-This mode is required for live migration.
-====
-|ReadOnlyMany (ROX)
-|Volume can be mounted as read only by many nodes.
 |===
