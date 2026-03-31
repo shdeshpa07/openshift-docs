@@ -6,7 +6,8 @@
 [id="machine-about-phases_{context}"]
 = Machine phases
 
-As a machine moves through its lifecycle, it passes through different phases. Each phase is a basic representation of the state of the machine.
+[role="_abstract"]
+Understanding machine lifecycle phases can help you troubleshoot machine issues. As a machine moves through its lifecycle, it passes through different phases. Each phase is a basic representation of the state of the machine.
 
 `Provisioning`:: There is a request to provision a new machine. The machine does not yet exist and does not have an instance, a provider ID, or an address.
 
