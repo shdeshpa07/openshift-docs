@@ -1,13 +1,14 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-different-kubernetes-api-versions.adoc
 
 
 :_mod-docs-content-type: PROCEDURE
 [id="oadp-using-enable-api-group-versions_{context}"]
 = Using Enable API Group Versions
 
-You can use Velero's Enable API Group Versions feature to back up _all_ Kubernetes API group versions that are supported on a cluster, not only the preferred one.
+[role="_abstract"]
+Configure the `EnableAPIGroupVersions` feature flag to back up all Kubernetes API group versions that are supported on a cluster, not only the preferred one. This helps you maintain compatibility across different API groups in your cluster.
 
 [NOTE]
 ====
@@ -17,7 +18,7 @@ Enable API Group Versions is still in beta.
 .Procedure
 
 * Configure the `EnableAPIGroupVersions` feature flag:
-
++
 [source,yaml]
 ----
 apiVersion: oadp.openshift.io/vialpha1

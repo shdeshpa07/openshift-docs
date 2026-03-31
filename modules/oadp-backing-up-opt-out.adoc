@@ -1,10 +1,13 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-backing-up-data-one-cluster-restoring-another-cluster.adoc
 
-[id="oadp-backing-up-opt-out_{context}"]
 :_mod-docs-content-type: PROCEDURE
+[id="oadp-backing-up-opt-out_{context}"]
 = Backing up pod volumes by using the opt-out method
+
+[role="_abstract"]
+Use the opt-out method to exclude specific pod volumes from your default File System Backup (FSB). While this approach automatically backs up all pod volumes, to customize your backup operations you can use annotations to skip specific ones.
 
 When using the opt-out approach, all pod volumes are backed up by using File System Backup (FSB), although there are some exceptions:
 
@@ -28,6 +31,7 @@ where:
 
 `<your_volume_name_x>`:: specifies the name of the xth volume in the pod specification.
 
++
 [NOTE]
 ====
 You can enable this behavior for all Velero backups by running the `velero install` command with the `--default-volumes-to-fs-backup` flag.
