@@ -31,9 +31,9 @@ Use the procedure if you are defining the configuration file before installing a
 # ...
 ----
 +
-where
+where:
 +
-`storage`: Specifies the storage details. You can choose to not define `optionalCsiComponents`. If you do specify the `optionalCsiComponents` field, valid values include: an empty value (`[]`) or a single empty string element (`[""]`), `snapshot-controller`, or `none`. A value of `none` is mutually exclusive with all other values.
+`storage`:: Specifies the storage details. You can choose to not define `optionalCsiComponents`. If you do specify the `optionalCsiComponents` field, valid values include: an empty value (`[]`) or a single empty string element (`[""]`), `snapshot-controller`, or `none`. A value of `none` is mutually exclusive with all other values.
 +
 [NOTE]
 ====
