@@ -7,7 +7,7 @@
 = Disabling or enabling the Network Resources Injector
 
 [role="_abstract"]
-To control the automatic configuration of your cluster workloads, enable or disable the Network Resources Injector. By adjusting these settings you can better manage whether the Kubernetes Dynamic Admission Controller automatically injects network resources and parameters into pods during their creation.
+To control the automatic configuration of your cluster workloads, enable or disable the Network Resources Injector.
 
 .Prerequisites
 

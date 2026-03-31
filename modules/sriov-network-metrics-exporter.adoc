@@ -7,7 +7,7 @@
 = About the SR-IOV network metrics exporter
 
 [role="_abstract"]
-To monitor the networking activity of SR-IOV pods, enable the SR-IOV network metrics exporter. This tool exposes metrics for SR-IOV virtual functions (VFs) in Prometheus format, so that you can query and visualize data through the {product-title} web console.
+The Single Root I/O Virtualization (SR-IOV) network metrics exporter reads the metrics for SR-IOV virtual functions (VFs) and exposes these VF metrics in Prometheus format. When the SR-IOV network metrics exporter is enabled, you can query the SR-IOV VF metrics by using the {product-title} web console to monitor the networking activity of the SR-IOV pods.
 
 When you query the SR-IOV VF metrics by using the web console, the SR-IOV network metrics exporter fetches and returns the VF network statistics along with the name and namespace of the pod that the VF is attached to.
 
