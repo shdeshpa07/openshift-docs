@@ -81,10 +81,11 @@ spec:
     filters:
       - query: |
           (SrcK8S_Namespace="netobserv" OR (SrcK8S_Namespace="openshift-ingress" AND DstK8S_Namespace="netobserv"))
-        outputTarget: Loki  <1>
-        sampling: 10  <2>
+        outputTarget: Loki
+        sampling: 10
 ----
-<1> Sends matching flows to a specific output, such as Loki, Prometheus, or an external system. When omitted, sends to all configured outputs.
-<2> Optional. Applies a sampling interval to limit the number of matching flows to be stored or exported. For example, `sampling: 10` means that there is a 1 in 10 chance that a flow will be kept.
 
+where:
 
+`spec.processor.filters.outputTarget`:: Specifies the output destination for matching flows, such as `Loki`, `Prometheus`, or an external system. If you omit this parameter, the system sends the flows to all configured outputs.
+`spec.processor.filters.sampling`:: Specifies an optional sampling interval to limit the number of matching flows stored or exported. For example, a value of `10` means there is a 1 in 10 chance that a flow is kept.
