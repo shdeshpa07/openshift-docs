@@ -7,7 +7,7 @@
 = Configuring MetalLB with an L2 advertisement
 
 [role="_abstract"]
-To provide fault-tolerant external IP addresses for cluster services, configure MetalLB to advertise an `IPAddressPool` by using the Layer 2 protocol. Establishing this advertisement ensures that application workloads remain reachable within the local network through standard address discovery protocols.
+You can configure MetalLB so that the `IPAddressPool` is advertised with the L2 protocol.
 
 .Prerequisites
 

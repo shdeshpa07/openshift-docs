@@ -7,9 +7,7 @@
 = Advertising an advanced address pool configuration with BGP
 
 [role="_abstract"]
-To ensure application services are reachable from external network peers through specific routing paths, configure MetalLB to advertise an advanced address pool by using the BGP. Establishing this advertisement allows your cluster to precisely communicate routing information to the external infrastructure.
-
-The procedure demonstrates how to configure MetalLB to advertise an advanced address pool by using the BGP.
+Configure MetalLB to advertise an advanced address pool by using the BGP.
 
 .Prerequisites
 

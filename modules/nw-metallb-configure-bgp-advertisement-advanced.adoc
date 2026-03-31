@@ -7,8 +7,6 @@
 = Configuring MetalLB with a BGP advertisement and an advanced use case
 
 [role="_abstract"]
-To assign application services specific IP addresses from designated IPv4 and IPv6 ranges, configure MetalLB for advanced address allocation. Establishing these ranges and BGP advertisements ensures that your load-balancer services remain reachable through predictable network paths.
-
 Configure MetalLB so that MetalLB assigns IP addresses to load-balancer services in the ranges between `203.0.113.200` and `203.0.113.203` and between `fc00:f853:ccd:e799::0` and `fc00:f853:ccd:e799::f`.
 
 To explain the two BGP advertisements, consider an instance when MetalLB assigns the IP address of `203.0.113.200` to a service. With that IP address as an example, the speaker advertises the following two routes to BGP peers:
