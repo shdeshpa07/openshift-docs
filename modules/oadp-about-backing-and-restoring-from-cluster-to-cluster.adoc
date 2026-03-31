@@ -1,11 +1,14 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-backing-up-data-one-cluster-restoring-another-cluster.adoc
 
 
 :_mod-docs-content-type: CONCEPT
 [id="oadp-about-backing-and-restoring-from-cluster-to-cluster_{context}"]
 = About backing up data from one cluster and restoring it on another cluster
+
+[role="_abstract"]
+Back up application data from one {product-title} cluster and restore it to another using {oadp-short}.
 
 {oadp-first} is designed to back up and restore application data in the same {product-title} cluster. {mtc-first} is designed to migrate containers, including application data, from one {product-title} cluster to another cluster.
 
@@ -32,6 +35,12 @@ In OADP 1.1 and earlier, the Velero Restic file system backup option is called `
 In OADP 1.2 and later, the Velero Restic file system backup option is called `file-system-backup`.
 ====
 
-* You must also use Velero's link:https://velero.io/docs/main/file-system-backup/[File System Backup] to migrate data between AWS regions or between Microsoft Azure regions.
+* You must also use Velero's File System Backup to migrate data between AWS regions or between Microsoft Azure regions.
 * Velero does not support restoring data to a cluster with an _earlier_ Kubernetes version than the source cluster.
 * It is theoretically possible to migrate workloads to a destination with a _later_ Kubernetes version than the source, but you must consider the compatibility of API groups between clusters for each custom resource. If a Kubernetes version upgrade breaks the compatibility of core or native API groups, you must first update the impacted custom resources.
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://velero.io/docs/main/file-system-backup/[File System Backup]

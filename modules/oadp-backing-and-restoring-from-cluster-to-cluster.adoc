@@ -1,13 +1,14 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-backing-up-data-one-cluster-restoring-another-cluster.adoc
 
 
-:_mod-docs-content-type: CONCEPT
+:_mod-docs-content-type: PROCEDURE
 [id="oadp-backing-and-restoring-from-cluster-to-cluster_{context}"]
 = Backing up data from one cluster and restoring it to another cluster
 
-In general, you back up data from one {product-title} cluster and restore it on another {product-title} cluster in the same way that you back up and restore data to the same cluster. However, there are some additional prerequisites and differences in the procedure when backing up data from one {product-title} cluster and restoring it on another.
+[role="_abstract"]
+Review the specific prerequisites and procedure differences to successfully back up data on one cluster and restore it to another. This helps you adapt standard {oadp-short} tasks for cross-cluster data recovery.
 
 .Prerequisites
 
@@ -31,7 +32,7 @@ $ velero backup create <backup_name> --default-volumes-to-fs-backup <any_other_o
 ====
 In OADP 1.2 and later, the Velero Restic option is called `file-system-backup`.
 ====
-
++
 [IMPORTANT]
 ====
 Before restoring a CSI back up, edit the `VolumeSnapshotClass` custom resource (CR), and set the  `snapshot.storage.kubernetes.io/is-default-class parameter` to false. 
