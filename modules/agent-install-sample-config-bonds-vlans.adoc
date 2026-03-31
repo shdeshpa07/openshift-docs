@@ -63,6 +63,11 @@ The following `agent-config.yaml` file is an example of a manifest for bond and 
               table-id: 254
 ----
 <1> Name of the interface.
++
+[NOTE]
+====
+This value does not need to match the device name.
+====
 <2> The type of interface. This example creates a VLAN.
 <3> The type of interface. This example creates a bond.
 <4> The mac address of the interface.
