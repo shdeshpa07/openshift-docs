@@ -1,14 +1,14 @@
 // Module included in the following assemblies:
 //
-// * release_notes/ocp-4-20-release-notes.adoc
+// * release_notes/ocp-4-19-release-notes.adoc
 
 :_mod-docs-content-type: REFERENCE
 [id="zstream-4-19-24_{context}"]
 = RHSA-2026:2651 - {product-title} {product-version}.24 fixed issues and security update
 
-[role="_abstract"]
 Issued: 18 February 2026
 
+[role="_abstract"]
 {product-title} release {product-version}.24 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:2651[RHSA-2026:2651] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:2632[RHBA-2026:2632] advisory.
 
 Space precluded documenting all of the container images for this release in the advisory.
