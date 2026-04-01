@@ -2667,7 +2667,7 @@ Topics:
     File: hcp-recovering-etcd-cluster
   - Name: Backing up and restoring etcd in an on-premise environment
     File: hcp-backup-restore-on-premise
-  - Name: Backing up and restoring etcd on AWS
+  - Name: Backing up and restoring etcd on the management cluster
     File: hcp-backup-restore-aws
   - Name: Backing up and restoring a hosted cluster on OpenShift Virtualization
     File: hcp-backup-restore-virt
