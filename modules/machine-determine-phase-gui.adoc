@@ -6,7 +6,8 @@
 [id="machine-determine-phase-gui_{context}"]
 = Determining the phase of a machine by using the web console
 
-You can find the phase of a machine by using the {product-title} web console.
+[role="_abstract"]
+To troubleshoot issues with a machine, you can find the phase of a machine by using the {product-title} web console.
 
 .Prerequisites
 
@@ -34,6 +35,7 @@ metadata:
   name: mycluster-5kbsp-worker-us-west-1a-fmx8t
 # ...
 status:
-  phase: Running # <1>
+  phase: Running
 ----
-<1> In this example, the phase is `Running`.
++
+In this example, the phase is `Running`.
