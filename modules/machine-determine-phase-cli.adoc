@@ -6,7 +6,8 @@
 [id="machine-determine-phase-cli_{context}"]
 = Determining the phase of a machine by using the CLI
 
-You can find the phase of a machine by using the {oc-first}.
+[role="_abstract"]
+To troubleshoot issues with a machine, you can find the phase of a machine by using the {oc-first}.
 
 .Prerequisites
 
