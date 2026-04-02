@@ -13,6 +13,10 @@ These release notes track the development of the Network Observability Operator 
 
 For an overview of the Network Observability Operator, see xref:../../observability/network_observability/network-observability-overview.adoc#network-observability-overview[About network observability].
 
+include::modules/network-observability-operator-release-notes-1-11-1-advisory.adoc[leveloffset=+1]
+
+include::modules/network-observability-operator-release-notes-1-11-1-fixed-issues.adoc[leveloffset=+1]
+
 include::modules/network-observability-operator-release-notes-1-11-advisory.adoc[leveloffset=+1]
 
 include::modules/network-observability-operator-release-notes-1-11-new-features-enhancements.adoc[leveloffset=+1]
