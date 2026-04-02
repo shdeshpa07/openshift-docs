@@ -6,7 +6,7 @@
 [id="nodes-nodes-managing-about_{context}"]
 = Modifying nodes
 
-[role="_abstract"] 
+[role="_abstract"]
 To make configuration changes to a cluster, or machine pool, you must create a custom resource definition (CRD), or `kubeletConfig` object. {product-title} uses the Machine Config Controller to watch for changes introduced through the CRD to apply the changes to the cluster.
 
 Most https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/[Kubelet Configuration options] can be set by the user. However, you cannot overwrite the following options:

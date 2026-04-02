@@ -17,7 +17,9 @@ endif::[]
 = Creating a default deny all {name} policy
 
 [role="_abstract"]
-The default deny all {name} policy blocks all cross-pod networking other than network traffic allowed by the configuration of other deployed network policies and traffic between host-networked pods. This procedure enforces a strong deny policy by applying a `deny-by-default` policy in the `my-project` namespace.
+The default deny all {name} policy blocks all cross-pod networking other than network traffic allowed by the configuration of other deployed network policies and traffic between host-networked pods. 
+
+The steps in the procedure enforces a strong deny policy by applying a `deny-by-default` policy in the `my-project` namespace.
 
 [WARNING]
 ====

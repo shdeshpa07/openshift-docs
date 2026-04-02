@@ -7,7 +7,7 @@
 = OVN-Kubernetes network plugin JSON configuration table
 
 [role="_abstract"]
-The OVN-Kubernetes network plugin JSON configuration object describes the configuration parameters for the OVN-Kubernetes CNI network plugin. The following table details these parameters:
+The OVN-Kubernetes network plugin JSON configuration object describes the configuration parameters for the OVN-Kubernetes CNI network plugin.
 
 .OVN-Kubernetes network plugin JSON configuration table
 [cols=".^2,.^2,.^6",options="header"]
