@@ -6,8 +6,6 @@
 = Deploying the External DNS Operator
 
 [role="_abstract"]
-You can deploy the External DNS Operator on-demand from the Software Catalog. Deploying the External DNS Operator creates a `Subscription` object.
-
 The External DNS Operator implements the External DNS API from the `olm.openshift.io` API group. The External DNS Operator updates services, routes, and external DNS providers.
 
 .Prerequisites
