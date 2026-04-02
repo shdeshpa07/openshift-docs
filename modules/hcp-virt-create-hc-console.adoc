@@ -6,7 +6,13 @@
 [id="hcp-virt-create-hc-console_{context}"]
 = Creating a hosted cluster by using the console
 
-To create a hosted cluster with the KubeVirt platform by using the console, complete the following steps.
+[role="_abstract"]
+If you prefer to work in the {product-title} console instead of the CLI, you can create a hosted cluster on the KubeVirt platform by using the console.
+
+[NOTE]
+====
+If you want to use predefined values to automatically populate fields in the console, you can create a {VirtProductName} credential. For more information, see "Creating a credential for an on-premises environment".
+====
 
 .Procedure
 
@@ -20,11 +26,11 @@ To create a hosted cluster with the KubeVirt platform by using the console, comp
 
 . On the *Create cluster* page, follow the prompts to enter details about the cluster and node pools.
 +
-[NOTE]
+On the *Cluster details* page, the pull secret is your {product-title} pull secret that you use to access {product-title} resources. If you selected a {VirtProductName} credential, the pull secret is automatically populated.
++
+[IMPORTANT]
 ====
-* If you want to use predefined values to automatically populate fields in the console, you can create a {VirtProductName} credential. For more information, see "Creating a credential for an on-premises environment".
-
-* On the *Cluster details* page, the pull secret is your {product-title} pull secret that you use to access {product-title} resources. If you selected a {VirtProductName} credential, the pull secret is automatically populated.
+Avoid storing all hosted cluster information in a shared namespace. If you create a hosted cluster in a shared namespace and then back up and restore the hosted cluster, you might unintentionally change other hosted clusters. Either store hosted cluster information in a separate namespace or set up your hosted cluster to back up and restore resources based on labels.
 ====
 
 . On the *Node pools* page, expand the *Networking options* section and configure the networking options for your node pool:
