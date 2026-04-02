@@ -6,6 +6,7 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 You can use the {cgu-operator-first} to manage the software lifecycle of multiple clusters. {cgu-operator} uses {rh-rhacm-first} policies to perform changes on the target clusters.
 
 :Featurename: Using PolicyGenerator resources with {ztp}
