@@ -7,7 +7,7 @@
 = Managing traffic within the cluster
 
 [role="_abstract"]
-To ensure reliable communication between applications in {product-title}, configure pod-to-pod traffic and service discovery mechanisms. Implementing these mechanisms allows cluster workloads to exchange data efficiently through either direct connections or robust discovery rules.
+Your applications need to communicate with each other inside the cluster. {product-title} provides two primary mechanisms that you can use to handle internal traffic: direct pod-to-pod communication for simple exchanges and robust service discovery for reliable connections.
 
 Pod-to-pod communication::
 

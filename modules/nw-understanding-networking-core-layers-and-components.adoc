@@ -7,7 +7,7 @@
 = Core network layers and components
 
 [role="_abstract"]
-To build and expose resilient applications in {product-title}, configure the pod and service network layers. Defining these foundational layers ensures that your application workloads have a secure environment to run and remain reliably accessible to other services.
+{openshift-networking} is built on two fundamental layers: the pod network and the service network. The pod network is where your applications live. The service network makes your applications reliably accessible.
 
 The pod network::
 

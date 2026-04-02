@@ -4,10 +4,10 @@
 
 :_mod-docs-content-type: CONCEPT
 [id="pod-cidr-description_{context}"]
-= Pod CIDR
+= Pod classless inter-domain routing (CIDR)
 
 [role="_abstract"]
-To allocate internal network addresses for cluster workloads in {product-title}, specify an IP address range in the pod Classless Inter-Domain Routing (CIDR) field. Defining this range ensures that pods can communicate with each other reliably without overlapping with the node or service networks.
+In the pod CIDR field, you must specify the IP address range for pods.
 
 ifdef::openshift-enterprise[]
 The pod CIDR is the same as the `clusterNetwork` CIDR and the cluster CIDR.

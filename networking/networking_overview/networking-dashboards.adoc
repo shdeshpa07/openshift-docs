@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To monitor and analyze network performance within your cluster, view networking metrics in the {product-title} web console. By accessing these dashboards through *Observe* -> *Dashboards*,  you can identify traffic patterns and troubleshoot connectivity issues to ensure consistent workload availability.
+To monitor and analyze network performance within your cluster, view networking metrics in the {product-title} web console.
 
 Network Observability Operator::
 

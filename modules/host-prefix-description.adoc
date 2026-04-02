@@ -7,7 +7,7 @@
 = Host prefix
 
 [role="_abstract"]
-To allocate a dedicated pool of IP addresses for pods on each node in {product-title}, specify the subnet prefix length in the hostPrefix parameter. Defining an appropriate prefix ensures that every machine has sufficient unique addresses to support its scheduled workloads without exhausting the cluster's network resources.
+In the `hostPrefix` parameter, you must specify the subnet prefix length assigned to pods scheduled to individual machines. The host prefix determines the pod IP address pool for each machine.
 
 ifdef::openshift-rosa,openshift-rosa-hcp,openshift-dedicated[]
 For example, if you set the `hostPrefix` parameter to `/23`, each machine is assigned a `/23` subnet from the pod CIDR address range. The default is `/23`, allowing 512 cluster nodes and 512 pods per node. Note that where 512 cluster nodes and 512 pods are beyond the maximum supported.

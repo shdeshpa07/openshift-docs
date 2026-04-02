@@ -7,7 +7,7 @@
 = Managing traffic entering and leaving the cluster
 
 [role="_abstract"]
-To enable external access and securely manage traffic flow into and out of your {product-title} cluster, configure ingress and egress mechanisms. Establishing these traffic rules ensures that external users can reach your applications reliably while maintaining secure communication with external services.
+You need a way for external users to access your applications and for your applications to securely access external services. {product-title} provides several tools to manage this flow of traffic into and out of your cluster.
 
 Exposing applications with Ingress and Route objects::
 
