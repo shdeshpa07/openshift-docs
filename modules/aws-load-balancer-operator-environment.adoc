@@ -7,7 +7,7 @@
 = Set up temporary environment variables
 
 [role="_abstract"]
-To streamline the installation of the AWS Load Balancer Operator, define temporary environment variables for resource identifiers and configuration details. This optional configuration simplifies the execution of installation commands by storing reusable values.
+You have the option to set up temporary environment variables to hold resource identifiers and configuration details. Using temporary environment variables streamlines the process of running the installation commands for the AWS Load Balancer Operator.
 
 If you do not want to use environment variables to store certain values, you can manually enter those values in the relevant installation commands.
 
@@ -18,7 +18,7 @@ If you do not want to use environment variables to store certain values, you can
 
 .Procedure
 
-. Log in to your cluster as a cluster administrator using the OpenShift CLI (`oc`).
+. Log in to your cluster as a cluster administrator using the {oc-first}.
 +
 [source,terminal]
 ----

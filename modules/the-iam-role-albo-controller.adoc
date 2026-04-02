@@ -7,7 +7,7 @@
 = The IAM role for the AWS Load Balancer Controller
 
 [role="_abstract"]
-To authorize the {aws-short} Load Balancer Controller, configure the `CredentialsRequest` object with a manually provisioned IAM role. This ensures the controller functions correctly by using the specific permissions defined in your manual provisioning process.
+The `CredentialsRequest` object for the {aws-short} Load Balancer Controller must be set with a manually provisioned Identity and Access Management (IAM) role.
 
 You can create the IAM role by using the following options:
 
