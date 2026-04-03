@@ -5,15 +5,15 @@
 :_mod-docs-content-type: PROCEDURE
 
 [id="virt-listing-vms-web_{context}"]
-= Listing virtual machines by using the web console
+= List virtual machines by using the web console
 
 [role="_abstract"]
 You can list all of the virtual machines (VMs) in your cluster by using the web console.
 
 .Procedure
 
-. Click *Virtualization* -> *VirtualMachines* from the side menu to access the tree view with all of the projects and VMs in your cluster.
+. Click *Virtualization* -> *VirtualMachines* from the side menu to access the tree view of all projects and VMs in your cluster.
 
 . Optional: Enable the *Show only projects with VirtualMachines* option above the tree view to limit the displayed projects.
 
-. Optional: Click the *Advanced search* button next to the search bar to further filter VMs by one of the following: their name, the project they belong to, their labels, or the allocated vCPU and memory resources.
+. Optional: Click the *Advanced search* button next to the search bar to further filter VMs. You can filter your VMs by their name, project, labels, or the allocated vCPU and memory resources.
