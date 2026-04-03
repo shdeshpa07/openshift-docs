@@ -3019,9 +3019,14 @@ In both cases, the installation program generates a user-assigned identity. (lin
 
 include::modules/rn-async-errata.adoc[leveloffset=+1]
 
+// 4.20.17 release notes
+include::modules/zstream-4-20-17.adoc[leveloffset=+2]
+
+// 4.20.16 release notes
+include::modules/zstream-4-20-16.adoc[leveloffset=+2]
+
 // 4.20.15 release notes
 include::modules/zstream-4-20-15.adoc[leveloffset=+2]
-
 
 // 4.20.14 release notes
 include::modules/zstream-4-20-14.adoc[leveloffset=+2]
