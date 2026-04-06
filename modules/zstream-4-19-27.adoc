@@ -1,0 +1,56 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-19-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-19-27_{context}"]
+= RHSA-2026:5878 - {product-title} {product-version}.27 fixed issues and security update
+
+Issued: 01 April 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.27 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:5878[RHSA-2026:5878] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHSA-2026:5876[RHSA-2026:5876] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.19.27 --pullspecs
+----
+
+[id="zstream-4-19-27-enhancements_{context}"]
+== Enhancements
+
+* With this update, support for the `kubevirt-csi-driver` on non-hosted control plane nested clusters using OpenShift Virtualization VMs has been added through manual mapping annotations. The new manual mapping annotations are:
+
+  - `csi.kubevirt.io/infra-vm-name` - the VirtualMachine name on the infrastructure cluster representing the nested cluster node.
+
+  - `csi.kubevirt.io/infra-vm-namespace` - the namespace on the infrastructure cluster hosting the nested cluster VMs (link:https://issues.redhat.com/browse/OCPBUGS-79322[OCPBUGS-79322])
+
+
+[id="zstream-4-19-27-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, when installing a cluster on {gcp-short} with a user-provided encryption key, the installation program could fail to find the key ring. With this update, the installation program finds the user-provided encryption key ring. As a result, the installation does not fail. (link:https://issues.redhat.com/browse/OCPBUGS-54302[OCPBUGS-54302])
+
+* Before this update, the Machine API Provider OpenStack (MAPO) created an event for every single `reconcile` function, even when no significant state changes such as a `create`, `update`, or `delete` had occurred. This event generation led to cluttered event logs, strained system performance, and frequently disrupted monitoring and alerting systems. With this release, the `reconcile` function is modified to capture the original `ResourceVersion` and only emit an event when the machine `ResourceVersion` changes. Additionally, the event name is changed from `Reconciled` to `Updated` to better align with other machine API providers. (link:https://issues.redhat.com/browse/OCPBUGS-69646[OCPBUGS-69646])
+
+* Before this update, the Cluster Version Operator (CVO) lacked metrics access in Red Hat OpenShift Service on AWS (ROSA) with hosted control planes (HCP) clusters with Observability monitoring due to missing permissions and network policy issues. As a consequence, end users could not perform conditional update risk assessment on these clusters. With this release, CVO now accesses metrics with Observability monitoring, enabling conditional update risk evaluation. As a result, the CVO can now query Prometheus metrics to properly evaluate conditional update risks, providing accurate update recommendations for cluster upgrades. (link:https://issues.redhat.com/browse/OCPBUGS-76531[OCPBUGS-76531])
+
+* Before this update, when you clicked *Add access* on the *Project access* tab on the *Project* details page while in the Developer perspective, the *Save* button was disabled and a potential error occurred. With this update, the *Project access* tab works as expected. (link:https://issues.redhat.com/browse/OCPBUGS-78292[OCPBUGS-78292])
+
+* Before this update, the etcd Operator randomly removed control plane nodes, causing duplication and potential cluster downtime. As a consequence, user experience was disrupted, leading to a potential loss of control plane nodes in the etcd cluster. With this release, the etcd Operator prioritizes removing members in the same failure domain index, reducing potential duplication and improving cluster stability. As a result, the etcd Operator ensures the control plane remains stable with three nodes, preventing potential service disruptions. (link:https://issues.redhat.com/browse/OCPBUGS-78353[OCPBUGS-78353])
+
+* Before this update, the MetalLB Operator in {product-title} {product-version} included a specific upstream logic change that caused a node to stop announcing its IP addresses to peers if the node was marked as `cordoned`. As a result, when a cluster administrator cordoned a node for maintenance, the node immediately ceased all Border Gateway Protocol (BGP) or L2 advertisements. This triggered unexpected network outages and scenarios where service traffic was dropped prematurely before it could be gracefully migrated to other healthy nodes in the cluster. With this release, the advertisement logic has been reverted to align with the corrected behavior. This ensures that the node scheduling status, `cordoned` no longer influences its ability to announce addresses, maintaining network reachability regardless of the node's availability for new pods. (link:https://issues.redhat.com/browse/OCPBUGS-78367[OCPBUGS-78367])
+
+* Before this update, cluster installation failed due to non-standard resource group names not matching the expected pattern. As a consequence, users failed to create Azure clusters with custom resource group names due to incorrect default image ID generation. With this release, image ID generation now matches the resource group name. As a result, cluster installation with custom resource group names no longer fails, ensuring successful deployment. (link:https://issues.redhat.com/browse/OCPBUGS-78715[OCPBUGS-78715])
+
+* Before this update, the `Kubelet` object improperly terminated the `kube-apiserver` service during graceful termination and affected various jobs and presubmits. As a consequence, tests failed in various jobs. With this release, the issue is fixed. As a result, the `Kubelet` object now gracefully terminates the `kube-apiserver` service in non-upgrade jobs, improving stability in various cloud environments. (link:https://issues.redhat.com/browse/OCPBUGS-79473[OCPBUGS-79473])
+
+
+[id="zstream-4-19-27-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.19 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
