@@ -6,7 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-{VirtProductName} is now integrated with OpenShift Service Mesh. You can monitor, visualize, and control traffic between pods that run virtual machine workloads on the default pod network with IPv4.
+[role="_abstract"]
+{VirtProductName} is now integrated with {SMProductName}. You can monitor, visualize, and control traffic between pods that run virtual machine (VM) workloads on the default pod network with IPv4.
 
 include::modules/virt-adding-vm-to-service-mesh.adoc[leveloffset=+1]
 
