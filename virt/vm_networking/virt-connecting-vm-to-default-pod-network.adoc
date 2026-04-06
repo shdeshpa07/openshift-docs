@@ -6,6 +6,7 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 You can connect a virtual machine to the default internal pod network by configuring its network interface to use the `masquerade` binding mode.
 
 [NOTE]

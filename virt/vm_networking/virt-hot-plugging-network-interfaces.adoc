@@ -6,6 +6,7 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 ifdef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 You can add or remove secondary network interfaces without stopping your virtual machine (VM). {VirtProductName} supports hot plugging and hot unplugging for secondary interfaces that use bridge binding and the VirtIO device driver.
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
