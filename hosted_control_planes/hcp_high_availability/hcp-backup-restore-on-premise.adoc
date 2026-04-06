@@ -9,3 +9,8 @@ toc::[]
 You can back up and restore etcd on a hosted cluster in an on-premise environment to fix failures.
 
 include::modules/hosted-cluster-etcd-backup-restore-on-premise.adoc[leveloffset=+1]
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:../../backup_and_restore/application_backup_and_restore/installing/installing-oadp-aws.adoc#migration-configuring-aws-s3_installing-oadp-aws[Configuring Amazon Web Services]
