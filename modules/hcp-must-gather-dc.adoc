@@ -6,18 +6,19 @@
 [id="hcp-must-gather-dc_{context}"]
 = Entering the must-gather command in a disconnected environment
 
-Complete the following steps to run the `must-gather` command in a disconnected environment.
+[role="_abstract"]
+When you need to troubleshoot an issue in a disconnected environment, you can gather information by running the `must-gather` command. The command generates output for the management cluster and the hosted cluster.
 
 .Procedure
 
-. In a disconnected environment, mirror the Red{nbsp}Hat operator catalog images into their mirror registry. For more information, see _Install on disconnected networks_.
+. In a disconnected environment, mirror the Red{nbsp}Hat Operator catalog images into their mirror registry. For more information, see "Install on disconnected networks".
 
-. Run the following command to extract logs, which reference the image from their mirror registry:
+. Run the following command to extract logs that reference the image from their mirror registry:
 +
 [source,terminal]
 ----
 REGISTRY=registry.example.com:5000
-IMAGE=$REGISTRY/multicluster-engine/must-gather-rhel8@sha256:ff9f37eb400dc1f7d07a9b6f2da9064992934b69847d17f59e385783c071b9d8
+IMAGE=$REGISTRY/rhacm2/acm-must-gather-rhel9:v2.15
 
 $ oc adm must-gather \
   --image=$IMAGE /usr/bin/gather \
