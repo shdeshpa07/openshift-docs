@@ -6,6 +6,7 @@
 [id="migrating-from-x86-to-arm64-cp_{context}"]
 = Migrating the x86 control plane to arm64 architecture on {aws-full}
 
+[role="_abstract"]
 You can migrate the control plane in your cluster from `x86` to `arm64` architecture on {aws-first}.
 
 .Prerequisites
@@ -53,7 +54,7 @@ If you see the following output, the cluster is multi-architecture compatible.
 }
 ----
 +
-If the cluster is not using the multi payload, migrate the cluster to a multi-architecture cluster. For more information, see "Migrating to a cluster with multi-architecture compute machines". 
+If the cluster is not using the multi payload, migrate the cluster to a multi-architecture cluster. For more information, see "Migrating to a cluster with multi-architecture compute machines using the CLI".
 
 . Update your image stream from single-architecture to multi-architecture by running the following command:
 +
@@ -65,9 +66,10 @@ include::snippets/update-image-stream-to-multi-arch.adoc[]
 +
 [source,terminal]
 ----
-$ oc get configmap/coreos-bootimages -n openshift-machine-config-operator -o jsonpath='{.data.stream}' | jq -r '.architectures.aarch64.images.aws.regions."<aws_region>".image' <1>
+$ oc get configmap/coreos-bootimages -n openshift-machine-config-operator -o jsonpath='{.data.stream}' | jq -r '.architectures.aarch64.images.aws.regions."<aws_region>".image'
 ----
-<1> Replace `<aws_region>` with the {aws-short} region where the current cluster is installed. You can get the {aws-short} region for the installed cluster by running the following command:
++
+Replace `<aws_region>` with the {aws-short} region where the current cluster is installed. You can get the {aws-short} region for the installed cluster by running the following command:
 +
 [source,terminal]
 ----
@@ -86,14 +88,14 @@ ami-xxxxxxx
 ----
 $ oc edit controlplanemachineset.machine.openshift.io cluster -n openshift-machine-api
 ----
-+
-Update the `instanceType` field to a type that supports the `arm64` architecture, and set the `ami.id` field to an AMI that is compatible with the `arm64` architecture. For information about supported instance types, see "Tested instance types for {aws-short} on 64-bit ARM infrastructures".
+
+.. Update the `instanceType` field to a type that supports the `arm64` architecture, and set the `ami.id` field to an AMI that is compatible with the `arm64` architecture. For information about supported instance types, see "Tested instance types for {aws-short} on 64-bit ARM infrastructures".
 +
 For more information about configuring the control plane machine set for {aws-short}, see "Control plane configuration options for {aws-full}".
 
 .Verification
 
-* Verify that the control plane nodes are now running on the `arm64` architecture:
+* Verify that the control plane nodes are now running on the `arm64` architecture by running the following command:
 +
 [source,terminal]
 ----

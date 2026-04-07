@@ -6,6 +6,7 @@
 [id="multiarch-migrating-cp-infra-gcp_{context}"]
 = Migrating control plane or infra machine sets between architectures on {gcp-full}
 
+[role="_abstract"]
 You can migrate the control plane or infra machine sets in your {gcp-short} cluster between `x86` and `arm64` architectures.
 
 .Prerequisites
@@ -26,7 +27,7 @@ $ oc get nodes -o wide
 [source,terminal]
 ----
 NAME                          STATUS   ROLES                  AGE    VERSION   INTERNAL-IP EXTERNAL-IP   OS-IMAGE                                         KERNEL-VERSION                 CONTAINER-RUNTIME
-worker-001.example.com        Ready    infra                 100d   v1.30.7   10.x.x.x    <none>        Red Hat Enterprise Linux CoreOS 4xx.xx.xxxxx-0   5.x.x-xxx.x.x.el9_xx.x86_64    cri-o://1.30.x
+worker-001.example.com        Ready    infra                  100d   v1.30.7   10.x.x.x    <none>        Red Hat Enterprise Linux CoreOS 4xx.xx.xxxxx-0   5.x.x-xxx.x.x.el9_xx.x86_64    cri-o://1.30.x
 master-001.example.com        Ready    control-plane,master   120d   v1.30.7   10.x.x.x    <none>        Red Hat Enterprise Linux CoreOS 4xx.xx.xxxxx-0   5.x.x-xxx.x.x.el9_xx.x86_64    cri-o://1.30.x
 ----
 +
