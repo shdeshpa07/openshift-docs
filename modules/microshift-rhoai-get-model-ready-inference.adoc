@@ -38,7 +38,7 @@ REQ=./request.json
 echo -n '{"inputs" : [{"name": "0", "shape": [1], "datatype": "BYTES"}]}' > "${REQ}"
 # Get the size of the inference header
 HEADER_LEN="$(stat -c %s "${REQ}")"
-# Add size of the data (image) in binary format (4 bytes, little endian) <2>
+# Add size of the data (image) in binary format (4 bytes, little endian)
 printf "%08X" $(stat --format=%s "${IMAGE}") | sed 's/\(..\)/\1\n/g' | tac | tr -d '\n' | xxd -r -p >> "${REQ}"
 # Add the data, that is, append the image to the request file
 cat "${IMAGE}" >> "${REQ}"
