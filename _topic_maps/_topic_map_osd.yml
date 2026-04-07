@@ -1628,14 +1628,16 @@ Topics:
 #     File: virt-initiating-live-migration
 # # Node maintenance mode
 # - Name: Nodes
-#   Dir: nodes
-#   Topics:
-#   - Name: Node maintenance
-#     File: virt-node-maintenance
-#   - Name: Managing node labeling for obsolete CPU models
-#     File: virt-managing-node-labeling-obsolete-cpu-models
-#   - Name: Preventing node reconciliation
-#     File: virt-preventing-node-reconciliation
+  # Dir: nodes
+#  Topics:
+#  - Name: Node maintenance mode
+#    File: virt-node-maintenance
+#  - Name: Configure eviction and run strategies
+#    File: virt-eviction-strategies
+#  - Name: Managing node labeling for obsolete CPU models
+#    File: virt-managing-node-labeling-obsolete-cpu-models
+#  - Name: Preventing node reconciliation
+#    File: virt-preventing-node-reconciliation
 # # Hiding in ROSA/OSD as user cannot cordon and drain nodes
 # #  - Name: Deleting a failed node to trigger VM failover
 # #    File: virt-triggering-vm-failover-resolving-failed-node

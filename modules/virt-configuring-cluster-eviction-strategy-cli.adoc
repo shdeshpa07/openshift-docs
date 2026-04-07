@@ -1,6 +1,6 @@
 // Module included in the following assemblies:
 //
-// * virt/nodes/virt-node-maintenance.adoc
+// * virt/nodes/virt-eviction-strategies.adoc
 
 :_mod-docs-content-type: PROCEDURE
 [id="virt-configuring-cluster-eviction-strategy-cli_{context}"]
@@ -36,4 +36,3 @@ spec:
   evictionStrategy: LiveMigrate
 # ...
 ----
-

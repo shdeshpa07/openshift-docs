@@ -336,7 +336,7 @@ You can configure one of the following high-availability (HA) options for your c
 +
 [NOTE]
 ====
-In {product-title} clusters installed using installer-provisioned infrastructure and with a properly configured `MachineHealthCheck` resource, if a node fails the machine health check and becomes unavailable to the cluster, it is recycled. What happens next with VMs that ran on the failed node depends on a series of conditions. See xref:../../virt/nodes/virt-node-maintenance.adoc#run-strategies[Run strategies] for more detailed information about the potential outcomes and how run strategies affect those outcomes.
+In {product-title} clusters installed using installer-provisioned infrastructure and with a properly configured `MachineHealthCheck` resource, if a node fails the machine health check and becomes unavailable to the cluster, it is recycled. What happens next with VMs that ran on the failed node depends on a series of conditions. See the "Run strategies" documentation for more detailed information about the potential outcomes and how run strategies affect those outcomes.
 
 Currently, IPI is not supported on {ibm-z-name}.
 ====
@@ -355,3 +355,8 @@ Fence Agents Remediation uses supported fencing agents to reset failed nodes fas
 Without an external monitoring system or a qualified human monitoring node health, virtual machines lose high availability.
 ====
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
+
+[role="_additional-resources"]
+[id="additional-resources_preparing-cluster-for-virt"]
+== Additional resources
+* xref:../../virt/nodes/virt-eviction-strategies.adoc#virt-runstrategies-vms_virt-eviction-strategies[Run strategies]
