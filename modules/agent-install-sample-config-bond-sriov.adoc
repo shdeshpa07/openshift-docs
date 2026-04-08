@@ -101,6 +101,11 @@ hosts:
 <1> The `networkConfig` field includes information about the network configuration of the host, with subfields including `interfaces`,`dns-resolver`, and `routes`.
 <2> The `interfaces` field is an array of network interfaces defined for the host.
 <3> The name of the interface.
++
+[NOTE]
+====
+This value does not need to match the device name.
+====
 <4> The type of interface. This example creates an ethernet interface.
 <5> Set this to `false` to disable DHCP for the physical function (PF) if it is not strictly required.
 <6> Set this to the number of SR-IOV virtual functions (VFs) to instantiate.
