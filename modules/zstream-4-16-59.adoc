@@ -1,0 +1,35 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-16-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-16-59_{context}"]
+= RHSA-2026:5910 - {product-title} {product-version}.59 fixed issues and security updates
+
+Issued: 2 April 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.59 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:5910[RHSA-2026:5910] advisory. There are no RPM packages for this release.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.16.59 --pullspecs
+----
+
+[id="zstream-4-16-59-fixed-issues_{context}"]
+== Fixed issues
+
+* * Before this update, the Cluster Version Operator (CVO) on {product-rosa} Hosted Control Plane (HCP) clusters using Red Hat Observability Service (RHOBS) monitoring (`--rhobs-monitoring=true`), could not access the Prometheus metrics endpoint, which meant conditional update risks could not be properly evaluated. This issue prevented you from receiving accurate risk assessments, which often stalled or complicated the upgrade process. With this release, the `--rhobs-monitoring` flag automatically enables CVO access to the RHOBS Prometheus endpoint, which is supported by updated network policies that allow for proper egress based on the specific stack configuration. Additionally, a new `--cvo-prometheus-url` flag is introduced for optional customization of the endpoint. (link:https://redhat.atlassian.net/browse/OCPBUGS-76534[OCPBUGS-76534])
+
+* Before this update, Driver Toolkit (DTK) kernel version mismatch with {product-title} 4.16.58 node version caused driver container failure. As a consequence, the user was unable to install required developer packages due to a GPU driver build failure. With this release, the DTK kernel version mismatch is resolved, allowing correct driver installation. As a result, driver container no longer fails on {product-title} 4.16.58, enabling correct GPU driver installation and improved performance for NVIDIA GPU tasks. (link:https://issues.redhat.com/browse/OCPBUGS-78529[OCPBUGS-78529])
+
+* Before this release, the lack of patch permission in the CIFS/SMB CSI Driver CSI Operator's provisioner role caused CIFS/SMB CSI driver recovery failure. This resulted in user experience disruption and malfunctioning of volumes with `reclaimPolicy: retain` in the 4.16 version. There is currently no workaround for this issue. As a result, apply the SMB CSI Operator rebase to the {product-title} 4.18 version for correct `reclaimPolicy: retain` in volumes. (link:https://issues.redhat.com/browse/OCPBUGS-78769[OCPBUGS-78769])
+
+[id="zstream-4-16-59-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.16 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
