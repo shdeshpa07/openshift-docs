@@ -1,12 +1,13 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-backing-up-data-one-cluster-restoring-another-cluster.adoc
 
-[id="oadp-backing-up-opt-in_{context}"]
 :_mod-docs-content-type: PROCEDURE
+[id="oadp-backing-up-opt-in_{context}"]
 = Backing up pod volumes by using the opt-in method
 
-You can use the opt-in method to specify which volumes need to be backed up by File System Backup (FSB). You can do this by using the `backup.velero.io/backup-volumes` command.
+[role="_abstract"]
+Use the opt-in method to specify the exact pod volumes you want to back up using File System Backup (FSB). By applying specific annotations, you can selectively include only the volumes you need, which helps you to manage storage and backup efficiency.
 
 .Procedure
 
