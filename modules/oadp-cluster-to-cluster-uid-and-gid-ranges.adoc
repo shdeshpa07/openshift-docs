@@ -1,16 +1,17 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-backing-up-data-one-cluster-restoring-another-cluster.adoc
 
 
 :_mod-docs-content-type: CONCEPT
 [id="oadp-cluster-to-cluster-uid-and-gid-ranges_{context}"]
 = UID and GID ranges
 
-If you back up data from one cluster and restore it to another cluster,  problems might occur with UID (User ID) and GID (Group ID) ranges. The following section explains these potential issues and mitigations:
+[role="_abstract"]
+Address potential User ID (UID) and Group ID (GID) range conflicts when moving data between clusters. Reviewing these mitigations helps you avoid access issues and maintain security contexts after a restore.
 
 Summary of the issues::
-The namespace UID and GID ranges might change depending on the destination cluster. OADP does not back up and restore OpenShift UID range metadata. If the backed up application requires a specific UID, ensure the range is availableupon restore. For more information about OpenShift's UID and GID ranges, see link:https://cloud.redhat.com/blog/a-guide-to-openshift-and-uids[A Guide to OpenShift and UIDs].
+The namespace UID and GID ranges might change depending on the destination cluster. OADP does not back up and restore OpenShift UID range metadata. If the backed up application requires a specific UID, ensure the range is available upon restore. For more information about OpenShift's UID and GID ranges, see _A Guide to OpenShift and UIDs_.
 
 Detailed description of the issues::
 When you create a namespace in {product-title} by using the shell command `oc create namespace`, {product-title} assigns the namespace a unique User ID (UID) range from its available pool of UIDs, a Supplemental Group (GID) range, and unique SELinux MCS labels. This information is stored in the `metadata.annotations` field of the cluster. This information is part of the Security Context Constraints (SCC) annotations, which comprise of the following components:
@@ -38,6 +39,14 @@ You can use one or more of the following mitigations to resolve the UID and GID 
 ** Remove any pre-existing version of a namespace on the destination cluster before attempting to restore a namespace with the same name.
 
 * Advanced mitigations:
-** Fix UID ranges after migration by link:https://access.redhat.com/articles/6844071[Resolving overlapping UID ranges in OpenShift namespaces after migration]. Step 1 is optional.
+** Fix UID ranges after migration by _Resolving overlapping UID ranges in OpenShift namespaces after migration_. Step 1 is optional.
 
-For an in-depth discussion of UID and GID ranges in {product-title} with an emphasis on overcoming issues in backing up data on one cluster and restoring it on another, see link:https://cloud.redhat.com/blog/a-guide-to-openshift-and-uids[A Guide to OpenShift and UIDs].
+For an in-depth discussion of UID and GID ranges in {product-title} with an emphasis on overcoming issues in backing up data on one cluster and restoring it on another, see _A Guide to OpenShift and UIDs_.
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:https://cloud.redhat.com/blog/a-guide-to-openshift-and-uids[A Guide to OpenShift and UIDs]
+
+* link:https://access.redhat.com/articles/6844071[Resolving overlapping UID ranges in OpenShift namespaces after migration]
