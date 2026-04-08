@@ -17,7 +17,7 @@ The *Migrate* action is visible to all users but only cluster administrators can
 .Prerequisites
 
 * You have the `kubevirt.io:migrate` RBAC role or you are a cluster administrator.
-* The VM is migratable.
+* The VM is able to be migrated.
 * If the VM is configured with a host model CPU, the cluster has an available node that supports the CPU model.
 
 .Procedure

@@ -35,7 +35,7 @@ spec:
 $ oc create -f <migration_name>.yaml
 ----
 +
-The `VirtualMachineInstanceMigration` object triggers a live migration of the VM. This object exists in the cluster for as long as the virtual machine instance is running, unless manually deleted.
+The `VirtualMachineInstanceMigration` object triggers a live migration of the VM. This object exists in the cluster only while the virtual machine instance is running, unless manually deleted.
 
 .Verification
 

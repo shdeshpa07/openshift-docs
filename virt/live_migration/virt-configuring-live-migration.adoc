@@ -8,9 +8,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-You can configure live migration settings to ensure that the migration processes do not overwhelm the cluster.
-
-You can configure live migration policies to apply different migration configurations to groups of virtual machines (VMs).
+[role="_abstract"]
+You can configure live migration settings to ensure that the migration processes do not overwhelm the cluster. You can configure live migration policies to apply different migration configurations to groups of virtual machines (VMs).
 
 include::modules/virt-configuring-live-migration-limits.adoc[leveloffset=+1]
 
