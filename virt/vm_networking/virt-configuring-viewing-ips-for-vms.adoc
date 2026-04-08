@@ -9,29 +9,13 @@ toc::[]
 [role="_abstract"]
 You can configure an IP address when you create a virtual machine (VM). The IP address is provisioned with cloud-init. View the IP address of a VM by using the {product-title} web console or the command line. The network information is collected by the QEMU guest agent.
 
-[id="configuring-ips_virt-configuring-viewing-ips-for-vms"]
-== Configuring IP addresses for virtual machines
+include::modules/virt-configuring-ip-vm-web.adoc[leveloffset=+1]
 
-You can configure a static IP address when you create a virtual machine (VM) by using the web console or the command line.
+include::modules/virt-configuring-ip-vm-cli.adoc[leveloffset=+1]
 
-You can configure a dynamic IP address when you create a VM by using the command line.
+include::modules/virt-viewing-vmi-ip-web.adoc[leveloffset=+1]
 
-The IP address is provisioned with cloud-init.
-
-include::modules/virt-configuring-ip-vm-web.adoc[leveloffset=+2]
-
-include::modules/virt-configuring-ip-vm-cli.adoc[leveloffset=+2]
-
-[id="viewing-ips_virt-configuring-viewing-ips-for-vms"]
-== Viewing IP addresses of virtual machines
-
-You can view the IP address of a VM by using the {product-title} web console or the command line.
-
-The network information is collected by the QEMU guest agent.
-
-include::modules/virt-viewing-vmi-ip-web.adoc[leveloffset=+2]
-
-include::modules/virt-viewing-vmi-ip-cli.adoc[leveloffset=+2]
+include::modules/virt-viewing-vmi-ip-cli.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 [id="additional-resources_virt-configuring-viewing-ips-for-vms"]

@@ -7,11 +7,13 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-You can connect a virtual machine (VM) to a Single Root I/O Virtualization (SR-IOV) network by performing the following steps:
+You can connect a virtual machine (VM) to the physical network by using a Single Root I/O Virtualization (SR-IOV) device. 
 
-* xref:../../virt/vm_networking/virt-connecting-vm-to-sriov.adoc#nw-sriov-configuring-device_virt-connecting-vm-to-sriov[Configuring an SR-IOV network device]
-* xref:../../virt/vm_networking/virt-connecting-vm-to-sriov.adoc#nw-sriov-additional-network_virt-connecting-vm-to-sriov[Configuring an SR-IOV network]
-* xref:../../virt/vm_networking/virt-connecting-vm-to-sriov.adoc#virt-attaching-vm-to-sriov-network_virt-connecting-vm-to-sriov[Connecting the VM to the SR-IOV network]
+To configure the SR-IOV network and attach the VM to that network, perform the following steps:
+
+. Configure an SR-IOV physical network device.
+. Define the secondary SR-IOV network.
+. Attach the VM to the SR-IOV network.
 
 include::modules/nw-sriov-configuring-device.adoc[leveloffset=+1]
 
