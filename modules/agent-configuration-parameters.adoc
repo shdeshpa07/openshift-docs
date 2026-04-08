@@ -94,8 +94,13 @@ If a `NetworkConfig` section is provided in the `agent-config.yaml` file, this t
 |hosts:
   interfaces:
     name:
-|The name of an interface on the host.
-|String.
+a|The name of an interface on the host.
+[NOTE]
+====
+This value does not need to match the device name.
+====
+
+|*Value:* String.
 
 |hosts:
   interfaces:
