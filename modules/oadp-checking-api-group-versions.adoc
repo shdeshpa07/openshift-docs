@@ -1,11 +1,14 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-different-kubernetes-api-versions.adoc
 
 
 :_mod-docs-content-type: PROCEDURE
 [id="oadp-checking-api-group-versions_{context}"]
 = Listing the Kubernetes API group versions on a cluster
+
+[role="_abstract"]
+Identify the preferred Kubernetes API group versions on your source cluster. This helps you select the correct API version when multiple API versions are available for a single API.
 
 A source cluster might offer multiple versions of an API, where one of these versions is the preferred API version. For example, a source cluster with an API named `Example` might be available in the `example.com/v1` and `example.com/v1beta2` API groups.
 
@@ -18,7 +21,7 @@ Therefore, you need to generate a list of the Kubernetes API group versions on y
 .Procedure
 
 * Enter the following command:
-
++
 [source,terminal]
 ----
 $ oc api-resources
