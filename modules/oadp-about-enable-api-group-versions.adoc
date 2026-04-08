@@ -1,13 +1,16 @@
 // Module included in the following assemblies:
 //
-// * backup_and_restore/application_backup_and_restore/advanced-topics.adoc
+// * backup_and_restore/application_backup_and_restore/oadp-advanced-topics/oadp-different-kubernetes-api-versions.adoc
 
 
 :_mod-docs-content-type: CONCEPT
 [id="oadp-about-enable-api-group-versions_{context}"]
 = About Enable API Group Versions
 
-By default, Velero only backs up resources that use the preferred version of the Kubernetes API. However, Velero also includes a feature, link:https://velero.io/docs/v1.9/enable-api-group-versions-feature/[Enable API Group Versions], that overcomes this limitation. When enabled on the source cluster, this feature causes Velero to back up _all_ Kubernetes API group versions that are supported on the cluster, not only the preferred one. After the versions are stored in the backup .tar file, they are available to be restored on the destination cluster.
+[role="_abstract"]
+Enable the API Group Versions feature to back up all supported Kubernetes API versions on your cluster, rather than just the preferred one. This helps you maintain complete API compatibility when restoring data to a destination cluster.
+
+By default, Velero only backs up resources that use the preferred version of the Kubernetes API. However, Velero also includes the Enable API Group Versions feature that overcomes this limitation. When enabled on the source cluster, this feature causes Velero to back up _all_ Kubernetes API group versions that are supported on the cluster, not only the preferred one. After the versions are stored in the backup .tar file, they are available to be restored on the destination cluster.
 
 For example, a source cluster with an API named `Example` might be available in the `example.com/v1` and `example.com/v1beta2` API groups, with `example.com/v1` being the preferred API.
 

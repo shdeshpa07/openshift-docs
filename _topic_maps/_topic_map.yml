@@ -3456,7 +3456,16 @@ Topics:
   - Name: OADP API
     File: oadp-api
   - Name: Advanced OADP features and functionalities
-    File: oadp-advanced-topics
+    Dir: oadp-advanced-topics
+    Topics:
+#   - Name: Advanced OADP features and functionalities - review this fater the migration
+#     File: oadp-advanced-topics
+    - Name: Working with different Kubernetes API versions on the same cluster
+      File: oadp-different-kubernetes-api-versions
+    - Name: Backing up data from one cluster and restoring it to another cluster
+      File: oadp-backing-up-data-one-cluster-restoring-another-cluster
+    - Name: OADP storage class mapping
+      File: oadp-storage-class-mapping-main
   - Name: OADP troubleshooting
     Dir: troubleshooting
     Topics:
