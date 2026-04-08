@@ -6,25 +6,9 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-////
-[id="tutorials-developers_{context}"]
-== Tutorials for developers
-////
-
 [role="_abstract"]
-You can follow an end-to-end example of deploying an application on {product-title} either by using the {oc-first} or the web console.
+To learn how to use {product-title}, review the tutorials and other learning resources that are available.
 
-Choose one of the following tutorials:
+include::modules/tutorial-dev-tutorials.adoc[leveloffset=+1]
 
-* xref:../tutorials/dev-app-cli#dev-app-cli[Tutorial: Deploying an application by using the CLI]
-* xref:../tutorials/dev-app-web-console#dev-app-web-console[Tutorial: Deploying an application by using the web console]
-
-////
-[id="tutorials-admins_{context}"]
-== Tutorials for administrators
-////
-
-[id="additional-learning-resources_{context}"]
-== Additional learning resources
-
-To discover additional tutorials and hands-on learning resources for {product-title}, see xref:../tutorials/additional-tutorials#additional-tutorials[Additional hands-on learning].
+include::modules/tutorial-additional-learning.adoc[leveloffset=+1]
