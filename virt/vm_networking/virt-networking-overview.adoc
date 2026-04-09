@@ -110,23 +110,8 @@ endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 +
 To configure an OVN-Kubernetes secondary network and attach a VM to that network, perform the following steps:
 
-ifdef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
-. xref:../../virt/vm_networking/virt-connecting-vm-to-ovn-secondary-network.adoc#creating-ovn-nad_virt-connecting-vm-to-ovn-secondary-network[Configure an OVN-Kubernetes secondary network] by creating a network attachment definition (NAD).
-
-. xref:../../virt/vm_networking/virt-connecting-vm-to-ovn-secondary-network.adoc#attaching-vm-to-ovn-secondary-nw[Connect the VM to the OVN-Kubernetes secondary network] by adding the network details to the VM specification.
-endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
-
-ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
-. Choose the appropriate option based on your OVN-Kubernetes network topology:
-** xref:../../virt/vm_networking/virt-connecting-vm-to-ovn-secondary-network.adoc#creating-ovn-nad_virt-connecting-vm-to-ovn-secondary-network[Configure an OVN-Kubernetes layer 2 secondary network] by creating a network attachment definition (NAD).
-
-** xref:../../virt/vm_networking/virt-connecting-vm-to-secondary-udn.adoc#virt-connecting-vm-to-secondary-udn[Configure an OVN-Kubernetes localnet secondary network] by creating a `ClusterUserDefinedNetwork` (CUDN) CR.
-
-. Choose the appropriate option based on your OVN-Kubernetes network topology:
-** xref:../../virt/vm_networking/virt-connecting-vm-to-ovn-secondary-network.adoc#attaching-vm-to-ovn-secondary-nw[Connect the VM to the OVN-Kubernetes layer 2 secondary network] by adding the network details to the VM specification.
-
-** xref:../../virt/vm_networking/virt-connecting-vm-to-secondary-udn.adoc#virt-attaching-vm-to-secondary-udn_virt-connecting-vm-to-secondary-udn[Connect the VM to the OVN-Kubernetes  localnet secondary network] by adding the network details to the VM specification.
-endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
+. Define the secondary network
+. Attach the VM to the secondary network
 
 // Hiding from ROSA/OSD as SR-IOV not supported
 ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
@@ -157,9 +142,9 @@ You cannot directly attach to the default machine network when using Linux bridg
 +
 You can create a Linux bridge network and attach a VM to the network by performing the following steps:
 
-. xref:../../virt/vm_networking/virt-connecting-vm-to-linux-bridge.adoc#virt-creating-linux-bridge-nncp_virt-connecting-vm-to-linux-bridge[Configure a Linux bridge network device] by creating a `NodeNetworkConfigurationPolicy` custom resource definition (CRD).
-. xref:../../virt/vm_networking/virt-connecting-vm-to-linux-bridge.adoc#creating-linux-bridge-nad[Configure a Linux bridge network] by creating a `NetworkAttachmentDefinition` CRD.
-. xref:../../virt/vm_networking/virt-connecting-vm-to-linux-bridge.adoc#configuring-vm-network-interface[Connect the VM to the Linux bridge network] by including the network details in the VM configuration.
+. Prepare the node network by creating a Linux bridge node network configuration policy (NNCP).
+. Define the secondary Linux bridge network by creating a network attachment definition (NAD).
+. Attach the VM to the Linux bridge network.
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
 

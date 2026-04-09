@@ -151,7 +151,7 @@ ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 ifdef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 * You configured a xref:../../virt/vm_networking/virt-connecting-vm-to-ovn-secondary-network.adoc#virt-connecting-vm-to-ovn-secondary-network[secondary network].
-* You created a xref:../../virt/vm_networking/virt-connecting-vm-to-ovn-secondary-network.adoc#creating-ovn-nad_virt-connecting-vm-to-ovn-secondary-network[network attachment definition].
+* You created a network attachment definition.
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
 include::modules/virt-vm-creating-nic-web.adoc[leveloffset=+2]
