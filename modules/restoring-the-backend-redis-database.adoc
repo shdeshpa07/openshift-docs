@@ -5,7 +5,8 @@
 [id="restoring-the-backend-redis-database_{context}"]
 = Restoring the back-end Redis database
 
-You can restore the back-end Redis database by deleting the deployment and specifying which resources you do not want to restore.
+[role="_abstract"]
+Restore the back-end Redis database by creating a `Restore` custom resource (CR) that excludes non-essential cluster resources. This helps you to recover the Redis data store as part of the Red{nbsp}Hat 3scale API Management restoration process.
 
 .Prerequisites
 
@@ -20,8 +21,6 @@ You can restore the back-end Redis database by deleting the deployment and speci
 ----
 $ oc delete deployment backend-redis -n threescale
 ----
-+
-.Example output
 +
 [source,terminal]
 ----
@@ -41,7 +40,7 @@ metadata:
   name: restore-backend
   namespace: openshift-adp
 spec:
-  backupName: redis-backup <1>
+  backupName: redis-backup
   excludedResources:
     - nodes
     - events
@@ -55,7 +54,10 @@ spec:
   itemOperationTimeout: 1h0m0s
   restorePVs: true
 ----
-<1> Restoring the Redis backup.
++
+where:
+
+`redis-backup`:: Specifies the name of the Redis backup to restore.
 
 . Restore the Redis database by running the following command:
 +
@@ -63,8 +65,6 @@ spec:
 ----
 $ oc create -f restore-backend.yaml
 ----
-+
-.Example output
 +
 [source,terminal]
 ----
@@ -79,7 +79,7 @@ restore.velerio.io/restore-backend created
 ----
 $ oc get podvolumerestores.velero.io -n openshift-adp
 ----
-.Example output:
+
 +
 [source,terminal]
 ----

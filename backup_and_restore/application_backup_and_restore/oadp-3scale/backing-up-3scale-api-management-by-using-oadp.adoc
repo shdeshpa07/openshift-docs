@@ -12,7 +12,7 @@ toc::[]
 [role="_abstract"]
 Back up Red{nbsp}Hat 3scale API Management components, including the 3scale Operator, MySQL database, and Redis database, by using {oadp-first}. This helps you protect your API management infrastructure and provides recovery in case of data loss.
 
-For more information about installing and configuring Red{nbsp}Hat 3scale API Management, see link:{Link3scaleInstalling3scale}#install-threescale-on-openshift-guide[Installing 3scale API Management on OpenShift] and link:https://docs.redhat.com/en/documentation/red_hat_3scale_api_management[Red Hat 3scale API Management].
+For more information about installing and configuring Red{nbsp}Hat 3scale API Management, see _Installing 3scale API Management on OpenShift_ and _Red Hat 3scale API Management_.
 
 include::modules/creating-the-data-protection-application.adoc[leveloffset=+1]
 
@@ -24,6 +24,10 @@ include::modules/backing-up-the-backend-redis-database.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 .Additional resources
+
+* link:https://docs.redhat.com/en/documentation/{3scaleDocInfoProductName}/{3scaleProductVersion}/html/installing_red_hat_3scale_api_management/install-threescale-on-openshift-guide[Installing 3scale API Management on OpenShift]
+
+* link:https://docs.redhat.com/en/documentation/red_hat_3scale_api_management[Red Hat 3scale API Management]
 
 * xref:../../../backup_and_restore/application_backup_and_restore/installing/installing-oadp-aws.adoc#oadp-installing-dpa_installing-oadp-aws[Installing the Data Protection Application]
 
