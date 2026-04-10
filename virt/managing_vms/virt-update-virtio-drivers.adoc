@@ -1,0 +1,13 @@
+:_mod-docs-content-type: ASSEMBLY
+[id="virt-update-virtio-drivers"]
+= Update VirtIO drivers
+include::_attributes/common-attributes.adoc[]
+:context: virt-update-virtio-drivers
+
+toc::[]
+
+[role="_abstract"]
+To ensure optimal performance and stability, update the VirtIO drivers within a virtual machine's guest operating system.
+
+include::modules/virt-updating-virtio-drivers-windows.adoc[leveloffset=+1]
+

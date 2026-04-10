@@ -1626,8 +1626,12 @@ Topics:
   Topics:
   - Name: Listing virtual machines
     File: virt-list-vms
-  - Name: Installing the QEMU guest agent and VirtIO drivers
+  - Name: Install the QEMU guest agent
     File: virt-installing-qemu-guest-agent
+  - Name: Install VirtIO drivers on Windows VMs
+    File: virt-install-virtio-drivers-on-windows-vms
+  - Name: Update VirtIO drivers
+    File: virt-update-virtio-drivers
   - Name: Connecting to VM consoles
     File: virt-accessing-vm-consoles
   - Name: Configuring SSH access to VMs
