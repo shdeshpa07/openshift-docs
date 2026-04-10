@@ -1,6 +1,6 @@
 // Module included in the following assemblies:
 //
-// * virt/live_migration/virt-configuring-live-migration.adoc
+// * virt/nodes/virt-node-maintenance.adoc
 
 :_mod-docs-content-type: PROCEDURE
 [id="virt-configuring-vm-eviction-strategy-cli_{context}"]
@@ -40,10 +40,10 @@ metadata:
 spec:
   template:
     spec:
-      evictionStrategy: LiveMigrateIfPossible <1>
+      evictionStrategy: LiveMigrateIfPossible
 # ...
 ----
-<1> Specify the eviction strategy. The default value is `LiveMigrate`.
+** `spec.template.spec.evictionStrategy` defines the eviction strategy. The default value is `LiveMigrate`.
 
 . Restart the VM to apply the changes:
 +
