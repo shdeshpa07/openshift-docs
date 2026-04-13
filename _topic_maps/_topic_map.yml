@@ -3386,12 +3386,18 @@ Topics:
     File: install-kueue
   - Name: Installing Red Hat build of Kueue in a disconnected environment
     File: install-disconnected
+  - Name: Integrating the Leader Worker Set Operator
+    File: integrating-lws
+  - Name: Integrating the JobSet Operator
+    File: integrating-jobset
   - Name: Configuring role-based permissions
     File: rbac-permissions
   - Name: Configuring quotas
     File: configuring-quotas
   - Name: Managing jobs and workloads
     File: managing-workloads
+  - Name: Monitoring pending workloads
+    File: monitoring-pending-workloads
   - Name: Using cohorts
     File: using-cohorts
   - Name: Configuring fair sharing
