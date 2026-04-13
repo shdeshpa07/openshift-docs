@@ -1,11 +1,13 @@
 :_mod-docs-content-type: ASSEMBLY
 [id="ztp-image-based-upgrade-prep-resources"]
 = Creating ConfigMap objects for the image-based upgrade with the {lcao} using {ztp}
+
 include::_attributes/common-attributes.adoc[]
 :context: ztp-gitops
 
 toc::[]
 
+[role="_abstract"]
 Create your {oadp-short} resources, extra manifests, and custom catalog sources wrapped in a `ConfigMap` object to prepare for the image-based upgrade.
 
 include::modules/ztp-image-based-upgrade-prep-oadp.adoc[leveloffset=+1]
