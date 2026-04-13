@@ -7,15 +7,15 @@
 = Early access releases
 
 [role="_abstract"]
-You can gain access to builds in development by subscribing to the *candidate* update channel for your version of {VirtProductName}.
+You can access development builds by subscribing to the *candidate* update channel for your version of {VirtProductName}.
 
-These releases have not been fully tested by Red{nbsp}Hat and are not supported, but you can use them on non-production clusters to test capabilities and bug fixes being developed for that version.
+These releases are not fully tested by Red{nbsp}Hat and are not supported. Use them only on non-production clusters to test new capabilities and bug fixes.
 
-The *stable* channel, which matches the underlying {product-title} version and is fully tested, is suitable for production systems. You can switch between the *stable* and *candidate* channels in OperatorHub. However, updating from a *candidate* channel release to a *stable* channel release is not tested by Red{nbsp}Hat.
+The *stable* channel matches the underlying {product-title} version and is fully tested. It is suitable for production systems. You can switch between the *stable* and *candidate* channels in OperatorHub. Updating from a *candidate* release to a *stable* release is not tested by Red{nbsp}Hat.
 
-Some candidate releases are promoted to the *stable* channel. However, releases present only in *candidate* channels might not contain all features that will be made generally available (GA), and some features in candidate builds might be removed before GA. Additionally, candidate releases might not offer update paths to later GA releases.
+Red{nbsp}Hat promotes some candidate releases to the *stable* channel. Other candidate releases might not include all GA features. Red{nbsp}Hat might remove some features from candidate builds before GA. Candidate releases might not offer update paths to later GA releases.
 
 [IMPORTANT]
 ====
-The candidate channel is only suitable for testing purposes where destroying and recreating a cluster is acceptable.
+Use the candidate channel only for testing where you can delete and re-create the cluster.
 ====
