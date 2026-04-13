@@ -121,20 +121,20 @@ status:
   - lastProbeTime: null
     lastTransitionTime: "2020-09-30T14:42:03Z"
     reason: Operation complete
-    status: "False" <1>
+    status: "False"
     type: Progressing
   - lastProbeTime: null
     lastTransitionTime: "2020-09-30T14:42:03Z"
     reason: Operation complete
-    status: "True" <2>
+    status: "True"
     type: Ready
   creationTime: "2020-09-30T14:42:03Z"
-  readyToUse: true <3>
+  readyToUse: true
   sourceUID: 355897f3-73a0-4ec4-83d3-3c2df9486f4f
-  virtualMachineSnapshotContentName: vmsnapshot-content-28eedf08-5d6a-42c1-969c-2eda58e2a78d <4>
-  indications: <5>
+  virtualMachineSnapshotContentName: vmsnapshot-content-28eedf08-5d6a-42c1-969c-2eda58e2a78d
+  indications:
     - Online
-  includedVolumes: <6>
+  includedVolumes:
     - name: rootdisk
       kind: PersistentVolumeClaim
       namespace: default
@@ -142,11 +142,15 @@ status:
       kind: DataVolume
       namespace: default
 ----
-<1> The `status` field of the `Progressing` condition specifies if the snapshot is still being created.
-<2> The `status` field of the `Ready` condition specifies if the snapshot creation process is complete.
-<3> Specifies if the snapshot is ready to be used.
-<4> Specifies that the snapshot is bound to a `VirtualMachineSnapshotContent` object created by the snapshot controller.
-<5> Specifies additional information about the snapshot, such as whether it is an online snapshot, or whether it was created with QEMU guest agent running.
-<6> Lists the storage volumes that are part of the snapshot, as well as their parameters.
++
+where:
++
+`status`:: The `status` field of the `Progressing` condition specifies if the snapshot is still being created.
++
+The `status` field of the `Ready` condition specifies if the snapshot creation process is complete.
+`readyToUse`:: Specifies if the snapshot is ready to be used.
+`virtualMachineSnapshotContentName`:: Specifies that the snapshot is bound to a `VirtualMachineSnapshotContent` object created by the snapshot controller.
+`indications`:: Specifies additional information about the snapshot, such as whether it is an online snapshot, or whether it was created with QEMU guest agent running.
+`includedVolumes`:: Lists the storage volumes that are part of the snapshot, as well as their parameters.
 
 . Check the `includedVolumes` section in the snapshot description to verify that the expected PVCs are included in the snapshot.
