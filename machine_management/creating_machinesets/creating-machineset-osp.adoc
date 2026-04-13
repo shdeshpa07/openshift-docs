@@ -6,7 +6,10 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-You can create a different compute machine set to serve a specific purpose in your {product-title} cluster on {rh-openstack-first}. For example, you might create infrastructure machine sets and related machines so that you can move supporting workloads to the new machines.
+[role="_abstract"]
+To automate the provisioning and scaling of node virtual machines (VMs) on {rh-openstack-first} for compute workloads, create a `MachineSet` YAML file that defines details, for example image and network, that are specific to {rh-openstack}.
+
+You can create a different compute machine set to serve a specific purpose in your {product-title} cluster on {rh-openstack}. For example, you might create infrastructure machine sets and related machines so that you can move supporting workloads to the new machines.
 
 include::snippets/machine-user-provisioned-limitations.adoc[leveloffset=+1]
 
@@ -16,7 +19,6 @@ include::modules/machineset-yaml-osp-sr-iov.adoc[leveloffset=+1]
 
 [role="_additional-resources"]
 .Additional resources
-
 * xref:../../installing/installing_openstack/installing-openstack-nfv-preparing.adoc#installing-openstack-nfv-preparing[Preparing to install a cluster that uses SR-IOV or OVS-DPDK on OpenStack]
 
 include::modules/machineset-yaml-osp-sr-iov-port-security.adoc[leveloffset=+1]
