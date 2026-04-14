@@ -6,15 +6,14 @@
 [id="nw-metallb-configure-bgppeer_{context}"]
 = Configuring a BGP peer
 
-[role="_abstract"]
-To exchange routing information and advertise IP addresses for load balancer services, configure MetalLB BGP peer CRs. Establishing these peers ensures that your network infrastructure can reach and correctly route traffic to cluster application workloads.
-
-You can add a BGP peer custom resource to exchange routing information with network routers and advertise the IP addresses for services.
+As a cluster administrator, you can add a BGP peer custom resource to exchange routing information with network routers and advertise the IP addresses for services.
 
 .Prerequisites
 
-* Install the {oc-first}.
+* Install the OpenShift CLI (`oc`).
+
 * Log in as a user with `cluster-admin` privileges.
+
 * Configure MetalLB with a BGP advertisement.
 
 .Procedure
@@ -33,10 +32,9 @@ spec:
   peerASN: 64501
   myASN: 64500
   routerID: 10.10.10.10
-# ...
 ----
 
-. Apply the BGP peer configuration by entering the following command:
+. Apply the configuration for the BGP peer:
 +
 [source,terminal]
 ----
