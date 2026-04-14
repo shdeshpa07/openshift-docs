@@ -174,7 +174,7 @@ additionalTrustBundlePolicy: <policy_to_add_additionalTrustBundle>
 # ...
 ----
 +
-where: 
+where:
 +
 `proxy.httpProxy`:: Specifies a proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
 `proxy.httpsProxy`:: Specifies a proxy URL to use for creating HTTPS connections outside the cluster.
@@ -195,8 +195,8 @@ The installation program does not support the proxy `readinessEndpoints` field.
 +
 [NOTE]
 ====
-If the installer times out, restart and then complete the deployment by using the `wait-for` command of the installer. For example:
-+
+If the installation program times out, restart and then complete the deployment by using the `wait-for` command of the installation program. For example:
+
 [source,terminal]
 ----
 $ ./openshift-install wait-for install-complete --log-level debug
