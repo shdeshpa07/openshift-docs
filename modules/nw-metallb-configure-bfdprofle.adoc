@@ -6,12 +6,12 @@
 [id="nw-metallb-configure-bfdprofile_{context}"]
 = Configuring a BFD profile
 
-[role="_abstract"]
-To achieve faster path failure detection for BGP sessions, configure a MetalLB BFD profile and associate it with a BGP peer. Establishing these profiles ensures that your network routing remains highly available and responsive by identifying connectivity issues more rapidly than standard protocols.
+As a cluster administrator, you can add a BFD profile and configure a BGP peer to use the profile. BFD provides faster path failure detection than BGP alone.
 
 .Prerequisites
 
-* Install the {oc-first}.
+* Install the OpenShift CLI (`oc`).
+
 * Log in as a user with `cluster-admin` privileges.
 
 .Procedure
@@ -32,7 +32,6 @@ spec:
   echoMode: false
   passiveMode: true
   minimumTtl: 254
-# ...
 ----
 
 . Apply the configuration for the BFD profile:
