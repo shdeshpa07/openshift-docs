@@ -11,7 +11,8 @@ endif::[]
 [id="installing-ocp-agent-verify_{context}"]
 = Tracking and verifying installation progress
 
-Use the following procedure to track installation progress and to verify a successful installation.
+[role=_abstract]
+After the installation has started, you can track installation progress and verify a successful installation.
 
 .Prerequisites
 
@@ -20,16 +21,20 @@ Use the following procedure to track installation progress and to verify a succe
 .Procedure
 
 . Optional: To know when the bootstrap host (rendezvous host) reboots, run the following command:
-
 +
+--
 [source,terminal]
 ----
-$ ./openshift-install --dir <install_directory> agent wait-for bootstrap-complete \// <1>
-    --log-level=info <2>
+$ ./openshift-install --dir <install_directory> agent wait-for bootstrap-complete \
+    --log-level=info
 ----
-<1> For `<install_directory>`, specify the path to the directory where the agent ISO was generated.
-<2> To view different installation details, specify `warn`, `debug`, or `error` instead of `info`.
 
+where:
+
+`--dir`:: specifies the path to the directory where the agent ISO was generated.
+
+`--log-level`:: Specifies the level of installation details. Valid values are `info`, `warn`, `debug`, and `error`.
+--
 +
 .Example output
 [source,terminal]
@@ -42,14 +47,14 @@ INFO cluster bootstrap is complete
 +
 The command succeeds when the Kubernetes API server signals that it has been bootstrapped on the control plane machines.
 
-. To track the progress and verify successful installation, run the following command:
+. Track the progress and verify successful installation by running the following command:
 +
 [source,terminal]
 ----
 $ openshift-install --dir <install_directory> agent wait-for install-complete <1>
 ----
-<1> For `<install_directory>` directory, specify the path to the directory where the agent ISO was generated.
-
++
+Replace `<install_directory>` with the path to the directory where the agent ISO was generated.
 +
 .Example output
 [source,terminal]
@@ -63,9 +68,8 @@ INFO     export KUBECONFIG=/home/core/installer/auth/kubeconfig
 INFO Access the OpenShift web-console here: https://console-openshift-console.apps.sno-cluster.test.example.com
 ----
 
-
-// Note for a later doc effort - now that there is a section for ztp manifests, maybe this NOTE can be moved to that section?
 ifndef::basic[]
++
 [NOTE]
 ====
 If you are using the optional method of {ztp} manifests, you can configure IP address endpoints for cluster nodes through the `AgentClusterInstall.yaml` file in three ways:
@@ -76,6 +80,7 @@ If you are using the optional method of {ztp} manifests, you can configure IP ad
 
 IPv6 is supported only on bare metal platforms.
 ====
++
 .Example of dual-stack networking
 [source,yaml,subs="attributes+"]
 ----

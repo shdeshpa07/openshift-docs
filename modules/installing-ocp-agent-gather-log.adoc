@@ -7,7 +7,8 @@
 [id="installing-ocp-agent-gather-log_{context}"]
 = Gathering log data from a failed Agent-based installation
 
-Use the following procedure to gather log data about a failed Agent-based installation to provide for a support case.
+[role="_abstract"]
+If you encounter a failed Agent-based installation, you can gather log data to provide for a support case.
 
 .Prerequisites
 

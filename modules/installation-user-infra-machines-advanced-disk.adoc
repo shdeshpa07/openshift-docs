@@ -13,10 +13,11 @@ ifeval::["{context}" == "installing-restricted-networks-bare-metal"]
 endif::[]
 
 :_mod-docs-content-type: PROCEDURE
+ifndef::agent[]
 [id="installation-user-infra-machines-advanced-disk_{context}"]
 = Disk partitioning
 
-ifndef::agent[]
+
 [role="_abstract"]
 During {op-system-first} installation, {product-title} applies a default partition layout that automatically expands the root file system to fill available space. By understanding this default configuration, you can override partitioning settings to customize the layout for specific node architecture requirements.
 
@@ -42,6 +43,9 @@ If you have resized your disk size to host a larger file system, consider creati
 ====
 endif::agent[]
 ifdef::agent[]
+[id="installation-user-infra-machines-advanced-disk_{context}"]
+= Creating disk partitions
+
 [role="_abstract"]
 To accommodate directories expected to grow, create separate partitions during the {op-system} installation. This configuration overrides the default partitioning layout, ensuring specific storage requirements are met for dynamic data.
 endif::agent[]
