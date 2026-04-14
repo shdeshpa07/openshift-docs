@@ -7,7 +7,8 @@
 [id="oadp-deleting-backups-using-oc_{context}"]
 = Deleting a backup by creating a DeleteBackupRequest CR
 
-You can delete a backup by creating a `DeleteBackupRequest` custom resource (CR).
+[role="_abstract"]
+Delete a backup by creating a `DeleteBackupRequest` custom resource (CR). This helps you to remove specific backups and their associated volume artifacts from storage.
 
 .Prerequisites
 
@@ -25,9 +26,10 @@ metadata:
   name: deletebackuprequest
   namespace: openshift-adp
 spec:
-  backupName: <backup_name> # <1>
+  backupName: <backup_name>
 ----
-<1> Specify the name of the backup.
++
+Replace `<backup_name>` with the name of the backup.
 
 . Apply the `DeleteBackupRequest` CR to delete the backup:
 +
