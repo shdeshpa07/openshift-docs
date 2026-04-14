@@ -2,12 +2,11 @@
 [id="nw-metallb-configure-address-pool_{context}"]
 = Configuring an address pool
 
-[role="_abstract"]
-To precisely manage external access to application workloads, configure MetalLB address pools for your cluster. By defining these pools, you can control the specific IP address ranges assigned to load balancer services for consistent network routing.
+As a cluster administrator, you can add address pools to your cluster to control the IP addresses that MetalLB can assign to load-balancer services.
 
 .Prerequisites
 
-* Install the {oc-first}.
+* Install the OpenShift CLI (`oc`).
 * Log in as a user with `cluster-admin` privileges.
 
 .Procedure
@@ -21,7 +20,7 @@ kind: IPAddressPool
 metadata:
   namespace: metallb-system
   name: doc-example
-  labels:
+  labels: <1>
     zone: east
 spec:
   addresses:
@@ -29,12 +28,9 @@ spec:
   - 203.0.113.65-203.0.113.75
 # ...
 ----
-+
-where:
-+
-`labels`:: The label assigned to the `IPAddressPool` can be referenced by the `ipAddressPoolSelectors` in the `BGPAdvertisement` CRD to associate the `IPAddressPool` with the advertisement.
+<1> This label assigned to the `IPAddressPool` can be referenced by the `ipAddressPoolSelectors` in the `BGPAdvertisement` CRD to associate the `IPAddressPool` with the advertisement.
 
-. Apply the configuration for the IP address pool by entering the following command:
+. Apply the configuration for the IP address pool:
 +
 [source,terminal]
 ----
