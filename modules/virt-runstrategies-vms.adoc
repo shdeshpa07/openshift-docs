@@ -1,13 +1,14 @@
 // Module included in the following assemblies:
 //
-// * virt/nodes/virt-node-maintenance.adoc
+// * virt/nodes/virt-eviction-strategies.adoc
 
 :_mod-docs-content-type: REFERENCE
 [id="virt-runstrategies-vms_{context}"]
 = Run strategies
 
 [role="_abstract"]
-The `spec.runStrategy` key has four possible values: `Always`, `RerunOnFailure`, `Manual`, and `Halted`.
+The `spec.runStrategy` key determines how a VM behaves under certain conditions.
+This key has four possible values: `Always`, `RerunOnFailure`, `Manual`, and `Halted`.
 
 `Always`::
 The virtual machine instance (VMI) is always present when a virtual machine (VM) is created on another node. A new VMI is created if the original stops for any reason.
@@ -55,4 +56,3 @@ The following table describes a VM's transition between states. The first column
 ====
 If a node in a cluster installed by using installer-provisioned infrastructure fails the machine health check and is unavailable, VMs with `runStrategy: Always` or `runStrategy: RerunOnFailure` are rescheduled on a new node.
 ====
-
