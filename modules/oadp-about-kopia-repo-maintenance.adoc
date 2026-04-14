@@ -7,7 +7,8 @@
 [id="oadp-about-kopia-repo-maintenance_{context}"]
 = About Kopia repository maintenance
 
-There are two types of Kopia repository maintenance:
+[role="_abstract"]
+Kopia repository maintenance has two types, quick and full, that run automatically to optimize index performance and perform garbage collection. Knowing the two types helps you understand the maintenance cycle and how long it takes for backup artifacts to be deleted.
 
 Quick maintenance::
 * Runs every hour to keep the number of index blobs (n) low. A high number of indexes negatively affects the performance of Kopia operations.

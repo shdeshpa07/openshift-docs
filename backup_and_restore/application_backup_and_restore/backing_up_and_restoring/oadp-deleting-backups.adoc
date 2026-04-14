@@ -6,7 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-You can delete a backup by creating the `DeleteBackupRequest` custom resource (CR) or by running the `velero backup delete` command as explained in the following procedures.
+[role="_abstract"]
+Delete a backup by creating the `DeleteBackupRequest` custom resource (CR) or by running the `velero backup delete` command. This helps you to free up storage space and remove outdated backup artifacts.
 
 The volume backup artifacts are deleted at different times depending on the backup method:
 

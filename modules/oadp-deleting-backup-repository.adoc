@@ -6,7 +6,10 @@
 [id="oadp-deleting-backup-repository_{context}"]
 = Deleting a backup repository
 
-After you delete the backup, and after the Kopia repository maintenance cycles to delete the related artifacts are complete, the backup is no longer referenced by any metadata or manifest objects. You can then delete the `backuprepository` custom resource (CR) to complete the backup deletion process.
+[role="_abstract"]
+Delete the `backuprepository` custom resource (CR) to complete the backup deletion process. This helps you to ensure that all backup metadata and artifacts are fully removed from storage.
+
+After you delete the backup, and after the Kopia repository maintenance cycles to delete the related artifacts are complete, the backup is no longer referenced by any metadata or manifest objects.
 
 .Prerequisites
 
@@ -26,6 +29,7 @@ $ oc get backuprepositories.velero.io -n openshift-adp
 +
 [source,terminal]
 ----
-$ oc delete backuprepository <backup_repository_name> -n openshift-adp <1>
+$ oc delete backuprepository <backup_repository_name> -n openshift-adp
 ----
-<1> Specify the name of the backup repository from the earlier step.
++
+Replace `<backup_repository_name>` with the name of the backup repository.
