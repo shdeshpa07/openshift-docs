@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To ensure optimal performance and stability, update the VirtIO drivers within a virtual machine's guest operating system.
+Update VirtIO drivers in guest operating systems. Using the latest VirtIO drivers increases performance and stability.
 
 include::modules/virt-updating-virtio-drivers-windows.adoc[leveloffset=+1]
 

@@ -5,14 +5,14 @@
 
 :_mod-docs-content-type: PROCEDURE
 [id="virt-updating-virtio-drivers-windows_{context}"]
-= Updating VirtIO drivers on a Windows VM
+= Update VirtIO drivers on a Windows VM
 
 [role="_abstract"]
-You can update the `virtio` drivers on a Windows virtual machine (VM) by using the Windows Update service.
+You can update the VirtIO drivers on a Windows virtual machine (VM) by using the Windows Update service.
 
 .Prerequisites
 
-* The cluster must be connected to the internet. Disconnected clusters cannot reach the Windows Update service.
+* The cluster must have internet connectivity. Disconnected clusters cannot reach the Windows Update service.
 
 .Procedure
 
