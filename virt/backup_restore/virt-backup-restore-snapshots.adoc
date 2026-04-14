@@ -6,6 +6,7 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
+[role="_abstract"]
 You can back up and restore virtual machines (VMs) by using snapshots. Snapshots are supported by the following storage providers:
 
 // Hiding in ROSA/OSD as not supported
@@ -32,34 +33,19 @@ include::modules/virt-about-vm-snapshots.adoc[leveloffset=+1]
 
 include::modules/virt-about-application-consistent-backups.adoc[leveloffset=+1]
 
-[id="creating-snapshots_virt-backup-restore-snapshots"]
-== Creating snapshots
+include::modules/virt-creating-vm-snapshot-web.adoc[leveloffset=+1]
 
-You can create snapshots of virtual machines (VMs) by using the {product-title} web console or the command line.
-
-include::modules/virt-creating-vm-snapshot-web.adoc[leveloffset=+2]
-
-include::modules/virt-creating-vm-snapshot-cli.adoc[leveloffset=+2]
+include::modules/virt-creating-vm-snapshot-cli.adoc[leveloffset=+1]
 
 include::modules/virt-verifying-online-snapshot-creation-with-snapshot-indications.adoc[leveloffset=+1]
 
-[id="restoring-vms-from-snapshots_virt-backup-restore-snapshots"]
-== Restoring virtual machines from snapshots
+include::modules/virt-restoring-vm-from-snapshot-web.adoc[leveloffset=+1]
 
-You can restore virtual machines (VMs) from snapshots by using the {product-title} web console or the command line.
+include::modules/virt-restoring-vm-from-snapshot-cli.adoc[leveloffset=+1]
 
-include::modules/virt-restoring-vm-from-snapshot-web.adoc[leveloffset=+2]
+include::modules/virt-deleting-vm-snapshot-web.adoc[leveloffset=+1]
 
-include::modules/virt-restoring-vm-from-snapshot-cli.adoc[leveloffset=+2]
-
-[id="deleting-snapshots_virt-backup-restore-snapshots"]
-== Deleting snapshots
-
-You can delete snapshots of virtual machines (VMs) by using the {product-title} web console or the command line.
-
-include::modules/virt-deleting-vm-snapshot-web.adoc[leveloffset=+2]
-
-include::modules/virt-deleting-vm-snapshot-cli.adoc[leveloffset=+2]
+include::modules/virt-deleting-vm-snapshot-cli.adoc[leveloffset=+1]
 
 // Hiding in ROSA/OSD as not supported
 ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
