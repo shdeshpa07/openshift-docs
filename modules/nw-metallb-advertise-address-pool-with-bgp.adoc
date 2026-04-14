@@ -3,23 +3,22 @@
 // * networking/metallb/about-advertising-ipaddresspool.adoc
 
 :_mod-docs-content-type: PROCEDURE
+
 [id="nw-metallb-advertise-a-basic-address-pool-configuration-bgp_{context}"]
-= Advertising a basic address pool configuration with BGP
+= Example: Advertise a basic address pool configuration with BGP
 
-[role="_abstract"]
-To ensure application services are reachable from external network peers, configure MetalLB to advertise an `IPAddressPool` by using the BGP advertisement. Establishing this advertisement allows the external network to correctly route traffic to the load balancer IP addresses of your cluster services.
-
-The procedure demonstrates how to configure MetalLB to advertise the `IPAddressPool` by using BGP.
+Configure MetalLB as follows so that the `IPAddressPool` is advertised with the BGP protocol.
 
 .Prerequisites
 
-* Install the {oc-first}.
+* Install the OpenShift CLI (`oc`).
+
 * Log in as a user with `cluster-admin` privileges.
 
 .Procedure
 
 . Create an IP address pool.
-+
+
 .. Create a file, such as `ipaddresspool.yaml`, with content like the following example:
 +
 [source,yaml]
@@ -33,9 +32,8 @@ spec:
   addresses:
     - 203.0.113.200/30
     - fc00:f853:ccd:e799::/124
-# ...
 ----
-+
+
 .. Apply the configuration for the IP address pool:
 +
 [source,terminal]
@@ -44,7 +42,7 @@ $ oc apply -f ipaddresspool.yaml
 ----
 
 . Create a BGP advertisement.
-+
+
 .. Create a file, such as `bgpadvertisement.yaml`, with content like the following example:
 +
 [source,yaml]
@@ -57,9 +55,8 @@ metadata:
 spec:
   ipAddressPools:
   - doc-example-bgp-basic
-# ...
 ----
-+
+
 .. Apply the configuration:
 +
 [source,terminal]
