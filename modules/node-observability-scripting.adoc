@@ -6,6 +6,9 @@
 [id="node-observability-scripting_{context}"]
 = Configuring Node Observability Operator scripting
 
+[role="_abstract"]
+You can configure the Node Observability Operator to run pre-configured scripts for collecting metrics data from compute nodes.
+
 .Prerequisites
 
 * You have installed the Node Observability Operator.

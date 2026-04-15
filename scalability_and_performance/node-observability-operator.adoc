@@ -23,22 +23,13 @@ include::modules/node-observability-install-cli.adoc[leveloffset=+2]
 include::modules/node-observability-install-web-console.adoc[leveloffset=+2]
 
 
-[id="requesting-crio-kubelet-profiling-using-noo_{context}"]
-== Requesting CRI-O and Kubelet profiling data using the Node Observability Operator
-
-Creating a Node Observability custom resource to collect CRI-O and Kubelet profiling data.
+include::modules/node-observability-requesting-crio-kubelet-profiling.adoc[leveloffset=+1]
 
 include::modules/node-observability-create-custom-resource.adoc[leveloffset=+2]
 
 include::modules/node-observability-run-profiling-query.adoc[leveloffset=+2]
 
-
-[id="node-observability-operator-scripting_{context}"]
-== Node Observability Operator scripting
-
-Scripting allows you to run pre-configured bash scripts, using the current Node Observability Operator and Node Observability Agent.
-
-These scripts monitor key metrics like CPU load, memory pressure, and worker node issues. They also collect sar reports and custom performance metrics.
+include::modules/node-observability-operator-scripting.adoc[leveloffset=+1]
 
 include::modules/node-observability-scripting-cr.adoc[leveloffset=+2]
 
@@ -48,4 +39,4 @@ include::modules/node-observability-scripting.adoc[leveloffset=+2]
 [id="additional-resources_node-observability-operator"]
 == Additional resources
 
-* link:https://access.redhat.com/solutions/5343671[Red Hat Knowledgebase article]
+* link:https://access.redhat.com/solutions/5343671[Collecting worker metrics using the Node Observability Operator]
