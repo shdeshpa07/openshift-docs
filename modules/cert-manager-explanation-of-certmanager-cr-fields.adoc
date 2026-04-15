@@ -114,6 +114,10 @@ DNS over HTTPS (DoH) is supported starting only from {cert-manager-operator} ver
 |Controller
 |Defines the minimum memory request for ACME HTTP‑01 solver pods. The default value is `64Mi`.
 
+|`--certificate-request-minimum-backoff-duration`
+|Controller
+|Specify the minimum backoff duration for certificate requests. The default value is `1h0m0s`.
+
 |`--v=<verbosity_level>`
 |Controller, Webhook, CA injector
 |Specify the log level verbosity to determine the verbosity of log messages.
