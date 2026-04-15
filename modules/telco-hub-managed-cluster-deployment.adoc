@@ -11,7 +11,8 @@ The `ClusterInstance` CR can be used to initiate cluster installation by using e
 
 Limits and requirements::
 * The SiteConfig ArgoCD plugin which handles `SiteConfig` CRs is deprecated from {product-title} 4.18.
-
+* Cluster deployment requires an HTTP server hosting root filesystem and release specific {op-system} live ISO images. Each ISO image for each OpenShift release to be deployed must be reachable by the hub cluster and each deployed spoke cluster. Only include ISO images which exist on the HTTP server in the `AgentServiceConfig` CR.
+* A container registry hosting all OpenShift and day-2 {olm-first} operator images reachable from all deployed spoke clusters. The hub configuration includes Kustomize overlays. Use them to provide the TLS certificates and credentials for a disconnected container registry.
 
 Engineering considerations::
 * You must create a `Secret` CR with the login information for the cluster baseboard management controller (BMC).

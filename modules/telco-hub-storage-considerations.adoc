@@ -13,6 +13,7 @@ The hub cluster reference configuration provides storage through {rh-storage-fir
 
 Engineering considerations::
 * Use SSD or NVMe disks with low latency and high throughput for etcd storage.
+* To use {rh-storage}, ensure that storage disks are clean, especially before reinstallation. See Additional resources for more details.
 * The storage solution for telco hub clusters is {rh-storage}.
 ** Local Storage Operator supports the storage class used by {rh-storage} to provide block, file, and object storage as needed by other components on the hub cluster.
 * The Local Storage Operator `LocalVolume` configuration includes setting `forceWipeDevicesAndDestroyAllData: true` to support the reinstallation of hub cluster nodes where {rh-storage} has previously been used.

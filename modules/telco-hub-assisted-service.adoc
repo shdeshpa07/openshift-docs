@@ -4,6 +4,11 @@
 
 The Assisted Service is deployed with the multicluster engine and {rh-rhacm-first}.
 
+[NOTE]
+====
+The following numbers are estimated. Tune the values for more accurate results. Add an engineering margin, for example +20%, to the results to account for potential estimation inaccuracies.
+====
+
 .Assisted Service storage requirements
 [cols="1,2", options="header"]
 |====
@@ -11,11 +16,14 @@ The Assisted Service is deployed with the multicluster engine and {rh-rhacm-firs
 |Size (GB)
 
 |`imageStorage`
-|50
+|30
 
 |`filesystemStorage`
-|700
+|709
 
 |`dataBaseStorage`
-|20
+|0.7
 |====
+
+* `imageStorage` and `filesystemStorage` are calculated as described in the link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.12/html/clusters/cluster_mce_overview#enable-cim[about enabling central infrastructure management] section of the `MultiClusterEngine` custom resource documentation.
+* `dataBaseStorage` is calculated only by empirical estimations based on different factors, such as the cluster topology, the number of events produced during the installation, and hardware and configuration characteristics. Each host will take less than 200KB.

@@ -10,6 +10,6 @@
 [cols="4*", options="header", format=csv]
 |====
 Component,Reference CR,Description,Optional
-Agent-based install,`agent-config.yaml`,"Use this example template `AgentConfig` CR to configure the Agent-based installer, specifying network and device settings for your target hosts.",No
-Agent-based install,`install-config.yaml`,"Use this example `install-config.yaml` template to configure your hub cluster installation for networking, control plane, compute nodes, mirror registries, and other environment-specific settings.",No
+Agent-based install,`agent-config.yaml`,"Use this `agent-config.yaml` template to configure the Agent-based installer, specifying network and device settings for the hosts to be installed.",No
+Agent-based install,`install-config.yaml`,"Use this `install-config.yaml` template to configure the hub cluster installation, including networking, control plane, compute nodes, and mirror registries.",No
 |====
