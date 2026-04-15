@@ -49,6 +49,7 @@ endif::[]
 
 . On the *Virtualization* -> *VirtualMachines* page, click a VM to open the *VirtualMachine details* page.
 . Click the *Console* tab. The VNC console session starts automatically.
+
 ifdef::desktop-viewer,serial-console[]
 . Click *Disconnect* to end the VNC console session. Otherwise, the VNC console session continues to run in the background.
 . Select *{console-menu}* from the console list.

@@ -21,7 +21,7 @@ Kubernetes also supports authentication using client certificates, instead of a 
 
 .Procedure
 
-. Set the `deployVmConsoleProxy` field value in the HyperConverged (`HCO`) custom resource (CR) to `true`:
+. Set the `deployVmConsoleProxy` field value in the `HyperConverged` (`HCO`) custom resource (CR) to `true`:
 +
 [source,terminal,subs="attributes+"]
 ----
@@ -36,7 +36,7 @@ $ curl --header "Authorization: Bearer ${TOKEN}" \
      "https://api.<cluster_fqdn>/apis/token.kubevirt.io/v1alpha1/namespaces/<namespace>/virtualmachines/<vm_name>/vnc?duration=<duration>"
 ----
 +
-The `<duration>` parameter can be set in hours and minutes, with a minimum duration of 10 minutes. For example: `5h30m`. If this parameter is not set, the token is valid for 10 minutes by default.
+You can set the `<duration>` parameter in hours and minutes, with a minimum duration of 10 minutes. For example: `5h30m`. If you do not set this parameter, the token is valid for 10 minutes by default.
 +
 Sample output:
 +
@@ -72,9 +72,9 @@ $ virtctl vnc <vm_name> -n <namespace>
 
 [WARNING]
 ====
-It is currently not possible to revoke a specific token.
+You cannot currently revoke a specific token.
 
-To revoke a token, you must delete the service account that was used to create it. However, this also revokes all other tokens that were created by using the service account. Use the following command with caution:
+To revoke a token, you must delete the service account that you used to create it. However, this also revokes all other tokens that you created by using the service account. Use the following command with caution:
 
 [source,terminal]
 ----
