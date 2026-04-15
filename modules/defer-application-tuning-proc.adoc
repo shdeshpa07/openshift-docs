@@ -6,6 +6,7 @@
 [id="defer-application-of-tuning-changes-example_{context}"]
 = Deferring application of tuning changes: An example
 
+[role="_abstract"]
 The following worked example describes how to defer the application of tuning changes by using the Node Tuning Operator.
 
 .Prerequisites
@@ -110,19 +111,23 @@ spec:
       data: |
         [main]
         summary=Configuration changes profile inherited from performance created tuned
-        include=openshift-node-performance-performance <1>
+        include=openshift-node-performance-performance
         [sysctl]
-        kernel.shmmni=8192 <2> 
+        kernel.shmmni=8192
   recommend:
     - machineConfigLabels:
-        machineconfiguration.openshift.io/role: worker-cnf <3>
+        machineconfiguration.openshift.io/role: worker-cnf
       priority: 19
       profile: performance-patch
 ----
 +
-<1> The `include` directive is used to inherit the `openshift-node-performance-performance` profile. This is a best practice to ensure that the profile is not missing any required settings.
-<2> The `kernel.shmmni` sysctl parameter is being changed to `8192`.
-<3> The `machineConfigLabels` field is used to target the `worker-cnf` role.
+where:
++
+--
+* The `include` directive is used to inherit the `openshift-node-performance-performance` profile. This is a best practice to ensure that the profile is not missing any required settings.
+* The `kernel.shmmni` sysctl parameter is being changed to `8192`.
+* The `machineConfigLabels` field is used to target the `worker-cnf` role.
+--
 
 . Apply the profile patch by running the following command:
 +
@@ -214,7 +219,7 @@ $ oc debug node/ip-10-0-32-74.ec2.internal  -q -- chroot host sysctl kernel.shmm
 ----
 kernel.shmmni = 8192
 ----
-
++
 [NOTE]
 ====
 An additional restart results in the restoration of the original value of the `kernel.shmmni` sysctl parameter.
