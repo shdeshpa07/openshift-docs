@@ -47,6 +47,10 @@ ifdef::vnc-console[]
 ----
 $ virtctl vnc <vm_name>
 ----
++
+where:
++
+`<vm_name>`:: specifies the name of the VM.
 
 . If the connection fails, run the following command to collect
 troubleshooting information:
