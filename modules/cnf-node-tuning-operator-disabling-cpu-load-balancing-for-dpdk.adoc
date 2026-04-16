@@ -7,12 +7,10 @@
 = Disabling CPU load balancing in a Pod
 
 [role="_abstract"]
-To optimize performance, disable or enable CPU load balancing for your Pods. CRI-O implements this functionality and applies the configuration only when specific requirements are met.
+Functionality to disable or enable CPU load balancing is implemented on the CRI-O level. Before CRI-O disables or enables CPU load balancing, you must ensure certain prerequisites are met. 
 
-Functionality to disable or enable CPU load balancing is implemented on the CRI-O level. The code under the CRI-O disables or enables CPU load balancing only when the following requirements are met.
+The pod must use the `performance-<profile-name>` runtime class. You can get the proper name by looking at the status of the performance profile, as shown here:
 
-* The pod must use the `performance-<profile-name>` runtime class. You can get the proper name by looking at the status of the performance profile, as shown here:
-+
 [source,yaml]
 ----
 apiVersion: performance.openshift.io/v2

@@ -8,7 +8,7 @@
 = Finding the effective IRQ affinity setting for a node
 
 [role="_abstract"]
-To verify actual interrupt handling, determine the effective IRQ affinity setting for a node. Some IRQ controllers do not support affinity settings and effectively run on CPU 0, even when the IRQ mask exposes all online CPUs.
+Some IRQ controllers lack support for an IRQ affinity setting and might always expose all online CPUs as the IRQ mask. Because these IRQ controllers effectively run on CPU 0, you must find the effective IRQ affinity setting for a node.
 
 The following are examples of drivers and hardware that Red Hat are aware lack support for IRQ affinity setting. The list is, by no means, exhaustive:
 

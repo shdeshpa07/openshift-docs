@@ -8,7 +8,7 @@
 = Configuring huge pages
 
 [role="_abstract"]
-To pre-allocate huge pages on a specific node, use the Node Tuning Operator. This configuration ensures that your {product-title} cluster reserves the necessary memory resources for workloads that require them.
+Because nodes must pre-allocate huge pages used in an {product-title} cluster, use the Node Tuning Operator to allocate huge pages on a specific node.
 
 {product-title} provides a method for creating and allocating huge pages. Node Tuning Operator provides an easier method for doing  this using the performance profile.
 

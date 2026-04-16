@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To achieve low latency and consistent response times for {product-title} applications, use the Node Tuning Operator. This Operator implements automatic tuning to optimize your cluster for high-performance computing workloads.
+If your organization needs high performance computing and low, predictable latency, especially in the financial and telecommunications industries, you can use the Node Tuning Operator to implement automatic tuning to achieve low latency performance and consistent response time for {product-title} applications.
 
 You use the performance profile configuration to make these changes.
 

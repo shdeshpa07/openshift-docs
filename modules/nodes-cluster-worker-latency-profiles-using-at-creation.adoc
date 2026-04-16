@@ -7,7 +7,7 @@
 = Implementing worker latency profiles at cluster creation
 
 [role="_abstract"]
-To ensure cluster stability in high latency environments, implement worker latency profiles during cluster creation.
+During cluster creation, you can implement worker latency profiles so that you can control the reaction of the cluster to latency issues without relying on manual methods to determine the best values.
 
 [IMPORTANT]
 ====

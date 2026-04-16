@@ -7,7 +7,9 @@
 = Verifying the queue status
 
 [role="_abstract"]
-To ensure that your performance profile changes are active, verify the queue status. Reviewing these examples helps you confirm that specific tuning configurations are successfully applied to your environment.
+To ensure that your performance profile changes are active, verify the queue status. 
+
+By reviewing the provided examples, you can confirm that specific tuning configurations are successfully applied to your environment.
 
 In this section, several examples illustrate different performance profiles and how to verify the changes are applied.
 

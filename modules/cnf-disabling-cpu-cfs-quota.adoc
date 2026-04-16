@@ -7,7 +7,7 @@
 = Disabling CPU CFS quota
 
 [role="_abstract"]
-To prevent CPU throttling for latency-sensitive workloads, disable the CPU CFS quota. This configuration allows pods to use unallocated CPU resources on the node, ensuring consistent application performance.
+To eliminate CPU throttling for pinned pods, create a pod with the `cpu-quota.crio.io: "disable"` annotation. This annotation disables the CPU completely fair scheduler (CFS) quota when the pod runs.
 
 .Procedure
 
