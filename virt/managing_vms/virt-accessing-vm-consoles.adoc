@@ -28,7 +28,7 @@ Connecting to a guest VM through the VNC or serial console does not provide a fu
 +
 You can connect to the VNC console of a VM by using the {product-title} web console, as documented in the first two steps in xref:../../virt/managing_vms/virt-accessing-vm-consoles.adoc#vnc-console_virt-accessing-vm-consoles[Connecting to the VNC console by using the web console].
 +
-Alternatively, you can use the `virtctl` command-line tool to connect to the VNC console of a running VM. The installation of the `virtctl` command line tool is documented in xref:../../virt/getting_started/virt-using-the-cli-tools.adoc#installing-virtctl_virt-using-the-cli-tools[Installing virtctl], and the usage is documented in xref:../../virt/managing_vms/virt-accessing-vm-consoles.adoc#vnc-console_virt-accessing-vm-consoles[Connecting to the VNC console by using virtctl].
+Alternatively, you can use the `virtctl` command-line tool to connect to the VNC console of a running VM.
 +
 Take into account the following considerations:
 
@@ -44,7 +44,7 @@ Take into account the following considerations:
 +
 You can connect to the serial console of a virtual machine (VM) by using the {product-title} web console, as documented in xref:../../virt/managing_vms/virt-accessing-vm-consoles.adoc#serial-console_virt-accessing-vm-consoles[Connecting to the serial console by using the web console].
 +
-Alternatively, you can use the `virtctl` command-line tool to connect to the serial console of a running virtual machine. The installation of the `virtctl` command line tool is documented in xref:../../virt/getting_started/virt-using-the-cli-tools.adoc#installing-virtctl_virt-using-the-cli-tools[Installing virtctl], and the usage is documented in xref:../../virt/managing_vms/virt-accessing-vm-consoles.adoc#serial-console_virt-accessing-vm-consoles[Connecting to the serial console by using virtctl].
+Alternatively, you can use the `virtctl` command-line tool to connect to the serial console of a running virtual machine.
 +
 Take into account the following considerations:
 
@@ -95,3 +95,10 @@ You can connect to a Windows virtual machine (VM) by using the desktop viewer an
 :context: desktop-viewer
 include::modules/virt-connecting-to-vm-console-web.adoc[leveloffset=+2]
 :context: virt-accessing-vm-consoles
+
+[role="_additional-resources"]
+== Additional resources
+
+* xref:../../virt/getting_started/virt-using-the-cli-tools.adoc#virt-installing-virtctl-binary_virt-using-the-cli-tools[Installing virtctl]
+* xref:../../virt/managing_vms/virt-accessing-vm-consoles.adoc#vnc-console_virt-accessing-vm-consoles[Connecting to the VNC console by using virtctl]
+* xref:../../virt/managing_vms/virt-accessing-vm-consoles.adoc#serial-console_virt-accessing-vm-consoles[Connecting to the serial console by using virtctl]
