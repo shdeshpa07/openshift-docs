@@ -7,7 +7,7 @@
 = Limitations of load balancer services
 
 [role="_abstract"]
-To optimise network resource management and mitigate operational risks in {product-title} clusters on {rh-openstack-first}, review the implementation of Octavia for load balancer services. 
+{product-title} clusters on {rh-openstack-first} use Octavia to handle load balancer services. As a result of this choice, such clusters might have functional limitations.
 
 {product-title} clusters on {rh-openstack-first} use Octavia to handle load balancer services. As a result, your cluster has several functional limitations.
 

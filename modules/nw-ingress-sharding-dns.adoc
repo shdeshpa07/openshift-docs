@@ -7,7 +7,7 @@
 = Ingress sharding and DNS
 
 [role="_abstract"]
-To ensure ingress traffic reaches the correct router in {product-title}, create separate DNS entries for each router in your project. Because a router does not forward unknown traffic to other routers, distinct entries are required to resolve specific domains to their hosting nodes."
+As a cluster administrator, ensure that you add a separate DNS entry for each router in a project. A router will not forward unknown routes to another router.
 
 Consider the following example:
 

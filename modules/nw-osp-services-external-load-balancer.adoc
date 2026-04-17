@@ -16,11 +16,11 @@
 = Services for a user-managed load balancer
 
 [role="_abstract"]
-To integrate your infrastructure with existing network standards or gain more control over traffic management in {product-title}
+You can configure an {product-title} cluster
 ifeval::["{context}" == "load-balancing-openstack"]
 on {rh-openstack-first}
 endif::[]
-, configure services for a user-managed load balancer. 
+to use a user-managed load balancer in place of the default load balancer.
 
 [IMPORTANT]
 ====

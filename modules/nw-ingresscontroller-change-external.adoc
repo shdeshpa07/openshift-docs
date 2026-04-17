@@ -7,11 +7,9 @@
 = Configuring the Ingress Controller endpoint publishing scope to External
 
 [role="_abstract"]
-To expose cluster services to public networks or the internet in {product-title}, configure the Ingress Controller endpoint publishing scope to `External`.
-
-When a cluster administrator installs a new cluster without specifying that the cluster is private, the default Ingress Controller is created with a `scope` set to `External`.
-
 As an installation or post-installation task, a cluster administrator can configure the Ingress Controller to `Internal`. Additionally, a cluster administrator can change an `Internal` Ingress Controller to `External`.
+
+When you install a new cluster without specifying that the cluster is private, the default Ingress Controller is created with a `scope` set to `External`.
 
 [IMPORTANT]
 ====

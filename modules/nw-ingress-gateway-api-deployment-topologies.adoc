@@ -6,8 +6,8 @@
 [id="nw-ingress-gateway-api-deployment_{context}"]
 = Gateway API deployment topologies
 
-[role="_abstract"] 
-To optimise network security and resource allocation in {product-title}, choose between shared or dedicated gateway topologies when implementing the Gateway API. Selecting the appropriate topology ensures your infrastructure meets specific security requirements and operational advantages for your workloads.
+[role="_abstract"]
+Gateway API is designed to accommodate two topologies: shared gateways or dedicated gateways. You can choose a topology based on its own advantages and different security implications.
 
 Dedicated gateway:: Routes and any load balancers or proxies are served from the same namespace. The `Gateway`
 object restricts routes to a particular application namespace. This is the default topology when deploying a Gateway API resource in {product-title}.

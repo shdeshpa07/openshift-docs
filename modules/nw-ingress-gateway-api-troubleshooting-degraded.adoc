@@ -7,7 +7,7 @@
 = Removing conflicts between the Gateway API and the OSSM v2.x
 
 [role="_abstract"]
-To restore cluster health and resolve operator degradation in {product-title} 4.20 and later, identify and remove conflicts between the Gateway API and OpenShift Service Mesh (OSSM) v2.x. Ensuring these subscriptions do not overlap allows the ingress Cluster Operator to maintain a healthy status when you create a GatewayClass resource.
+In {product-title} 4.20 and later, if you create a `GatewayClass` resource while a conflicting OpenShift Service Mesh (OSSM) v2.x subscription exists, the `ingress` Cluster Operator (CIO) reports a `Degraded` status. You can check for this status and resolve the conflict.
 
 The conflict occurs because the Gateway API implementation requires OSSM v3.x, which cannot coexist with OSSM v2.x. The CIO detects this conflict, stops the Gateway API provisioning, and reports the `Degraded` status to alert administrators. 
 

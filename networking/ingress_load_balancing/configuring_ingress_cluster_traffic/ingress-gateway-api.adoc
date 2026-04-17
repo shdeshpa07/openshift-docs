@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To manage complex network traffic and implement advanced routing policies in {product-title}, use the Ingress Operator to configure the Gateway API.
+{product-title} provides additional ways of configuring network traffic by using Gateway API with the Ingress Operator.
 
 [IMPORTANT]
 ====
