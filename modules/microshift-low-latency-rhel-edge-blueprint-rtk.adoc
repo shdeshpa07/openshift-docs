@@ -6,7 +6,8 @@
 [id="microshift-low-latency-blueprint-rhel-edge-rtk_{context}"]
 = Reference blueprint for installing {op-system-rt-kernel} in a {op-system-ostree} image
 
-An image blueprint is a persistent definition of the required image customizations that enable you to create multiple builds. Instead of reconfiguring the blueprint for each image build, you can edit, rebuild, delete, and save the blueprint so that you can keep rebuilding images from it.
+[role="_abstract"]
+An image blueprint is a persistent definition of required image customizations that you can use to create multiple builds. You can edit, rebuild, delete, and save the blueprint to easily rebuild images.
 
 .Example blueprint used to install the real-time kernel in a {op-system-ostree} image
 [source,text]

@@ -6,7 +6,8 @@
 [id="microshift-low-latency-tuned-profile_{context}"]
 = Configuring the {microshift-short} TuneD profile
 
-Configure a TuneD profile for your host to use low latency with {microshift-short} workloads by using the `microshift-baseline-variables.conf` configuration file provided in the {op-system-base-full} `/etc/tuned/` host directory after you install the `microshift-low-latency` RPM package.
+[role="_abstract"]
+To use low latency with {microshift-short} workloads, configure a TuneD profile for your host by using the `microshift-baseline-variables.conf` file provided in the `/etc/tuned/` directory.
 
 .Prerequisites
 
@@ -22,23 +23,23 @@ Configure a TuneD profile for your host to use low latency with {microshift-shor
 [source,text]
 ----
 # Isolate cores 2-7 for running application workloads
-isolated_cores=2-7 # <1>
+isolated_cores=2-7 
 
 # Size of the hugepages
-hugepages_size=2M # <2>
+hugepages_size=2M 
 
 # Number of hugepages
 hugepages=0
 
 # Additional kernel arguments
-additional_args= # <3>
+additional_args= 
 
 # CPU set to be offlined
-offline_cpu_set= # <4>
+offline_cpu_set= 
 ----
 +
 --
-<1> Controls which cores should be isolated. By default, 1 core per socket is reserved in {microshift-short} for housekeeping. The other cores are isolated. Valid values are a core list or range. You can isolate any range, for example: `isolated_cores=2,4-7` or `isolated_cores=2-23`.
+`isolated_cores`:: Controls which cores should be isolated. By default, 1 core per socket is reserved in {microshift-short} for housekeeping. The other cores are isolated. Valid values are a core list or range. You can isolate any range, for example: `isolated_cores=2,4-7` or `isolated_cores=2-23`.
 +
 [IMPORTANT]
 ====
@@ -52,10 +53,12 @@ The Kubernetes CPU manager can use any CPU to run the workload except the reserv
 * The sum of the kubelet's reserved CPUs and isolated cores include all online CPUs.
 * Isolated cores are complementary to the reserved CPUs defined in the kubelet configuration.
 ====
-+
-<2> Size of the hugepages. Valid values are 2M or 1G.
-<3> Additional kernel arguments, for example, `additional_args=console=tty0 console=ttyS0,115200`.
-<4> The CPU set to be offlined.
+
+`hugepages_size`:: Size of the hugepages. Valid values are 2M or 1G.
+
+`additional_args`:: Additional kernel arguments, for example, `additional_args=console=tty0 console=ttyS0,115200`.
+
+`offline_cpu_set`:: The CPU set to be offlined.
 +
 [IMPORTANT]
 ====

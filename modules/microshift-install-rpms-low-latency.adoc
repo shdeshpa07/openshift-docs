@@ -6,12 +6,13 @@
 [id="microshift-installing-low-latency-rpm-package_{context}"]
 = Installing the {microshift-short} low latency RPM package
 
+[role="_abstract"]
 When you install {microshift-short}, the low latency RPM package is not installed by default. You can install the low latency RPM as an optional package.
 
 .Prerequisites
 
-. You installed the {microshift-short} RPM.
-. You configured workload partitioning for {microshift-short}.
+* You installed the {microshift-short} RPM.
+* You configured workload partitioning for {microshift-short}.
 
 .Procedure
 
