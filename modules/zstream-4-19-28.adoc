@@ -1,0 +1,43 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-19-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-19-28_{context}"]
+= RHSA-2026:7249 - {product-title} {product-version}.28 fixed issues and security update
+
+Issued: 16 April 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.28 is now available. The list of fixed issues that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:7249[RHSA-2026:7249] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:7241[RHBA-2026:7241] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.19.28 --pullspecs
+----
+
+[id="zstream-4-19-28-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, the Baseboard Management Controller (BMC) firmware lacked a structured error response for `UserName` and `Password` parameters, which caused the BMC to reject ISO mounting during NVIDIA Deep GPU Xceleration (DGX) B200 node provisioning. As a consequence, automated provisioning failed. With this release, the firmware handling of credentials is updated, which adds handling for missing `UserName` and `Password` parameters in the Redfish `InsertMedia` response. As a result, automated provisioning of NVIDIA DGX B200 nodes is enabled. (link:https://redhat.atlassian.net/browse/OCPBUGS-74406[OCPBUGS-74406])
+
+* Before this update, `oc-mirror v2` failed in containerized environments because of user ID lookup failure in the `registriesd` module. As a consequence, users experienced failure in containerized environments during the signature preparation phase due to unknown user IDs. With this release, `oc-mirror` now works in containerized environments with dynamic UIDs. As a result, `oc-mirror v2` in containerized environments such as the OpenShift CI, no longer fails due to the "unknown userid" error, improving its compatibility and reliability. (link:https://redhat.atlassian.net/browse/OCPBUGS-78147[OCPBUGS-78147])
+
+* Before this update, the unexpected use of non-default Security Context Constraints (SCC) set `readOnlyRootFilesystem: true`. As a consequence, read-only file system errors occurred. With this release, the `readOnlyRootFilesystem` value was explicitly set to `false`, which an SCC cannot overwrite. As a result, read-only file system errors do not occur. (link:https://redhat.atlassian.net/browse/OCPBUGS-784571[OCPBUGS-78457])
+
+* Before this update, the cluster autoscaler would process paused node groups as if they were active, which could lead to the wrong nodes being deleted. With this release, the cluster autoscaler identifies paused node groups and does not act on them. (link:https://redhat.atlassian.net/browse/OCPBUGS-78697[OCPBUGS-78697])
+
+* Before this update, an insufficient `/var/ostree-container` partition size triggered image pull failure. As a consequence, deployments failured for end users. With this release, the size of `/var/ostree-container` mount is increased to 5GB. As a result, image pull issues are resolved, improving deployment. (link:https://redhat.atlassian.net/browse/OCPBUGS-79503[OCPBUGS-79503])
+
+* Before this update, a nil pointer dereference occurred in the `sortUnpackJobs` function when sorting non-failed jobs. As a consequence, the catalog-operator Pod crashed during {sno} cluster installation, causing Operator installation failure. With this release, the nil pointer dereference is fixed, improving stability. As a result, the `catalog-operator` does not crash during {sno} cluster installation, ensuring smooth Operator installation. (link:https://redhat.atlassian.net/browse/OCPBUGS-79700[OCPBUGS-79700])
+
+* Before this update, when you used an outdated version of the `vpc-go-sdk` parameter that could not process `any` Security Group (SG) Rules, the Messaging Application Programming Interface (MAPI) could not create new machines. As a consequence, older {ibm-cloud-title} SDK versions that could not process SG Rules with the `any` protocol caused new machines to get stuck during provisioning. With this release, the {ibm-cloud-title} `vpc-go-sdk` parameter was updated to handle the `any` protocol in SG Rules. As a result, new machines can be created in {ibm-cloud-title} because they do not get stuck during provisioning. (link: https://redhat.atlassian.net/browse/OCPBUGS-81483[OCPBUGS-81483)])
+
+[id="zstream-4-19-28-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.19 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
