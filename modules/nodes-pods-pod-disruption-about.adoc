@@ -8,9 +8,10 @@
 [id="nodes-pods-pod-distruption-about_{context}"]
 = Understanding how to use pod disruption budgets to specify the number of pods that must be up
 
-A _pod disruption budget_ allows the specification of safety constraints on pods during operations, such as draining a node for maintenance.
+[role="_abstract"]
+To ensure pod availability during voluntary disruptions such as node maintenance or cluster updates, you can use pod disruption budgets to define safety constraints for your applications.
 
-`PodDisruptionBudget` is an API object that specifies the minimum number or
+A `PodDisruptionBudget` is an API object that specifies the minimum number or
 percentage of replicas that must be up at a time. Setting these in projects can
 be helpful during node maintenance (such as scaling a cluster down or a cluster
 upgrade) and is only honored on voluntary evictions (not on node failures).

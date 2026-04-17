@@ -2,15 +2,14 @@
 //
 // * nodes/nodes-containers-volumes.adoc
 
-:_mod-docs-content-type: PROCEDURE
+:_mod-docs-content-type: REFERENCE
 [id="nodes-containers-volumes-updating_{context}"]
-= Updating volumes and volume mounts in a pod
+= About updating volumes and volume mounts in a pod
 
+[role="_abstract"]
 You can modify the volumes and volume mounts in a pod.
 
-.Procedure
-
-Updating existing volumes using the `--overwrite` option:
+You can update existing volumes by using the `--overwrite` option:
 
 [source,terminal]
 ----
@@ -55,7 +54,7 @@ spec:
         deploymentconfig: example
     spec:
       volumes:
-        - name: v1 <1>
+        - name: v1
           persistentVolumeClaim:
             claimName: pvc1
       containers:
@@ -69,7 +68,8 @@ spec:
             - name: v1
               mountPath: /data
 ----
-<1> Set persistent volume claim to `pvc1`.
++
+The `spec.template.spec.volumes` stanza sets the persistent volume claim to `pvc1`.
 =====
 ====
 
@@ -119,10 +119,11 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
-          volumeMounts: <1>
+          volumeMounts:
             - name: v1
               mountPath: /opt
 ----
-<1> Set the mount point to `/opt`.
++
+The `spec.template.spec.containers.volumeMounts` stanza sets the mount point to `/opt`.
 =====
 ====

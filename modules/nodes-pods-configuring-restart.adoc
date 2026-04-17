@@ -7,7 +7,9 @@
 [id="nodes-pods-configuring-restart_{context}"]
 = Configuring how pods behave after restart
 
-A pod restart policy determines how {product-title} responds when Containers in that pod exit.
+[role="_abstract"]
+You can configure a pod restart policy to determine how {product-title} responds when containers in that pod exit. Having a proper restart policy helps you keep your cluster running efficiently.
+
 The policy applies to all Containers in that pod.
 
 The possible values are:
@@ -52,4 +54,4 @@ If the underlying cloud provider endpoints are not reliable, do not install a cl
 ====
 
 For details on how {product-title} uses restart policy with failed Containers, see
-the link:https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states[Example States] in the Kubernetes documentation.
+the "Example States" in the Kubernetes documentation.

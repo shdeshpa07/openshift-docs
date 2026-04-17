@@ -6,7 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-As an administrator, you can create and maintain an efficient cluster for pods.
+[role="_abstract"]
+To maintain optimal pod performance and availability, administrators can configure pod restart behavior, lifecycle settings, resource limits, disruption budgets, and other behaviors. You can use these configurations to ensure that your cluster remains resilient while providing a stable environment for application development.
 
 By keeping your cluster efficient, you can provide a better environment for your developers using
 such tools as what a pod does when it exits, ensuring that the required number of pods is always running,
@@ -42,4 +43,13 @@ include::modules/nodes-pods-configuring-pod-critical.adoc[leveloffset=+1]
 
 include::modules/nodes-pods-configuring-reducing.adoc[leveloffset=+1]
 
+endif::openshift-rosa,openshift-rosa-hcp,openshift-dedicated[]
+
+ifndef::openshift-rosa,openshift-rosa-hcp,openshift-dedicated[]
+[role="_additional-resources"]
+[id="additional-resources_{context}"]
+== Additional resources
+* xref:../../nodes/clusters/nodes-cluster-enabling-features.adoc#nodes-cluster-enabling-features[Enabling features using feature gates]
+* link:https://kubernetes.io/docs/tasks/run-application/configure-pdb/#unhealthy-pod-eviction-policy[Unhealthy Pod Eviction Policy (Kubernetes documentation)]
+* link:https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states[Example States (Kubernetes documentation)]
 endif::openshift-rosa,openshift-rosa-hcp,openshift-dedicated[]

@@ -6,8 +6,9 @@
 [id="nodes-containers-volumes-subpath_{context}"]
 = Configuring volumes for multiple uses in a pod
 
+[role="_abstract"]
 You can configure a volume to share one volume for
-multiple uses in a single pod using the `volumeMounts.subPath` property to specify a `subPath` value inside a volume
+multiple uses in a single pod by using the `volumeMounts.subPath` property to specify a `subPath` value inside a volume
 instead of the volume's root.
 
 [NOTE]
@@ -51,7 +52,7 @@ spec:
       volumeMounts:
       - mountPath: /var/lib/mysql
         name: site-data
-        subPath: mysql <1>
+        subPath: mysql
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -61,7 +62,7 @@ spec:
       volumeMounts:
       - mountPath: /var/www/html
         name: site-data
-        subPath: html <2>
+        subPath: html
       securityContext:
         allowPrivilegeEscalation: false
         capabilities:
@@ -71,5 +72,7 @@ spec:
       persistentVolumeClaim:
         claimName: my-site-data
 ----
-<1> Databases are stored in the `mysql` folder.
-<2> HTML content is stored in the `html` folder.
+where:
+
+`spec.containers.volumeMounts.subPath.mysql`:: Specifies that databases are stored in the `mysql` folder.
+`spec.containers.volumeMounts.subPath.html`:: Specifies that HTML content is stored in the `html` folder.

@@ -2,15 +2,14 @@
 //
 // * nodes/nodes-containers-volumes.adoc
 
-:_mod-docs-content-type: PROCEDURE
+:_mod-docs-content-type: REFERENCE
 [id="nodes-containers-volumes-listing_{context}"]
-= Listing volumes and volume mounts in a pod
+= About listing volumes and volume mounts in a pod
 
-You can list volumes and volume mounts in pods or pod templates:
+[role="_abstract"]
+You can list volumes and volume mounts in pods or pod templates.
 
-.Procedure
-
-To list volumes:
+You can list volumes by running the following command:
 
 [source,terminal]
 ----
