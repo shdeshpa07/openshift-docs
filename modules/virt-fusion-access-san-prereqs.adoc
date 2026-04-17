@@ -6,6 +6,9 @@
 [id="fusion-access-san-prereqs_{context}"]
 = Prerequisites and Limitations for {FusionSAN}
 
+[role="_abstract"]
+Prerequisites and limitations are provided for installing and configuring {FusionSAN}.
+
 == Prerequisites
 
 Installing and configuring {FusionSAN} require the following prerequisites:

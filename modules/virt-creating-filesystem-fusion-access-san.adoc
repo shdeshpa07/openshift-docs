@@ -25,9 +25,9 @@ The file system is based on the storage available in the worker nodes you select
 
 . Select the LUNs that you want to use as the storage volumes for your file system.
 
-. Click *Create file system*. 
+. Click *Create file system*.
 +
-The *{FusionSAN}* page reloads, and the new file system appears in the *File systems* tab.
+The *{FusionSAN}* page reloads, and the new file system is displayed in the *File systems* tab.
 
 .Next steps
 
@@ -35,14 +35,9 @@ Repeat this procedure for each file system that you want to create.
 
 .Verification
 
-. Watch the *Status* of the file system in the *File systems* tab until it is marked as *Healthy*.
-+
-[NOTE]
-====
-This may take several minutes.
-====
+. Watch the *Status* of the file system in the *File systems* tab until it is marked as *Healthy*. This might take several minutes.
 
-. Click on the *StorageClass* for the file system.
+. Click the *StorageClass* for the file system.
 
 . In the *YAML* tab, verify the following:
 +

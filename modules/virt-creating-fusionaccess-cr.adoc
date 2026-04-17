@@ -21,7 +21,7 @@ Creating the `FusionAccess` CR triggers the installation of the correct version 
 
 . In the {product-title} web console, navigate to *Ecosystem* -> *Installed Operators*.
 
-. Click on the {FusionSAN} Operator you installed.
+. Click the {FusionSAN} Operator you installed.
 
 . In the *Fusion Access for SAN* page, select the *Fusion Access* tab.
 
@@ -37,4 +37,4 @@ Creating the `FusionAccess` CR triggers the installation of the correct version 
 
 .Verification
 
-* In the *Fusion Access for SAN* Operator page, in the *Fusion Access* tab, verify that the created `FusionAccess` CR appears with the status *Ready*.
+* In the *Fusion Access for SAN* Operator page, in the *Fusion Access* tab, verify that the created `FusionAccess` CR is displayed with the status *Ready*.

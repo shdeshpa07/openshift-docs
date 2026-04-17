@@ -31,6 +31,6 @@ spec:
 
 The `spec.volumeMode` value is only required for block volume mode PVs.
 
-You define a storage pool using a `pvcTemplate` specification in the HPP CR. The Operator creates a PVC from the `pvcTemplate` specification for each node containing the HPP CSI driver. The PVC created from the PVC template consumes the single large PV, allowing the HPP to create smaller dynamic volumes.
+You define a storage pool by using a `pvcTemplate` specification in the HPP CR. The Operator creates a PVC from the `pvcTemplate` specification for each node containing the HPP CSI driver. The PVC created from the PVC template consumes the single large PV, allowing the HPP to create smaller dynamic volumes.
 
 You can combine basic storage pools with storage pools created from PVC templates.
