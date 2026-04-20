@@ -1,4 +1,4 @@
-:_mod-docs-content-type: ASSEMBLY
+:_mod-docs-content-type: REFERENCE
 [id="virt-monitoring-overview"]
 = Monitoring overview
 include::_attributes/common-attributes.adoc[]

@@ -20,7 +20,7 @@ endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
 // Hiding in ROSA/OSD as user cannot edit MCO
 ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
-* To use the vCPU metric, the `schedstats=enable` kernel argument must be applied to the `MachineConfig` object. This kernel argument enables scheduler statistics used for debugging and performance tuning and adds a minor additional load to the scheduler. For more information, see xref:../../machine_configuration/machine-configs-configure.adoc#nodes-nodes-kernel-arguments_machine-configs-configure[Adding kernel arguments to nodes].
+* To use the vCPU metric, the `schedstats=enable` kernel argument must be applied to the `MachineConfig` object. This kernel argument enables scheduler statistics used for debugging and performance tuning and adds a minor additional load to the scheduler.
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
 * For guest memory swapping queries to return data, memory swapping must be enabled on the virtual guests.
@@ -36,6 +36,10 @@ include::modules/virt-live-migration-metrics.adoc[leveloffset=+2]
 [id="additional-resources_virt-prometheus-queries"]
 [role="_additional-resources"]
 == Additional resources
+// Hiding in ROSA/OSD as user cannot edit MCO
+ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
+* xref:../../machine_configuration/machine-configs-configure.adoc#nodes-nodes-kernel-arguments_machine-configs-configure[Adding kernel arguments to nodes]
+endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 // HCP link removed for now
 ifndef::openshift-rosa-hcp,openshift-rosa,openshift-dedicated[]
 * link:https://docs.redhat.com/en/documentation/monitoring_stack_for_red_hat_openshift/4.20/html/about_monitoring/about-ocp-monitoring[About {product-title} monitoring]
