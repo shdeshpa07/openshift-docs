@@ -1,0 +1,43 @@
+// Module included in the following assemblies:
+//
+// * release_notes/ocp-4-18-release-notes.adoc
+
+:_mod-docs-content-type: REFERENCE
+[id="zstream-4-18-38_{context}"]
+= RHSA-2026:8448 - {product-title} {product-version}.38 fixed issues and security update
+
+Issued: 22 April 2026
+
+[role="_abstract"]
+{product-title} release {product-version}.38 is now available. The list of bug fixes that are included in the update is documented in the link:https://access.redhat.com/errata/RHSA-2026:8448[RHSA-2026:8448] advisory. The RPM packages that are included in the update are provided by the link:https://access.redhat.com/errata/RHBA-2026:8422[RHBA-2026:8422] advisory.
+
+Space precluded documenting all of the container images for this release in the advisory.
+
+You can view the container images in this release by running the following command:
+
+[source,terminal]
+----
+$ oc adm release info 4.18.38 --pullspecs
+----
+
+[id="zstream-4-18-38-fixed-issues_{context}"]
+== Fixed issues
+
+* Before this update, unauthorized access to the `8445` port on {vmw-first} occurred. As a consequence, users could not access metrics due to a `500` error on the port. With this release, the error with the `8445` port access is resolved, and returns a `401 forbidden` error instead of a `500` error. As a result, the `8445` port issue for {vmw-short} CSI Driver Operator metrics is resolved, and the metrics retrieval for {product-title} clusters on {vmw-short} is improved. (link:https://issues.redhat.com/browse/OCPBUGS-77627[OCPBUGS-77627])
+
+* Before this update, the Daemonset did not update the `kubeconfig` token when it expired. As a consequence, the service account used an expired token. With this release, the Kubernetes service account token renewal in the Daemonset is fixed and the `kubeconfig` token is renewed. (link:https://issues.redhat.com/browse/OCPBUGS-78833[OCPBUGS-78833])
+
+* Before this update, an outdated Kubernetes informer failed to remove the pod from etcd in a timely manner when the node was inactive, causing user traffic to route to a terminated, unresponsive pod IP address. With this release, Open Virtual Network (OVN) updates the external gateway routes when a pod is terminated, and prevents traffic from routing to a terminated pod IP address. As a result, the external gateway routes are correctly updated when a pod is deleted, and the traffic is rerouted from broken pods. (link:https://issues.redhat.com/browse/OCPBUGS-81329[OCPBUGS-81329])
+
+* Before this update, the `catalog-operator` pod crashed during {sno} cluster installations due to bundle failures. With this release, the `catalog-operator` pod does not crash during {sno} installations. As a result, the installation success rate improves. (link:https://issues.redhat.com/browse/OCPBUGS-81473[OCPBUGS-81473])
+
+* Before this update, `ironic-proxy` pods entered a `CrashLoopBackOff` state due to a read-only root file system after upgrading to {product-title} 4.20.10. As a consequence, the `ironic-proxy` services were unavailable. With this release, the read-only root filesystem restriction in `ironic-proxy` containers is removed. As a result, the read-only file system issue is fixed, and prevents `ironic-proxy pods` from entering a `CrashLoopBackOff` state. (link:https://issues.redhat.com/browse/OCPBUGS-81549[OCPBUGS-81549])
+
+* Before this update, using an outdated {ibm-cloud-title} `vpc-go-sdk` library did not process the `any` protocol in virtual private cloud (VPC) security group rules, causing machine creation failures. With this release, the `vpc-go-sdk` library is updated to fix the security group rule issue with the `any` protocol. As a result, machine creation does not fail due to an unsupported security group rule. (link:https://issues.redhat.com/browse/OCPBUGS-81647[OCPBUGS-81647])
+
+* Before this update, a URL encoding issue in the alert manager source URL redirection caused an incorrect query generation. With this release, the URL encoding issue in alert manager is fixed, correcting node selection. (link:https://issues.redhat.com/browse/OCPBUGS-83374[OCPBUGS-83374])
+
+[id="zstream-4-18-38-updating_{context}"]
+== Updating
+
+To update an {product-title} 4.18 cluster to this latest release, see xref:../updating/updating_a_cluster/updating-cluster-cli.adoc#updating-cluster-cli[Updating a cluster using the CLI].
