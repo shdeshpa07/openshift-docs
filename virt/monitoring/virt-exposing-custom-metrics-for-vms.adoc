@@ -34,6 +34,6 @@ ifndef::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 * xref:../../applications/application-health.adoc#application-health[Monitoring application health by using health checks]
 endif::openshift-rosa,openshift-dedicated,openshift-rosa-hcp[]
 
-* xref:../../nodes/pods/nodes-pods-configmaps.adoc#nodes-pods-configmaps[Creating and using config maps]
+* xref:../../nodes/pods/nodes-pods-configmaps.adoc#nodes-pods-configmap-overview_configmaps[Creating and using config maps]
 
 * xref:../../virt/managing_vms/virt-controlling-vm-states.adoc#virt-controlling-vm-states[Controlling virtual machine states]
