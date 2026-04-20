@@ -7,7 +7,9 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To provide fault-tolerant external IP addresses and load balancing for cluster services, configure MetalLB to advertise addresses by using Layer 2 protocols, the Border Gateway Protocol (BGP), or both. Selecting the appropriate protocol ensures reliable traffic routing and high availability for your application workloads.
+You can configure MetalLB so that the IP address is advertised with layer 2 protocols, the BGP protocol, or both.
+
+With layer 2, MetalLB provides a fault-tolerant external IP address. With BGP, MetalLB provides fault-tolerance for the external IP address and load balancing.
 
 MetalLB supports advertising by using Layer 2 and BGP for the same set of IP addresses.
 

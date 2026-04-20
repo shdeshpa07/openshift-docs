@@ -7,7 +7,7 @@
 = Advertising an IP address pool from a subset of nodes
 
 [role="_abstract"]
-To restrict IP address advertisements to a specific set of nodes, such as a public-facing subnet, configure the `nodeSelector` parameter in the `BGPAdvertisement` custom resource (CR). When you configure these selectors, {product-title} routes external traffic only through designated network interfaces for improved security and isolation.
+To advertise an IP address from an IP addresses pool, from a specific set of nodes only, use the `.spec.nodeSelector` specification in the `BGPAdvertisement` custom resource (CR). This specification associates a pool of IP addresses with a set of nodes in the cluster. This is useful when you have nodes on different subnets in a cluster and you want to advertise an IP addresses from an address pool from a specific subnet, for example a public-facing subnet only.
 
 .Prerequisites
 

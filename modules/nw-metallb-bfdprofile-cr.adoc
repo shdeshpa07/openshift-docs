@@ -7,7 +7,7 @@
 = About the BFD profile custom resource
 
 [role="_abstract"]
-To enable rapid detection of communication failures between routing peers, configure the properties of the MetalLB BFD profile custom resource (CR). Defining these parameters ensures that network traffic is quickly rerouted if a path becomes unavailable, maintaining high cluster reachability and stability.
+As a cluster administrator, you can specify parameters in the BFD profile CR. The MetalLB Operator uses the BFD profile custom resources to identify which BGP sessions use BFD to provide faster path failure detection than BGP alone provides.
 
 The following table describes parameters for the BFD profile CR:
 

@@ -7,9 +7,7 @@
 = Advertising a basic address pool configuration with BGP
 
 [role="_abstract"]
-To ensure application services are reachable from external network peers, configure MetalLB to advertise an `IPAddressPool` by using the BGP advertisement. Establishing this advertisement allows the external network to correctly route traffic to the load balancer IP addresses of your cluster services.
-
-The procedure demonstrates how to configure MetalLB to advertise the `IPAddressPool` by using BGP.
+Configure MetalLB to advertise the `IPAddressPool` by using Border Gateway Protocol (BGP).
 
 .Prerequisites
 

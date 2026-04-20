@@ -3,13 +3,11 @@
 = Configuring MetalLB with secondary networks
 
 [role="_abstract"]
-To enable traffic forwarding for MetalLB on a secondary network interface, add a machine configuration that allows IP packet forwarding between interfaces. Implementing this configuration ensures that application services remain reachable when they use nondefault network paths.
+From {product-title} 4.14 the default network behavior is to not allow forwarding of IP packets between network interfaces. Therefore, when MetalLB is configured on a secondary interface, you need to add a machine configuration to enable IP forwarding for only the required interfaces. 
 
 [NOTE]
 ====
-From {product-title} 4.14 the default network behavior does not allow forwarding of IP packets between network interfaces.
-
-{product-title} clusters upgraded from 4.13 are not affected because a global parameter is set during an upgrade to enable global IP forwarding. 
+{product-title} clusters upgraded from 4.13 are not affected because a global parameter is set during upgrade to enable global IP forwarding. 
 ====
 
 To enable IP forwarding for the secondary interface, you have two options:
