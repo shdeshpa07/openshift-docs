@@ -6,7 +6,8 @@
 [id="nw-cluster-mtu-preparing_{context}"]
 = Preparing your hardware MTU configuration
 
-Many ways exist to configure the hardware maximum transmission unit (MTU) for your cluster nodes. The following examples show only the most common methods. Verify the correctness of your infrastructure MTU. Select your preferred method for configuring your hardware MTU in the cluster nodes.
+[role="_abstract"]
+To maintain network stability during an MTU change, you must prepare the configuration for your underlying hardware using a method such as DHCP, PXE, or NetworkManager. This preparation ensures that all cluster nodes are ready to accept the new MTU value before you apply the changes to the cluster network.
 
 .Procedure
 
