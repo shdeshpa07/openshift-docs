@@ -37,7 +37,7 @@ spec:
 +
 [NOTE]
 ====
-Labels on a virtual machine are passed through to the pod. The `special: key` label must match the label in the `spec.selector` attribute of the `Service` manifest.
+Labels on a virtual machine pass through to the pod. The `special: key` label must match the label in the `spec.selector` attribute of the `Service` manifest.
 ====
 
 . Save the `VirtualMachine` manifest file to apply your changes.
@@ -65,7 +65,7 @@ spec:
 +
 * `spec.selector` defines the label that you added to the `spec.template.metadata.labels` stanza of the `VirtualMachine` manifest.
 * `spec.type` defines the type of service by the way it is exposed. Choose one of `ClusterIP`, `NodePort`, or `LoadBalancer`.
-* `spec.ports` defines a collection of network ports and protocols that you want to expose from the virtual machine.
+* `spec.ports` defines a collection of network ports and protocols to expose from the virtual machine.
 
 . Save the `Service` manifest file.
 . Create the service by running the following command:
