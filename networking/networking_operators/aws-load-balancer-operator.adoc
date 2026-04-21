@@ -1,5 +1,5 @@
 :_mod-docs-content-type: ASSEMBLY
-[id="aws-load-balancer-operator"]
+[id="aws-load-balancer"]
 = AWS Load Balancer Operator
 include::_attributes/common-attributes.adoc[]
 :context: aws-load-balancer-operator
