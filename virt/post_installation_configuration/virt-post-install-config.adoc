@@ -10,6 +10,12 @@ toc::[]
 The following procedures are typically performed after you install {VirtProductName}. You can configure the components that are relevant for your environment:
 
 // * Cluster
+// Until cluster checkup framework is supported in ROSA/OSD this is just for OCP
+ifdef::openshift-enterprise[]
+* As a cluster administrator, you can run a self validation checkup to verify that the environment is fully functional and self-sustained before you deploy production workloads.
+endif::openshift-enterprise[]
+
+* The hostpath provisioner is a local storage provisioner designed for {VirtProductName}. If you want to configure local storage for virtual machines, you must enable the hostpath provisioner first.
 
 * xref:../../virt/post_installation_configuration/virt-node-placement-virt-components.adoc#virt-node-placement-virt-components[Node placement rules for {VirtProductName} Operators, workloads, and controllers]
 
