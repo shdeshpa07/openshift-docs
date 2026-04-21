@@ -27,6 +27,7 @@ You must meet the following prerequisites on the management cluster:
 * You have access to a cloud storage provider that is compatible with {oadp-short}, such as S3, {azure-full}, {gcp-full}, or MinIO.
 * In a disconnected environment, you have access to a self-hosted storage provider, for example link:https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation/[{odf-full}] or link:https://min.io/[MinIO], that is compatible with {oadp-short}.
 * Your {hcp} pods are up and running.
+* You are using a supported version of {oadp-short} for your management cluster. For example, if your management cluster is on {product-title} 4.20, you must use {oadp-short} version 1.5. For more information, see xref:../../backup_and_restore/application_backup_and_restore/oadp-intro.adoc#oadp-operator-supported_oadp-api[Support for {oadp-first}].
 
 [id="prepare-aws-oadp_{context}"]
 == Preparing {aws-short} to use {oadp-short}
