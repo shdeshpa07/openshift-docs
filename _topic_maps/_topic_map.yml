@@ -4710,8 +4710,8 @@ Topics:
     File: virt-post-install-network-config
   - Name: Storage configuration
     File: virt-post-install-storage-config
-  - Name: Performance optimization
-    File: virt-perf-optimization
+  - Name: Allocate physical cores for virtual machines
+    File: virt-physical-cores-allocation-vms
   - Name: Configuring higher VM workload density
     File: virt-configuring-higher-vm-workload-density
   - Name: Configuring certificate rotation
