@@ -7,7 +7,7 @@
 = About the Network Resources Injector
 
 [role="_abstract"]
-To automate network configuration for your workloads, use the Network Resources Injector. This Kubernetes Dynamic Admission Controller intercepts pod creation requests to automatically inject the necessary network resources and parameters defined for your cluster.
+You can use the Network Resources Injector, a Kubernetes Dynamic Admission Controller application, to mutate resource requests and limits in a pod specification and mutate a pod specification with a Downward API volume.
 
 The Network Resources Injector provides the following capabilities:
 

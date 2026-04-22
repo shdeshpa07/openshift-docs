@@ -7,7 +7,7 @@
 = Disabling or enabling the SR-IOV Network Operator admission controller webhook
 
 [role="_abstract"]
-To manage validation of your network configurations, enable or disable the SR-IOV Network Operator admission controller webhook. When enabled, the Operator automatically verifies SR-IOV resource definitions and pod specifications against cluster policies.
+To manage validation of your network configurations, enable or disable the SR-IOV Network Operator admission controller webhook.
 
 .Prerequisites
 
