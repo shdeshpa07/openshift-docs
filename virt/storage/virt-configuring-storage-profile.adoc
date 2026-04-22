@@ -6,7 +6,8 @@ include::_attributes/common-attributes.adoc[]
 
 toc::[]
 
-A storage profile provides recommended storage settings based on the associated storage class. A storage profile is allocated for each storage class.
+[role="_abstract"]
+A storage profile provides recommended storage settings based on the associated storage class and is allocated for each storage class.
 
 The Containerized Data Importer (CDI) recognizes a storage provider if it has been configured to identify and interact with the storage provider's capabilities.
 
