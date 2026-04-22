@@ -7,7 +7,7 @@
 = CIDR ranges for {hcp}
 
 [role="_abstract"]
-To successfully deploy {hcp} on {product-title}, define the network environment by using specific Classless Inter-Domain Routing (CIDR) subnet ranges. Establishing these nonoverlapping ranges ensures reliable communication between cluster components and prevents internal IP address conflicts.
+To successfully deploy {hcp} on {product-title}, define the network environment by using specific Classless Inter-Domain Routing (CIDR) subnet ranges.
 
 The following Classless Inter-Domain Routing (CIDR) subnet ranges are the default settings for {hcp}:
 
