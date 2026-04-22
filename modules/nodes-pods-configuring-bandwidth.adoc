@@ -7,15 +7,18 @@
 [id="nodes-pods-configuring-bandwidth_{context}"]
 = Limiting the bandwidth available to pods
 
+[role="_abstract"]
 You can apply quality-of-service traffic shaping to a pod and effectively limit
-its available bandwidth. Egress traffic (from the pod) is handled by policing,
+its available bandwidth. 
+
+Egress traffic (from the pod) is handled by policing,
 which simply drops packets in excess of the configured rate. Ingress traffic (to
 the pod) is handled by shaping queued packets to effectively handle data. The
 limits you place on a pod do not affect the bandwidth of other pods.
 
-.Procedure
+The following procedure limits the bandwidth on a pod.
 
-To limit the bandwidth on a pod:
+.Procedure
 
 . Write an object definition JSON file, and specify the data traffic speed using
 `kubernetes.io/ingress-bandwidth` and `kubernetes.io/egress-bandwidth`

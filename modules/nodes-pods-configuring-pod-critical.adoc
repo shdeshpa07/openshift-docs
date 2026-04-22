@@ -7,14 +7,15 @@
 [id="nodes-pods-configuring-critical_{context}"]
 = Preventing pod removal using critical pods
 
-There are a number of core components that are critical to a fully functional cluster,
+[role="_abstract"]
+You can mark pods on a worker node as _critical_ to prevent {product-title} from evicting those pods. Pods marked as critical are not allowed to be evicted.
+
+There are several core components that are critical to a fully functional cluster,
 but, run on a regular cluster node rather than the master. A cluster might stop working properly if a critical add-on is evicted.
 
-Pods marked as critical are not allowed to be evicted.
+The following procedure shows how to mark a pod as critical.
 
 .Procedure
-
-To make a pod critical:
 
 . Create a `Pod` spec or edit existing pods to include the `system-cluster-critical` priority class:
 +
@@ -28,10 +29,11 @@ spec:
   template:
     metadata:
       name: critical-pod
-    priorityClassName: system-cluster-critical <1>
+    priorityClassName: system-cluster-critical
 # ...
 ----
-<1> Default priority class for pods that should never be evicted from a node.
++
+The `spec.template.priorityClassName.system-cluster-critical` parameter specifies the default priority class for pods that should never be evicted from a node.
 +
 Alternatively, you can specify `system-node-critical` for pods that are important to the cluster
 but can be removed if necessary.

@@ -2,15 +2,14 @@
 //
 // * nodes/nodes-containers-volumes.adoc
 
-:_mod-docs-content-type: PROCEDURE
+:_mod-docs-content-type: REFERENCE
 [id="nodes-containers-volumes-removing_{context}"]
-= Removing volumes and volume mounts from a pod
+= About removing volumes and volume mounts from a pod
 
+[role="_abstract"]
 You can remove a volume or volume mount from a pod.
 
-.Procedure
-
-To remove a volume from pod templates:
+You can remove a volume from a pod template by running the following command:
 
 [source,terminal]
 ----

@@ -8,7 +8,8 @@
 [id="pod-disruption-eviction-policy_{context}"]
 = Specifying the eviction policy for unhealthy pods
 
-When you use pod disruption budgets (PDBs) to specify how many pods must be available simultaneously, you can also define the criteria for how unhealthy pods are considered for eviction.
+[role="_abstract"]
+When you use pod disruption budgets (PDBs) to specify how many pods must be available simultaneously, you can also define the criteria for how unhealthy pods are considered for eviction. The eviction policy determines which pods the cluster can evict.
 
 You can choose one of the following policies:
 
@@ -37,9 +38,11 @@ spec:
   selector:
     matchLabels:
       name: my-pod
-  unhealthyPodEvictionPolicy: AlwaysAllow <1>
+  unhealthyPodEvictionPolicy: AlwaysAllow
 ----
-<1> Choose either `IfHealthyBudget` or `AlwaysAllow` as the unhealthy pod eviction policy. The default is `IfHealthyBudget` when the `unhealthyPodEvictionPolicy` field is empty.
+where:
+
+`spec.unhealthyPodEvictionPolicy`:: Specifies the unhealthy pod eviction policy, either `IfHealthyBudget` or `AlwaysAllow`. The default is `IfHealthyBudget` when the `unhealthyPodEvictionPolicy` field is empty.
 
 . Create the `PodDisruptionBudget` object by running the following command:
 +
@@ -47,5 +50,5 @@ spec:
 ----
 $ oc create -f pod-disruption-budget.yaml
 ----
-
++
 With a PDB that has the `AlwaysAllow` unhealthy pod eviction policy set, you can now drain nodes and evict the pods for a malfunctioning application guarded by this PDB.
