@@ -8,7 +8,7 @@
 = Specific application storage recommendations
 
 [role="_abstract"]
-To select the optimal storage solution for your {product-title} cluster application, review the recommended and configurable storage technologies. By understanding these recommendations, you can identify the supported options that best meet your specific workload requirements.
+Review the specific storage recommendations for registries, scaled registries, metrics, logs, and applications to better understand the storage requirements for each of these entities.
 
 [IMPORTANT]
 ====

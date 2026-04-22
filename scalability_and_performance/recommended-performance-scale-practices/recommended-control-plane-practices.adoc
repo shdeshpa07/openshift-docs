@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To ensure optimal performance and scalability, apply the recommended practices for {product-title} control planes. By understanding these recommended practices, you can configure your environment to handle increasing workloads while maintaining stability.
+Review the recommended performance and scalability practices for control planes in {product-title}. By doing this task, you can better scale the number of compute machines and set the control plane node sizing for your cluster.
 
 include::modules/recommended-scale-practices.adoc[leveloffset=+1]
 

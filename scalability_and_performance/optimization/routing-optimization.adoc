@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To optimize performance, scale or configure the {product-title} HAProxy router. By doing this task, you can ensure efficient traffic management and accommodate specific workload requirements.
+You can scale or configure the {product-title} HAProxy router to optimize routing performance.
 
 include::modules/baseline-router-performance.adoc[leveloffset=+1]
 

@@ -7,7 +7,9 @@
 = Optimizing the MTU for your network
 
 [role="_abstract"]
-To optimize network performance, configure the Maximum Transmission Unit (MTU) settings. By understanding the relationship between the network interface controller (NIC) MTU and the cluster network MTU, you can ensure efficient data transmission and prevent packet fragmentation.
+You can optimize the MTU value of your network so that your network is optimized for throughput or low latency. 
+
+There are two important maximum transmission units (MTUs): the network interface controller (NIC) MTU and the cluster network MTU.
 
 The NIC MTU is configured at the time of {product-title} installation, and you can also change the MTU of a cluster as a postinstallation task. For more information, see "Changing cluster network MTU".
 

@@ -6,7 +6,9 @@
 = Configuring HAProxy reload interval
 
 [role="_abstract"]
-To optimize router performance, configure the HAProxy reload interval. The {product-title} router reloads HAProxy to apply changes to routes or endpoints, generating a new process to handle connections for each update.
+You can configure the HAProxy reload interval, so that when HAProxy reloads it generates a new process that handles new connections by using the updated configuration.
+
+When you update a route or an endpoint associated with a route, the {product-title} router updates the configuration for HAProxy. The HAProxy then reloads the updated configuration for those changes to take effect.
 
 HAProxy keeps the old process running to handle existing connections until those connections are all closed. When old processes have long-lived connections, these processes can accumulate and consume resources.
 
