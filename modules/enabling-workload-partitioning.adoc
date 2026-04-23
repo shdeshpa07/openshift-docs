@@ -7,7 +7,7 @@
 = Enabling workload partitioning 
 
 [role="_abstract"]
-To partition cluster management pods into a specified CPU affinity, enable workload partitioning. This configuration ensures that management pods operate within the reserved CPU limits defined in your Performance Profile, preventing them from consuming resources intended for customer workloads.
+To partition cluster management pods into a specified CPU affinity, enable workload partitioning. This configuration ensures that management pods operate within the reserved CPU limits defined in your Performance Profile.
 
 Consider additional post-installation Operators that use workload partitioning when calculating how many reserved CPU cores to set aside for the platform.
 

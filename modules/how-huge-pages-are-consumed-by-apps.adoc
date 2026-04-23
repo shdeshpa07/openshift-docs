@@ -8,7 +8,7 @@
 = How huge pages are consumed by apps
 
 [role="_abstract"]
-To enable applications to consume huge pages, nodes must pre-allocate these memory segments to report capacity. Because a node can only pre-allocate huge pages for a single size, you must align this configuration with your specific workload requirements.
+You must ensure that nodes pre-allocate huge pages in order for the node to report its huge page capacity. A node can only pre-allocate huge pages for a single size.
 
 Huge pages can be consumed through container-level resource requirements by using the resource name `hugepages-<size>`, where size is the most compact binary notation by using integer values supported on a particular node. For example, if a node supports 2048 KiB page sizes, the node exposes a schedulable resource `hugepages-2Mi`. Unlike CPU or memory, huge pages do not support over-commitment.
 

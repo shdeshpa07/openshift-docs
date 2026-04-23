@@ -7,7 +7,7 @@
 = Boosting networking performance with RFS
 
 [role="_abstract"]
-To boost networking performance, activate Receive Flow Steering (RFS) by using the Machine Config Operator (MCO). This configuration improves packet processing efficiency by directing network traffic to specific CPUs.
+To boost networking performance, activate Receive Flow Steering (RFS) by using the Machine Config Operator (MCO). This configuration improves packet processing efficiency.
 
 RFS extends Receive Packet Steering (RPS) by further reducing network latency. RFS is technically based on RPS, and improves the efficiency of packet processing by increasing the CPU cache hit rate. RFS achieves this, while considering queue length, by determining the most convenient CPU for computation so that cache hits are more likely to occur within the CPU. This means that the CPU cache is invalidated less and requires fewer cycles to rebuild the cache, which reduces packet processing run time.
 

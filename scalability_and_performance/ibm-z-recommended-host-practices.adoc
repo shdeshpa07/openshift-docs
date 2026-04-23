@@ -7,7 +7,7 @@ include::_attributes/common-attributes.adoc[]
 toc::[]
 
 [role="_abstract"]
-To optimize performance on mainframe infrastructure, apply host practices, so that you can configure {ibm-z-title} and {ibm-linuxone-name} environments to ensure your s390x architecture meets specific operational requirements
+You can apply host practices for {ibm-z-title} and {ibm-linuxone-name} environments to ensure your s390x architecture meets specific operational requirements.
 
 The s390x architecture is unique in many aspects. Some host practice recommendations might not apply to other platforms.
 

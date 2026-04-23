@@ -7,7 +7,7 @@
 = Adding a bare metal host to the cluster using the web console
 
 [role="_abstract"]
-To integrate physical hardware into your cluster, you can add bare-metal hosts by using the web console. By adding these hosts, you can provision and manage these nodes directly through the web console.
+You can add bare-metal hosts to the cluster by using the web console.
 
 .Prerequisites
 
@@ -20,13 +20,13 @@ To integrate physical hardware into your cluster, you can add bare-metal hosts b
 
 . Select *Add Host* -> *New with Dialog*.
 
-. Specify a unique name for the new bare metal host.
+. Specify a unique name for the new bare-metal host.
 
 . Set the *Boot MAC address*.
 
 . Set the *Baseboard Management Console (BMC) Address*.
 
-. Enter the user credentials for the host's baseboard management controller (BMC).
+. Enter the user credentials for the baseboard management controller (BMC) of the host.
 
 . Select to power on the host after creation, and select *Create*.
 

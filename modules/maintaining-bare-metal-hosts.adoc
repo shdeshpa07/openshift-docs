@@ -7,7 +7,7 @@
 = Maintaining bare metal hosts
 
 [role="_abstract"]
-To ensure your cluster inventory accurately reflects your physical infrastructure, maintain the details of the bare-metal host configurations by using the {product-title} web console.
+You can maintain the details of the bare metal hosts in your cluster from the {product-title} web console.
 
 .Procedure
 

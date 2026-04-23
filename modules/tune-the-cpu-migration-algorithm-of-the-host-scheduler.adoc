@@ -7,7 +7,7 @@
 = Tuning the CPU migration algorithm of the host scheduler
 
 [role="_abstract"]
-To optimize task distribution and reduce latency, tune the CPU migration algorithm of the host scheduler. With this configuration, you can adjust how the kernel balances processes across available CPUs, ensuring efficient resource usage for your specific workloads.
+You can tune the CPU migration algorithm of the host scheduler to meet the demands of your production system.
 
 [IMPORTANT]
 ====

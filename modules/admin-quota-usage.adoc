@@ -7,7 +7,7 @@
 = Admin quota usage
 
 [role="_abstract"]
-To ensure projects remain within defined constraints, monitor admin quota usage. By tracking the aggregate consumption of compute resources and storage, you can identify when `ResourceQuota` limits are reached or approached.
+To ensure projects remain within defined constraints, monitor admin quota usage. After a resource quota for a project is first created, the project restricts the ability to create any new resources that can violate a quota constraint until it has calculated updated usage statistics.
 
 Quota enforcement::
 +
