@@ -7,7 +7,7 @@
 = Automatically pruning images
 
 [role="_abstract"]
-Images from the {product-registry} that are no longer required by the system because of age, status, or exceed limits being automatically pruned. As a cluster administrator, can configure or suspend the pruning Custom Resource (CR).
+To reclaim storage in the {product-registry} in {product-title} and set how long the cluster keeps images, you can configure the automatic image pruner. You set the schedule, suspension, and retention options on the pruning custom resource (CR).
 
 .Prerequisites
 
