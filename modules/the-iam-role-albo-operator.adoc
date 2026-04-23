@@ -7,7 +7,7 @@
 = The IAM role for the AWS Load Balancer Operator
 
 [role="_abstract"]
-To install the {aws-first} Load Balancer Operator on a cluster by using {sts-short}, configure an additional Identity and Access Management (IAM) role. This role enables the Operator to interact with subnets and Virtual Private Clouds (VPCs), allowing the Operator to generate the `CredentialsRequest` object required for bootstrapping.
+To install the {aws-first} Load Balancer Operator on a cluster by using {sts-short}, configure an additional Identity and Access Management (IAM) role.
 
 You can create the IAM role by using the following options:
 

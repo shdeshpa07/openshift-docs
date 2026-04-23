@@ -7,7 +7,7 @@
 = Creating an AWS IAM role by using the Cloud Credential Operator utility
 
 [role="_abstract"]
-To enable the {aws-short} Load Balancer Operator to interact with subnets and VPCs, create an {aws-short} IAM role by using the Cloud Credential Operator utility (`ccoctl`). By doing this task, you can generate the necessary credentials for the operator to function correctly within the cluster environment.
+To enable the {aws-short} Load Balancer Operator to interact with subnets and VPCs, create an {aws-short} IAM role by using the Cloud Credential Operator utility (`ccoctl`).
 
 .Prerequisites
 

@@ -7,7 +7,7 @@
 = Prepare to install the AWS Load Balancer Operator
 
 [role="_abstract"]
-To prepare your cluster for the AWS Load Balancer Operator, verify that your AWS VPC resources are tagged correctly and meet all requirements. You can also configure environment variables to customize the installation.
+Before you install the AWS Load Balancer Operator, ensure that your cluster fulfills requirements and that your AWS VPC resources are appropriately tagged. You also have the option to configure some helpful environment variables.
 
 Cluster requirements::
 

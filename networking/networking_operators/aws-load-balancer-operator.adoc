@@ -7,7 +7,7 @@ include::_attributes/attributes-openshift-dedicated.adoc[]
 toc::[]
 
 [role="_abstract"]
-To manage AWS Elastic Load Balancers (ELB) directly from your cluster, install the AWS Load Balancer Operator. This optional Operator is supported by Red{nbsp}Hat for use on SRE-managed {product-title} clusters.
+The AWS Load Balancer Operator is an Operator supported by Red{nbsp}Hat that you can optionally install on SRE-managed {product-title} clusters.
 
 [IMPORTANT]
 ====
