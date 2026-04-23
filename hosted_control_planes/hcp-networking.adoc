@@ -18,6 +18,8 @@ include::modules/hcp-egress-reqs.adoc[leveloffset=+2]
 
 include::modules/hcp-ingress-egress-example.adoc[leveloffset=+2]
 
+include::modules/hcp-bm-ingress.adoc[leveloffset=+2]
+
 //to add: konnectivity module
 
 //to add: security considerations module
