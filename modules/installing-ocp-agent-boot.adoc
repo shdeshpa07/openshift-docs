@@ -7,7 +7,8 @@
 [id="installing-ocp-agent-boot_{context}"]
 = Creating and booting the agent image
 
-Use this procedure to boot the agent image on your machines.
+[role="_abstract"]
+After you have prepared the configuration inputs for your installation, create the ISO image and boot it on your machines.
 
 .Prerequisites
 
@@ -22,7 +23,10 @@ Use this procedure to boot the agent image on your machines.
 $ openshift-install --dir <install_directory> agent create image
 ----
 +
-NOTE: Red Hat Enterprise Linux CoreOS (RHCOS) supports multipathing on the primary disk, allowing stronger resilience to hardware failure to achieve higher host availability. Multipathing is enabled by default in the agent ISO image, with a default `/etc/multipath.conf` configuration.
+[NOTE]
+====
+{op-system-first} supports multipathing on the primary disk, allowing stronger resilience to hardware failure to achieve higher host availability. Multipathing is enabled by default in the agent ISO image, with a default `/etc/multipath.conf` configuration.
+====
 
 . If you plan to boot the ISO image from a USB drive, add a master boot record to the image by running the following command:
 +

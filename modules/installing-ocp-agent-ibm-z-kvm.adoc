@@ -11,12 +11,16 @@ endif::[]
 [id="installing-ocp-agent-ibm-z-kvm_{context}"]
 = Adding {ibm-z-title} agents with {op-system-base} KVM
 
-Use the following procedure to manually add {ibm-z-name} agents with {op-system-base} KVM.
+[role="_abstract"]
+You can manually add {ibm-z-name} agents with {op-system-base} KVM.
+
 Only use this procedure for {ibm-z-name} clusters with {op-system-base} KVM.
+
 [NOTE]
 ====
 The `nmstateconfig` parameter must be configured for the KVM boot.
 ====
+
 .Procedure
 
 . Boot your {op-system-base} KVM machine.
@@ -33,7 +37,7 @@ $ virt-install \
    --ram=16384 \
    --cpu host \
    --vcpus=8 \
-   --location <path_to_kernel_initrd_image>,kernel=kernel.img,initrd=initrd.img \// <1>
+   --location <path_to_kernel_initrd_image>,kernel=kernel.img,initrd=initrd.img \
    --disk <qcow_image_path> \
    --network network:macvtap ,mac=<mac_address> \
    --graphics none \
@@ -48,7 +52,8 @@ $ virt-install \
    --extra-args "coreos.inst.persistent-kargs=console=tty1 console=ttyS1,115200n8" \
    --osinfo detect=on,require=off
 ----
-<1> For the `--location` parameter, specify the location of the `kernel` and `initrd` files. The location can be a local server path or a URL using HTTP or HTTPS.
++
+For the `--location` parameter, specify the location of the `kernel` and `initrd` files. The location can be a local server path or a URL using HTTP or HTTPS.
 
 endif::pxe-boot[]
 
@@ -63,7 +68,7 @@ $ virt-install
     --memory=<memory> \
     --cpu host \
     --vcpus=<vcpus> \
-    --cdrom \<path_to_image>/<agent_iso_image> \ <1>
+    --cdrom \<path_to_image>/<agent_iso_image> \
     --disk pool=default,size=<disk_pool_size> \
     --network network:default,mac=<mac_address> \
     --graphics none \
@@ -71,7 +76,8 @@ $ virt-install
     --os-variant rhel9.0 \
     --wait=-1
 ----
-<1> For the `--cdrom` parameter, specify the location of the ISO image on the local server, for example, `<path_to_image>/home/<image>.iso`.
++
+For the `--cdrom` parameter, specify the location of the ISO image on the local server, for example, `<path_to_image>/home/<image>.iso`.
 +
 [NOTE]
 ====
@@ -93,7 +99,7 @@ $ virt-install \
    --ram=16384 \
    --cpu host \
    --vcpus=8 \
-   --location <path_to_kernel_initrd_image>,kernel=kernel.img,initrd=initrd.img \// <1>
+   --location <path_to_kernel_initrd_image>,kernel=kernel.img,initrd=initrd.img \
    --disk <qcow_image_path> \
    --network network:macvtap ,mac=<mac_address> \
    --graphics none \
@@ -106,21 +112,20 @@ $ virt-install \
    --extra-args "ignition.firstboot ignition.platform.id=metal" \
    --extra-args "console=tty1 console=ttyS1,115200n8" \
    --extra-args "coreos.inst.persistent-kargs=console=tty1 console=ttyS1,115200n8" \
-   --extra-args "fips=1" \// <2>
+   --extra-args "fips=1" \
    --osinfo detect=on,require=off
 ----
 +
-[NOTE]
-====
-For KVM-based installations using DASD devices on {ibm-z-title}, a partition (for example, `/dev/dasdb1`) must be created using the `fdasd` partitioning tool.
-====
-+
-<1> For the `--location` parameter, specify the location of the kernel/initrd on the HTTP or HTTPS server.
-<2> To enable FIPS mode, specify `fips=1`. This entry is required in addition to setting the `fips` parameter to `true` in the `install-config.yaml` file.
+where:
+
+`--location`:: Specifies the location of the kernel/initrd on the HTTP or HTTPS server.
+`--extra-args "fips=1"`:: Specifies the enablement of FIPS mode. This entry is required in addition to setting the `fips` parameter to `true` in the `install-config.yaml` file.
 +
 [NOTE]
 ====
-Currently, only PXE boot is supported to enable FIPS mode on {ibm-z-name}.
+* For KVM-based installations using DASD devices on {ibm-z-title}, a partition (for example, `/dev/dasdb1`) must be created using the `fdasd` partitioning tool.
+
+* Currently, only PXE boot is supported to enable FIPS mode on {ibm-z-name}.
 ====
 
 ifeval::["{context}" == "prepare-pxe-assets-agent"]

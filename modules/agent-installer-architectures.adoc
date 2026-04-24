@@ -6,7 +6,8 @@
 [id="agent-install-verifying-architectures_{context}"]
 = Verifying the supported architecture for an Agent-based installation
 
-Before installing an {product-title} cluster using the Agent-based Installer, you can verify the supported architecture on which you can install the cluster. This procedure is optional.
+[role="_abstract"]
+Before installing an {product-title} cluster using the Agent-based Installer, you can optionally verify the supported architecture on which you can install the cluster.
 
 .Prerequisites
 
@@ -39,9 +40,10 @@ If you are using the release image with the `multi` payload, the `release archit
 [source,terminal]
 +
 ----
-$ oc adm release info <release_image> -o jsonpath="{ .metadata.metadata}" <1>
+$ oc adm release info <release_image> -o jsonpath="{ .metadata.metadata}"
 ----
-<1> Replace `<release_image>` with the release image. For example: `quay.io/openshift-release-dev/ocp-release@sha256:123abc456def789ghi012jkl345mno678pqr901stu234vwx567yz0`.
++
+Replace `<release_image>` with the release image. For example: `quay.io/openshift-release-dev/ocp-release@sha256:123abc456def789ghi012jkl345mno678pqr901stu234vwx567yz0`.
 +
 .Example output when the release image uses the `multi` payload
 [source,terminal]

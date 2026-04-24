@@ -6,6 +6,7 @@
 [id="sample-ztp-custom-resources_{context}"]
 = Sample {ztp} custom resources
 
+[role="_abstract"]
 You can optionally use {ztp-first} custom resource (CR) objects to install an {product-title} cluster with the Agent-based Installer.
 
 You can customize the following {ztp} custom resources to specify more details about your {product-title} cluster. The following sample {ztp} custom resources are for a single-node cluster.

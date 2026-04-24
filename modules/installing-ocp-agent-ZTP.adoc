@@ -6,7 +6,10 @@
 [id="installing-ocp-agent-ztp_{context}"]
 = Using ZTP manifests
 
+[role="_abstract"]
 As an optional task, you can use {ztp-first} manifests to configure your installation beyond the options available through the `install-config.yaml` and `agent-config.yaml` files.
+
+See "Challenges of the network far edge" to learn more about {ztp-first}.
 
 [NOTE]
 ====
