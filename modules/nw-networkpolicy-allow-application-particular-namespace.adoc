@@ -17,7 +17,9 @@ endif::[]
 = Creating a {name} policy allowing traffic to an application from a namespace
 
 [role="_abstract"]
-You can configure a policy that allows traffic to a pod with the label `app=web` from a particular namespace. This configuration is useful in the following use cases:
+You can configure a policy that allows traffic to a pod with the label `app=web` from a particular namespace. 
+
+This configuration is useful in the following use cases:
 
 * Restrict traffic to a production database only to namespaces that have production workloads deployed.
 * Enable monitoring tools deployed to a particular namespace to scrape metrics from the current namespace.
