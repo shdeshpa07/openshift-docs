@@ -2585,8 +2585,8 @@ In the following tables, features are marked with the following statuses:
 
 |Dual-port NIC for PTP ordinary clock
 |Not Available
-|Technology Preview
-|Technology Preview
+|General Availability
+|General Availability
 
 |DPU Operator
 |Not Available
